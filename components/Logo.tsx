@@ -15,15 +15,15 @@ type Props = {
 /**
  * Company lockup.
  *
- * The component is a thin wrapper around the asset at `SITE.logo.src`, so the
- * approved logo can be dropped in by replacing that single file — no component
- * changes required. The current file is a clearly-marked placeholder
- * reproducing the approved composition (teal emblem, serif wordmark, copper
- * rule, "FOOD COMPANY" line).
+ * Uses the JPEG for light backgrounds, and the transparent SVG for dark backgrounds
+ * so it can be coloured via CSS without a rectangular backdrop.
  */
 export default function Logo({ onDark, width, className = "", priority }: Props) {
   const renderedWidth = width ?? 168;
   const height = Math.round((renderedWidth / SITE.logo.width) * SITE.logo.height);
+
+  const src = onDark ? "/logo/lyndon-cook.svg" : SITE.logo.src;
+  const alt = SITE.logo.alt;
 
   return (
     <Link
@@ -32,13 +32,13 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
       aria-label={`${SITE.name} — home`}
     >
       <Image
-        src={SITE.logo.src}
-        alt={SITE.logo.alt}
+        src={src}
+        alt={alt}
         width={renderedWidth}
         height={height}
         priority={priority}
-        className={`h-auto w-auto select-none ${className}`}
-        style={{ filter: onDark ? "brightness(0) invert(1)" : undefined }}
+        className={`h-auto w-auto select-none ${onDark ? "text-ivory" : ""} ${className}`}
+        style={onDark ? { filter: "brightness(0) invert(1)" } : undefined}
       />
     </Link>
   );
