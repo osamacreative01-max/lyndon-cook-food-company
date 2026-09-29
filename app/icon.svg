@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="The Lyndon Cook Food Company">
+  <rect width="32" height="32" rx="6" fill="#084B50" />
+  <g fill="none">
+    <path d="M16 25V8" stroke="#F6F2EA" stroke-width="2" stroke-linecap="round" />
+    <path d="M16 13.2c-3.4-.9-5.4-2.9-6.3-6 3.4-.1 5.5 1.5 6.3 4.5v1.5Z" fill="#F6F2EA" />
+    <path d="M16 13.2c3.4-.9 5.4-2.9 6.3-6-3.4-.1-5.5 1.5-6.3 4.5v1.5Z" fill="#F6F2EA" />
+    <path d="M16 19.6c-3.4-.9-5.4-2.9-6.3-6 3.4-.1 5.5 1.5 6.3 4.5v1.5Z" fill="#C9A227" />
+    <path d="M16 19.6c3.4-.9 5.4-2.9 6.3-6-3.4-.1-5.5 1.5-6.3 4.5v1.5Z" fill="#C9A227" />
+  </g>
+</svg>

@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ========================================================================== */
+/*  Brand system                                                               */
+/*  Deep Teal  #084B50  ·  Warm Copper #B97C4C  ·  Ivory #F7F3EB             */
+/*  White #FFFFFF       ·  Body text #234446                                   */
+/* ========================================================================== */
+
+@theme {
+  --color-teal-950: #04282a;
+  --color-teal-900: #063a3e;
+  --color-teal-800: #084b50;
+  --color-teal-700: #0c5f65;
+  --color-teal-600: #2a7a80;
+  --color-teal-400: #63a3a6;
+  --color-teal-200: #b9d6d6;
+  --color-teal-100: #dbeaea;
+  --color-teal-50: #eff5f5;
+
+  --color-copper-700: #8a5a32;
+  --color-copper-600: #b97c4c;
+  --color-copper-400: #d3a276;
+  --color-copper-100: #f0e0d1;
+
+  --color-ivory: #f7f3eb;
+  --color-ivory-dark: #efe8db;
+  --color-body: #234446;
+  --color-muted: #4a6467;
+
+  --font-sans: var(--font-sans-body), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: var(--font-serif-display), Georgia, "Times New Roman", serif;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+:root {
+  --background: var(--color-ivory);
+  --foreground: var(--color-body);
+  --focus: var(--color-copper-600);
+  --page-gutter: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 2rem;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Guards every page against accidental horizontal scroll on small screens. */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  color: var(--color-teal-800);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-copper-100);
+  color: var(--color-teal-900);
+}
+
+/* Visible focus everywhere, never removed. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-copper-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.on-dark :where(a, button, input, select, textarea, summary):focus-visible {
+  outline-color: var(--color-copper-400);
+}
+
+.on-dark h1,
+.on-dark h2,
+.on-dark h3,
+.on-dark h4 {
+  color: var(--color-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   Motion — subtle only, and fully disabled on request.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+@utility container-narrow {
+  width: 100%;
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+@utility container-readout {
+  width: 100%;
+  max-width: 62rem;
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* Small uppercase label above a heading. */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-copper-700);
+}
+
+/* The short copper hairline used as a decorative rule. */
+@utility rule-copper {
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--color-copper-600);
+}
+
+@utility skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -6rem;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-teal-800);
+  color: var(--color-ivory);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: top 0.15s ease-out;
+}
+
+@utility skip-link-focus {
+  top: 0.75rem;
+}
+
+/* Hairline card border used across light panels. */
+@utility surface-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-teal-100);
+}
+
+/* Link with a copper underline that grows on hover. */
+@utility link-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--color-copper-600);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+@utility link-underline-hover {
+  &:hover {
+    text-decoration-color: var(--color-teal-800);
+  }
+}
+
+/* Visually hidden but available to assistive technology. */
+@utility sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+
+  &:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reveal-on-scroll (progressive enhancement: content is visible by default)
+   -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 1;
+}
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

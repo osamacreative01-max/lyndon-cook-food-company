@@ -1,0 +1,544 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
+
+import Button from "@/components/Button";
+import {
+  BUYER_TYPES,
+  CATEGORY_OPTIONS,
+  DELIVERY_SCHEDULES,
+  ENQUIRY_MESSAGES,
+  QUANTITY_UNITS,
+  THANK_YOU_URL,
+  defaultEnquiryValues,
+  enquirySchema,
+  type EnquiryValues,
+} from "@/lib/enquiry";
+import type { Product } from "@/lib/products";
+
+type FieldErrors = Partial<Record<keyof EnquiryValues, string>>;
+
+type Props = {
+  /** All products, used to build the pre-filled product select. */
+  products: Product[];
+  /** Slug from `?product=` so a product can be pre-selected. */
+  initialProductSlug?: string;
+  /** Server-rendered field errors, keyed by field name. */
+  serverErrors?: FieldErrors;
+  /** Values echoed back from a failed submission, so nothing is lost. */
+  previousValues?: EnquiryValues;
+};
+
+/**
+ * Enquiry form.
+ *
+ * - The same zod schema runs on the client and on the server.
+ * - On validation failure the field values are preserved; the server also echoes
+ *   the submitted values back so a failure never wipes the form.
+ * - Spam protection: a honeypot field plus a minimum fill time. A submission
+ *   that trips either one is silently accepted, so bots get no signal.
+ * - A success message is only shown after the server confirms durable
+ *   acceptance (email sent or stored).
+ */
+export default function EnquiryForm({
+  products,
+  initialProductSlug,
+  serverErrors,
+  previousValues,
+}: Props) {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
+    "idle"
+  );
+  const [failureMessage, setFailureMessage] = useState("");
+  const failureRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  const initialProductLabel = initialProductSlug
+    ? (products.find((product) => product.slug === initialProductSlug)?.name ?? "")
+    : "";
+
+  /**
+   * Time the form was first rendered, used as the lower bound for the server's
+   * minimum fill time. It is submitted with the enquiry and refreshed whenever
+   * the visitor starts a new one.
+   */
+  const [startedAt, setStartedAt] = useState(() => String(Date.now()));
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<EnquiryValues>({
+    resolver: zodResolver(enquirySchema),
+    mode: "onTouched",
+    defaultValues: {
+      ...defaultEnquiryValues,
+      ...(previousValues ?? {}),
+      ...(initialProductLabel && !previousValues?.products
+        ? { products: initialProductLabel }
+        : {}),
+    },
+  });
+
+  const isSubmittingOrPending = isSubmitting || status === "submitting";
+
+  // Focus moves to the outcome once it is on screen, so keyboard and screen
+  // reader users are not left at the submit button.
+  const previousStatus = useRef(status);
+  useEffect(() => {
+    if (previousStatus.current === status) return;
+    previousStatus.current = status;
+    if (status === "error") failureRef.current?.focus();
+  }, [status]);
+
+  const onSubmit = async (values: EnquiryValues) => {
+    setStatus("submitting");
+    setFailureMessage("");
+
+    try {
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          startedAt,
+        }),
+      });
+
+      const payload = (await response.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+        errors?: FieldErrors;
+        values?: EnquiryValues;
+      };
+
+      if (response.ok && payload.ok) {
+        // Durable acceptance confirmed. Move to the confirmation route and
+        // clear the local copy of the enquiry.
+        setStatus("success");
+        reset(defaultEnquiryValues);
+        router.push(THANK_YOU_URL);
+        return;
+      }
+
+      // Server-side validation failure: keep everything the visitor typed.
+      if (payload.errors) {
+        setStatus("error");
+        setFailureMessage(ENQUIRY_MESSAGES.failure);
+        // Re-sync the form with the values the server actually received.
+        if (payload.values) reset(payload.values as EnquiryValues);
+        return;
+      }
+
+      if (response.status === 429) {
+        setStatus("error");
+        setFailureMessage(payload.message ?? ENQUIRY_MESSAGES.rateLimited);
+        return;
+      }
+
+      setStatus("error");
+      setFailureMessage(payload.message ?? ENQUIRY_MESSAGES.failure);
+    } catch {
+      setStatus("error");
+      setFailureMessage(ENQUIRY_MESSAGES.failure);
+    }
+  };
+
+  /* ------------------------------------------------------------- Success state
+     Only reached after the server confirms durable acceptance. The visible
+     confirmation lives at /thank-you/, so the visitor lands on a real URL
+     rather than a transient state. The live region announces the outcome in
+     case navigation is blocked. */
+  if (status === "success") {
+    return (
+      <div
+        tabIndex={-1}
+        role="status"
+        className="rounded-[4px] border border-teal-200 bg-white p-8 sm:p-10"
+      >
+        <div className="flex gap-4">
+          <CheckCircle2
+            aria-hidden="true"
+            className="mt-0.5 h-7 w-7 shrink-0 text-teal-700"
+          />
+          <div>
+            <h2 className="font-serif text-[1.5rem] text-teal-800">
+              Enquiry received
+            </h2>
+            <p className="mt-3 text-[1.0625rem] leading-relaxed text-muted">
+              {ENQUIRY_MESSAGES.success}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button href={THANK_YOU_URL}>Go to confirmation</Button>
+              <Button
+                variant="quiet"
+                onClick={() => {
+                  setStatus("idle");
+                  setStartedAt(String(Date.now()));
+                }}
+              >
+                Send another enquiry
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ------------------------------------------------------------------ The form */
+  const fieldError = (name: keyof EnquiryValues): string | undefined =>
+    (serverErrors?.[name] ?? errors[name]?.message) as string | undefined;
+
+  const describedBy = (name: keyof EnquiryValues, hintId?: string) => {
+    const ids: string[] = [];
+    if (hintId) ids.push(hintId);
+    if (fieldError(name)) ids.push(`${name}-error`);
+    return ids.length ? ids.join(" ") : undefined;
+  };
+
+  const controlClass = (name: keyof EnquiryValues) =>
+    `min-h-11 w-full rounded-[3px] border bg-white px-3.5 py-2.5 text-[0.9375rem] text-body placeholder:text-muted/70 ${
+      fieldError(name) ? "border-red-700" : "border-teal-200"
+    }`;
+
+  return (
+    <form
+      noValidate
+      onSubmit={handleSubmit(onSubmit)}
+      className="rounded-[4px] border border-teal-100 bg-white p-6 sm:p-8"
+      aria-describedby="enquiry-form-intro"
+    >
+      <p id="enquiry-form-intro" className="text-[0.9375rem] leading-relaxed text-muted">
+        Fields marked <span aria-hidden="true">*</span>
+        <span className="sr-only-focusable absolute">star</span> are required.
+        Everything else helps us quote accurately.
+      </p>
+
+      {status === "error" ? (
+        <div
+          ref={failureRef}
+          tabIndex={-1}
+          role="alert"
+          className="mt-6 flex gap-3 rounded-[3px] border border-red-700 bg-red-50 p-4"
+        >
+          <AlertCircle
+            aria-hidden="true"
+            className="mt-0.5 h-5 w-5 shrink-0 text-red-800"
+          />
+          <p className="text-[0.9375rem] leading-relaxed text-red-900">
+            {failureMessage}
+          </p>
+        </div>
+      ) : null}
+
+      {/* ------------------------------------------------------------ Honeypot */}
+      <div aria-hidden="true" className="absolute h-0 w-0 overflow-hidden opacity-0">
+        <label htmlFor="companyWebsite">Company website</label>
+        <input
+          id="companyWebsite"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("companyWebsite")}
+        />
+      </div>
+
+      <div className="mt-8 grid gap-6 sm:grid-cols-2">
+        <Field
+          name="name"
+          label="Name"
+          required
+          error={fieldError("name")}
+          hint="The person we should reply to."
+        >
+          <input
+            id="name"
+            type="text"
+            autoComplete="name"
+            className={controlClass("name")}
+            aria-invalid={Boolean(fieldError("name"))}
+            aria-describedby={describedBy("name", "name-hint")}
+            {...register("name")}
+          />
+        </Field>
+
+        <Field
+          name="organisation"
+          label="Organisation"
+          required
+          error={fieldError("organisation")}
+        >
+          <input
+            id="organisation"
+            type="text"
+            autoComplete="organization"
+            className={controlClass("organisation")}
+            aria-invalid={Boolean(fieldError("organisation"))}
+            aria-describedby={describedBy("organisation")}
+            {...register("organisation")}
+          />
+        </Field>
+
+        <Field
+          name="email"
+          label="Email"
+          required
+          error={fieldError("email")}
+          hint="We use this to reply to you."
+        >
+          <input
+            id="email"
+            type="email"
+            autoComplete="email"
+            className={controlClass("email")}
+            aria-invalid={Boolean(fieldError("email"))}
+            aria-describedby={describedBy("email", "email-hint")}
+            {...register("email")}
+          />
+        </Field>
+
+        <Field
+          name="telephone"
+          label="Telephone"
+          error={fieldError("telephone")}
+          hint="Optional, but useful for delivery conversations."
+        >
+          <input
+            id="telephone"
+            type="tel"
+            autoComplete="tel"
+            className={controlClass("telephone")}
+            aria-invalid={Boolean(fieldError("telephone"))}
+            aria-describedby={describedBy("telephone", "telephone-hint")}
+            {...register("telephone")}
+          />
+        </Field>
+
+        <Field
+          name="buyerType"
+          label="Buyer type"
+          required
+          error={fieldError("buyerType")}
+        >
+          <select
+            id="buyerType"
+            className={controlClass("buyerType")}
+            aria-invalid={Boolean(fieldError("buyerType"))}
+            aria-describedby={describedBy("buyerType")}
+            {...register("buyerType")}
+          >
+            <option value="">Please select</option>
+            {BUYER_TYPES.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
+
+        <Field
+          name="products"
+          label="Product or category"
+          required
+          error={fieldError("products")}
+          hint="Choose a category, or type a specific product."
+        >
+          <input
+            id="products"
+            type="text"
+            list="enquiry-product-options"
+            className={controlClass("products")}
+            aria-invalid={Boolean(fieldError("products"))}
+            aria-describedby={describedBy("products", "products-hint")}
+            {...register("products")}
+          />
+          <datalist id="enquiry-product-options">
+            {CATEGORY_OPTIONS.map((option) => (
+              <option key={option} value={option} />
+            ))}
+            {products.map((product) => (
+              <option key={product.id} value={product.name} />
+            ))}
+          </datalist>
+        </Field>
+
+        <Field name="quantity" label="Quantity" error={fieldError("quantity")}>
+          <input
+            id="quantity"
+            type="text"
+            inputMode="decimal"
+            placeholder="e.g. 25"
+            className={controlClass("quantity")}
+            aria-invalid={Boolean(fieldError("quantity"))}
+            aria-describedby={describedBy("quantity")}
+            {...register("quantity")}
+          />
+        </Field>
+
+        <Field
+          name="quantityUnit"
+          label="Unit"
+          error={fieldError("quantityUnit")}
+          hint="Quantities are not converted between units."
+        >
+          <select
+            id="quantityUnit"
+            className={controlClass("quantityUnit")}
+            aria-invalid={Boolean(fieldError("quantityUnit"))}
+            aria-describedby={describedBy("quantityUnit", "quantityUnit-hint")}
+            {...register("quantityUnit")}
+          >
+            <option value="">Please select</option>
+            {QUANTITY_UNITS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
+
+        <Field
+          name="destination"
+          label="Delivery destination"
+          error={fieldError("destination")}
+          hint="Postcode or delivery address."
+        >
+          <input
+            id="destination"
+            type="text"
+            autoComplete="postal-code"
+            className={controlClass("destination")}
+            aria-invalid={Boolean(fieldError("destination"))}
+            aria-describedby={describedBy("destination", "destination-hint")}
+            {...register("destination")}
+          />
+        </Field>
+
+        <Field
+          name="deliverySchedule"
+          label="Delivery schedule"
+          error={fieldError("deliverySchedule")}
+        >
+          <select
+            id="deliverySchedule"
+            className={controlClass("deliverySchedule")}
+            aria-invalid={Boolean(fieldError("deliverySchedule"))}
+            aria-describedby={describedBy("deliverySchedule")}
+            {...register("deliverySchedule")}
+          >
+            <option value="">Please select</option>
+            {DELIVERY_SCHEDULES.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </div>
+
+      <div className="mt-6">
+        <Field
+          name="message"
+          label="Specification or message"
+          error={fieldError("message")}
+          hint="Variety, quality parameters, pack format, pack sizes, delivery windows, or anything else we should know."
+        >
+          <textarea
+            id="message"
+            rows={6}
+            className={`${controlClass("message")} min-h-32 resize-y`}
+            aria-invalid={Boolean(fieldError("message"))}
+            aria-describedby={describedBy("message", "message-hint")}
+            {...register("message")}
+          />
+        </Field>
+      </div>
+
+      <div className="mt-8 flex flex-col gap-4 border-t border-teal-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[0.8125rem] leading-relaxed text-muted">
+          We use your details only to respond to this enquiry. See our{" "}
+          <a
+            href="/privacy/"
+            className="link-underline link-underline-hover font-medium text-teal-800"
+          >
+            privacy notice
+          </a>
+          .
+        </p>
+        <Button type="submit" size="lg" disabled={isSubmittingOrPending} className="sm:min-w-52">
+          {isSubmittingOrPending ? (
+            <>
+              <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
+              Sending enquiry
+            </>
+          ) : (
+            "Send enquiry"
+          )}
+        </Button>
+      </div>
+
+      <p aria-live="polite" className="sr-only-focusable absolute">
+        {isSubmittingOrPending ? "Sending your enquiry" : ""}
+      </p>
+    </form>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+
+function Field({
+  name,
+  label,
+  required = false,
+  error,
+  hint,
+  children,
+}: {
+  name: string;
+  label: string;
+  required?: boolean;
+  error?: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={name}
+        className="block text-[0.9375rem] font-semibold text-teal-800"
+      >
+        {label}
+        {required ? (
+          <span aria-hidden="true" className="ml-1 text-copper-700">
+            *
+          </span>
+        ) : (
+          <span className="ml-2 text-xs font-normal uppercase tracking-[0.1em] text-muted">
+            Optional
+          </span>
+        )}
+      </label>
+      {hint ? (
+        <p id={`${name}-hint`} className="mt-1 text-[0.8125rem] text-muted">
+          {hint}
+        </p>
+      ) : null}
+      <div className="mt-2">{children}</div>
+      {error ? (
+        <p
+          id={`${name}-error`}
+          className="mt-2 flex items-start gap-1.5 text-[0.8125rem] font-medium text-red-800"
+        >
+          <AlertCircle aria-hidden="true" className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+          {error}
+        </p>
+      ) : null}
+    </div>
+  );
+}
