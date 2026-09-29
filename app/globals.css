@@ -99,10 +99,14 @@ p {
   outline-color: var(--color-copper-400);
 }
 
-.on-dark h1,
-.on-dark h2,
-.on-dark h3,
-.on-dark h4 {
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.on-dark.bg-teal-800 h1,
+.on-dark.bg-teal-800 h2,
+.on-dark.bg-teal-800 h3,
+.on-dark.bg-teal-800 h4 {
   color: var(--color-ivory);
 }
 

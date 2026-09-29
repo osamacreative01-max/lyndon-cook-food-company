@@ -41,7 +41,7 @@ export const SITE = {
    * approved SVG over `public/logo/lyndon-cook.svg` replaces it site-wide.
    */
   logo: {
-    src: "/logo/WhatsApp Image 2026-09-28 at 9.25.12 AM.jpeg",
+    src: "/logo/lyndon-cook-logo.jpeg",
     width: 1600,
     height: 534,
     alt: "The Lyndon Cook Food Company",

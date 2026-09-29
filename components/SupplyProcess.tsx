@@ -44,7 +44,7 @@ export default function SupplyProcess({
 }) {
   return (
     <section
-      className={`on-dark ${onDark ? "bg-teal-800" : "bg-ivory"}`}
+      className={onDark ? "on-dark bg-teal-800" : "bg-ivory"}
       aria-labelledby="supply-process-heading"
     >
       <div className="container-page py-16 sm:py-20">
@@ -52,7 +52,7 @@ export default function SupplyProcess({
           <p className={`eyebrow ${onDark ? "text-copper-400" : ""}`}>Process</p>
           <h2
             id="supply-process-heading"
-            className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+            className={`mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem] ${onDark ? "text-ivory" : "text-teal-800"}`}
           >
             {heading ?? "A straightforward way to supply"}
           </h2>
@@ -78,7 +78,7 @@ export default function SupplyProcess({
               >
                 {step.number}
               </span>
-              <h3 className="mt-4 font-serif text-[1.25rem] leading-snug">
+              <h3 className={`mt-4 font-serif text-[1.25rem] leading-snug ${onDark ? "text-ivory" : "text-teal-800"}`}>
                 {step.title}
               </h3>
               <p
