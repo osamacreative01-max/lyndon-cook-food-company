@@ -95,7 +95,12 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en-GB" className={`${sans.variable} ${serif.variable}`}>
+    <html
+      lang="en-GB"
+      className={`${sans.variable} ${serif.variable}`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
         {/*
           Marks the document as script-enabled before first paint so scroll
@@ -108,7 +113,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body className="flex min-h-screen flex-col bg-ivory font-sans text-body">
+      <body
+        className="flex min-h-screen flex-col bg-ivory font-sans text-body"
+        suppressHydrationWarning
+      >
         <a href="#main" className="skip-link sr-only-focusable">
           Skip to main content
         </a>
