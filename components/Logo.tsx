@@ -42,6 +42,8 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
         width={renderedWidth}
         height={height}
         priority={priority}
+        // SVGs bypass the optimizer (it blocks SVG unless dangerouslyAllowSVG is on).
+        unoptimized={isSvg}
         className={`h-auto select-none ${className}`}
         style={{
           width: renderedWidth,
