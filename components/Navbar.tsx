@@ -43,7 +43,7 @@ export default function Navbar() {
           <Logo priority width={200} />
 
           <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-1">
+            <ul className="flex items-center gap-0.5">
               {NAV_LINKS.map((link) => {
                 const active = pathname.startsWith(link.href);
                 return (
@@ -51,13 +51,19 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       aria-current={active ? "page" : undefined}
-                      className={`relative inline-flex min-h-11 items-center rounded-[3px] px-3.5 text-[0.9375rem] font-medium transition-colors ${
+                      className={`relative inline-flex min-h-11 items-center rounded-[4px] px-3.5 text-[0.9375rem] font-medium transition-all duration-200 ${
                         active
-                          ? "text-teal-800 after:absolute after:inset-x-3.5 after:bottom-1.5 after:h-0.5 after:bg-copper-600"
-                          : "text-body hover:text-teal-800"
+                          ? "bg-teal-50 text-teal-800"
+                          : "text-body hover:bg-teal-50/60 hover:text-teal-800"
                       }`}
                     >
                       {link.label}
+                      {active ? (
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-3.5 bottom-1 h-0.5 rounded-full bg-copper-600"
+                        />
+                      ) : null}
                     </Link>
                   </li>
                 );
@@ -68,7 +74,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={`tel:${SITE.phoneHref}`}
-              className="inline-flex min-h-11 items-center gap-2 rounded-[3px] px-2 text-[0.9375rem] font-medium text-body transition-colors hover:text-teal-800"
+              className="inline-flex min-h-11 items-center gap-2 rounded-[4px] px-3 text-[0.9375rem] font-medium text-body transition-colors hover:bg-teal-50 hover:text-teal-800"
             >
               <Phone aria-hidden="true" className="h-4 w-4 text-copper-600" />
               {SITE.phone}
@@ -86,7 +92,7 @@ export default function Navbar() {
               onClick={() => setOpen((value) => !value)}
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-teal-200 text-teal-800 transition-colors hover:bg-teal-50"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-teal-200 text-teal-800 transition-colors hover:border-teal-400 hover:bg-teal-50"
             >
               <Menu aria-hidden="true" className="h-5 w-5" />
               <span className="sr-only-focusable absolute">

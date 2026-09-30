@@ -43,7 +43,7 @@ const SIZES: Record<Size, string> = {
 };
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-[3px] font-sans font-semibold leading-tight tracking-[0.01em] transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex items-center justify-center gap-2 rounded-[4px] font-sans font-semibold leading-tight tracking-[0.01em] transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-55";
 
 /**
  * The only button in the system. Minimum height is 44px (Size.md) so every

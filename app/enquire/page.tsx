@@ -114,7 +114,10 @@ export default async function EnquirePage({
             {/* --------------------------------------------------- Side guidance */}
             <aside className="lg:col-span-5">
               <Reveal>
-                <h2 className="text-[1.375rem] leading-snug sm:text-[1.5rem]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
+                  Before you send
+                </p>
+                <h2 className="mt-2 text-[1.375rem] leading-snug sm:text-[1.5rem]">
                   What to include
                 </h2>
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
@@ -123,23 +126,28 @@ export default async function EnquirePage({
                   conversation, and product, specification, quantity, delivery and
                   terms are confirmed separately.
                 </p>
-                <dl className="mt-6 space-y-4">
-                  {WHAT_TO_INCLUDE.map((item) => (
+                <dl className="mt-6 space-y-3">
+                  {WHAT_TO_INCLUDE.map((item, index) => (
                     <div
                       key={item.title}
-                      className="border-t border-teal-100 pt-4"
+                      className="flex gap-4 rounded-[6px] border border-teal-100 bg-white p-4"
                     >
-                      <dt className="font-semibold text-teal-800">{item.title}</dt>
-                      <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">
-                        {item.body}
-                      </dd>
+                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-50 font-serif text-[0.8125rem] font-semibold text-teal-800">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <dt className="font-semibold text-teal-800">{item.title}</dt>
+                        <dd className="mt-1 text-[0.875rem] leading-relaxed text-muted">
+                          {item.body}
+                        </dd>
+                      </div>
                     </div>
                   ))}
                 </dl>
               </Reveal>
 
               <Reveal delay={100}>
-                <div className="mt-10 rounded-[4px] border border-teal-100 bg-white p-6">
+                <div className="mt-8 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                   <h2 className="font-serif text-[1.1875rem] text-teal-800">
                     Prefer to talk it through?
                   </h2>
@@ -169,7 +177,7 @@ export default async function EnquirePage({
               </Reveal>
 
               <Reveal delay={160}>
-                <div className="mt-6 rounded-[4px] border border-teal-100 bg-white p-6">
+                <div className="mt-4 rounded-[6px] border border-copper-600/30 bg-copper-100/30 p-6">
                   <h2 className="font-serif text-[1.1875rem] text-teal-800">
                     A note on lead times
                   </h2>

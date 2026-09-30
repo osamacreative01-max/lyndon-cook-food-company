@@ -66,33 +66,40 @@ function renderProduct(product: Product) {
           />
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-6">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark">
+            {/* Product image */}
+            <div className="lg:col-span-5">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark">
                 <Image
                   src={product.image.src}
                   alt={product.image.alt}
                   fill
                   priority
                   sizes={IMAGE_SIZES.detail}
+                  quality={90}
                   className="object-cover"
                 />
                 {isNorm ? (
-                  <p className="absolute left-4 top-4 rounded-[2px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
+                  <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
                     NORM
-                  </p>
-                ) : null}
+                  </span>
+                ) : (
+                  <span className="absolute left-4 top-4 rounded-[3px] bg-white/95 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-teal-800 shadow-sm">
+                    {product.subgroupName}
+                  </span>
+                )}
               </div>
-              <p className="mt-3 text-[0.8125rem] text-muted">
+              <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted">
                 Packaging shown is illustrative; final artwork and specifications
                 are agreed per order.
               </p>
             </div>
 
-            <div className="lg:col-span-6">
+            {/* Product info */}
+            <div className="lg:col-span-7">
               <p className="eyebrow">
                 {category.name} &middot; {product.subgroupName}
               </p>
-              <h1 className="mt-4 text-[2rem] leading-[1.1] sm:text-[2.5rem]">
+              <h1 className="mt-3 text-[2rem] leading-[1.1] sm:text-[2.5rem]">
                 {product.name}
               </h1>
               <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
@@ -102,32 +109,34 @@ function renderProduct(product: Product) {
                 {product.description}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button href={enquiryHref(product.slug)} size="lg">
-                  Discuss this product
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </Button>
-                <Button href={`/products/${category.slug}/`} variant="secondary" size="lg">
-                  All {category.shortName.toLowerCase()}
-                </Button>
+              {/* CTA block */}
+              <div className="mt-8 rounded-[6px] border border-teal-100 bg-ivory/60 p-6">
+                <div className="flex flex-wrap gap-3">
+                  <Button href={enquiryHref(product.slug)} size="lg">
+                    Discuss this product
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </Button>
+                  <Button href={`/products/${category.slug}/`} variant="secondary" size="lg">
+                    All {category.shortName.toLowerCase()}
+                  </Button>
+                </div>
+                <p className="mt-4 text-sm text-muted">
+                  {SITE.name} &middot;{" "}
+                  <a
+                    href={`mailto:${SITE.email}`}
+                    className="link-underline link-underline-hover"
+                  >
+                    {SITE.email}
+                  </a>{" "}
+                  &middot;{" "}
+                  <a
+                    href={`tel:${SITE.phoneHref}`}
+                    className="link-underline link-underline-hover"
+                  >
+                    {SITE.phone}
+                  </a>
+                </p>
               </div>
-
-              <p className="mt-6 text-sm text-muted">
-                {SITE.name} &middot;{" "}
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="link-underline link-underline-hover"
-                >
-                  {SITE.email}
-                </a>{" "}
-                &middot;{" "}
-                <a
-                  href={`tel:${SITE.phoneHref}`}
-                  className="link-underline link-underline-hover"
-                >
-                  {SITE.phone}
-                </a>
-              </p>
             </div>
           </div>
         </Container>
@@ -138,9 +147,12 @@ function renderProduct(product: Product) {
         <Container className="py-14 sm:py-16">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
+                Specification
+              </p>
               <h2
                 id="facts-heading"
-                className="text-[1.5rem] leading-snug sm:text-[1.75rem]"
+                className="mt-2 text-[1.5rem] leading-snug sm:text-[1.75rem]"
               >
                 Key facts
               </h2>
@@ -152,21 +164,24 @@ function renderProduct(product: Product) {
             </div>
 
             <div className="lg:col-span-5">
-              <h2 className="text-[1.5rem] leading-snug sm:text-[1.75rem]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
+                Applications
+              </p>
+              <h2 className="mt-2 text-[1.5rem] leading-snug sm:text-[1.75rem]">
                 Suggested uses
               </h2>
               <ul className="mt-5 flex flex-wrap gap-2.5">
                 {product.uses.map((use) => (
                   <li
                     key={use}
-                    className="rounded-[2px] border border-teal-200 bg-white px-3.5 py-1.5 text-sm font-medium text-teal-800"
+                    className="rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-teal-400 hover:bg-teal-50"
                   >
                     {use}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 rounded-[4px] border border-teal-100 bg-white p-6">
+              <div className="mt-8 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                 <div className="flex gap-3">
                   <PackageCheck
                     aria-hidden="true"

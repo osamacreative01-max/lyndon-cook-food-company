@@ -95,7 +95,8 @@ p {
   border-radius: 2px;
 }
 
-.on-dark.bg-teal-800 :where(a, button, input, select, textarea, summary):focus-visible {
+.on-dark.bg-teal-800 :where(a, button, input, select, textarea, summary):focus-visible,
+.on-dark.bg-teal-900 :where(a, button, input, select, textarea, summary):focus-visible {
   outline-color: var(--color-copper-400);
 }
 

@@ -149,7 +149,7 @@ export default function HowWeSupplyPage() {
             </p>
           </Reveal>
 
-          <dl className="mt-10 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 term: "Product and variety",
@@ -183,12 +183,14 @@ export default function HowWeSupplyPage() {
               },
             ].map((item) => (
               <Reveal key={item.term} as="div" delay={70}>
-                <dt className="border-t-2 border-copper-600 pt-4 font-serif text-[1.1875rem] text-teal-800">
-                  {item.term}
-                </dt>
-                <dd className="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
-                  {item.detail}
-                </dd>
+                <div className="h-full rounded-[6px] border border-teal-100 bg-ivory/60 p-5 transition-colors hover:border-teal-200 hover:bg-white">
+                  <dt className="font-serif text-[1.1875rem] leading-snug text-teal-800">
+                    {item.term}
+                  </dt>
+                  <dd className="mt-2.5 text-[0.9375rem] leading-relaxed text-muted">
+                    {item.detail}
+                  </dd>
+                </div>
               </Reveal>
             ))}
           </dl>

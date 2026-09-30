@@ -88,14 +88,17 @@ export default function CompanyProfilePage() {
             </p>
           </Reveal>
 
-          <dl className="mt-12 grid grid-cols-2 gap-8 border-t border-teal-100 pt-10 sm:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { term: String(CATALOGUE_COUNTS.total), label: "Products in the range" },
               { term: String(CATEGORIES.length), label: "Supply ranges" },
               { term: String(normCount), label: "NORM canned foods" },
               { term: "400 ml", label: "NORM can format" },
             ].map((stat) => (
-              <div key={stat.label}>
+              <div
+                key={stat.label}
+                className="rounded-[6px] border border-teal-100 bg-ivory/60 p-5"
+              >
                 <dt className="font-serif text-[2rem] leading-none text-teal-800">
                   {stat.term}
                 </dt>
@@ -120,7 +123,7 @@ export default function CompanyProfilePage() {
           <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {CATEGORIES.map((category, index) => (
               <Reveal key={category.id} as="li" delay={index * 70} className="h-full">
-                <article className="flex h-full flex-col overflow-hidden rounded-[4px] border border-teal-100 bg-white sm:flex-row">
+                <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] sm:flex-row">
                   <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-ivory-dark sm:aspect-auto sm:w-40">
                     <Image
                       src={category.image.src}
@@ -128,7 +131,7 @@ export default function CompanyProfilePage() {
                       fill
                       loading="lazy"
                       sizes="160px"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-5">
@@ -142,7 +145,7 @@ export default function CompanyProfilePage() {
                       {category.groups.map((group) => (
                         <li
                           key={group.id}
-                          className="rounded-[2px] border border-teal-200 px-2.5 py-1 text-xs font-medium text-muted"
+                          className="rounded-full border border-teal-200 px-2.5 py-1 text-xs font-medium text-muted"
                         >
                           {group.name}
                         </li>
@@ -222,7 +225,7 @@ export default function CompanyProfilePage() {
               programme around your requirements.
             </p>
           </Reveal>
-          <ol className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 number: "01",
@@ -245,13 +248,16 @@ export default function CompanyProfilePage() {
                 body: "Load configuration, delivery terms and timing are confirmed with the quotation.",
               },
             ].map((step) => (
-              <li key={step.number}>
-                <p
+              <li
+                key={step.number}
+                className="rounded-[6px] border border-teal-700/50 bg-teal-700/30 p-6"
+              >
+                <span
                   aria-hidden="true"
-                  className="font-serif text-[2.25rem] leading-none text-teal-600"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-copper-600 font-serif text-[1.125rem] font-semibold text-ivory"
                 >
                   {step.number}
-                </p>
+                </span>
                 <h3 className="mt-4 font-serif text-[1.1875rem] text-ivory">
                   {step.title}
                 </h3>

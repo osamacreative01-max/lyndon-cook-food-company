@@ -157,7 +157,7 @@ export default function NormPage() {
               Fourteen choices, one format.
             </h2>
           </Reveal>
-          <dl className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { term: "14", detail: "Choices across the range" },
               { term: "400 ml", detail: "Can format" },
@@ -165,12 +165,14 @@ export default function NormPage() {
               { term: "3", detail: "Groups: pulses, vegetables, tomatoes" },
             ].map((item) => (
               <Reveal key={item.term} as="div" delay={60}>
-                <dt className="font-serif text-[2.25rem] leading-none text-copper-400">
-                  {item.term}
-                </dt>
-                <dd className="mt-3 text-[0.9375rem] leading-relaxed text-teal-100">
-                  {item.detail}
-                </dd>
+                <div className="h-full rounded-[6px] border border-teal-700/50 bg-teal-700/30 p-6 transition-colors hover:border-copper-600/40">
+                  <dt className="font-serif text-[2.25rem] leading-none text-copper-400">
+                    {item.term}
+                  </dt>
+                  <dd className="mt-3 text-[0.9375rem] leading-relaxed text-teal-100">
+                    {item.detail}
+                  </dd>
+                </div>
               </Reveal>
             ))}
           </dl>
@@ -178,12 +180,14 @@ export default function NormPage() {
       </section>
 
       {/* ------------------------------------------------------------- Product groups */}
-      {GROUPS.map((group) => {
+      {GROUPS.map((group, groupIndex) => {
         const groupProducts = getProductsBySubgroup("canned-food", group.id);
         return (
           <section
             key={group.id}
-            className="bg-ivory"
+            className={`${groupIndex % 2 === 0 ? "bg-ivory" : "bg-white"} ${
+              groupIndex > 0 ? "border-t border-teal-100" : ""
+            }`}
             aria-labelledby={`norm-${group.id}`}
           >
             <Container className="py-14 sm:py-16">
@@ -215,7 +219,7 @@ export default function NormPage() {
       })}
 
       {/* ------------------------------------------------------- NORM Rice 1lb */}
-      <section className="bg-ivory" aria-labelledby="norm-rice-heading">
+      <section className="border-t border-teal-100 bg-ivory" aria-labelledby="norm-rice-heading">
         <Container className="py-14 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
@@ -251,7 +255,7 @@ export default function NormPage() {
       </section>
 
       {/* ------------------------------------------------------------- Pasta */}
-      <section className="bg-ivory" aria-labelledby="norm-pasta-heading">
+      <section className="border-t border-teal-100 bg-white" aria-labelledby="norm-pasta-heading">
         <Container className="py-14 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
@@ -287,58 +291,73 @@ export default function NormPage() {
       </section>
 
       {/* ------------------------------------------------------------- Packaging note */}
-      <section className="on-dark border-t border-teal-100 bg-white">
-        <Container className="py-12 sm:py-14">
+      <section className="border-t border-teal-100 bg-white">
+        <Container className="py-14 sm:py-16">
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-6">
-              <h2 className="text-[1.375rem] leading-snug sm:text-[1.5rem]">
+              <p className="eyebrow">Good to know</p>
+              <h2 className="mt-3 text-[1.375rem] leading-snug sm:text-[1.5rem]">
                 How to read the NORM range
               </h2>
-              <ul className="mt-5 space-y-3 text-[0.9375rem] leading-relaxed text-muted">
-                <li>
-                  <strong className="font-semibold text-teal-800">
-                    400 ml is the can format.
-                  </strong>{" "}
-                  It is not a net weight and not a drained weight.
-                </li>
-                <li>
-                  <strong className="font-semibold text-teal-800">
-                    Specifications are per product.
-                  </strong>{" "}
-                  Final net contents, drained weights, ingredients, allergens,
-                  storage and label details are confirmed by product specification.
-                </li>
-                <li>
-                  <strong className="font-semibold text-teal-800">
-                    Packaging shown is illustrative.
-                  </strong>{" "}
-                  Final artwork and label details are agreed per order.
-                </li>
+              <ul className="mt-6 space-y-4">
+                {[
+                  {
+                    title: "400 ml is the can format.",
+                    body: "It is not a net weight and not a drained weight.",
+                  },
+                  {
+                    title: "Specifications are per product.",
+                    body: "Final net contents, drained weights, ingredients, allergens, storage and label details are confirmed by product specification.",
+                  },
+                  {
+                    title: "Packaging shown is illustrative.",
+                    body: "Final artwork and label details are agreed per order.",
+                  },
+                ].map((item) => (
+                  <li
+                    key={item.title}
+                    className="flex gap-3 rounded-[6px] border border-teal-100 bg-ivory/60 p-4"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-copper-600"
+                    />
+                    <div>
+                      <strong className="font-semibold text-teal-800">
+                        {item.title}
+                      </strong>{" "}
+                      <span className="text-muted">{item.body}</span>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className="lg:col-span-6">
-              <h2 className="text-[1.375rem] leading-snug sm:text-[1.5rem]">
+              <p className="eyebrow">Origin</p>
+              <h2 className="mt-3 text-[1.375rem] leading-snug sm:text-[1.5rem]">
                 Italian sourcing
               </h2>
-              <p className="mt-5 text-[0.9375rem] leading-relaxed text-muted">
-                NORM San Marzano Tomatoes are a product of Italy, presented in a
-                400 ml easy-open can with British English and Italian pack wording
-                and a small Italian tricolour. That origin and packaging language
-                applies to San Marzano only, and is not a claim about the rest of
-                the range.
-              </p>
-              <div className="mt-6">
-                <Link
-                  href="/products/canned-food/san-marzano-tomatoes/"
-                  className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
-                >
-                  View San Marzano Tomatoes
-                  <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
-                </Link>
+              <div className="mt-6 rounded-[6px] border border-teal-100 bg-ivory/60 p-6">
+                <p className="text-[0.9375rem] leading-relaxed text-muted">
+                  NORM San Marzano Tomatoes are a product of Italy, presented in a
+                  400 ml easy-open can with British English and Italian pack wording
+                  and a small Italian tricolour. That origin and packaging language
+                  applies to San Marzano only, and is not a claim about the rest of
+                  the range.
+                </p>
+                <div className="mt-5">
+                  <Link
+                    href="/products/canned-food/san-marzano-tomatoes/"
+                    className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
+                  >
+                    View San Marzano Tomatoes
+                    <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          <p className="mt-8 text-[0.875rem] text-muted">
+          <p className="mt-10 text-[0.875rem] text-muted">
             {cannedCategory.summary}{" "}
             <Link
               href="/products/canned-food/"

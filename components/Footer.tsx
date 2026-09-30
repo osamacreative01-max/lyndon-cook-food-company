@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone, ChevronRight } from "lucide-react";
 import Container from "@/components/Container";
 import Logo from "@/components/Logo";
 import { SITE, FOOTER_LINKS, FOOTER_LEGAL_LINKS } from "@/lib/site";
+import { CATEGORIES } from "@/lib/categories";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -11,7 +12,8 @@ export default function Footer() {
   return (
     <footer className="on-dark mt-auto border-t-4 border-copper-600 bg-teal-900 text-teal-50">
       <Container className="py-14 sm:py-16">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Brand */}
           <div className="lg:col-span-4">
             <Logo onDark width={220} />
             <p className="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
@@ -26,7 +28,31 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="lg:col-span-3">
+          {/* Products */}
+          <nav aria-label="Products" className="lg:col-span-3">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
+              Products
+            </h2>
+            <ul className="mt-4 space-y-2">
+              {CATEGORIES.map((category) => (
+                <li key={category.id}>
+                  <Link
+                    href={`/products/${category.slug}/`}
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-200 transition-colors hover:text-ivory"
+                  >
+                    {category.shortName}
+                    <ChevronRight
+                      aria-hidden="true"
+                      className="h-3.5 w-3.5 text-copper-400 transition-transform group-hover:translate-x-0.5"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Company */}
+          <div className="lg:col-span-2">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
               Company
             </h2>
@@ -43,17 +69,11 @@ export default function Footer() {
                 </span>
               </span>
             </address>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
-              Contact
-            </h2>
-            <ul className="mt-4 space-y-3 text-[0.9375rem]">
+            <ul className="mt-4 space-y-2 text-[0.9375rem]">
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex min-h-11 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
                 >
                   <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.email}
@@ -62,18 +82,16 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${SITE.phoneHref}`}
-                  className="inline-flex min-h-11 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
                 >
                   <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.phone}
                 </a>
               </li>
-              <li className="text-teal-200">
-                <span className="text-copper-400">Web</span> {SITE.domain}
-              </li>
             </ul>
           </div>
 
+          {/* Quick links */}
           <nav aria-label="Footer" className="lg:col-span-3">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
               Quick links
@@ -83,10 +101,13 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-teal-200 transition-colors hover:text-ivory"
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-200 transition-colors hover:text-ivory"
                   >
                     {link.label}
-                    <ChevronRight aria-hidden="true" className="h-4 w-4 text-copper-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight
+                      aria-hidden="true"
+                      className="h-3.5 w-3.5 text-copper-400 transition-transform group-hover:translate-x-0.5"
+                    />
                   </Link>
                 </li>
               ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import { faqSchema } from "@/lib/seo";
 
@@ -58,13 +58,24 @@ export default function Faq({
           </div>
 
           <div className="lg:col-span-8">
-            <ul className="border-t border-teal-100">
+            <ul className="space-y-3">
               {items.map((item, index) => {
                 const isOpen = openIndex === index;
                 const buttonId = `${baseId}-q${index}`;
                 const panelId = `${baseId}-a${index}`;
                 return (
-                  <li key={item.question} className="border-b border-teal-100">
+                  <li
+                    key={item.question}
+                    className={`overflow-hidden rounded-[6px] border transition-colors ${
+                      onDark
+                        ? isOpen
+                          ? "border-copper-600/40 bg-teal-700/40"
+                          : "border-teal-700/50 bg-teal-700/20"
+                        : isOpen
+                          ? "border-teal-200 bg-ivory/60"
+                          : "border-teal-100 bg-white"
+                    }`}
+                  >
                     <h3>
                       <button
                         type="button"
@@ -72,7 +83,7 @@ export default function Faq({
                         aria-expanded={isOpen}
                         aria-controls={panelId}
                         onClick={() => setOpenIndex(isOpen ? null : index)}
-                        className={`flex min-h-14 w-full items-center justify-between gap-4 py-4 text-left font-serif text-[1.125rem] leading-snug transition-colors sm:text-[1.25rem] ${
+                        className={`flex min-h-14 w-full items-center justify-between gap-4 px-5 py-4 text-left font-serif text-[1.0625rem] leading-snug transition-colors sm:text-[1.1875rem] ${
                           onDark
                             ? "text-ivory hover:text-copper-400"
                             : "text-teal-800 hover:text-teal-900"
@@ -81,17 +92,17 @@ export default function Faq({
                         <span>{item.question}</span>
                         <span
                           aria-hidden="true"
-                          className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border ${
-                            onDark
-                              ? "border-teal-600 text-copper-400"
-                              : "border-teal-200 text-copper-700"
+                          className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                            isOpen
+                              ? onDark
+                                ? "rotate-45 border-copper-600 bg-copper-600 text-ivory"
+                                : "rotate-45 border-teal-800 bg-teal-800 text-ivory"
+                              : onDark
+                                ? "border-teal-600 text-copper-400"
+                                : "border-teal-200 text-copper-700"
                           }`}
                         >
-                          {isOpen ? (
-                            <Minus className="h-4 w-4" />
-                          ) : (
-                            <Plus className="h-4 w-4" />
-                          )}
+                          <Plus className="h-4 w-4" />
                         </span>
                       </button>
                     </h3>
@@ -100,7 +111,7 @@ export default function Faq({
                       role="region"
                       aria-labelledby={buttonId}
                       hidden={!isOpen}
-                      className="pb-5 pr-12"
+                      className="px-5 pb-5 pr-14"
                     >
                       <p
                         className={`text-[0.9375rem] leading-relaxed sm:text-base ${

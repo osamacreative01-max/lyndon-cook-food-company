@@ -77,8 +77,11 @@ export default function AboutPage() {
             </div>
 
             <Reveal delay={120} className="lg:col-span-5">
-              <div className="rounded-[4px] border border-teal-100 bg-ivory p-7">
-                <h3 className="font-serif text-[1.25rem] text-teal-800">
+              <div className="rounded-[6px] border border-teal-100 bg-ivory p-7 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
+                  Get in touch
+                </p>
+                <h3 className="mt-2 font-serif text-[1.25rem] text-teal-800">
                   {SITE.name}
                 </h3>
                 <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-muted">
@@ -107,8 +110,10 @@ export default function AboutPage() {
                     {SITE.phone}
                   </a>
                 </address>
-                <div className="mt-4 border-t border-teal-100 pt-4">
-                  <Button href="/enquire/">Start an enquiry</Button>
+                <div className="mt-5 border-t border-teal-100 pt-5">
+                  <Button href="/enquire/" className="w-full sm:w-auto">
+                    Start an enquiry
+                  </Button>
                 </div>
               </div>
             </Reveal>
@@ -156,7 +161,7 @@ export default function AboutPage() {
               <Reveal key={category.id} as="li" delay={index * 60}>
                 <Link
                   href={`/products/${category.slug}/`}
-                  className="group flex flex-col gap-2 border-b border-teal-100 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+                  className="group flex flex-col gap-2 rounded-[4px] px-3 -mx-3 border-b border-teal-100 py-6 transition-colors hover:bg-white/80 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
                 >
                   <span className="min-w-0">
                     <span className="block font-serif text-[1.375rem] leading-snug text-teal-800">
@@ -241,7 +246,7 @@ export default function AboutPage() {
               fruit seasons or technical datasheets on this site.
             </p>
           </Reveal>
-          <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {[
               "No public prices or online checkout \u2014 we quote against a requirement.",
               "No stock availability claims \u2014 volumes are planned per programme.",
@@ -251,7 +256,8 @@ export default function AboutPage() {
               "No unsupported credentials \u2014 certifications are published only when confirmed.",
             ].map((item) => (
               <Reveal key={item} as="li" delay={60}>
-                <p className="border-t border-teal-100 pt-4 text-[0.9375rem] leading-relaxed text-body">
+                <p className="flex gap-3 rounded-[6px] border border-teal-100 bg-white p-4 text-[0.9375rem] leading-relaxed text-body">
+                  <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-copper-600" />
                   {item}
                 </p>
               </Reveal>

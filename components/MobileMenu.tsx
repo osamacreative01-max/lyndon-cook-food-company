@@ -107,7 +107,7 @@ export default function MobileMenu({
           <button
             type="button"
             onClick={onClose}
-            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-[3px] text-teal-800 hover:bg-teal-50"
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-[4px] text-teal-800 transition-colors hover:bg-teal-50"
           >
             <X aria-hidden="true" className="h-5 w-5" />
             <span className="sr-only-focusable absolute">Close menu</span>
@@ -120,13 +120,15 @@ export default function MobileMenu({
               const active =
                 pathname === link.href || pathname.startsWith(link.href);
               return (
-                <li key={link.href} className="border-b border-teal-100">
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={onClose}
                     aria-current={active ? "page" : undefined}
-                    className={`flex min-h-14 items-center justify-between py-3 font-serif text-[1.375rem] ${
-                      active ? "text-teal-800" : "text-body"
+                    className={`flex min-h-14 items-center justify-between rounded-[4px] px-3 font-serif text-[1.375rem] transition-colors ${
+                      active
+                        ? "bg-teal-50 text-teal-800"
+                        : "text-body hover:bg-teal-50/60"
                     }`}
                   >
                     {link.label}
@@ -142,7 +144,7 @@ export default function MobileMenu({
           <Link
             href="/enquire/"
             onClick={onClose}
-            className="flex min-h-12 w-full items-center justify-center rounded-[3px] bg-teal-800 px-6 py-3 font-semibold text-ivory"
+            className="flex min-h-12 w-full items-center justify-center rounded-[4px] bg-teal-800 px-6 py-3 font-semibold text-ivory transition-colors hover:bg-teal-700"
           >
             Enquire
           </Link>

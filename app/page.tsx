@@ -49,8 +49,8 @@ export default function HomePage() {
           <div className="lg:col-span-6">
             <p className="eyebrow">UK food supply, planned around you</p>
             <span className="rule-copper mt-3" aria-hidden="true" />
-            <h1 className="mt-5 text-[2.125rem] leading-[1.08] sm:text-[2.875rem] lg:text-[3.625rem]">
-              Good food. Straightforward supply.
+            <h1 className="mt-5 text-[2.25rem] leading-[1.08] sm:text-[3rem] lg:text-[3.75rem]">
+              Good food.<br className="hidden sm:block" /> Straightforward supply.
             </h1>
             <p className="mt-6 max-w-xl text-[1.0625rem] leading-[1.7] text-muted sm:text-[1.1875rem]">
               Rice, spices, seasonal fruit and NORM canned foods, supplied around
@@ -86,7 +86,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-6">
             <div className="relative">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/5]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/5]">
                 <Image
                   src={heroImage.src}
                   alt={heroImage.alt}
@@ -98,9 +98,32 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
+
+              {/* Floating stat badge */}
+              <div className="absolute -bottom-5 left-4 flex items-center gap-4 rounded-[6px] border border-teal-100 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(8,75,80,0.12)] sm:left-6">
+                <div className="text-center">
+                  <span className="block font-serif text-[1.5rem] leading-none text-teal-800">
+                    {ACTIVE_PRODUCTS.length}+
+                  </span>
+                  <span className="mt-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
+                    Products
+                  </span>
+                </div>
+                <span aria-hidden="true" className="h-8 w-px bg-teal-100" />
+                <div className="text-center">
+                  <span className="block font-serif text-[1.5rem] leading-none text-teal-800">
+                    {CATEGORIES.length}
+                  </span>
+                  <span className="mt-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
+                    Ranges
+                  </span>
+                </div>
+              </div>
+
+              {/* Decorative corner accent */}
               <div
                 aria-hidden="true"
-                className="absolute -bottom-4 -left-4 hidden h-24 w-24 rounded-[4px] border border-copper-600/60 sm:block"
+                className="absolute -top-3 -right-3 hidden h-20 w-20 rounded-[6px] border border-copper-600/50 sm:block"
               />
             </div>
           </div>
@@ -176,15 +199,15 @@ export default function HomePage() {
                 {["Beans", "Pulses", "Vegetables", "Tomatoes"].map((label) => (
                   <li
                     key={label}
-                    className="rounded-[2px] border border-teal-200 bg-ivory px-3.5 py-1.5 text-sm font-medium text-teal-800"
+                    className="rounded-full border border-teal-200 bg-ivory px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-teal-400"
                   >
                     {label}
                   </li>
                 ))}
-                <li className="rounded-[2px] border border-copper-600/50 bg-copper-100/50 px-3.5 py-1.5 text-sm font-medium text-copper-700">
+                <li className="rounded-full border border-copper-600/50 bg-copper-100/50 px-4 py-2 text-sm font-medium text-copper-700">
                   400 ml can format
                 </li>
-                <li className="rounded-[2px] border border-copper-600/50 bg-copper-100/50 px-3.5 py-1.5 text-sm font-medium text-copper-700">
+                <li className="rounded-full border border-copper-600/50 bg-copper-100/50 px-4 py-2 text-sm font-medium text-copper-700">
                   Easy-open ring-pull
                 </li>
               </ul>
@@ -207,7 +230,7 @@ export default function HomePage() {
                 {normHighlights.map((product, index) => (
                   <li
                     key={product.id}
-                    className={`overflow-hidden rounded-[4px] border border-teal-100 bg-white ${
+                    className={`overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] ${
                       index === 0 ? "sm:col-span-2" : ""
                     }`}
                   >

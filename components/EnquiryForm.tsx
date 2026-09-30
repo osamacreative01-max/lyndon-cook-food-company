@@ -203,15 +203,17 @@ export default function EnquiryForm({
   };
 
   const controlClass = (name: keyof EnquiryValues) =>
-    `min-h-11 w-full rounded-[3px] border bg-white px-3.5 py-2.5 text-[0.9375rem] text-body placeholder:text-muted/70 ${
-      fieldError(name) ? "border-red-700" : "border-teal-200"
+    `min-h-11 w-full rounded-[4px] border bg-white px-3.5 py-2.5 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-teal-100 ${
+      fieldError(name)
+        ? "border-red-700 focus:border-red-700 focus:ring-red-100"
+        : "border-teal-200 focus:border-teal-400"
     }`;
 
   return (
     <form
       noValidate
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-[4px] border border-teal-100 bg-white p-6 sm:p-8"
+      className="rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)] sm:p-8"
       aria-describedby="enquiry-form-intro"
     >
       <p id="enquiry-form-intro" className="text-[0.9375rem] leading-relaxed text-muted">
@@ -460,7 +462,7 @@ export default function EnquiryForm({
         </Field>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4 border-t border-teal-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-8 flex flex-col gap-4 rounded-[6px] border border-teal-100 bg-ivory/60 p-5 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-[0.8125rem] leading-relaxed text-muted">
           We use your details only to respond to this enquiry. See our{" "}
           <a

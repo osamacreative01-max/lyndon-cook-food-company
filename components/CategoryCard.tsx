@@ -32,7 +32,7 @@ export default function CategoryCard({
       delay={delay}
       className="h-full"
     >
-      <article className="group flex h-full flex-col overflow-hidden rounded-[4px] border border-teal-100 bg-white transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-teal-200 hover:shadow-[0_12px_32px_rgba(8,75,80,0.10)]">
+      <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_16px_40px_rgba(8,75,80,0.12)]">
         <Link
           href={`/products/${category.slug}/`}
           className="flex h-full flex-col focus-visible:outline-offset-[-3px]"
@@ -45,17 +45,26 @@ export default function CategoryCard({
               fill
               loading="lazy"
               sizes={IMAGE_SIZES.card}
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              quality={85}
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            {isNorm ? (
-              <p className="absolute left-3 top-3 rounded-[2px] bg-teal-800 px-2.5 py-1 font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-ivory">
-                NORM
-              </p>
-            ) : null}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-teal-900/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+            <span
+              className={`absolute left-3 top-3 rounded-[3px] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
+                isNorm
+                  ? "bg-teal-800 text-ivory"
+                  : "bg-white/95 text-teal-800 shadow-sm"
+              }`}
+            >
+              {isNorm ? "NORM" : `${count} products`}
+            </span>
           </div>
 
           <div className="flex flex-1 flex-col p-6">
-            <h3 className="font-serif text-[1.375rem] leading-snug text-teal-800">
+            <h3 className="font-serif text-[1.375rem] leading-snug text-teal-800 transition-colors group-hover:text-teal-700">
               {category.name}
             </h3>
             <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-muted">
@@ -69,7 +78,7 @@ export default function CategoryCard({
                 {category.ctaLabel}
                 <ArrowRight
                   aria-hidden="true"
-                  className="h-4 w-4 text-copper-600 transition-transform duration-300 group-hover:translate-x-1"
+                  className="h-4 w-4 text-copper-600 transition-transform duration-300 group-hover:translate-x-1.5"
                 />
               </span>
             </div>
