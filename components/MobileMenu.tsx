@@ -28,11 +28,15 @@ export default function MobileMenu({
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const mountedRef = useRef(false);
 
-  // Close when the route changes.
+  // Close when the route changes (skip initial mount).
   useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      return;
+    }
     onClose();
-    // `onClose` is stable enough for this purpose; the route is the trigger.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
