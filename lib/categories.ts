@@ -12,7 +12,9 @@ export type CategoryId =
   | "rice"
   | "spices"
   | "seasonal-fruit"
-  | "canned-food";
+  | "canned-food"
+  | "norm-rice-1lb"
+  | "pasta";
 
 export type Category = {
   id: CategoryId;
@@ -31,6 +33,8 @@ export type Category = {
   groups: { id: string; name: string; description: string }[];
   seoTitle: string;
   seoDescription: string;
+  /** Optional PDF datasheet download link. */
+  pdf?: { href: string; label: string };
 };
 
 export const CATEGORIES: Category[] = [
@@ -164,6 +168,50 @@ export const CATEGORIES: Category[] = [
     seoTitle: "NORM Canned Foods | The Lyndon Cook Food Company",
     seoDescription:
       "NORM canned foods from The Lyndon Cook Food Company: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
+  },
+  {
+    id: "norm-rice-1lb",
+    slug: "norm-rice-1lb",
+    name: "NORM Rice 1lb",
+    shortName: "NORM Rice 1lb",
+    navLabel: "NORM Rice 1lb",
+    eyebrow: "Product brand",
+    summary:
+      "NORM Rice in a convenient 1 lb pack format for retail and foodservice.",
+    description:
+      "NORM Rice 1lb is part of the NORM product range from The Lyndon Cook Food Company, supplied in a 1 lb pack format. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
+    image: CATEGORY_IMAGES["norm-rice-1lb"],
+    ctaLabel: "Download datasheet",
+    groups: [],
+    pdf: {
+      href: "/downloads/Norm Rice 1lb.pdf",
+      label: "Download NORM Rice 1lb datasheet",
+    },
+    seoTitle: "NORM Rice 1lb | The Lyndon Cook Food Company",
+    seoDescription:
+      "NORM Rice in a 1 lb pack format from The Lyndon Cook Food Company. Download the product datasheet or contact us to discuss supply requirements.",
+  },
+  {
+    id: "pasta",
+    slug: "pasta",
+    name: "Pasta",
+    shortName: "Pasta",
+    navLabel: "Pasta",
+    eyebrow: "Category",
+    summary:
+      "Pasta products for retail, foodservice and institutional supply.",
+    description:
+      "Our pasta range covers a variety of formats for professional kitchens and retail. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
+    image: CATEGORY_IMAGES["pasta"],
+    ctaLabel: "Download datasheet",
+    groups: [],
+    pdf: {
+      href: "/downloads/Pasta.pdf",
+      label: "Download Pasta datasheet",
+    },
+    seoTitle: "Pasta Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Pasta products for wholesale, foodservice and institutional buyers. Download the product datasheet or contact us to discuss supply requirements with The Lyndon Cook Food Company.",
   },
 ];
 

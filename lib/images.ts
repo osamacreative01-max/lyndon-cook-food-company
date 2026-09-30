@@ -103,6 +103,14 @@ export const CATEGORY_IMAGES = {
     src: "/companyProfile/canned-food.jpg",
     alt: "An opened tin of beans in tomato sauce",
   },
+  "norm-rice-1lb": {
+    src: "/companyProfile/rice.jpg",
+    alt: "NORM Rice 1lb packaging",
+  },
+  "pasta": {
+    src: "/companyProfile/rice.jpg",
+    alt: "Pasta products",
+  },
 } as const;
 
 /* -------------------------------------------------------------------------- */

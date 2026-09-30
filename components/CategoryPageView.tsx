@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Info } from "lucide-react";
+import { ArrowRight, Download, Info } from "lucide-react";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
@@ -72,6 +72,33 @@ export default function CategoryPageView({ category }: { category: Category }) {
             <p className="mt-6 max-w-3xl text-[0.875rem] leading-relaxed text-teal-200">
               {NORM_PACKAGING_NOTE}
             </p>
+          </Container>
+        </section>
+      ) : null}
+
+      {category.pdf ? (
+        <section className="on-dark bg-teal-800">
+          <Container className="py-10">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="eyebrow text-copper-400">Product datasheet</p>
+                <h2 className="mt-3 text-[1.5rem] leading-snug text-ivory sm:text-[1.75rem]">
+                  Download the full specification
+                </h2>
+                <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-teal-200">
+                  Get the complete product datasheet with specifications, pack
+                  formats and other details.
+                </p>
+              </div>
+              <a
+                href={category.pdf.href}
+                download
+                className="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-[3px] bg-copper-600 px-6 py-3 text-[0.9375rem] font-semibold text-ivory transition-colors hover:bg-copper-700"
+              >
+                <Download aria-hidden="true" className="h-4 w-4" />
+                Download PDF
+              </a>
+            </div>
           </Container>
         </section>
       ) : null}
