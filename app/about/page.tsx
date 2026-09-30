@@ -35,7 +35,7 @@ export default function AboutPage() {
         description="The Lyndon Cook Food Company brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
         image={IMAGES.kitchen}
         breadcrumbs={
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About Us" }]} />
         }
       />
 
