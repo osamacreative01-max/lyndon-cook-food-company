@@ -1,11 +1,11 @@
 /**
  * Photography manifest.
  *
- * All imagery is served from local public/images and optimised by `next/image`
+ * All imagery is served from local public/ and optimised by `next/image`
  * (AVIF/WebP, responsive `sizes`, explicit dimensions to avoid layout shift).
  */
 
-const LOCAL = "/images";
+const LOCAL = "";
 
 export type EditorialImageKey =
   | "hero"
@@ -25,59 +25,59 @@ export type EditorialImageKey =
 
 export const IMAGES = {
   hero: {
-    src: `${LOCAL}/rice-sacks.jpg`,
-    alt: "Palletised canned goods staged for distribution",
+    src: "/Editorial images (13)/pantryStack.jpg",
+    alt: "Rice and pulses arranged for food service supply",
   },
   heroPantry: {
-    src: `${LOCAL}/pantry-clutter.jpg`,
+    src: "/Editorial images (13)/heroPantry.jpg",
     alt: "Shelves of canned food in a grocery store",
   },
   pantryStack: {
-    src: `${LOCAL}/basmati-rice-bowl.jpg`,
+    src: "/Editorial images (13)/pantryStack.jpg",
     alt: "Rice and pulses arranged for food service supply",
   },
   palletCans: {
-    src: `${LOCAL}/baked-beans.jpg`,
+    src: "/Editorial images (13)/palletCans.jpg",
     alt: "Pallet of canned goods ready for despatch",
   },
   warehouse: {
-    src: `${LOCAL}/rice-sacks.jpg`,
+    src: "/Editorial images (13)/warehouse.jpg",
     alt: "Goods handling operation with pallets in a distribution space",
   },
   riceSacks: {
-    src: `${LOCAL}/rice-sacks.jpg`,
+    src: "/Editorial images (13)/Ricesacks.jpg",
     alt: "Stacked sacks of dry goods in a storage space",
   },
   kitchen: {
-    src: `${LOCAL}/anita-austvika-u6JZeYYfvf8-unsplash.jpg`,
+    src: "/Editorial images (13)/kitchen.jpg",
     alt: "Chef preparing food in a commercial kitchen",
   },
   kitchenTeam: {
-    src: `${LOCAL}/junior-bazzo-8sBDLt02quo-unsplash.jpg`,
+    src: "/Editorial images (13)/kitchenTeam.jpg",
     alt: "Two chefs preparing food together in a kitchen",
   },
   plating: {
-    src: `${LOCAL}/alberto-rodriguez--aCrA9FmT8Y-unsplash.jpg`,
+    src: "/Editorial images (13)/plating.jpg",
     alt: "Dishes plated for service",
   },
   spiceBowls: {
-    src: `${LOCAL}/ground-cumin.jpg`,
+    src: "/Editorial images (13)/spiceBowls.jpg",
     alt: "Bowls of ground spices arranged for use",
   },
   spiceMarket: {
-    src: `${LOCAL}/pakistan-fruit-exporter.jpg`,
+    src: "/Editorial images (13)/spiceMarket.jpg",
     alt: "Colourful spices presented in bowls",
   },
   produceCrates: {
-    src: `${LOCAL}/anas-alhajj-jtKNexfk33c-unsplash.jpg`,
+    src: "/Editorial images (13)/produceCrates.jpg",
     alt: "Fresh produce arranged in crates",
   },
   cannedShelf: {
-    src: `${LOCAL}/baked-beans.jpg`,
+    src: "/Editorial images (13)/cannedShelf.jpg",
     alt: "Display of canned goods on a store shelf",
   },
   companyProfile: {
-    src: `${LOCAL}/pantry-clutter.jpg`,
+    src: "/companyProfile/rice.jpg",
     alt: "Food retail shelves representing our supply categories",
   },
 } as const satisfies Record<EditorialImageKey, { src: string; alt: string }>;
@@ -88,19 +88,19 @@ export const IMAGES = {
 
 export const CATEGORY_IMAGES = {
   rice: {
-    src: `${LOCAL}/pakistan-basmati-rice.jpg`,
+    src: "/companyProfile/rice.jpg",
     alt: "Cooked basmati rice served in a bowl",
   },
   spices: {
-    src: `${LOCAL}/ground-cumin.jpg`,
+    src: "/companyProfile/spices.jpg",
     alt: "Ground spices presented in small bowls",
   },
   "seasonal-fruit": {
-    src: `${LOCAL}/pakistan-fruit-exporter.jpg`,
+    src: "/companyProfile/seasonal-fruit.jpg",
     alt: "Mangoes in a crate, ready for selection",
   },
   "canned-food": {
-    src: `${LOCAL}/baked-beans.jpg`,
+    src: "/companyProfile/canned-food.jpg",
     alt: "An opened tin of beans in tomato sauce",
   },
 } as const;
@@ -111,53 +111,53 @@ export const CATEGORY_IMAGES = {
 
 export const PRODUCT_IMAGES = {
   /* Rice */
-  superBasmati: { src: `${LOCAL}/basmati-rice.jpg`, alt: "Close texture of long grain white rice" },
-  steamBasmati: { src: `${LOCAL}/basmati-rice-bowl.jpg`, alt: "Cooked basmati rice prepared as biryani" },
-  sellaBasmati: { src: `${LOCAL}/basmati-rice-medical.jpg`, alt: "Basmati rice served in a glass bowl" },
-  irri6: { src: `${LOCAL}/irri6.jpg`, alt: "Mounds of long grain white rice" },
-  pk386: { src: `${LOCAL}/basmati-rice.jpg`, alt: "Cooked long grain rice in a dish" },
-  irri9: { src: `${LOCAL}/basmati-rice-medical.jpg`, alt: "Rice and grains prepared as a porridge dish" },
-  brokenRice: { src: `${LOCAL}/rice-sacks.jpg`, alt: "Dry goods in sacks, ready for milling and packing" },
+  superBasmati: { src: "/Product images (41)/rice/superBasmati.jpg", alt: "Close texture of long grain white rice" },
+  steamBasmati: { src: "/Product images (41)/rice/steamBasmati,.jpg", alt: "Cooked basmati rice prepared as biryani" },
+  sellaBasmati: { src: "/Product images (41)/rice/sellaBasmati.jpg", alt: "Basmati rice served in a glass bowl" },
+  irri6: { src: "/Product images (41)/rice/irri6.jpg", alt: "Mounds of long grain white rice" },
+  pk386: { src: "/Product images (41)/rice/pk386.jpg", alt: "Cooked long grain rice in a dish" },
+  irri9: { src: "/Product images (41)/rice/irri9.jpg", alt: "Rice and grains prepared as a porridge dish" },
+  brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
   /* Spices */
-  groundCumin: { src: `${LOCAL}/ground-cumin.jpg`, alt: "Ground cumin spooned for measuring" },
-  groundCoriander: { src: `${LOCAL}/ground-coriander.jpg`, alt: "Coriander prepared for grinding" },
-  groundGinger: { src: `${LOCAL}/ground-ginger.jpg`, alt: "Ground ginger in a bowl" },
-  groundBlackPepper: { src: `${LOCAL}/amirmasoud-vSYo3T4AR5Y-unsplash.jpg`, alt: "Black pepper ground on a wooden surface" },
-  groundTurmeric: { src: `${LOCAL}/anju-ravindranath-Nihdo084Yos-unsplash.jpg`, alt: "Ground turmeric with its golden colour" },
-  garamMasala: { src: `${LOCAL}/david-gabrielyan-rzrfWXiEWVc-unsplash.jpg`, alt: "Aromatic spice blend with whole spices" },
-  redChilliPowder: { src: `${LOCAL}/jonas-kakaroto-B77ypBmpYuw-unsplash.jpg`, alt: "Red chilli powder in a white bowl" },
-  groundFenugreek: { src: `${LOCAL}/ground-fenugreek.jpg`, alt: "Fenugreek prepared for use in blends" },
-  curryPowder: { src: `${LOCAL}/karyna-panchenko-5352eOUYay4-unsplash.jpg`, alt: "Curry powder spooned from a bowl" },
-  dryMangoPowder: { src: `${LOCAL}/chaunsa.jpg`, alt: "Mangoes used for amchur seasoning" },
-  pinkSalt: { src: `${LOCAL}/kelsey-todd-XmfWnccTajs-unsplash.jpg`, alt: "Pink rock salt in bowls" },
+  groundCumin: { src: "/Product images (41)/Spices (11)/groundCumin.jpg", alt: "Ground cumin spooned for measuring" },
+  groundCoriander: { src: "/Product images (41)/Spices (11)/groundCoriander.jpg", alt: "Coriander prepared for grinding" },
+  groundGinger: { src: "/Product images (41)/Spices (11)/groundGinger.jpg", alt: "Ground ginger in a bowl" },
+  groundBlackPepper: { src: "/Product images (41)/Spices (11)/groundBlackPepper.jpg", alt: "Black pepper ground on a wooden surface" },
+  groundTurmeric: { src: "/Product images (41)/Spices (11)/groundTurmeric.jpg", alt: "Ground turmeric with its golden colour" },
+  garamMasala: { src: "/Product images (41)/Spices (11)/garamMasala.jpeg", alt: "Aromatic spice blend with whole spices" },
+  redChilliPowder: { src: "/Product images (41)/Spices (11)/redChilliPowder.jpg", alt: "Red chilli powder in a white bowl" },
+  groundFenugreek: { src: "/Product images (41)/Spices (11)/groundFenugreek.jpg", alt: "Fenugreek prepared for use in blends" },
+  curryPowder: { src: "/Product images (41)/Spices (11)/curryPowder.jpg", alt: "Curry powder spooned from a bowl" },
+  dryMangoPowder: { src: "/Product images (41)/Spices (11)/dryMangoPowder.jpg", alt: "Mangoes used for amchur seasoning" },
+  pinkSalt: { src: "/Product images (41)/Spices (11)/pinkSalt.jpg", alt: "Pink rock salt in bowls" },
 
   /* Seasonal fruit */
-  chaunsa: { src: `${LOCAL}/chaunsa.jpg`, alt: "Ripe mangoes ready for selection" },
-  langra: { src: `${LOCAL}/langra.jpg`, alt: "Mangoes in a crate" },
-  anwarRatol: { src: `${LOCAL}/anwar-ratol.jpg`, alt: "Green mangoes in bulk" },
-  sindhri: { src: `${LOCAL}/sindhri.jpg`, alt: "Mangoes stacked at market" },
-  dussehri: { src: `${LOCAL}/dussehri.jpg`, alt: "Ripe mangoes being prepared for sale" },
-  kinnow: { src: `${LOCAL}/kinnow.jpg`, alt: "Citrus fruit presented for selection" },
-  sangtra: { src: `${LOCAL}/sangtra.jpg`, alt: "Halved citrus fruit showing flesh and segments" },
-  fruiter: { src: `${LOCAL}/sangtra-benefits.jpg`, alt: "Sweet citrus fruit ready for packing" },
-  malta: { src: `${LOCAL}/sangtra-benefits.jpg`, alt: "Citrus fruit stacked for sale" },
+  chaunsa: { src: "/Product images (41)/Seasonal fruit (9)/chaunsa.jpg", alt: "Ripe mangoes ready for selection" },
+  langra: { src: "/Product images (41)/Seasonal fruit (9)/langra.jpg", alt: "Mangoes in a crate" },
+  anwarRatol: { src: "/Product images (41)/Seasonal fruit (9)/anwarRatol.webp", alt: "Green mangoes in bulk" },
+  sindhri: { src: "/Product images (41)/Seasonal fruit (9)/sindhri,.jpg", alt: "Mangoes stacked at market" },
+  dussehri: { src: "/Product images (41)/Seasonal fruit (9)/dussehri.jpg", alt: "Ripe mangoes being prepared for sale" },
+  kinnow: { src: "/Product images (41)/Seasonal fruit (9)/kinnow.jpg", alt: "Citrus fruit presented for selection" },
+  sangtra: { src: "/Product images (41)/Seasonal fruit (9)/sangtra.jpg", alt: "Halved citrus fruit showing flesh and segments" },
+  fruiter: { src: "/Product images (41)/Seasonal fruit (9)/fruiter.jpg", alt: "Sweet citrus fruit ready for packing" },
+  malta: { src: "/Product images (41)/Seasonal fruit (9)/malta.jpg", alt: "Citrus fruit stacked for sale" },
 
   /* NORM canned foods */
-  bakedBeans: { src: `${LOCAL}/baked-beans.jpg`, alt: "Baked beans in tomato sauce" },
-  blackBeans: { src: `${LOCAL}/baked-beans.jpg`, alt: "A bowl of black beans" },
-  broadBeans: { src: `${LOCAL}/jacob-mcgowin-514ttExZr1U-unsplash.jpg`, alt: "Broad beans prepared for cooking" },
-  chickpeas: { src: `${LOCAL}/jonas-kakaroto-B77ypBmpYuw-unsplash.jpg`, alt: "Cooked chickpeas in a bowl" },
-  pintoBeans: { src: `${LOCAL}/mustafa-akin-D8PSaH0o7kk-unsplash.jpg`, alt: "A bowl of pinto beans" },
-  redKidneyBeans: { src: `${LOCAL}/ratul-ghosh-NPrWYa69Mz0-unsplash.jpg`, alt: "Red kidney beans held in cupped hands" },
-  whiteKidneyBeans: { src: `${LOCAL}/mustafa-akin-fTjvX9xcrXI-unsplash.jpg`, alt: "White kidney beans ready for use" },
-  greenPeas: { src: `${LOCAL}/stephan-de-maranthi-GDn4iLAJijo-unsplash.jpg`, alt: "Green peas in a jar" },
-  sweetcorn: { src: `${LOCAL}/sweetcorn.jpg`, alt: "Sweetcorn kernels" },
-  creamedCorn: { src: `${LOCAL}/sweetcorn-2.jpg`, alt: "Creamed corn being prepared" },
-  mixedVegetables: { src: `${LOCAL}/tomasz-anusiewicz-dq_f8dxdOsU-unsplash.jpg`, alt: "A mixed vegetable dish" },
-  peasAndCarrots: { src: `${LOCAL}/vd-photography-1VTEK-sA8w8-unsplash.jpg`, alt: "Peas and carrots prepared for cooking" },
-  wholePeeledTomatoes: { src: `${LOCAL}/wolfgang-hasselmann-BzaEULtJuDY-unsplash.jpg`, alt: "Tins of tomatoes" },
-  sanMarzanoTomatoes: { src: `${LOCAL}/wouter-supardi-salari-HE_MjmWh9eQ-unsplash.jpg`, alt: "San Marzano tomatoes" },
+  bakedBeans: { src: "/Product images (41)/Canned foods (14)/bakedBeans.webp", alt: "Baked beans in tomato sauce" },
+  blackBeans: { src: "/Product images (41)/Canned foods (14)/blackBeans.jpg", alt: "A bowl of black beans" },
+  broadBeans: { src: "/Product images (41)/Canned foods (14)/broadBeans.jpg", alt: "Broad beans prepared for cooking" },
+  chickpeas: { src: "/Product images (41)/Canned foods (14)/chickpeas.webp", alt: "Cooked chickpeas in a bowl" },
+  pintoBeans: { src: "/Product images (41)/Canned foods (14)/pintoBeans.jpg", alt: "A bowl of pinto beans" },
+  redKidneyBeans: { src: "/Product images (41)/Canned foods (14)/redKidneyBeans.jpg", alt: "Red kidney beans held in cupped hands" },
+  whiteKidneyBeans: { src: "/Product images (41)/Canned foods (14)/whiteKidneyBeans.jpg", alt: "White kidney beans ready for use" },
+  greenPeas: { src: "/Product images (41)/Canned foods (14)/greenPeas.jpg", alt: "Green peas in a jar" },
+  sweetcorn: { src: "/Product images (41)/Canned foods (14)/sweetcorn.jpg", alt: "Sweetcorn kernels" },
+  creamedCorn: { src: "/Product images (41)/Canned foods (14)/creamedCorn.jpg", alt: "Creamed corn being prepared" },
+  mixedVegetables: { src: "/Product images (41)/Canned foods (14)/mixedVegetables.jpg", alt: "A mixed vegetable dish" },
+  peasAndCarrots: { src: "/Product images (41)/Canned foods (14)/peasAndCarrots.jpg", alt: "Peas and carrots prepared for cooking" },
+  wholePeeledTomatoes: { src: "/Product images (41)/Canned foods (14)/wholePeeledTomatoes.jpg", alt: "Tins of tomatoes" },
+  sanMarzanoTomatoes: { src: "/Product images (41)/Canned foods (14)/sanMarzanoTomatoes.jpg", alt: "San Marzano tomatoes" },
 } as const satisfies Record<string, { src: string; alt: string }>;
 
 export type ProductImageKey = keyof typeof PRODUCT_IMAGES;

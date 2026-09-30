@@ -19,7 +19,7 @@ type Props = {
  * so it can be coloured via CSS without a rectangular backdrop.
  */
 export default function Logo({ onDark, width, className = "", priority }: Props) {
-  const renderedWidth = width ?? 168;
+  const renderedWidth = width ?? 200;
   const height = Math.round((renderedWidth / SITE.logo.width) * SITE.logo.height);
 
   const src = onDark ? "/logo/lyndon-cook.svg" : SITE.logo.src;

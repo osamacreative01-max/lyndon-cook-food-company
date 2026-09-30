@@ -39,7 +39,7 @@ export default function Navbar() {
       style={{ ["--header-h" as string]: "4.5rem" }}
     >
       <div className="container-page flex h-[4.5rem] items-center justify-between gap-4">
-        <Logo priority width={158} />
+        <Logo priority width={200} />
 
         <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">

@@ -13,7 +13,7 @@ export default function Footer() {
       <Container className="py-14 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <Logo onDark width={168} />
+            <Logo onDark width={220} />
             <p className="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
               Rice, spices, seasonal fruit and NORM canned foods, supplied around
               clear specifications and planned purchasing requirements.
