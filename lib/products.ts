@@ -1069,11 +1069,250 @@ function withRelated(items: Product[]): Product[] {
   });
 }
 
+const normRiceProducts: Product[] = [
+  {
+    id: "norm-rice-1lb-white",
+    name: "NORM White Rice 1lb",
+    slug: "norm-white-rice-1lb",
+    category: "norm-rice-1lb",
+    subgroup: "norm-rice",
+    subgroupName: "NORM Rice",
+    brand: "NORM",
+    summary:
+      "White rice in a convenient 1 lb pack format, part of the NORM product range.",
+    description:
+      "NORM White Rice in a 1 lb pack format is a practical option for retail shelves and smaller foodservice requirements. The pack format keeps portioning straightforward. Final specification is confirmed by product specification.",
+    uses: ["Retail shelves", "Small foodservice packs", "Everyday cooking"],
+    facts: [
+      { label: "Brand", value: "NORM" },
+      { label: "Brand line", value: BRAND_LINE },
+      { label: "Pack format", value: "1 lb" },
+      { label: "Type", value: "White rice" },
+    ],
+    supplyNote:
+      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
+    image: PRODUCT_IMAGES.normRice1lb,
+    relatedProducts: [],
+    seoTitle: "NORM White Rice 1lb | The Lyndon Cook Food Company",
+    seoDescription:
+      "NORM White Rice in a 1 lb pack format. A brand from The Lyndon Cook Food Company. Specification confirmed per order.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "norm-rice-1lb-basmati",
+    name: "NORM Basmati Rice 1lb",
+    slug: "norm-basmati-rice-1lb",
+    category: "norm-rice-1lb",
+    subgroup: "norm-rice",
+    subgroupName: "NORM Rice",
+    brand: "NORM",
+    summary:
+      "Aromatic Basmati rice in a 1 lb pack format, part of the NORM product range.",
+    description:
+      "NORM Basmati Rice in a 1 lb pack format brings an aromatic option to the NORM range. Suited to retail and smaller foodservice requirements where fragrance and grain appearance matter. Final specification is confirmed by product specification.",
+    uses: ["Retail shelves", "Speciality foodservice", "Pulao and biryani"],
+    facts: [
+      { label: "Brand", value: "NORM" },
+      { label: "Brand line", value: BRAND_LINE },
+      { label: "Pack format", value: "1 lb" },
+      { label: "Type", value: "Basmati rice" },
+    ],
+    supplyNote:
+      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
+    image: PRODUCT_IMAGES.normRiceBasmati,
+    relatedProducts: [],
+    seoTitle: "NORM Basmati Rice 1lb | The Lyndon Cook Food Company",
+    seoDescription:
+      "NORM Basmati Rice in a 1 lb pack format. A brand from The Lyndon Cook Food Company. Specification confirmed per order.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "norm-rice-1lb-sella",
+    name: "NORM Sella Rice 1lb",
+    slug: "norm-sella-rice-1lb",
+    category: "norm-rice-1lb",
+    subgroup: "norm-rice",
+    subgroupName: "NORM Rice",
+    brand: "NORM",
+    summary:
+      "Parboiled Sella rice in a 1 lb pack format, part of the NORM product range.",
+    description:
+      "NORM Sella Rice in a 1 lb pack format is a parboiled option suited to batch preparation and catering. The pack format keeps portioning straightforward. Final specification is confirmed by product specification.",
+    uses: ["Catering service", "Batch preparation", "Retail shelves"],
+    facts: [
+      { label: "Brand", value: "NORM" },
+      { label: "Brand line", value: BRAND_LINE },
+      { label: "Pack format", value: "1 lb" },
+      { label: "Type", value: "Parboiled Sella rice" },
+    ],
+    supplyNote:
+      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
+    image: PRODUCT_IMAGES.normRiceSella,
+    relatedProducts: [],
+    seoTitle: "NORM Sella Rice 1lb | The Lyndon Cook Food Company",
+    seoDescription:
+      "NORM Sella Rice in a 1 lb pack format. A brand from The Lyndon Cook Food Company. Specification confirmed per order.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+];
+
+const pastaProducts: Product[] = [
+  {
+    id: "pasta-spaghetti",
+    name: "Spaghetti",
+    slug: "spaghetti",
+    category: "pasta",
+    subgroup: "dry-pasta",
+    subgroupName: "Dry pasta",
+    brand: COMPANY,
+    summary:
+      "Classic thin, long pasta strands for a wide range of dishes.",
+    description:
+      "Spaghetti is a versatile long pasta that suits tomato-based sauces, oil-based preparations and baked dishes. It is a staple across professional kitchens and retail shelves. Packing format and volume are agreed per order.",
+    uses: ["Tomato-based sauces", "Oil-based preparations", "Baked dishes"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.spaghetti,
+    relatedProducts: [],
+    seoTitle: "Spaghetti | Wholesale Pasta Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Classic spaghetti pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "pasta-penne",
+    name: "Penne",
+    slug: "penne",
+    category: "pasta",
+    subgroup: "dry-pasta",
+    subgroupName: "Dry pasta",
+    brand: COMPANY,
+    summary:
+      "Tube-shaped pasta with angled cuts, ideal for baked dishes and sauces.",
+    description:
+      "Penne is a tube-shaped pasta with angled cuts that holds sauces well, making it a strong choice for baked dishes, pasta salads and hearty sauces. Packing format and volume are agreed per order.",
+    uses: ["Baked dishes", "Pasta salads", "Hearty sauces"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.penne,
+    relatedProducts: [],
+    seoTitle: "Penne Pasta | Wholesale Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Penne tube-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "pasta-macaroni",
+    name: "Macaroni",
+    slug: "macaroni",
+    category: "pasta",
+    subgroup: "dry-pasta",
+    subgroupName: "Dry pasta",
+    brand: COMPANY,
+    summary:
+      "Curved tube pasta for casseroles, salads and cheese-based dishes.",
+    description:
+      "Macaroni is a curved tube pasta that works well in casseroles, pasta salads and cheese-based dishes. It is a familiar format across canteen menus and retail. Packing format and volume are agreed per order.",
+    uses: ["Casseroles", "Pasta salads", "Cheese-based dishes"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.macaroni,
+    relatedProducts: [],
+    seoTitle: "Macaroni Pasta | Wholesale Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Macaroni curved tube pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "pasta-fusilli",
+    name: "Fusilli",
+    slug: "fusilli",
+    category: "pasta",
+    subgroup: "pasta-formats",
+    subgroupName: "Pasta formats",
+    brand: COMPANY,
+    summary:
+      "Spiral-shaped pasta that holds chunky sauces and dressings well.",
+    description:
+      "Fusilli is a spiral-shaped pasta that traps chunky sauces and dressings effectively, making it a popular choice for pasta salads and robust sauce preparations. Packing format and volume are agreed per order.",
+    uses: ["Pasta salads", "Chunky sauces", "Cold preparations"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.fusilli,
+    relatedProducts: [],
+    seoTitle: "Fusilli Pasta | Wholesale Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Fusilli spiral-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "pasta-elbow-macaroni",
+    name: "Elbow Macaroni",
+    slug: "elbow-macaroni",
+    category: "pasta",
+    subgroup: "pasta-formats",
+    subgroupName: "Pasta formats",
+    brand: COMPANY,
+    summary:
+      "Short curved pasta tubes for soups, salads and baked dishes.",
+    description:
+      "Elbow Macaroni is a short curved pasta tube commonly used in soups, pasta salads and baked dishes. Its compact shape makes it practical for batch cooking and canteen service. Packing format and volume are agreed per order.",
+    uses: ["Soups", "Pasta salads", "Baked dishes"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.elbowMacaroni,
+    relatedProducts: [],
+    seoTitle: "Elbow Macaroni | Wholesale Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Elbow macaroni pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+  {
+    id: "pasta-assorted-shapes",
+    name: "Assorted Pasta Shapes",
+    slug: "assorted-pasta-shapes",
+    category: "pasta",
+    subgroup: "pasta-formats",
+    subgroupName: "Pasta formats",
+    brand: COMPANY,
+    summary:
+      "A selection of pasta shapes for varied menus and retail ranges.",
+    description:
+      "Assorted Pasta Shapes gives buyers a range of formats within a single supply conversation. Shapes and sizes can be selected to suit the intended menu or retail range. Packing format and volume are agreed per order.",
+    uses: ["Varied menus", "Retail ranges", "Canteen service"],
+    facts: SPICE_FACTS("Dry pasta"),
+    supplyNote:
+      "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
+    image: PRODUCT_IMAGES.pastaShapes,
+    relatedProducts: [],
+    seoTitle: "Assorted Pasta Shapes | Wholesale Supply | The Lyndon Cook Food Company",
+    seoDescription:
+      "Assorted pasta shapes for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+    status: "active",
+    enquiryEnabled: true,
+  },
+];
+
 const allProducts: Product[] = [
   ...riceProducts,
   ...spiceProducts,
   ...fruitProducts,
   ...normProducts,
+  ...normRiceProducts,
+  ...pastaProducts,
 ].map((product) => ({ ...product, relatedProducts: [] as string[] }));
 
 export const PRODUCTS: Product[] = withRelated(allProducts);
@@ -1128,4 +1367,6 @@ export const CATALOGUE_COUNTS = {
   spices: getProductsByCategory("spices").length,
   fruit: getProductsByCategory("seasonal-fruit").length,
   canned: getProductsByCategory("canned-food").length,
+  normRice: getProductsByCategory("norm-rice-1lb").length,
+  pasta: getProductsByCategory("pasta").length,
 } as const;

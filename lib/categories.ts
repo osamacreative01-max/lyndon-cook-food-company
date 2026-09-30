@@ -181,8 +181,15 @@ export const CATEGORIES: Category[] = [
     description:
       "NORM Rice 1lb is part of the NORM product range from The Lyndon Cook Food Company, supplied in a 1 lb pack format. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
     image: CATEGORY_IMAGES["norm-rice-1lb"],
-    ctaLabel: "Download datasheet",
-    groups: [],
+    ctaLabel: "Explore NORM Rice",
+    groups: [
+      {
+        id: "norm-rice",
+        name: "NORM Rice",
+        description:
+          "NORM Rice available in 1 lb pack format for retail and foodservice.",
+      },
+    ],
     pdf: {
       href: "/downloads/Norm Rice 1lb.pdf",
       label: "Download NORM Rice 1lb datasheet",
@@ -203,8 +210,21 @@ export const CATEGORIES: Category[] = [
     description:
       "Our pasta range covers a variety of formats for professional kitchens and retail. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
     image: CATEGORY_IMAGES["pasta"],
-    ctaLabel: "Download datasheet",
-    groups: [],
+    ctaLabel: "Explore pasta",
+    groups: [
+      {
+        id: "dry-pasta",
+        name: "Dry pasta",
+        description:
+          "Dried pasta formats for professional kitchens and retail supply.",
+      },
+      {
+        id: "pasta-formats",
+        name: "Pasta formats",
+        description:
+          "A range of pasta shapes and sizes for different applications.",
+      },
+    ],
     pdf: {
       href: "/downloads/Pasta.pdf",
       label: "Download Pasta datasheet",

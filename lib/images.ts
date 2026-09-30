@@ -166,6 +166,19 @@ export const PRODUCT_IMAGES = {
   peasAndCarrots: { src: "/Product images (41)/Canned foods (14)/peasAndCarrots.jpg", alt: "Peas and carrots prepared for cooking" },
   wholePeeledTomatoes: { src: "/Product images (41)/Canned foods (14)/wholePeeledTomatoes.jpg", alt: "Tins of tomatoes" },
   sanMarzanoTomatoes: { src: "/Product images (41)/Canned foods (14)/sanMarzanoTomatoes.jpg", alt: "San Marzano tomatoes" },
+
+  /* NORM Rice 1lb */
+  normRice1lb: { src: "/companyProfile/rice.jpg", alt: "NORM Rice 1lb pack" },
+  normRiceBasmati: { src: "/Product images (41)/rice/superBasmati.jpg", alt: "NORM Basmati Rice 1lb pack" },
+  normRiceSella: { src: "/Product images (41)/rice/sellaBasmati.jpg", alt: "NORM Sella Rice 1lb pack" },
+
+  /* Pasta */
+  spaghetti: { src: "/companyProfile/rice.jpg", alt: "Spaghetti pasta" },
+  penne: { src: "/companyProfile/rice.jpg", alt: "Penne pasta" },
+  macaroni: { src: "/companyProfile/rice.jpg", alt: "Macaroni pasta" },
+  fusilli: { src: "/companyProfile/rice.jpg", alt: "Fusilli pasta" },
+  elbowMacaroni: { src: "/companyProfile/rice.jpg", alt: "Elbow macaroni pasta" },
+  pastaShapes: { src: "/companyProfile/rice.jpg", alt: "Assorted pasta shapes" },
 } as const satisfies Record<string, { src: string; alt: string }>;
 
 export type ProductImageKey = keyof typeof PRODUCT_IMAGES;
