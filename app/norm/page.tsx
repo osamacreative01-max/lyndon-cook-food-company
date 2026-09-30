@@ -215,7 +215,7 @@ export default function NormPage() {
       })}
 
       {/* ------------------------------------------------------- NORM Rice 1lb */}
-      <section className="on-dark border-t border-teal-100 bg-white" aria-labelledby="norm-rice-heading">
+      <section className="bg-ivory" aria-labelledby="norm-rice-heading">
         <Container className="py-14 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
@@ -226,11 +226,19 @@ export default function NormPage() {
               >
                 NORM Rice 1lb
               </h2>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
-                NORM Rice in a convenient 1 lb pack format for retail shelves and
-                smaller foodservice requirements.
-              </p>
             </div>
+            <p className="text-sm text-muted">
+              {getProductsByCategory("norm-rice-1lb").length} products
+            </p>
+          </Reveal>
+          <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {getProductsByCategory("norm-rice-1lb").map((product, index) => (
+              <li key={product.id} className="h-full">
+                <ProductCard product={product} compact delay={index * 60} />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
             <Link
               href="/products/norm-rice-1lb/"
               className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
@@ -238,14 +246,7 @@ export default function NormPage() {
               View all NORM Rice
               <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
             </Link>
-          </Reveal>
-          <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {getProductsByCategory("norm-rice-1lb").map((product, index) => (
-              <li key={product.id} className="h-full">
-                <ProductCard product={product} delay={index * 60} />
-              </li>
-            ))}
-          </ul>
+          </div>
         </Container>
       </section>
 
@@ -261,11 +262,19 @@ export default function NormPage() {
               >
                 Pasta
               </h2>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
-                A range of pasta formats for professional kitchens and retail
-                supply.
-              </p>
             </div>
+            <p className="text-sm text-muted">
+              {getProductsByCategory("pasta").length} products
+            </p>
+          </Reveal>
+          <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {getProductsByCategory("pasta").map((product, index) => (
+              <li key={product.id} className="h-full">
+                <ProductCard product={product} compact delay={index * 60} />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8">
             <Link
               href="/products/pasta/"
               className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
@@ -273,14 +282,7 @@ export default function NormPage() {
               View all pasta
               <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
             </Link>
-          </Reveal>
-          <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {getProductsByCategory("pasta").map((product, index) => (
-              <li key={product.id} className="h-full">
-                <ProductCard product={product} delay={index * 60} />
-              </li>
-            ))}
-          </ul>
+          </div>
         </Container>
       </section>
 
