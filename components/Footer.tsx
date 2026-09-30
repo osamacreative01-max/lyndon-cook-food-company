@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Products */}
           <nav aria-label="Products" className="lg:col-span-3">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Products
             </h2>
             <ul className="mt-4 space-y-2">
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={category.id}>
                   <Link
                     href={`/products/${category.slug}/`}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-200 transition-colors hover:text-ivory"
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-100 transition-colors hover:text-ivory"
                   >
                     {category.shortName}
                     <ChevronRight
@@ -53,10 +53,10 @@ export default function Footer() {
 
           {/* Company */}
           <div className="lg:col-span-2">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Company
             </h2>
-            <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-teal-200">
+            <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-teal-100">
               <span className="block font-semibold text-ivory">{SITE.name}</span>
               <span className="mt-3 flex gap-2.5">
                 <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-copper-400" />
@@ -73,7 +73,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-100 transition-colors hover:text-ivory"
                 >
                   <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.email}
@@ -82,7 +82,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${SITE.phoneHref}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-200 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-100 transition-colors hover:text-ivory"
                 >
                   <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.phone}
@@ -93,7 +93,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <nav aria-label="Footer" className="lg:col-span-3">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-copper-400">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Quick links
             </h2>
             <ul className="mt-4 space-y-2">
@@ -101,7 +101,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-200 transition-colors hover:text-ivory"
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-100 transition-colors hover:text-ivory"
                   >
                     {link.label}
                     <ChevronRight

@@ -15,15 +15,20 @@ type Props = {
 /**
  * Company lockup.
  *
- * Uses the JPEG for light backgrounds, and the transparent SVG for dark backgrounds
- * so it can be coloured via CSS without a rectangular backdrop.
+ * Light backgrounds use the JPEG. Dark backgrounds use the SVG (which has a
+ * transparent background) with a CSS filter that renders it pure white.
  */
 export default function Logo({ onDark, width, className = "", priority }: Props) {
   const renderedWidth = width ?? 200;
-  const height = Math.round((renderedWidth / SITE.logo.width) * SITE.logo.height);
 
-  const src = onDark ? "/logo/lyndon-cook.svg" : SITE.logo.src;
-  const alt = SITE.logo.alt;
+  // The SVG has its own viewBox ratio (232:96); the JPEG uses SITE.logo dimensions.
+  const isSvg = Boolean(onDark);
+  const ratio = isSvg
+    ? 96 / 232
+    : SITE.logo.height / SITE.logo.width;
+  const height = Math.round(renderedWidth * ratio);
+
+  const src = isSvg ? "/logo/lyndon-cook.svg" : SITE.logo.src;
 
   return (
     <Link
@@ -33,12 +38,15 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
     >
       <Image
         src={src}
-        alt={alt}
+        alt={SITE.logo.alt}
         width={renderedWidth}
         height={height}
         priority={priority}
-        className={`h-auto select-none ${onDark ? "text-ivory" : ""} ${className}`}
-        style={{ width: renderedWidth, ...(onDark ? { filter: "brightness(0) invert(1)" } : {}) }}
+        className={`h-auto select-none ${className}`}
+        style={{
+          width: renderedWidth,
+          ...(isSvg ? { filter: "brightness(0) invert(1)" } : {}),
+        }}
       />
     </Link>
   );
