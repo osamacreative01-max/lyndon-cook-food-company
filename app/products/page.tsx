@@ -9,7 +9,7 @@ import ProductFilters from "@/components/ProductFilters";
 import { PageHero } from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import { CATEGORIES } from "@/lib/categories";
-import { CATEGORY_IMAGES } from "@/lib/images";
+import { CATEGORY_IMAGES, IMAGES } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
@@ -47,6 +47,7 @@ export default function ProductsPage() {
         eyebrow="Our products"
         title="Rice, spices, seasonal fruit and NORM canned foods."
         description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by range, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
+        image={IMAGES.heroPantry}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our products" }]} />
         }
