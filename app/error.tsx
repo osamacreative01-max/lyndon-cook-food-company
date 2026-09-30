@@ -46,7 +46,7 @@ export default function Error({
           {error.digest ? (
             <p className="mt-4 text-sm text-muted">
               Reference for our team:{" "}
-              <code className="font-mono text-[0.8125rem] text-ink">{error.digest}</code>
+              <code className="font-mono text-[0.8125rem] text-teal-800">{error.digest}</code>
             </p>
           ) : null}
 

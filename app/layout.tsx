@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className="flex min-h-screen flex-col bg-ivory font-sans text-body"
         suppressHydrationWarning
       >
-        <a href="#main" className="skip-link sr-only-focusable">
+        <a href="#main" className="skip-link">
           Skip to main content
         </a>
         <Navbar />

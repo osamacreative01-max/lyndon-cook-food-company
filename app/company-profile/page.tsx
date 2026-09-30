@@ -91,7 +91,7 @@ export default function CompanyProfilePage() {
           <dl className="mt-12 grid grid-cols-2 gap-8 border-t border-teal-100 pt-10 sm:grid-cols-4">
             {[
               { term: String(CATALOGUE_COUNTS.total), label: "Products in the range" },
-              { term: "4", label: "Supply categories" },
+              { term: String(CATEGORIES.length), label: "Supply ranges" },
               { term: String(normCount), label: "NORM canned foods" },
               { term: "400 ml", label: "NORM can format" },
             ].map((stat) => (
@@ -115,7 +115,7 @@ export default function CompanyProfilePage() {
             id="categories-heading"
             eyebrow="Product categories"
             title="What we supply"
-            description="Four categories, each with its own product pages, confirmed facts and supply notes."
+            description={`${CATEGORIES.length} ranges, each with its own product pages, confirmed facts and supply notes.`}
           />
           <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {CATEGORIES.map((category, index) => (

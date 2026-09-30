@@ -95,7 +95,7 @@ p {
   border-radius: 2px;
 }
 
-.on-dark :where(a, button, input, select, textarea, summary):focus-visible {
+.on-dark.bg-teal-800 :where(a, button, input, select, textarea, summary):focus-visible {
   outline-color: var(--color-copper-400);
 }
 
@@ -190,6 +190,10 @@ p {
 }
 
 @utility skip-link-focus {
+  top: 0.75rem;
+}
+
+.skip-link:focus {
   top: 0.75rem;
 }
 

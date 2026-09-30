@@ -69,7 +69,7 @@ export default function HomePage() {
             </div>
             <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 border-t border-teal-100 pt-8 text-[0.9375rem] text-muted sm:grid-cols-3">
               {[
-                `${ACTIVE_PRODUCTS.length} products across 4 categories`,
+                `${ACTIVE_PRODUCTS.length} products across ${CATEGORIES.length} categories`,
                 "Planned full-load B2B supply",
                 "Specification agreed per order",
               ].map((point) => (
@@ -114,7 +114,7 @@ export default function HomePage() {
               id="range-heading"
               eyebrow="What we supply"
               title="Our products"
-              description="Four categories, one supply conversation. Tell us what you need and we will review the options."
+              description={`${CATEGORIES.length} ranges, one supply conversation. Tell us what you need and we will review the options.`}
             />
             <Link
               href="/products/"
@@ -125,7 +125,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {CATEGORIES.map((category, index) => (
               <li key={category.id} className="h-full">
                 <CategoryCard category={category} delay={index * 90} />

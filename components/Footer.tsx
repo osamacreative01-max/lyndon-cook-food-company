@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             <p className="mt-6 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
               {SITE.productBrand}
-              <span className="block font-sans text-sm font-normal text-teal-300">
+              <span className="block font-sans text-sm font-normal text-teal-200">
                 {SITE.brandLine}
               </span>
             </p>
@@ -68,7 +68,7 @@ export default function Footer() {
                   {SITE.phone}
                 </a>
               </li>
-              <li className="text-teal-300">
+              <li className="text-teal-200">
                 <span className="text-copper-400">Web</span> {SITE.domain}
               </li>
             </ul>
@@ -96,7 +96,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-teal-800 pt-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-teal-300">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-teal-200">
               {FOOTER_LEGAL_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -112,7 +112,7 @@ export default function Footer() {
               &copy; {year} {SITE.name}. All rights reserved.
             </p>
           </div>
-          <p className="mt-4 sm:mt-2 max-w-3xl text-sm leading-relaxed text-teal-300/80">
+          <p className="mt-4 sm:mt-2 max-w-3xl text-sm leading-relaxed text-teal-200/80">
             Product specifications, pack formats and delivery terms are agreed per
             order. Photography on this site is illustrative. 400 ml refers to the
             NORM can format, not net weight.

@@ -145,7 +145,7 @@ export default function AboutPage() {
               foods.
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-              {CATALOGUE_COUNTS.total} products across four categories. Each one has
+              {CATALOGUE_COUNTS.total} products across {CATEGORIES.length} ranges. Each one has
               its own page, its own confirmed facts and its own supply note, so you
               can see exactly what is settled and what still needs agreeing.
             </p>

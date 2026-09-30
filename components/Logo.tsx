@@ -37,8 +37,8 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
         width={renderedWidth}
         height={height}
         priority={priority}
-        className={`h-auto w-auto select-none ${onDark ? "text-ivory" : ""} ${className}`}
-        style={onDark ? { filter: "brightness(0) invert(1)" } : undefined}
+        className={`h-auto select-none ${onDark ? "text-ivory" : ""} ${className}`}
+        style={{ width: renderedWidth, ...(onDark ? { filter: "brightness(0) invert(1)" } : {}) }}
       />
     </Link>
   );

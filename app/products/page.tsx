@@ -15,7 +15,7 @@ import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
 const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "Browse the full The Lyndon Cook Food Company catalogue: rice, spices and seasonings, seasonal fruit and NORM canned foods. Filter by range or search the catalogue, then send an enquiry.";
+  "Browse the full The Lyndon Cook Food Company catalogue: rice, spices and seasonings, seasonal fruit, NORM canned foods, NORM Rice 1lb and pasta. Filter by range or search the catalogue, then send an enquiry.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -61,8 +61,10 @@ export default function ProductsPage() {
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
               {CATALOGUE_COUNTS.total} products: {CATALOGUE_COUNTS.rice} rice,{" "}
               {CATALOGUE_COUNTS.spices} spices and seasonings,{" "}
-              {CATALOGUE_COUNTS.fruit} seasonal fruit and {CATALOGUE_COUNTS.canned}{" "}
-              NORM canned foods.
+              {CATALOGUE_COUNTS.fruit} seasonal fruit,{" "}
+              {CATALOGUE_COUNTS.canned} NORM canned foods,{" "}
+              {CATALOGUE_COUNTS.normRice} NORM Rice 1lb and{" "}
+              {CATALOGUE_COUNTS.pasta} pasta.
             </p>
           </Reveal>
 
@@ -90,7 +92,7 @@ export default function ProductsPage() {
             supplied. Photography is illustrative and final packaging is confirmed
             per order.
           </p>
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CATEGORIES.map((category) => (
               <Reveal key={category.id}>
                 <a
