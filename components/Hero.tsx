@@ -78,6 +78,7 @@ export default function Hero({
           fill
           priority
           fetchPriority="high"
+          quality={90}
           sizes={IMAGE_SIZES.hero}
           className="object-cover"
         />
@@ -174,6 +175,7 @@ export function PageHero({
                   alt={image.alt}
                   fill
                   priority
+                  quality={90}
                   sizes={IMAGE_SIZES.band}
                   className="object-cover"
                 />

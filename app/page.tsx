@@ -93,6 +93,7 @@ export default function HomePage() {
                   fill
                   priority
                   fetchPriority="high"
+                  quality={90}
                   sizes={IMAGE_SIZES.hero}
                   className="object-cover"
                 />
