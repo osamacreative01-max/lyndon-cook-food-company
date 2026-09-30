@@ -78,17 +78,16 @@ export type NavLink = {
 };
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "Our range", href: "/products/" },
+  { label: "Our products", href: "/products/" },
   { label: "NORM", href: "/norm/" },
   { label: "How we supply", href: "/how-we-supply/" },
   { label: "About", href: "/about/" },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
-  { label: "Our range", href: "/products/" },
+  { label: "Our products", href: "/products/" },
   { label: "NORM", href: "/norm/" },
   { label: "How we supply", href: "/how-we-supply/" },
-  { label: "About", href: "/about/" },
   { label: "Enquire", href: "/enquire/" },
   { label: "Company profile", href: "/company-profile/" },
 ];

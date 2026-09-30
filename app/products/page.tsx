@@ -44,11 +44,11 @@ export default function ProductsPage() {
       />
 
       <PageHero
-        eyebrow="Our range"
+        eyebrow="Our products"
         title="Rice, spices, seasonal fruit and NORM canned foods."
         description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by range, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
         breadcrumbs={
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our range" }]} />
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our products" }]} />
         }
       />
 

@@ -113,7 +113,7 @@ export default function HomePage() {
             <SectionHeading
               id="range-heading"
               eyebrow="What we supply"
-              title="Our range"
+              title="Our products"
               description="Four categories, one supply conversation. Tell us what you need and we will review the options."
             />
             <Link
@@ -251,7 +251,7 @@ export default function HomePage() {
             id="featured-heading"
             eyebrow="From the catalogue"
             title="Where most enquiries start"
-            description="A few of the products buyers ask about most often. The full catalogue, with filtering and search, is on the Our range page."
+            description="A few of the products buyers ask about most often. The full catalogue, with filtering and search, is on the Our products page."
           />
           <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {[...featuredRice, ...featuredSpices].map((product, index) => (

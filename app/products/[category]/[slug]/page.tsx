@@ -59,7 +59,7 @@ function renderProduct(product: Product) {
           <Breadcrumbs
             items={[
               { name: "Home", href: "/" },
-              { name: "Our range", href: "/products/" },
+              { name: "Our products", href: "/products/" },
               { name: category.name, href: `/products/${category.slug}/` },
               { name: product.name },
             ]}
