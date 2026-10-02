@@ -22,6 +22,7 @@ export default function ProductCard({
   delay = 0,
 }: Props) {
   const isNorn = product.brand === "NORN";
+  const isPackShot = product.image.src.startsWith("/Png/");
 
   return (
     <Reveal delay={delay} className="h-full">
@@ -40,7 +41,9 @@ export default function ProductCard({
               loading={priority ? undefined : "lazy"}
               sizes={IMAGE_SIZES.grid}
               quality={85}
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`transition-transform duration-500 group-hover:scale-105 ${
+                isPackShot ? "object-contain p-5 sm:p-6" : "object-cover"
+              }`}
             />
             {/* Gradient overlay on hover */}
             <div

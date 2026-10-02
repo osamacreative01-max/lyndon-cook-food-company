@@ -11,16 +11,16 @@ export default function Footer() {
 
   return (
     <footer className="on-dark mt-auto border-t-4 border-copper-600 bg-teal-900 text-teal-50">
-      <Container className="py-14 sm:py-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      <Container className="py-10 sm:py-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Brand */}
           <div className="lg:col-span-4">
             <Logo onDark width={220} />
-            <p className="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
+            <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
               Rice, spices, seasonal fruit and NORN canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
-            <p className="mt-6 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
+            <p className="mt-4 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
               {SITE.productBrand}
               <span className="block font-sans text-sm font-normal text-teal-200">
                 {SITE.brandLine}
@@ -115,7 +115,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-12 border-t border-teal-800 pt-8">
+        <div className="mt-8 border-t border-teal-800 pt-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-teal-200">
               {FOOTER_LEGAL_LINKS.map((link) => (
@@ -133,11 +133,6 @@ export default function Footer() {
               &copy; {year} {SITE.name}. All rights reserved.
             </p>
           </div>
-          <p className="mt-4 sm:mt-2 max-w-3xl text-sm leading-relaxed text-teal-200/80">
-            Product specifications, pack formats and delivery terms are agreed per
-            order. Photography on this site is illustrative. 400 ml refers to the
-            NORN can format, not net weight.
-          </p>
         </div>
       </Container>
     </footer>

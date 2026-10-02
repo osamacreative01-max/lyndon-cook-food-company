@@ -74,10 +74,14 @@ function renderProduct(product: Product) {
                   alt={product.image.alt}
                   fill
                   priority
-                  sizes={IMAGE_SIZES.detail}
-                  quality={90}
-                  className="object-cover"
-                />
+                sizes={IMAGE_SIZES.detail}
+                quality={90}
+                className={
+                  product.image.src.startsWith("/Png/")
+                    ? "object-contain p-6 sm:p-10"
+                    : "object-cover"
+                }
+              />
                 {isNorn ? (
                   <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
                     NORN

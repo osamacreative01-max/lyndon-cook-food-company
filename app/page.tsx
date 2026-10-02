@@ -45,7 +45,7 @@ export default function HomePage() {
 
       {/* ---------------------------------------------------------------- Hero */}
       <section className="on-dark bg-white">
-        <Container className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:gap-14 lg:py-24">
+        <Container className="grid items-center gap-10 py-10 sm:py-12 lg:grid-cols-12 lg:gap-14 lg:py-16">
           <div className="lg:col-span-6">
             <p className="eyebrow">UK food supply, planned around you</p>
             <span className="rule-copper mt-3" aria-hidden="true" />
@@ -86,7 +86,7 @@ export default function HomePage() {
 
           <div className="lg:col-span-6">
             <div className="relative">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/5]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/3]">
                 <Image
                   src={heroImage.src}
                   alt={heroImage.alt}
@@ -249,7 +249,11 @@ export default function HomePage() {
                           fill
                           loading="lazy"
                           sizes={IMAGE_SIZES.card}
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          className={`transition-transform duration-500 group-hover:scale-[1.04] ${
+                            product.image.src.startsWith("/Png/")
+                              ? "object-contain p-3 sm:p-4"
+                              : "object-cover"
+                          }`}
                         />
                       </div>
                       <p className="flex items-center justify-between gap-2 px-4 py-3 text-sm font-medium text-teal-800">

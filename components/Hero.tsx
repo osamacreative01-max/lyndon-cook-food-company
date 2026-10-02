@@ -124,8 +124,8 @@ export function PageHero({
     <section
       className={`on-dark ${onDark ? "bg-teal-800" : "border-b border-teal-100 bg-white"}`}
     >
-      <Container className="py-12 sm:py-16">
-        {breadcrumbs ? <div className="mb-8">{breadcrumbs}</div> : null}
+      <Container className="py-10 sm:py-12">
+        {breadcrumbs ? <div className="mb-6">{breadcrumbs}</div> : null}
         <div
           className={
             image
@@ -169,7 +169,7 @@ export function PageHero({
           </div>
           {image ? (
             <div className="lg:col-span-5">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-100">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[4px] border border-teal-100">
                 <Image
                   src={image.src}
                   alt={image.alt}
