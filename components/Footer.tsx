@@ -3,7 +3,6 @@ import { Mail, MapPin, Phone, ChevronRight } from "lucide-react";
 
 import Container from "@/components/Container";
 import Logo from "@/components/Logo";
-import SocialLinks from "@/components/SocialLinks";
 import { SITE, FOOTER_LINKS, FOOTER_LEGAL_LINKS } from "@/lib/site";
 import { CATEGORIES } from "@/lib/categories";
 
@@ -27,7 +26,6 @@ export default function Footer() {
                 {SITE.brandLine}
               </span>
             </p>
-            <SocialLinks className="mt-8" heading="Follow us" />
           </div>
 
           {/* Products */}

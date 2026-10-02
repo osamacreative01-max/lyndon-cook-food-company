@@ -93,31 +93,6 @@ export const FOOTER_LINKS: NavLink[] = [
   { label: "Company profile", href: "/company-profile/" },
 ];
 
-export type SocialLink = {
-  label: string;
-  href: string;
-  /** Icon key rendered by components/SocialLinks.tsx. */
-  icon: "linkedin" | "instagram" | "youtube";
-};
-
-export const SOCIAL_LINKS: SocialLink[] = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/nrently-undefined-621a3243b/",
-    icon: "linkedin",
-  },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/nrently2026/?hl=en",
-    icon: "instagram",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@nrently",
-    icon: "youtube",
-  },
-];
-
 export const FOOTER_LEGAL_LINKS: NavLink[] = [
   { label: "Privacy", href: "/privacy/" },
   { label: "Cookies", href: "/cookies/" },

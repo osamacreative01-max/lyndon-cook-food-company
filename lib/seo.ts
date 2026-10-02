@@ -7,7 +7,7 @@
 
 import type { Metadata } from "next";
 
-import { SITE, SOCIAL_LINKS } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import type { Product } from "@/lib/products";
 import type { Category } from "@/lib/categories";
 
@@ -117,7 +117,6 @@ export function organizationSchema() {
       "Wholesale food supply of rice, spices, seasonal fruit and NORM canned foods, supplied around agreed specifications and planned purchasing requirements.",
     email: SITE.email,
     telephone: SITE.phoneHref,
-    sameAs: SOCIAL_LINKS.map((link) => link.href),
     address: {
       "@type": "PostalAddress",
       streetAddress: SITE.address.street,
