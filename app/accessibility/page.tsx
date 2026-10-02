@@ -6,7 +6,7 @@ import { PageHero } from "@/components/Hero";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const TITLE = "Accessibility Statement | The Lyndon Cook Food Company";
+const TITLE = "Accessibility Statement | The Lyndon Cook";
 const DESCRIPTION =
   "The accessibility approach for www.tlcfc.co.uk, including the standard targeted, the measures taken and how to report a barrier.";
 

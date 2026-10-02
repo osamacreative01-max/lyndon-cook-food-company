@@ -13,9 +13,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { ACTIVE_PRODUCTS } from "@/lib/products";
 
-const TITLE = "Enquire | Discuss Your Requirements | The Lyndon Cook Food Company";
+const TITLE = "Enquire | Discuss Your Requirements | The Lyndon Cook";
 const DESCRIPTION =
-  "Send an enquiry about rice, spices, seasonal fruit or NORM canned foods. Tell us the product, specification, pack format, volume, destination and delivery schedule.";
+  "Send an enquiry about rice, spices, seasonal fruit or NORN canned foods. Tell us the product, specification, pack format, volume, destination and delivery schedule.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -54,7 +54,7 @@ const WHAT_TO_INCLUDE = [
   },
   {
     title: "Pack format",
-    body: "How you want the product packed and presented. NORM uses a 400 ml can format.",
+    body: "How you want the product packed and presented. NORN uses a 400 ml can format.",
   },
   {
     title: "Volume",

@@ -16,9 +16,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
 
-const TITLE = "Company Profile | The Lyndon Cook Food Company";
+const TITLE = "Company Profile | The Lyndon Cook";
 const DESCRIPTION =
-  "A downloadable overview of The Lyndon Cook Food Company: rice, spices, seasonal fruit and NORM canned foods, supplied around agreed specifications and planned purchasing requirements.";
+  "A downloadable overview of The Lyndon Cook: rice, spices, seasonal fruit and NORN canned foods, supplied around agreed specifications and planned purchasing requirements.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -27,13 +27,13 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function CompanyProfilePage() {
-  const normCount = CATALOGUE_COUNTS.canned;
+  const nornCount = CATALOGUE_COUNTS.canned;
 
   return (
     <>
       <PageHero
         eyebrow="Company profile"
-        title="The Lyndon Cook Food Company, at a glance."
+        title="The Lyndon Cook, at a glance."
         description="A short, factual overview of what we supply and how supply works. Download the profile to keep, or read it here."
         image={IMAGES.companyProfile}
         breadcrumbs={
@@ -57,7 +57,7 @@ export default function CompanyProfilePage() {
               </h2>
               <p className="mt-3 text-[0.9375rem] leading-relaxed text-teal-100">
                 {SITE.name} company profile ({SITE.profileDownload.sizeLabel}),
-                including product categories, the NORM range and our supply
+                including product categories, the NORN range and our supply
                 approach.
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function CompanyProfilePage() {
               {SITE.name}
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-              The Lyndon Cook Food Company brings a practical approach to food
+              The Lyndon Cook brings a practical approach to food
               supply: well-chosen products, clear specifications and orders planned
               around the customer. We supply businesses that buy food to cook,
               serve or resell, and we plan around an agreed purchasing programme
@@ -92,8 +92,8 @@ export default function CompanyProfilePage() {
             {[
               { term: String(CATALOGUE_COUNTS.total), label: "Products in the range" },
               { term: String(CATEGORIES.length), label: "Supply ranges" },
-              { term: String(normCount), label: "NORM canned foods" },
-              { term: "400 ml", label: "NORM can format" },
+              { term: String(nornCount), label: "NORN canned foods" },
+              { term: "400 ml", label: "NORN can format" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -165,28 +165,28 @@ export default function CompanyProfilePage() {
         </Container>
       </section>
 
-      {/* ----------------------------------------------------------------- NORM */}
-      <section className="on-dark bg-white" aria-labelledby="profile-norm">
+      {/* ----------------------------------------------------------------- NORN */}
+      <section className="on-dark bg-white" aria-labelledby="profile-norn">
         <Container className="py-16 sm:py-20">
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
               <SectionHeading
-                id="profile-norm"
+                id="profile-norn"
                 eyebrow="Product brand"
-                title="NORM"
+                title="NORN"
                 description={`${SITE.brandLine}. Fourteen choices in a 400 ml easy-open can format, across beans and pulses, vegetables and tomatoes.`}
               />
               <p className="mt-6 text-[0.9375rem] leading-relaxed text-muted">
                 400 ml refers to the can format, not net weight. Final net contents,
                 drained weights and label details are confirmed by product
-                specification. NORM San Marzano Tomatoes are a product of Italy with
+                specification. NORN San Marzano Tomatoes are a product of Italy with
                 British English and Italian pack wording; that origin applies to
                 San Marzano only.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/norm/">About NORM</Button>
+                <Button href="/norn/">About NORN</Button>
                 <Button href="/products/canned-food/" variant="secondary">
-                  Explore NORM products
+                  Explore NORN products
                 </Button>
               </div>
             </div>

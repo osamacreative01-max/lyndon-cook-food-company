@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Logo onDark width={220} />
             <p className="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
-              Rice, spices, seasonal fruit and NORM canned foods, supplied around
+              Rice, spices, seasonal fruit and NORN canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
             <p className="mt-6 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
@@ -136,7 +136,7 @@ export default function Footer() {
           <p className="mt-4 sm:mt-2 max-w-3xl text-sm leading-relaxed text-teal-200/80">
             Product specifications, pack formats and delivery terms are agreed per
             order. Photography on this site is illustrative. 400 ml refers to the
-            NORM can format, not net weight.
+            NORN can format, not net weight.
           </p>
         </div>
       </Container>

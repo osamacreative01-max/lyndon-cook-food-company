@@ -11,7 +11,7 @@
  *  - no stock, availability or lead-time promises
  *  - no certifications, accreditations, supplier or origin claims
  *  - no legal suffix, because the legal entity is unconfirmed
- *  - NORM is a brand within the company, never a replacement for its name
+ *  - NORN is a brand within the company, never a replacement for its name
  *
  *   node scripts/generate-company-profile-pdf.mjs
  */
@@ -349,7 +349,11 @@ function pageCover(doc) {
   // must not be invented, and no year is confirmed by the client.
 
   doc.text(158, cy + 22, "The Lyndon Cook", { size: 30, font: "Times-Bold", color: IVORY });
-  doc.text(158, cy - 14, "Food Company", { size: 30, font: "Times-Bold", color: IVORY });
+  doc.text(158, cy - 12, "F O O D   C O M P A N Y", {
+    size: 10,
+    font: "Helvetica-Bold",
+    color: IVORY,
+  });
   doc.line(158, cy - 34, width - 84, cy - 34, 2, COPPER);
   doc.text(158, cy - 56, "WHOLESALE FOOD SUPPLY", {
     size: 9,
@@ -674,8 +678,8 @@ function serialise(doc) {
   const infoRef = add(
     `<< /Title (${pdfString(`${SITE.name} \u2014 Company profile`)}) ` +
       `/Author (${pdfString(SITE.name)}) ` +
-      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit and NORM canned foods")}) ` +
-      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods, NORM")}) ` +
+      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit and NORN canned foods")}) ` +
+      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods, NORN")}) ` +
       `/Creator (${pdfString(`${SITE.name} website`)}) ` +
       `/Producer (${pdfString("scripts/generate-company-profile-pdf.mjs")}) >>`
   );

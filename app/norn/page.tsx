@@ -17,14 +17,14 @@ import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { getProductsByCategory, getProductsBySubgroup } from "@/lib/products";
 
-const TITLE = "NORM Canned Foods | The Lyndon Cook Food Company";
+const TITLE = "NORN Canned Foods | The Lyndon Cook";
 const DESCRIPTION =
-  "NORM is the canned-food brand from The Lyndon Cook Food Company: fourteen choices in a 400 ml easy-open can format, across beans and pulses, vegetables and tomatoes.";
+  "NORN is the canned-food brand from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format, across beans and pulses, vegetables and tomatoes.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: "/norm/",
+  path: "/norn/",
 });
 
 const cannedCategory = getCategory("canned-food")!;
@@ -49,14 +49,14 @@ const GROUPS = [
   },
 ] as const;
 
-export default function NormPage() {
+export default function NornPage() {
   const allProducts = getProductsByCategory("canned-food");
 
   return (
     <>
       <JsonLd
         data={itemListSchema(
-          "NORM canned foods",
+          "NORN canned foods",
           allProducts.map((product) => ({
             name: product.name,
             href: `/products/${product.category}/${product.slug}/`,
@@ -82,7 +82,7 @@ export default function NormPage() {
               </li>
               <li>
                 <span aria-current="page" className="text-teal-800">
-                  NORM
+                  NORN
                 </span>
               </li>
             </ol>
@@ -91,21 +91,28 @@ export default function NormPage() {
       />
 
       {/* ---------------------------------------------------------- Brand intro */}
-      <section className="on-dark bg-white" aria-labelledby="norm-intro">
+      <section className="on-dark bg-white" aria-labelledby="norn-intro">
         <Container className="py-16 sm:py-20">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <Reveal>
+                <Image
+                  src="/logo/norn-teal.png"
+                  alt="NORN"
+                  width={1649}
+                  height={954}
+                  className="mb-7 h-auto w-36 sm:w-44"
+                />
                 <p className="eyebrow">A brand from {SITE.name}</p>
                 <h2
-                  id="norm-intro"
+                  id="norn-intro"
                   className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
                 >
                   A small, deliberate range of everyday canned food.
                 </h2>
                 <div className="mt-6 space-y-4 text-[1.0625rem] leading-[1.7] text-muted">
                   <p>
-                    NORM is the canned-food brand of The Lyndon Cook Food Company.
+                    NORN is the canned-food brand of The Lyndon Cook.
                     The range is deliberately focused: beans and pulses, vegetables
                     and tomatoes, in one consistent can format, so kitchens and
                     buyers can plan around it.
@@ -119,7 +126,7 @@ export default function NormPage() {
                 </div>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button href="/products/canned-food/" size="lg">
-                    Explore NORM products
+                    Explore NORN products
                     <ArrowRight aria-hidden="true" className="h-4 w-4" />
                   </Button>
                   <Button href={enquiryHref()} variant="secondary" size="lg">
@@ -146,12 +153,12 @@ export default function NormPage() {
       </section>
 
       {/* ------------------------------------------------------------- Highlights */}
-      <section className="on-dark bg-teal-800" aria-labelledby="norm-highlights">
+      <section className="on-dark bg-teal-800" aria-labelledby="norn-highlights">
         <Container className="py-14 sm:py-16">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-copper-400">At a glance</p>
             <h2
-              id="norm-highlights"
+              id="norn-highlights"
               className="mt-4 text-[1.75rem] leading-[1.15] sm:text-[2rem]"
             >
               Fourteen choices, one format.
@@ -188,14 +195,14 @@ export default function NormPage() {
             className={`${groupIndex % 2 === 0 ? "bg-ivory" : "bg-white"} ${
               groupIndex > 0 ? "border-t border-teal-100" : ""
             }`}
-            aria-labelledby={`norm-${group.id}`}
+            aria-labelledby={`norn-${group.id}`}
           >
             <Container className="py-14 sm:py-16">
               <Reveal className="flex flex-wrap items-end justify-between gap-4">
                 <div className="max-w-2xl">
                   <p className="eyebrow">{group.blurb}</p>
                   <h2
-                    id={`norm-${group.id}`}
+                    id={`norn-${group.id}`}
                     className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
                   >
                     {group.name}
@@ -218,25 +225,25 @@ export default function NormPage() {
         );
       })}
 
-      {/* ------------------------------------------------------- NORM Rice 1lb */}
-      <section className="border-t border-teal-100 bg-ivory" aria-labelledby="norm-rice-heading">
+      {/* ------------------------------------------------------- NORN Rice 1lb */}
+      <section className="border-t border-teal-100 bg-ivory" aria-labelledby="norn-rice-heading">
         <Container className="py-14 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
-              <p className="eyebrow">NORM Rice in 1 lb packs</p>
+              <p className="eyebrow">NORN Rice in 1 lb packs</p>
               <h2
-                id="norm-rice-heading"
+                id="norn-rice-heading"
                 className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
               >
-                NORM Rice 1lb
+                NORN Rice 1lb
               </h2>
             </div>
             <p className="text-sm text-muted">
-              {getProductsByCategory("norm-rice-1lb").length} products
+              {getProductsByCategory("norn-rice-1lb").length} products
             </p>
           </Reveal>
           <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {getProductsByCategory("norm-rice-1lb").map((product, index) => (
+            {getProductsByCategory("norn-rice-1lb").map((product, index) => (
               <li key={product.id} className="h-full">
                 <ProductCard product={product} compact delay={index * 60} />
               </li>
@@ -244,10 +251,10 @@ export default function NormPage() {
           </ul>
           <div className="mt-8">
             <Link
-              href="/products/norm-rice-1lb/"
+              href="/products/norn-rice-1lb/"
               className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
             >
-              View all NORM Rice
+              View all NORN Rice
               <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
             </Link>
           </div>
@@ -255,13 +262,13 @@ export default function NormPage() {
       </section>
 
       {/* ------------------------------------------------------------- Pasta */}
-      <section className="border-t border-teal-100 bg-white" aria-labelledby="norm-pasta-heading">
+      <section className="border-t border-teal-100 bg-white" aria-labelledby="norn-pasta-heading">
         <Container className="py-14 sm:py-16">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
-              <p className="eyebrow">NORM Pasta range</p>
+              <p className="eyebrow">NORN Pasta range</p>
               <h2
-                id="norm-pasta-heading"
+                id="norn-pasta-heading"
                 className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
               >
                 Pasta
@@ -297,7 +304,7 @@ export default function NormPage() {
             <div className="lg:col-span-6">
               <p className="eyebrow">Good to know</p>
               <h2 className="mt-3 text-[1.375rem] leading-snug sm:text-[1.5rem]">
-                How to read the NORM range
+                How to read the NORN range
               </h2>
               <ul className="mt-6 space-y-4">
                 {[
@@ -339,7 +346,7 @@ export default function NormPage() {
               </h2>
               <div className="mt-6 rounded-[6px] border border-teal-100 bg-ivory/60 p-6">
                 <p className="text-[0.9375rem] leading-relaxed text-muted">
-                  NORM San Marzano Tomatoes are a product of Italy, presented in a
+                  NORN San Marzano Tomatoes are a product of Italy, presented in a
                   400 ml easy-open can with British English and Italian pack wording
                   and a small Italian tricolour. That origin and packaging language
                   applies to San Marzano only, and is not a claim about the rest of
@@ -363,7 +370,7 @@ export default function NormPage() {
               href="/products/canned-food/"
               className="link-underline link-underline-hover font-medium text-teal-800"
             >
-              View the full NORM range
+              View the full NORN range
             </Link>
             .
           </p>
@@ -371,9 +378,9 @@ export default function NormPage() {
       </section>
 
       <EnquiryCTA
-        heading="Tell us what you need from NORM."
+        heading="Tell us what you need from NORN."
         copy="Share the products, volumes, destination and delivery schedule you have in mind, and we will review the supply options with you."
-        secondaryLabel="Explore NORM products"
+        secondaryLabel="Explore NORN products"
         secondaryHref="/products/canned-food/"
       />
     </>

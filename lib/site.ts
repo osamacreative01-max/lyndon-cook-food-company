@@ -2,19 +2,19 @@
  * Single source of truth for company identity, contact details and navigation.
  *
  * Content rules (see the master build brief):
- *  - The public company name is "The Lyndon Cook Food Company".
- *  - NORM is a product brand, never a replacement for the company name.
+ *  - The public company name is "The Lyndon Cook".
+ *  - NORN is a product brand, never a replacement for the company name.
  *  - No legal suffix ("Ltd", "Limited", ...) is published, because the legal
  *    entity has not been confirmed. See TODO below.
  *  - No employee email addresses and no non-UK office addresses are published.
  */
 
 export const SITE = {
-  name: "The Lyndon Cook Food Company",
+  name: "The Lyndon Cook",
   shortName: "Lyndon Cook",
   /** Product brand presented within the company. */
-  productBrand: "NORM",
-  brandLine: "A brand from The Lyndon Cook Food Company",
+  productBrand: "NORN",
+  brandLine: "A brand from The Lyndon Cook",
   domain: "www.tlcfc.co.uk",
   url: "https://www.tlcfc.co.uk",
   locale: "en_GB",
@@ -44,14 +44,14 @@ export const SITE = {
     src: "/logo/lyndon-cook-logo.jpeg",
     width: 1600,
     height: 534,
-    alt: "The Lyndon Cook Food Company",
+    alt: "The Lyndon Cook",
   },
 
   ogImage: {
     src: "/images/og.jpg",
     width: 1200,
     height: 630,
-    alt: "The Lyndon Cook Food Company — rice, spices, seasonal fruit and NORM canned foods",
+    alt: "The Lyndon Cook — rice, spices, seasonal fruit and NORN canned foods",
   },
 
   profileDownload: {
@@ -80,14 +80,14 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "About Us", href: "/about/" },
   { label: "Our products", href: "/products/" },
-  { label: "NORM", href: "/norm/" },
+  { label: "NORN", href: "/norn/" },
   { label: "How we supply", href: "/how-we-supply/" },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
   { label: "About Us", href: "/about/" },
   { label: "Our products", href: "/products/" },
-  { label: "NORM", href: "/norm/" },
+  { label: "NORN", href: "/norn/" },
   { label: "How we supply", href: "/how-we-supply/" },
   { label: "Enquire", href: "/enquire/" },
   { label: "Company profile", href: "/company-profile/" },

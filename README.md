@@ -1,6 +1,6 @@
-# The Lyndon Cook Food Company — website
+# The Lyndon Cook — website
 
-B2B food supply website for **The Lyndon Cook Food Company** (NORM is a product
+B2B food supply website for **The Lyndon Cook** (NORN is a product
 brand within the company, not a replacement for its name).
 
 Built from `F:\web\The_Lyndon_Cook_Food_Company_Master_Website_Prompt.md`, which
@@ -42,7 +42,7 @@ PDF writer is hand-rolled; sharp comes with Next.js).
 | `/products/` | Searchable, filterable catalogue (all 41 products) |
 | `/products/rice/`, `/spices/`, `/seasonal-fruit/`, `/canned-food/` | Category pages |
 | `/products/[category]/[slug]/` | Product detail, 41 prerendered pages |
-| `/norm/`, `/how-we-supply/`, `/about/`, `/company-profile/` | Editorial pages |
+| `/norn/`, `/how-we-supply/`, `/about/`, `/company-profile/` | Editorial pages |
 | `/enquire/` | Enquiry form (pre-selects a product via `?product=<slug>`) |
 | `/thank-you/` | Confirmation, `noindex` |
 | `/privacy/`, `/cookies/`, `/accessibility/` | Legal |
@@ -67,7 +67,7 @@ delivery, so an automated client cannot learn which check it tripped.
   order values anywhere — the site is enquiry-driven, not transactional.
 * No certifications, supplier claims, ratings, reviews or testimonials.
 * No legal suffix on the company name, because the legal entity is unconfirmed.
-* NORM's `400 ml` is a **can format**, not a net weight.
+* NORN's `400 ml` is a **can format**, not a net weight.
 * Quantities are never converted between units.
 * Product photography is licensed placeholder stock.
 

@@ -13,9 +13,9 @@ import { CATEGORY_IMAGES, IMAGES } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
-const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook Food Company";
+const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook";
 const DESCRIPTION =
-  "Browse the full The Lyndon Cook Food Company catalogue: rice, spices and seasonings, seasonal fruit, NORM canned foods, NORM Rice 1lb and pasta. Filter by range or search the catalogue, then send an enquiry.";
+  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, NORN canned foods, NORN Rice 1lb and pasta. Filter by range or search the catalogue, then send an enquiry.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -35,7 +35,7 @@ export default function ProductsPage() {
     <>
       <JsonLd
         data={itemListSchema(
-          "The Lyndon Cook Food Company catalogue",
+          "The Lyndon Cook catalogue",
           ACTIVE_PRODUCTS.map((product) => ({
             name: product.name,
             href: `/products/${product.category}/${product.slug}/`,
@@ -45,7 +45,7 @@ export default function ProductsPage() {
 
       <PageHero
         eyebrow="Our products"
-        title="Rice, spices, seasonal fruit and NORM canned foods."
+        title="Rice, spices, seasonal fruit and NORN canned foods."
         description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by range, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
         image={IMAGES.heroPantry}
         breadcrumbs={
@@ -66,8 +66,8 @@ export default function ProductsPage() {
               {CATALOGUE_COUNTS.total} products: {CATALOGUE_COUNTS.rice} rice,{" "}
               {CATALOGUE_COUNTS.spices} spices and seasonings,{" "}
               {CATALOGUE_COUNTS.fruit} seasonal fruit,{" "}
-              {CATALOGUE_COUNTS.canned} NORM canned foods,{" "}
-              {CATALOGUE_COUNTS.normRice} NORM Rice 1lb and{" "}
+              {CATALOGUE_COUNTS.canned} NORN canned foods,{" "}
+              {CATALOGUE_COUNTS.nornRice} NORN Rice 1lb and{" "}
               {CATALOGUE_COUNTS.pasta} pasta.
             </p>
           </Reveal>

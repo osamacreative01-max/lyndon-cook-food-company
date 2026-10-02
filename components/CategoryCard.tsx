@@ -12,7 +12,7 @@ const COUNT_BY_CATEGORY = {
   spices: CATALOGUE_COUNTS.spices,
   "seasonal-fruit": CATALOGUE_COUNTS.fruit,
   "canned-food": CATALOGUE_COUNTS.canned,
-  "norm-rice-1lb": CATALOGUE_COUNTS.normRice,
+  "norn-rice-1lb": CATALOGUE_COUNTS.nornRice,
   "pasta": CATALOGUE_COUNTS.pasta,
 } as const;
 
@@ -25,7 +25,7 @@ export default function CategoryCard({
   delay?: number;
 }) {
   const count = COUNT_BY_CATEGORY[category.id];
-  const isNorm = category.id === "canned-food";
+  const isNorn = category.id === "canned-food";
 
   return (
     <Reveal
@@ -54,12 +54,12 @@ export default function CategoryCard({
             />
             <span
               className={`absolute left-3 top-3 rounded-[3px] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
-                isNorm
+                isNorn
                   ? "bg-teal-800 text-ivory"
                   : "bg-white/95 text-teal-800 shadow-sm"
               }`}
             >
-              {isNorm ? "NORM" : `${count} products`}
+              {isNorn ? "NORN" : `${count} products`}
             </span>
           </div>
 

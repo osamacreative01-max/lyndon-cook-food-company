@@ -13,9 +13,9 @@ import { PageHero } from "@/components/Hero";
 import { IMAGE_SIZES, IMAGES } from "@/lib/images";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 
-const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook Food Company";
+const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook";
 const DESCRIPTION =
-  "How supply works at The Lyndon Cook Food Company: share your brief, agree specifications, plan supply, confirm delivery. Full-load B2B supply, planned around your purchasing programme.";
+  "How supply works at The Lyndon Cook: share your brief, agree specifications, plan supply, confirm delivery. Full-load B2B supply, planned around your purchasing programme.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -164,7 +164,7 @@ export default function HowWeSupplyPage() {
               {
                 term: "Pack format",
                 detail:
-                  "Packing format agreed to suit handling, storage and service. NORM uses a 400 ml can format.",
+                  "Packing format agreed to suit handling, storage and service. NORN uses a 400 ml can format.",
               },
               {
                 term: "Quantity and units",

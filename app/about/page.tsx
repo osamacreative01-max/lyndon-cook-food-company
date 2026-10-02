@@ -16,9 +16,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS } from "@/lib/products";
 
-const TITLE = "About | The Lyndon Cook Food Company";
+const TITLE = "About | The Lyndon Cook";
 const DESCRIPTION =
-  "The Lyndon Cook Food Company brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer.";
+  "The Lyndon Cook brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -32,7 +32,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="Selected with care. Supplied with purpose."
-        description="The Lyndon Cook Food Company brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
+        description="The Lyndon Cook brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
         image={IMAGES.kitchen}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About Us" }]} />
@@ -55,7 +55,7 @@ export default function AboutPage() {
                 <div className="mt-6 space-y-4 text-[1.0625rem] leading-[1.7] text-muted">
                   <p>
                     We supply rice, everyday ingredients, spices, seasonal fruit and
-                    NORM canned foods to businesses that buy food to cook, serve or
+                    NORN canned foods to businesses that buy food to cook, serve or
                     resell. The work is not complicated: match the right product to
                     the right use, agree a clear specification, and plan the orders
                     so deliveries land when the kitchen expects them.
@@ -146,7 +146,7 @@ export default function AboutPage() {
               id="focus-heading"
               className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
             >
-              Rice, everyday ingredients, spices, seasonal fruit and NORM canned
+              Rice, everyday ingredients, spices, seasonal fruit and NORN canned
               foods.
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
@@ -187,8 +187,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ------------------------------------------------------------- NORM block */}
-      <section className="on-dark bg-white" aria-labelledby="norm-about-heading">
+      {/* ------------------------------------------------------------- NORN block */}
+      <section className="on-dark bg-white" aria-labelledby="norn-about-heading">
         <Container className="py-16 sm:py-20">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <Reveal delay={100} className="order-2 lg:order-1 lg:col-span-5">
@@ -206,22 +206,22 @@ export default function AboutPage() {
             <Reveal className="order-1 lg:order-2 lg:col-span-7">
               <p className="eyebrow">Our product brand</p>
               <h2
-                id="norm-about-heading"
+                id="norn-about-heading"
                 className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
               >
-                NORM, a brand from The Lyndon Cook Food Company.
+                NORN, a brand from The Lyndon Cook.
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-                NORM is our canned-food brand: fourteen choices across beans and
+                NORN is our canned-food brand: fourteen choices across beans and
                 pulses, vegetables and tomatoes, in a 400 ml easy-open can format.
                 400 ml refers to the can format, not net weight. Final net
                 contents, drained weights and label details are confirmed by
                 product specification.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/norm/">About NORM</Button>
+                <Button href="/norn/">About NORN</Button>
                 <Button href="/products/canned-food/" variant="secondary">
-                  Explore NORM products
+                  Explore NORN products
                 </Button>
               </div>
             </Reveal>

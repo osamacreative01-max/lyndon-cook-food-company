@@ -13,7 +13,7 @@ export type CategoryId =
   | "spices"
   | "seasonal-fruit"
   | "canned-food"
-  | "norm-rice-1lb"
+  | "norn-rice-1lb"
   | "pasta";
 
 export type Category = {
@@ -65,9 +65,9 @@ export const CATEGORIES: Category[] = [
           "Straightforward long grain and white rice for everyday meals, batch cooking and volume supply.",
       },
     ],
-    seoTitle: "Rice Supply | Basmati & White Rice | The Lyndon Cook Food Company",
+    seoTitle: "Rice Supply | Basmati & White Rice | The Lyndon Cook",
     seoDescription:
-      "Basmati and everyday white rice for wholesale, foodservice and institutional buyers. Agree variety, packing format and volume with The Lyndon Cook Food Company.",
+      "Basmati and everyday white rice for wholesale, foodservice and institutional buyers. Agree variety, packing format and volume with The Lyndon Cook.",
   },
   {
     id: "spices",
@@ -101,9 +101,9 @@ export const CATEGORIES: Category[] = [
           "Finishing seasonings, including salt and dried fruit seasoning, for the last stage of cooking.",
       },
     ],
-    seoTitle: "Spices & Seasonings | The Lyndon Cook Food Company",
+    seoTitle: "Spices & Seasonings | The Lyndon Cook",
     seoDescription:
-      "Ground spices, blends and finishing seasonings for B2B food buyers. Agree specification, packing format and planned volumes with The Lyndon Cook Food Company.",
+      "Ground spices, blends and finishing seasonings for B2B food buyers. Agree specification, packing format and planned volumes with The Lyndon Cook.",
   },
   {
     id: "seasonal-fruit",
@@ -132,22 +132,22 @@ export const CATEGORIES: Category[] = [
           "Fresh citrus selected around variety, maturity and packing format for the intended menu.",
       },
     ],
-    seoTitle: "Seasonal Fruit | Mangoes & Citrus | The Lyndon Cook Food Company",
+    seoTitle: "Seasonal Fruit | Mangoes & Citrus | The Lyndon Cook",
     seoDescription:
       "Mangoes and citrus for wholesale and foodservice buyers. Variety, size, maturity and packing confirmed per programme. Availability depends on crop and shipping conditions.",
   },
   {
     id: "canned-food",
     slug: "canned-food",
-    name: "NORM canned foods",
-    shortName: "NORM",
-    navLabel: "NORM",
+    name: "NORN canned foods",
+    shortName: "NORN",
+    navLabel: "NORN",
     eyebrow: "Product brand",
     summary: "Beans, pulses, vegetables and tomatoes in easy-open cans.",
     description:
-      "NORM is our canned-food brand: fourteen choices across beans and pulses, vegetables and tomatoes, in a 400 ml easy-open can format. 400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification.",
+      "NORN is our canned-food brand: fourteen choices across beans and pulses, vegetables and tomatoes, in a 400 ml easy-open can format. 400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification.",
     image: CATEGORY_IMAGES["canned-food"],
-    ctaLabel: "Explore NORM",
+    ctaLabel: "Explore NORN",
     groups: [
       {
         id: "beans-pulses",
@@ -165,38 +165,38 @@ export const CATEGORIES: Category[] = [
         description: "Whole peeled tomatoes and San Marzano tomatoes.",
       },
     ],
-    seoTitle: "NORM Canned Foods | The Lyndon Cook Food Company",
+    seoTitle: "NORN Canned Foods | The Lyndon Cook",
     seoDescription:
-      "NORM canned foods from The Lyndon Cook Food Company: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
+      "NORN canned foods from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
   },
   {
-    id: "norm-rice-1lb",
-    slug: "norm-rice-1lb",
-    name: "NORM Rice 1lb",
-    shortName: "NORM Rice 1lb",
-    navLabel: "NORM Rice 1lb",
+    id: "norn-rice-1lb",
+    slug: "norn-rice-1lb",
+    name: "NORN Rice 1lb",
+    shortName: "NORN Rice 1lb",
+    navLabel: "NORN Rice 1lb",
     eyebrow: "Product brand",
     summary:
-      "NORM Rice in a convenient 1 lb pack format for retail and foodservice.",
+      "NORN Rice in a convenient 1 lb pack format for retail and foodservice.",
     description:
-      "NORM Rice 1lb is part of the NORM product range from The Lyndon Cook Food Company, supplied in a 1 lb pack format. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
-    image: CATEGORY_IMAGES["norm-rice-1lb"],
-    ctaLabel: "Explore NORM Rice",
+      "NORN Rice 1lb is part of the NORN product range from The Lyndon Cook, supplied in a 1 lb pack format. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
+    image: CATEGORY_IMAGES["norn-rice-1lb"],
+    ctaLabel: "Explore NORN Rice",
     groups: [
       {
-        id: "norm-rice",
-        name: "NORM Rice",
+        id: "norn-rice",
+        name: "NORN Rice",
         description:
-          "NORM Rice available in 1 lb pack format for retail and foodservice.",
+          "NORN Rice available in 1 lb pack format for retail and foodservice.",
       },
     ],
     pdf: {
-      href: "/downloads/Norm Rice 1lb.pdf",
-      label: "Download NORM Rice 1lb datasheet",
+      href: "/downloads/Norn Rice 1lb.pdf",
+      label: "Download NORN Rice 1lb datasheet",
     },
-    seoTitle: "NORM Rice 1lb | The Lyndon Cook Food Company",
+    seoTitle: "NORN Rice 1lb | The Lyndon Cook",
     seoDescription:
-      "NORM Rice in a 1 lb pack format from The Lyndon Cook Food Company. Download the product datasheet or contact us to discuss supply requirements.",
+      "NORN Rice in a 1 lb pack format from The Lyndon Cook. Download the product datasheet or contact us to discuss supply requirements.",
   },
   {
     id: "pasta",
@@ -229,9 +229,9 @@ export const CATEGORIES: Category[] = [
       href: "/downloads/Pasta.pdf",
       label: "Download Pasta datasheet",
     },
-    seoTitle: "Pasta Supply | The Lyndon Cook Food Company",
+    seoTitle: "Pasta Supply | The Lyndon Cook",
     seoDescription:
-      "Pasta products for wholesale, foodservice and institutional buyers. Download the product datasheet or contact us to discuss supply requirements with The Lyndon Cook Food Company.",
+      "Pasta products for wholesale, foodservice and institutional buyers. Download the product datasheet or contact us to discuss supply requirements with The Lyndon Cook.",
   },
 ];
 

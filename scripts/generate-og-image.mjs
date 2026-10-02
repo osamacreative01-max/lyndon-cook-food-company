@@ -55,8 +55,8 @@ function openGraphSvg() {
   </g>
 
   <!-- wordmark -->
-  <text x="228" y="176" fill="${IVORY}" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="600" letter-spacing="0.5">The Lyndon Cook</text>
-  <text x="228" y="228" fill="${IVORY}" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="600" letter-spacing="0.5">Food Company</text>
+  <text x="228" y="190" fill="${IVORY}" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="600" letter-spacing="0.5">The Lyndon Cook</text>
+  <text x="230" y="238" fill="${MUTED}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="11">FOOD COMPANY</text>
   <line x1="96" y1="278" x2="1104" y2="278" stroke="${COPPER}" stroke-width="3"/>
 
   <!-- proposition -->
@@ -76,9 +76,9 @@ function openGraphSvg() {
     <line x1="934" y1="462" x2="1104" y2="462"/>
   </g>
 
-  <!-- NORM -->
-  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NORM</text>
-  <text x="196" y="546" fill="${MUTED}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24">A brand from The Lyndon Cook Food Company</text>
+  <!-- NORN -->
+  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NORN</text>
+  <text x="196" y="546" fill="${MUTED}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24">A brand from The Lyndon Cook</text>
 
   <text x="1104" y="546" fill="${MUTED}" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" letter-spacing="0.6">www.tlcfc.co.uk</text>
   <text x="1104" y="586" fill="#8FAAA5" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20">Enquire online — no account required</text>

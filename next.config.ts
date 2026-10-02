@@ -16,6 +16,30 @@ const nextConfig: NextConfig = {
     deviceSizes: [320, 360, 375, 390, 414, 640, 768, 1024, 1280, 1440, 1920],
     imageSizes: [96, 160, 240, 320, 400, 480, 640],
   },
+  async redirects() {
+    return [
+      {
+        source: "/norm",
+        destination: "/norn",
+        permanent: true,
+      },
+      {
+        source: "/products/norm-rice-1lb",
+        destination: "/products/norn-rice-1lb",
+        permanent: true,
+      },
+      {
+        source: "/products/norm-rice-1lb/:slug",
+        destination: "/products/norn-rice-1lb/:slug",
+        permanent: true,
+      },
+      {
+        source: "/products/:category/norm-:slug",
+        destination: "/products/:category/norn-:slug",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

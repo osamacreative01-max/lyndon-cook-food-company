@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const normHighlights = getProductsByCategory("canned-food").slice(0, 4);
+  const nornHighlights = getProductsByCategory("canned-food").slice(0, 4);
   const featuredRice = getProductsByCategory("rice").slice(0, 3);
   const featuredSpices = getProductsByCategory("spices").slice(0, 3);
 
@@ -53,7 +53,7 @@ export default function HomePage() {
               Good food.<br className="hidden sm:block" /> Straightforward supply.
             </h1>
             <p className="mt-6 max-w-xl text-[1.0625rem] leading-[1.7] text-muted sm:text-[1.1875rem]">
-              Rice, spices, seasonal fruit and NORM canned foods, supplied around
+              Rice, spices, seasonal fruit and NORN canned foods, supplied around
               clear specifications and planned purchasing requirements. Tell us
               what you need, in what format and when, and we will review the supply
               options with you.
@@ -179,18 +179,18 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ---------------------------------------------------------- NORM block */}
-      <section className="on-dark bg-white" aria-labelledby="norm-heading">
+      {/* ---------------------------------------------------------- NORN block */}
+      <section className="on-dark bg-white" aria-labelledby="norn-heading">
         <Container className="py-16 sm:py-20">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
               <SectionHeading
-                id="norm-heading"
+                id="norn-heading"
                 eyebrow="Our canned-food brand"
                 title="Everyday food. Well considered."
                 description={
                   <>
-                    NORM is the canned-food brand from The Lyndon Cook Food Company.
+                    NORN is the canned-food brand from The Lyndon Cook.
                     Fourteen choices in a 400 ml easy-open can format.
                   </>
                 }
@@ -217,17 +217,17 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/products/canned-food/" size="lg">
-                  Explore NORM
+                  Explore NORN
                 </Button>
-                <Button href="/norm/" variant="secondary" size="lg">
-                  About the NORM brand
+                <Button href="/norn/" variant="secondary" size="lg">
+                  About the NORN brand
                 </Button>
               </div>
             </div>
 
             <div className="lg:col-span-6">
               <ul className="grid grid-cols-2 gap-4">
-                {normHighlights.map((product, index) => (
+                {nornHighlights.map((product, index) => (
                   <li
                     key={product.id}
                     className={`overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] ${
