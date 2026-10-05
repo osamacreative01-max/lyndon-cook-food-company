@@ -9,6 +9,8 @@
  *  - No employee email addresses and no non-UK office addresses are published.
  */
 
+import { CATEGORIES } from "@/lib/categories";
+
 export const SITE = {
   name: "The Lyndon Cook",
   shortName: "Lyndon Cook",
@@ -77,17 +79,29 @@ export type NavLink = {
   label: string;
   href: string;
   description?: string;
+  /** Renders a menu of the product ranges under this item. */
+  menu?: boolean;
 };
 
+/** Ranges offered from the "Our Products" menu in the primary navigation. */
+export const PRODUCT_MENU_LINKS: NavLink[] = [
+  { label: "All products", href: "/products/" },
+  ...CATEGORIES.map((category) => ({
+    label: category.navLabel,
+    href: `/products/${category.slug}/`,
+  })),
+];
+
 export const NAV_LINKS: NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about/" },
-  { label: "Our products", href: "/products/" },
+  { label: "Our Products", href: "/products/", menu: true },
   { label: "How we supply", href: "/how-we-supply/" },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
   { label: "About Us", href: "/about/" },
-  { label: "Our products", href: "/products/" },
+  { label: "Our Products", href: "/products/", menu: true },
   { label: "How we supply", href: "/how-we-supply/" },
   { label: "Enquire", href: "/enquire/" },
   { label: "Company profile", href: "/company-profile/" },

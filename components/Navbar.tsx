@@ -3,12 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone } from "lucide-react";
+import { ChevronDown, Menu, Phone } from "lucide-react";
 
 import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import MobileMenu from "@/components/MobileMenu";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { NAV_LINKS, PRODUCT_MENU_LINKS, SITE } from "@/lib/site";
 
 const HEADER_H = "6rem";
 
@@ -24,10 +24,33 @@ const HEADER_H = "6rem";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const productsRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
 
   const close = useCallback(() => setOpen(false), []);
+
+  // The product menu closes on an outside click, on Escape and on navigation.
+  useEffect(() => {
+    if (!productsOpen) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (!productsRef.current?.contains(event.target as Node)) {
+        setProductsOpen(false);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setProductsOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [productsOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -56,7 +79,72 @@ export default function Navbar() {
           <nav aria-label="Primary" className="hidden lg:block">
             <ul className="flex items-center gap-1">
               {NAV_LINKS.map((link) => {
-                const active = pathname.startsWith(link.href);
+                const active =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+
+                if (link.menu) {
+                  return (
+                    <li key={link.href} ref={productsRef} className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setProductsOpen((value) => !value)}
+                        aria-expanded={productsOpen}
+                        aria-controls="products-menu"
+                        className={`relative inline-flex min-h-12 items-center gap-1.5 rounded-[4px] px-4 text-base font-medium transition-all duration-200 ${
+                          active
+                            ? "bg-white text-teal-800"
+                            : "text-body hover:bg-white/75 hover:text-teal-800"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          aria-hidden="true"
+                          className={`h-4 w-4 text-copper-600 transition-transform duration-200 ${
+                            productsOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                        {active ? (
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-x-4 bottom-1.5 h-0.5 rounded-full bg-copper-600"
+                          />
+                        ) : null}
+                      </button>
+
+                      {productsOpen ? (
+                        <div
+                          id="products-menu"
+                          className="absolute left-0 top-full z-50 mt-1 w-60 rounded-[6px] border border-sand bg-white p-2 shadow-[0_18px_44px_rgba(8,75,80,0.16)]"
+                        >
+                          <ul className="flex flex-col gap-0.5">
+                            {PRODUCT_MENU_LINKS.map((item) => {
+                              const itemActive = pathname === item.href;
+                              return (
+                                <li key={item.href}>
+                                  <Link
+                                    href={item.href}
+                                    onClick={() => setProductsOpen(false)}
+                                    aria-current={itemActive ? "page" : undefined}
+                                    className={`flex min-h-11 items-center rounded-[4px] px-3 text-[0.9375rem] font-medium transition-colors ${
+                                      itemActive
+                                        ? "bg-ivory text-teal-800"
+                                        : "text-body hover:bg-ivory hover:text-teal-800"
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ) : null}
+                    </li>
+                  );
+                }
+
                 return (
                   <li key={link.href}>
                     <Link

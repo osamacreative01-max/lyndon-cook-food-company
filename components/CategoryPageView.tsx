@@ -45,7 +45,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
           <Breadcrumbs
             items={[
               { name: "Home", href: "/" },
-              { name: "Our products", href: "/products/" },
+              { name: "Our Products", href: "/products/" },
               { name: category.name },
             ]}
           />

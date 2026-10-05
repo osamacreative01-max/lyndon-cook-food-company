@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
 
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { NAV_LINKS, PRODUCT_MENU_LINKS, SITE } from "@/lib/site";
 
 /**
  * Slide-in mobile navigation.
@@ -118,7 +118,9 @@ export default function MobileMenu({
           <ul className="flex flex-col">
             {NAV_LINKS.map((link) => {
               const active =
-                pathname === link.href || pathname.startsWith(link.href);
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
               return (
                 <li key={link.href}>
                   <Link
@@ -134,6 +136,30 @@ export default function MobileMenu({
                     {link.label}
                     <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
                   </Link>
+
+                  {link.menu ? (
+                    <ul className="ml-3 border-l border-sand pl-4">
+                      {PRODUCT_MENU_LINKS.map((item) => {
+                        const itemActive = pathname === item.href;
+                        return (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={onClose}
+                              aria-current={itemActive ? "page" : undefined}
+                              className={`flex min-h-12 items-center rounded-[4px] px-3 text-[1rem] transition-colors ${
+                                itemActive
+                                  ? "bg-white font-semibold text-teal-800"
+                                  : "text-body hover:bg-white/70 hover:text-teal-800"
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : null}
                 </li>
               );
             })}
