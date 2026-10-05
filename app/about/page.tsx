@@ -11,7 +11,7 @@ import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
+import { IMAGE_SIZES, WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS } from "@/lib/products";
@@ -188,14 +188,14 @@ export default function AboutPage() {
       </section>
 
       {/* ------------------------------------------------------------- Canned food block */}
-      <section className="on-dark bg-ivory" aria-labelledby="norn-about-heading">
+      <section className="on-dark bg-teal-800" aria-labelledby="norn-about-heading">
         <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <Reveal delay={100} className="order-2 lg:order-1 lg:col-span-6">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
+            <Reveal delay={100} className="order-2 lg:order-1 lg:col-span-7">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[8px] border border-white/10 bg-teal-900">
                 <Image
-                  src={IMAGES.spiceBowls.src}
-                  alt={IMAGES.spiceBowls.alt}
+                  src="/Png/NORN canned foods/Canned-Items-Cover.png"
+                  alt="The full canned range: beans, pulses, vegetables and tomatoes in 400 ml easy-open cans"
                   fill
                   loading="lazy"
                   sizes={IMAGE_SIZES.band}
@@ -203,15 +203,16 @@ export default function AboutPage() {
                 />
               </div>
             </Reveal>
-            <Reveal className="order-1 lg:order-2 lg:col-span-6">
-              <p className="eyebrow">Our product brand</p>
+            <Reveal className="order-1 lg:order-2 lg:col-span-5">
+              <p className="eyebrow text-copper-400">Our product brand</p>
+              <span className="rule-copper mt-4" aria-hidden="true" />
               <h2
                 id="norn-about-heading"
                 className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
               >
                 Canned foods, from The Lyndon Cook.
               </h2>
-              <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
+              <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ivory/80 sm:text-[1.125rem]">
                 Our canned-food range: fourteen choices across beans and
                 pulses, vegetables and tomatoes, in a 400 ml easy-open can format.
                 400 ml refers to the can format, not net weight. Final net
@@ -219,7 +220,7 @@ export default function AboutPage() {
                 product specification.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/products/canned-food/" variant="secondary">
+                <Button href="/products/canned-food/" variant="onDark">
                   Explore canned foods
                 </Button>
               </div>
