@@ -239,17 +239,17 @@ export const PRODUCT_IMAGES = {
   brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
   /* Spices — branded jars from `public/Png/Spices and seasonings/`. */
-  groundCumin: { src: "/Png/Spices and seasonings/Ground cumin.png", alt: "Jar of The Lyndon Cook ground cumin" },
-  groundCoriander: { src: "/Png/Spices and seasonings/ground coriander.jpg", alt: "Jar of The Lyndon Cook ground coriander" },
-  groundGinger: { src: "/Png/Spices and seasonings/ginger.jpg", alt: "Jar of The Lyndon Cook ground ginger" },
-  groundBlackPepper: { src: "/Png/Spices and seasonings/black pepper.jpg", alt: "Jar of The Lyndon Cook ground black pepper" },
-  groundTurmeric: { src: "/Product images (41)/Spices (11)/groundTurmeric.jpg", alt: "Ground turmeric prepared for use" },
-  garamMasala: { src: "/Png/Spices and seasonings/garam masala.jpg", alt: "Jar of The Lyndon Cook garam masala" },
-  redChilliPowder: { src: "/Png/Spices and seasonings/ground red chilli.jpg", alt: "Jar of The Lyndon Cook ground red chilli" },
-  groundFenugreek: { src: "/Png/Spices and seasonings/fenugreek.jpg", alt: "Jar of The Lyndon Cook fenugreek" },
-  curryPowder: { src: "/Png/Spices and seasonings/curry powder.jpg", alt: "Jar of The Lyndon Cook curry powder" },
-  dryMangoPowder: { src: "/Png/Spices and seasonings/dry mango powder.jpg", alt: "Jar of The Lyndon Cook dry mango powder" },
-  pinkSalt: { src: "/Product images (41)/Spices (11)/pinkSalt.jpg", alt: "Pink rock salt in bowls" },
+  groundCumin: { src: "/Png/Spices and seasonings/Ground Cumin.png", alt: "Jar of The Lyndon Cook ground cumin" },
+  groundCoriander: { src: "/Png/Spices and seasonings/Ground Coriander.png", alt: "Jar of The Lyndon Cook ground coriander" },
+  groundGinger: { src: "/Png/Spices and seasonings/Ground Ginger.png", alt: "Jar of The Lyndon Cook ground ginger" },
+  groundBlackPepper: { src: "/Png/Spices and seasonings/Ground Black Paper.png", alt: "Jar of The Lyndon Cook ground black pepper" },
+  groundTurmeric: { src: "/Png/Spices and seasonings/Turmeric.png", alt: "Jar of The Lyndon Cook ground turmeric" },
+  garamMasala: { src: "/Png/Spices and seasonings/Garam Masala.png", alt: "Jar of The Lyndon Cook garam masala" },
+  redChilliPowder: { src: "/Png/Spices and seasonings/Ground Red Chilli.png", alt: "Jar of The Lyndon Cook ground red chilli" },
+  groundFenugreek: { src: "/Png/Spices and seasonings/Fenugreek.png", alt: "Jar of The Lyndon Cook fenugreek" },
+  curryPowder: { src: "/Png/Spices and seasonings/Curry Powder.png", alt: "Jar of The Lyndon Cook curry powder" },
+  dryMangoPowder: { src: "/Png/Spices and seasonings/Dry Mango Powder.png", alt: "Jar of The Lyndon Cook dry mango powder" },
+  pinkSalt: { src: "/Png/Spices and seasonings/Pink Himaliayn Salt.png", alt: "Jar of The Lyndon Cook pink Himalayan salt" },
 
   /* Seasonal fruit */
   chaunsa: { src: "/Product images (41)/Seasonal fruit (9)/chaunsa.jpg", alt: "Ripe mangoes ready for selection" },
