@@ -168,10 +168,22 @@ export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = 
       alt: "A kitchen dresser and open shelving against an exposed brick wall",
     },
   ],
+  "seasonal-fruit": [
+    {
+      src: "/prodect page banner/Seasonal bannar-12.jpg",
+      alt: "Spice jars of red chilli, black pepper, cumin, turmeric and pink salt on a wooden board",
+    },
+  ],
   "canned-food": [
     {
       src: "/prodect page banner/canned food banner.jpg",
       alt: "Spice jars of red chilli, black pepper, cumin, turmeric and pink salt on a wooden board",
+    },
+  ],
+  pasta: [
+    {
+      src: "/prodect page banner/Pasta bannar-11.jpg",
+      alt: "Fresh oranges with blossom on a dark teal backdrop",
     },
   ],
 };
@@ -180,7 +192,9 @@ export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = 
 export const PRODUCT_PAGE_BANNERS: { src: string; alt: string }[] = [
   ...CATEGORY_BANNERS.rice,
   ...CATEGORY_BANNERS.spices,
+  ...CATEGORY_BANNERS["seasonal-fruit"],
   ...CATEGORY_BANNERS["canned-food"],
+  ...CATEGORY_BANNERS.pasta,
 ];
 
 /* -------------------------------------------------------------------------- */
