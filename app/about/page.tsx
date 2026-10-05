@@ -11,7 +11,7 @@ import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGE_SIZES, WEBSITE_BANNERS } from "@/lib/images";
+import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS } from "@/lib/products";
@@ -276,6 +276,7 @@ export default function AboutPage() {
         copy="Share your product requirements, volumes and delivery plans. Our team will review the details and come back with the appropriate supply options."
         secondaryLabel="How we supply"
         secondaryHref="/how-we-supply/"
+        image={IMAGES.nornRange}
       />
     </>
   );

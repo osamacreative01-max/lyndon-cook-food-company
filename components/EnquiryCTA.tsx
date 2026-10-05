@@ -15,6 +15,8 @@ type Props = {
   secondaryHref?: string;
   /** Adds the "full-load supply" note, used on the homepage. */
   showFullLoadNote?: boolean;
+  /** Photograph beside the copy; defaults to the warehouse shot. */
+  image?: { src: string; alt: string };
 };
 
 /** The closing conversion band, reused at the foot of every commercial page. */
@@ -26,20 +28,23 @@ export default function EnquiryCTA({
   secondaryLabel,
   secondaryHref,
   showFullLoadNote = false,
+  image,
 }: Props) {
+  const photo = image ?? IMAGES.warehouse;
   return (
     <section className="on-dark bg-teal-800" aria-labelledby="enquiry-cta-heading">
       <Container className="py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <Reveal className="lg:col-span-7">
             <p className="eyebrow text-copper-400">Next step</p>
+            <span className="rule-copper mt-4" aria-hidden="true" />
             <h2
               id="enquiry-cta-heading"
               className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               {heading}
             </h2>
-            <p className="mt-5 max-w-xl text-[1.0625rem] leading-[1.7] text-ivory">
+            <p className="mt-5 max-w-xl text-[1.0625rem] leading-[1.7] text-ivory/80 sm:text-[1.125rem]">
               {copy}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -90,10 +95,10 @@ export default function EnquiryCTA({
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-5">
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-teal-900 ring-1 ring-teal-700 lg:aspect-[5/4]">
+            <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[8px] border border-white/10 bg-teal-900">
               <Image
-                src={IMAGES.warehouse.src}
-                alt={IMAGES.warehouse.alt}
+                src={photo.src}
+                alt={photo.alt}
                 fill
                 loading="lazy"
                 sizes={IMAGE_SIZES.band}
