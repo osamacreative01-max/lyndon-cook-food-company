@@ -4,31 +4,30 @@ import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 type Props = {
-  /** Renders the inverted (light) lockup for dark panels. */
+  /** Renders the cream-on-teal variant of the lockup for dark panels. */
   onDark?: boolean;
-  /** Overrides the intrinsic ratio when a tighter lockup is needed. */
+  /** Overrides the intrinsic width when a tighter lockup is needed. */
   width?: number;
   className?: string;
   priority?: boolean;
 };
 
 /**
- * Company lockup.
+ * Company lockup — the approved artwork (`Asset 1@4x`) used site-wide.
  *
- * Light backgrounds use the JPEG. Dark backgrounds use the SVG (which has a
- * transparent background) with a CSS filter that renders it pure white.
+ * The artwork is exported twice from the same source so the mark is identical
+ * everywhere: `SITE.logo.src` carries the teal wordmark for cream surfaces and
+ * `SITE.logo.onDarkSrc` carries the cream wordmark for teal panels. Both are
+ * transparent PNGs, so no blend mode and no CSS filter — flattening the lockup
+ * with `brightness(0) invert(1)` collapses the emblem into a solid disc.
+ *
+ * The lockup is deliberately prominent: it scales down on narrow viewports via
+ * `max-width` so it never crowds the header out of a phone screen.
  */
 export default function Logo({ onDark, width, className = "", priority }: Props) {
-  const renderedWidth = width ?? 200;
-
-  // The SVG has its own viewBox ratio (232:96); the JPEG uses SITE.logo dimensions.
-  const isSvg = Boolean(onDark);
-  const ratio = isSvg
-    ? 96 / 232
-    : SITE.logo.height / SITE.logo.width;
+  const renderedWidth = width ?? 280;
+  const ratio = SITE.logo.height / SITE.logo.width;
   const height = Math.round(renderedWidth * ratio);
-
-  const src = isSvg ? "/logo/lyndon-cook.svg" : SITE.logo.src;
 
   return (
     <Link
@@ -37,18 +36,13 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
       aria-label={`${SITE.name} — home`}
     >
       <Image
-        src={src}
+        src={onDark ? SITE.logo.onDarkSrc : SITE.logo.src}
         alt={SITE.logo.alt}
         width={renderedWidth}
         height={height}
         priority={priority}
-        // SVGs bypass the optimizer (it blocks SVG unless dangerouslyAllowSVG is on).
-        unoptimized={isSvg}
-        className={`h-auto select-none ${className}`}
-        style={{
-          width: renderedWidth,
-          ...(isSvg ? { filter: "brightness(0) invert(1)" } : {}),
-        }}
+        className={`h-auto max-w-[58vw] select-none sm:max-w-none ${className}`}
+        style={{ width: renderedWidth }}
       />
     </Link>
   );

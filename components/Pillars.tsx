@@ -52,20 +52,29 @@ export default function Pillars({
             key={pillar.title}
             delay={index * 110}
             as="li"
-            className={`h-full rounded-[4px] border p-7 ${
+            className={`h-full rounded-[4px] border p-8 ${
               onDark
-                ? "border-teal-700 bg-teal-900/60"
-                : "border-teal-100 bg-white"
+                ? "border-teal-700 bg-teal-900/70"
+                : "border-sand bg-white"
             }`}
           >
-            <Icon
+            <span
               aria-hidden="true"
-              className={`h-7 w-7 ${onDark ? "text-copper-400" : "text-copper-600"}`}
-            />
-            <h3 className="mt-5 font-serif text-[1.25rem] leading-snug">{pillar.title}</h3>
+              className={`flex h-14 w-14 items-center justify-center ${
+                onDark ? "bg-copper-600" : "bg-teal-800"
+              }`}
+            >
+              <Icon
+                aria-hidden="true"
+                className={`h-7 w-7 ${onDark ? "text-teal-950" : "text-ivory"}`}
+              />
+            </span>
+            <h3 className="mt-6 font-serif text-[1.4rem] leading-snug">
+              {pillar.title}
+            </h3>
             <p
-              className={`mt-3 text-[0.9375rem] leading-relaxed ${
-                onDark ? "text-teal-100" : "text-muted"
+              className={`mt-3.5 text-[1rem] leading-relaxed ${
+                onDark ? "text-ivory" : "text-muted"
               }`}
             >
               {pillar.body}
@@ -90,16 +99,16 @@ export function PillarsSection({
   onDark?: boolean;
 }) {
   return (
-    <Container className="py-16 sm:py-20">
+    <Container className="py-16 sm:py-20 lg:py-24">
       <Reveal className="max-w-2xl">
         <p className={`eyebrow ${onDark ? "text-copper-400" : ""}`}>{eyebrow}</p>
-        <h2 className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]">
+        <h2 className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]">
           {title}
         </h2>
         {description ? (
           <p
             className={`mt-5 text-[1.0625rem] leading-[1.7] ${
-              onDark ? "text-teal-100" : "text-muted"
+              onDark ? "text-ivory" : "text-muted"
             }`}
           >
             {description}

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import { PageHero } from "@/components/Hero";
+import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
@@ -21,6 +22,7 @@ export default function AccessibilityPage() {
     <>
       <PageHero
         eyebrow="Legal"
+        banners={WEBSITE_BANNERS}
         title="Accessibility"
         description="We want this website to be usable by everyone, including people who browse with a keyboard, a screen reader or reduced motion settings."
         breadcrumbs={
@@ -31,9 +33,9 @@ export default function AccessibilityPage() {
       />
 
       <section className="bg-ivory">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="max-w-3xl">
-            <h2 className="text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               Our target
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">
@@ -45,7 +47,7 @@ export default function AccessibilityPage() {
               than a claim of full conformance we have not independently audited.
             </p>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               What we have implemented
             </h2>
             <ul className="mt-5 space-y-4 text-[1.0625rem] leading-[1.7] text-muted">
@@ -74,7 +76,7 @@ export default function AccessibilityPage() {
               ))}
             </ul>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               Known limitations
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">
@@ -84,7 +86,7 @@ export default function AccessibilityPage() {
               an alternative format, ask us and we will provide it.
             </p>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               Tell us if something is wrong
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">

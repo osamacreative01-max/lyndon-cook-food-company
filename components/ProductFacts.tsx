@@ -15,13 +15,13 @@ export default function ProductFacts({
   className?: string;
 }) {
   return (
-    <dl className={`overflow-hidden rounded-[6px] border border-teal-100 bg-white ${className}`}>
+    <dl className={`overflow-hidden rounded-[6px] border border-sand bg-white ${className}`}>
       {facts.map((fact, index) => (
         <div
           key={fact.label}
           className={`grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-3 sm:gap-4 ${
             index % 2 === 1 ? "bg-ivory/60" : ""
-          } ${index > 0 ? "border-t border-teal-100" : ""}`}
+          } ${index > 0 ? "border-t border-sand" : ""}`}
         >
           <dt className="text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-muted">
             {fact.label}

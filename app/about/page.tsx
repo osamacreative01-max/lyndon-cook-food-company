@@ -11,7 +11,7 @@ import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGE_SIZES, IMAGES } from "@/lib/images";
+import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS } from "@/lib/products";
@@ -33,22 +33,22 @@ export default function AboutPage() {
         eyebrow="About us"
         title="Selected with care. Supplied with purpose."
         description="The Lyndon Cook brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
-        image={IMAGES.kitchen}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About Us" }]} />
         }
       />
 
       {/* ------------------------------------------------------------- Introduction */}
-      <section className="on-dark bg-white" aria-labelledby="intro-heading">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="intro-heading">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <Reveal>
                 <p className="eyebrow">Who we are</p>
                 <h2
                   id="intro-heading"
-                  className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+                  className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
                 >
                   A food supply company built around clarity.
                 </h2>
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </div>
 
             <Reveal delay={120} className="lg:col-span-5">
-              <div className="rounded-[6px] border border-teal-100 bg-ivory p-7 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+              <div className="rounded-[6px] border border-sand bg-ivory p-7 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
                   Get in touch
                 </p>
@@ -110,7 +110,7 @@ export default function AboutPage() {
                     {SITE.phone}
                   </a>
                 </address>
-                <div className="mt-5 border-t border-teal-100 pt-5">
+                <div className="mt-5 border-t border-sand pt-5">
                   <Button href="/enquire/" className="w-full sm:w-auto">
                     Start an enquiry
                   </Button>
@@ -123,12 +123,12 @@ export default function AboutPage() {
 
       {/* --------------------------------------------------------------- Pillars */}
       <section className="on-dark bg-teal-800" aria-labelledby="approach-heading">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-copper-400">Our approach</p>
             <h2
               id="approach-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               Three things we hold to.
             </h2>
@@ -139,12 +139,12 @@ export default function AboutPage() {
 
       {/* ----------------------------------------------------------------- Range */}
       <section className="bg-ivory" aria-labelledby="focus-heading">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">What we focus on</p>
             <h2
               id="focus-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               Rice, everyday ingredients, spices, seasonal fruit and NORN canned
               foods.
@@ -156,12 +156,12 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          <ul className="mt-10 border-t border-teal-100">
+          <ul className="mt-10 border-t border-sand">
             {CATEGORIES.map((category, index) => (
               <Reveal key={category.id} as="li" delay={index * 60}>
                 <Link
                   href={`/products/${category.slug}/`}
-                  className="group flex flex-col gap-2 rounded-[4px] px-3 -mx-3 border-b border-teal-100 py-6 transition-colors hover:bg-white/80 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+                  className="group flex flex-col gap-2 rounded-[4px] px-3 -mx-3 border-b border-sand py-6 transition-colors hover:bg-white/80 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
                 >
                   <span className="min-w-0">
                     <span className="block font-serif text-[1.375rem] leading-snug text-teal-800">
@@ -188,11 +188,11 @@ export default function AboutPage() {
       </section>
 
       {/* ------------------------------------------------------------- NORN block */}
-      <section className="on-dark bg-white" aria-labelledby="norn-about-heading">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="norn-about-heading">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <Reveal delay={100} className="order-2 lg:order-1 lg:col-span-5">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark">
+            <Reveal delay={100} className="order-2 lg:order-1 lg:col-span-6">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
                 <Image
                   src={IMAGES.spiceBowls.src}
                   alt={IMAGES.spiceBowls.alt}
@@ -203,11 +203,11 @@ export default function AboutPage() {
                 />
               </div>
             </Reveal>
-            <Reveal className="order-1 lg:order-2 lg:col-span-7">
+            <Reveal className="order-1 lg:order-2 lg:col-span-6">
               <p className="eyebrow">Our product brand</p>
               <h2
                 id="norn-about-heading"
-                className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+                className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
               >
                 NORN, a brand from The Lyndon Cook.
               </h2>
@@ -231,12 +231,12 @@ export default function AboutPage() {
 
       {/* ------------------------------------------------------------- Positioning */}
       <section className="bg-ivory" aria-labelledby="honest-heading">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">How we communicate</p>
             <h2
               id="honest-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               What this site deliberately does not tell you.
             </h2>
@@ -256,7 +256,7 @@ export default function AboutPage() {
               "No unsupported credentials \u2014 certifications are published only when confirmed.",
             ].map((item) => (
               <Reveal key={item} as="li" delay={60}>
-                <p className="flex gap-3 rounded-[6px] border border-teal-100 bg-white p-4 text-[0.9375rem] leading-relaxed text-body">
+                <p className="flex gap-3 rounded-[6px] border border-sand bg-white p-4 text-[0.9375rem] leading-relaxed text-body">
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-copper-600" />
                   {item}
                 </p>

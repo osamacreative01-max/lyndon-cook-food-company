@@ -28,7 +28,7 @@ export default function SectionHeading({
   onDark = false,
 }: Props) {
   const alignment =
-    align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl";
+    align === "center" ? "mx-auto max-w-4xl text-center" : "max-w-3xl";
 
   return (
     <Reveal className={className}>
@@ -39,7 +39,7 @@ export default function SectionHeading({
         {eyebrow ? <span className="rule-copper mt-3" aria-hidden="true" /> : null}
         <Tag
           id={id}
-          className={`mt-4 text-[1.75rem] leading-[1.15] sm:text-[2rem] lg:text-[2.25rem] ${
+          className={`mt-5 text-[1.875rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.875rem] ${
             onDark ? "text-ivory" : ""
           }`}
         >
@@ -47,8 +47,8 @@ export default function SectionHeading({
         </Tag>
         {description ? (
           <div
-            className={`mt-5 text-[1.0625rem] leading-[1.7] sm:text-[1.125rem] ${
-              onDark ? "text-teal-100" : "text-muted"
+            className={`mt-6 text-[1.0625rem] leading-[1.75] sm:text-[1.1875rem] ${
+              onDark ? "text-ivory" : "text-muted"
             }`}
           >
             {description}
@@ -73,7 +73,7 @@ export function Lede({
     <Container className={className}>
       <div
         className={`max-w-3xl text-[1.0625rem] leading-[1.7] sm:text-[1.125rem] ${
-          onDark ? "text-teal-100" : "text-muted"
+          onDark ? "text-ivory" : "text-muted"
         }`}
       >
         {children}

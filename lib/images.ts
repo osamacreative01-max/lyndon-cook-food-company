@@ -7,6 +7,13 @@
 
 export type EditorialImageKey =
   | "hero"
+  | "nornRange"
+  | "heroBanner1"
+  | "heroBanner2"
+  | "websiteBanner1"
+  | "websiteBanner2"
+  | "websiteBanner3"
+  | "websiteBanner4"
   | "heroPantry"
   | "palletCans"
   | "warehouse"
@@ -25,6 +32,38 @@ export const IMAGES = {
   hero: {
     src: "/Editorial images (13)/pantryStack.jpg",
     alt: "Rice and pulses arranged for food service supply",
+  },
+  /* The complete NORN collection: the homepage opening photograph. */
+  nornRange: {
+    src: "/images/norn/norn-range-wide.jpg",
+    alt: "The complete NORN collection: basmati rice sacks, pasta, canned beans and vegetables, spices and fresh mangoes",
+  },
+  /* Homepage hero slider banners (1920x800, empty left third for the headline). */
+  heroBanner1: {
+    src: "/Home page bannar-01.jpg",
+    alt: "NORN sedani, penne, shells, elbows and charleston pasta packs on a flour-dusted backdrop",
+  },
+  heroBanner2: {
+    src: "/Home page bannar-02 (1).jpg",
+    alt: "NORN steam basmati rice, canned tomatoes, baked beans, mixed vegetables and spices on a counter",
+  },
+  /* Website banners (8000x2358): the left third is deliberately empty so the
+     headline always lands on clear ground and the range stays on the right. */
+  websiteBanner1: {
+    src: "/Website Banner-01.jpg",
+    alt: "NORN rice, canned beans, pasta and spices arranged against a deep teal backdrop",
+  },
+  websiteBanner2: {
+    src: "/Website Banner-02.jpg",
+    alt: "The complete NORN range of rice, pasta, canned food, spices and mangoes",
+  },
+  websiteBanner3: {
+    src: "/Website Banner-03.jpg",
+    alt: "NORN penne, shells, elbows and sedani pasta packs on a flour-dusted backdrop",
+  },
+  websiteBanner4: {
+    src: "/Website Banner-04.jpg",
+    alt: "NORN pinto beans, baked beans, black beans and chickpeas in easy-open cans",
   },
   heroPantry: {
     src: "/Editorial images (13)/heroPantry.jpg",
@@ -80,14 +119,31 @@ export const IMAGES = {
   },
 } as const satisfies Record<EditorialImageKey, { src: string; alt: string }>;
 
+/**
+ * The four website banners, in the order every hero runs through them.
+ * Typed as a plain mutable array so they can be handed straight to the slider.
+ */
+export const WEBSITE_BANNERS: { src: string; alt: string }[] = [
+  IMAGES.websiteBanner1,
+  IMAGES.websiteBanner2,
+  IMAGES.websiteBanner3,
+  IMAGES.websiteBanner4,
+];
+
+/** The two banners the homepage hero runs through. */
+export const HOME_BANNERS: { src: string; alt: string }[] = [
+  IMAGES.heroBanner1,
+  IMAGES.heroBanner2,
+];
+
 /* -------------------------------------------------------------------------- */
 /* Category imagery                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const CATEGORY_IMAGES = {
   rice: {
-    src: "/images/norn/norn-rice-5kg.jpg",
-    alt: "NORN 5kg basmati rice sacks",
+    src: "/companyProfile/rice.jpg",
+    alt: "Rice supplied by The Lyndon Cook",
   },
   spices: {
     src: "/companyProfile/spices.jpg",
@@ -98,8 +154,8 @@ export const CATEGORY_IMAGES = {
     alt: "Mangoes in a crate, ready for selection",
   },
   "canned-food": {
-    src: "/images/norn/norn-range-wide.jpg",
-    alt: "NORN canned foods with rice, pasta and spices",
+    src: "/companyProfile/canned-food.jpg",
+    alt: "NORN canned foods supplied by The Lyndon Cook",
   },
   "norn-rice-1lb": {
     src: "/images/norn/norn-rice-1lb.jpg",
@@ -183,10 +239,10 @@ export type ProductImageKey = keyof typeof PRODUCT_IMAGES;
 
 /** Sizing presets keep `sizes` consistent between card and detail layouts. */
 export const IMAGE_SIZES = {
-  card: "(min-width: 1280px) 300px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, 88vw",
-  grid: "(min-width: 1280px) 380px, (min-width: 1024px) 33vw, (min-width: 640px) 45vw, 88vw",
-  detail: "(min-width: 1024px) 560px, 92vw",
+  card: "(min-width: 1280px) 600px, (min-width: 1024px) 470px, (min-width: 768px) 340px, 92vw",
+  grid: "(min-width: 1280px) 390px, (min-width: 1024px) 31vw, (min-width: 640px) 46vw, 92vw",
+  detail: "(min-width: 1280px) 572px, (min-width: 1024px) 46vw, 92vw",
   hero: "(min-width: 1280px) 620px, (min-width: 1024px) 50vw, 92vw",
-  wide: "(min-width: 1280px) 1200px, 100vw",
-  band: "(min-width: 1024px) 600px, 92vw",
+  wide: "(min-width: 1280px) 1280px, 100vw",
+  band: "(min-width: 1024px) 620px, 92vw",
 } as const;

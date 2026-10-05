@@ -10,7 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import SupplyProcess, { DEFAULT_SUPPLY_STEPS } from "@/components/SupplyProcess";
 import { PageHero } from "@/components/Hero";
-import { IMAGE_SIZES, IMAGES } from "@/lib/images";
+import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 
 const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook";
@@ -59,7 +59,7 @@ export default function HowWeSupplyPage() {
         eyebrow="How we supply"
         title="Straightforward supply, planned around the customer."
         description="Four stages, agreed in writing, with nothing promised that we have not confirmed. Tell us the products, quantities and delivery schedule you have in mind, and we will review a programme around your requirements."
-        image={IMAGES.warehouse}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs
             items={[
@@ -71,15 +71,15 @@ export default function HowWeSupplyPage() {
       />
 
       {/* --------------------------------------------------------- Full-load focus */}
-      <section className="on-dark bg-white" aria-labelledby="full-load-heading">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="full-load-heading">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <Reveal>
                 <p className="eyebrow">Full-load supply</p>
                 <h2
                   id="full-load-heading"
-                  className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+                  className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
                 >
                   We focus on planned full-load supply.
                 </h2>
@@ -111,7 +111,7 @@ export default function HowWeSupplyPage() {
               </Reveal>
             </div>
             <Reveal delay={120} className="lg:col-span-5">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
                 <Image
                   src={IMAGES.riceSacks.src}
                   alt={IMAGES.riceSacks.alt}
@@ -133,13 +133,13 @@ export default function HowWeSupplyPage() {
       />
 
       {/* --------------------------------------------------------- What we agree */}
-      <section className="on-dark border-t border-teal-100 bg-white" aria-labelledby="agree-heading">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark border-t border-sand bg-ivory" aria-labelledby="agree-heading">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Agreed in writing</p>
             <h2
               id="agree-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               What gets agreed, and when.
             </h2>
@@ -183,7 +183,7 @@ export default function HowWeSupplyPage() {
               },
             ].map((item) => (
               <Reveal key={item.term} as="div" delay={70}>
-                <div className="h-full rounded-[6px] border border-teal-100 bg-ivory/60 p-5 transition-colors hover:border-teal-200 hover:bg-white">
+                <div className="h-full rounded-[6px] border border-sand bg-ivory/60 p-5 transition-colors hover:border-copper-400 hover:bg-white">
                   <dt className="font-serif text-[1.1875rem] leading-snug text-teal-800">
                     {item.term}
                   </dt>

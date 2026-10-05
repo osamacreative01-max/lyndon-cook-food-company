@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
@@ -11,7 +12,7 @@ import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import { getCategory } from "@/lib/categories";
-import { IMAGE_SIZES, IMAGES } from "@/lib/images";
+import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
@@ -68,31 +69,17 @@ export default function NornPage() {
         eyebrow={SITE.brandLine}
         title="Everyday food. Well considered."
         description="Good things. In easy reach."
-        image={IMAGES.cannedShelf}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
-          <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-2 text-[0.8125rem] text-muted">
-              <li>
-                <Link href="/" className="link-underline link-underline-hover">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-teal-400">
-                /
-              </li>
-              <li>
-                <span aria-current="page" className="text-teal-800">
-                  NORN
-                </span>
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumbs
+            items={[{ name: "Home", href: "/" }, { name: "NORN" }]}
+          />
         }
       />
 
       {/* ---------------------------------------------------------- Brand intro */}
-      <section className="on-dark bg-white" aria-labelledby="norn-intro">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="norn-intro">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <Reveal>
@@ -106,7 +93,7 @@ export default function NornPage() {
                 <p className="eyebrow">A brand from {SITE.name}</p>
                 <h2
                   id="norn-intro"
-                  className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+                  className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
                 >
                   A small, deliberate range of everyday canned food.
                 </h2>
@@ -137,7 +124,7 @@ export default function NornPage() {
             </div>
 
             <Reveal delay={120} className="lg:col-span-5">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark sm:aspect-[4/3]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark sm:aspect-[4/3]">
                 <Image
                   src={IMAGES.palletCans.src}
                   alt={IMAGES.palletCans.alt}
@@ -154,12 +141,12 @@ export default function NornPage() {
 
       {/* ------------------------------------------------------------- Highlights */}
       <section className="on-dark bg-teal-800" aria-labelledby="norn-highlights">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-copper-400">At a glance</p>
             <h2
               id="norn-highlights"
-              className="mt-4 text-[1.75rem] leading-[1.15] sm:text-[2rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               Fourteen choices, one format.
             </h2>
@@ -176,7 +163,7 @@ export default function NornPage() {
                   <dt className="font-serif text-[2.25rem] leading-none text-copper-400">
                     {item.term}
                   </dt>
-                  <dd className="mt-3 text-[0.9375rem] leading-relaxed text-teal-100">
+                  <dd className="mt-3 text-[0.9375rem] leading-relaxed text-ivory">
                     {item.detail}
                   </dd>
                 </div>
@@ -193,17 +180,17 @@ export default function NornPage() {
           <section
             key={group.id}
             className={`${groupIndex % 2 === 0 ? "bg-ivory" : "bg-white"} ${
-              groupIndex > 0 ? "border-t border-teal-100" : ""
+              groupIndex > 0 ? "border-t border-sand" : ""
             }`}
             aria-labelledby={`norn-${group.id}`}
           >
-            <Container className="py-14 sm:py-16">
+            <Container className="py-14 sm:py-16 lg:py-20">
               <Reveal className="flex flex-wrap items-end justify-between gap-4">
                 <div className="max-w-2xl">
                   <p className="eyebrow">{group.blurb}</p>
                   <h2
                     id={`norn-${group.id}`}
-                    className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
+                    className="mt-3 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
                   >
                     {group.name}
                   </h2>
@@ -226,14 +213,14 @@ export default function NornPage() {
       })}
 
       {/* ------------------------------------------------------- NORN Rice 1lb */}
-      <section className="border-t border-teal-100 bg-ivory" aria-labelledby="norn-rice-heading">
-        <Container className="py-14 sm:py-16">
+      <section className="border-t border-sand bg-ivory" aria-labelledby="norn-rice-heading">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
               <p className="eyebrow">NORN Rice in 1 lb packs</p>
               <h2
                 id="norn-rice-heading"
-                className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
+                className="mt-3 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
               >
                 NORN Rice 1lb
               </h2>
@@ -262,14 +249,14 @@ export default function NornPage() {
       </section>
 
       {/* ------------------------------------------------------------- Pasta */}
-      <section className="border-t border-teal-100 bg-white" aria-labelledby="norn-pasta-heading">
-        <Container className="py-14 sm:py-16">
+      <section className="border-t border-sand bg-ivory" aria-labelledby="norn-pasta-heading">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div className="max-w-2xl">
               <p className="eyebrow">NORN Pasta range</p>
               <h2
                 id="norn-pasta-heading"
-                className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
+                className="mt-3 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
               >
                 Pasta
               </h2>
@@ -298,8 +285,8 @@ export default function NornPage() {
       </section>
 
       {/* ------------------------------------------------------------- Packaging note */}
-      <section className="border-t border-teal-100 bg-white">
-        <Container className="py-14 sm:py-16">
+      <section className="border-t border-sand bg-ivory">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-6">
               <p className="eyebrow">Good to know</p>
@@ -323,7 +310,7 @@ export default function NornPage() {
                 ].map((item) => (
                   <li
                     key={item.title}
-                    className="flex gap-3 rounded-[6px] border border-teal-100 bg-ivory/60 p-4"
+                    className="flex gap-3 rounded-[6px] border border-sand bg-ivory/60 p-4"
                   >
                     <span
                       aria-hidden="true"
@@ -344,7 +331,7 @@ export default function NornPage() {
               <h2 className="mt-3 text-[1.375rem] leading-snug sm:text-[1.5rem]">
                 Italian sourcing
               </h2>
-              <div className="mt-6 rounded-[6px] border border-teal-100 bg-ivory/60 p-6">
+              <div className="mt-6 rounded-[6px] border border-sand bg-ivory/60 p-6">
                 <p className="text-[0.9375rem] leading-relaxed text-muted">
                   NORN San Marzano Tomatoes are a product of Italy, presented in a
                   400 ml easy-open can with British English and Italian pack wording

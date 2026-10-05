@@ -20,7 +20,7 @@ export default function Breadcrumbs({ items, onDark = false, className = "" }: P
     <nav aria-label="Breadcrumb" className={className}>
       <ol
         className={`flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[0.8125rem] ${
-          onDark ? "text-teal-200" : "text-muted"
+          onDark ? "text-ivory/75" : "text-muted"
         }`}
       >
         {items.map((item, index) => {
@@ -33,8 +33,8 @@ export default function Breadcrumbs({ items, onDark = false, className = "" }: P
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className={`link-underline rounded-[2px] hover:text-teal-800 ${
-                    onDark ? "hover:text-ivory" : ""
+                  className={`link-underline rounded-[2px] ${
+                    onDark ? "hover:text-ivory" : "hover:text-teal-800"
                   }`}
                 >
                   {item.name}

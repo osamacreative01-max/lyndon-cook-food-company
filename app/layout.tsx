@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Cinzel, Poppins } from "next/font/google";
 import type { ReactNode } from "react";
 
 import Footer from "@/components/Footer";
@@ -9,17 +9,20 @@ import { SITE } from "@/lib/site";
 
 import "./globals.css";
 
-const sans = Inter({
+/* Poppins carries every description and UI label. */
+const sans = Poppins({
   variable: "--font-sans-body",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
-const serif = Source_Serif_4({
+/* Cinzel carries headings, buttons and every other display line. */
+const serif = Cinzel({
   variable: "--font-serif-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {

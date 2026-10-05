@@ -11,6 +11,7 @@ import { PageHero } from "@/components/Hero";
 import type { Category } from "@/lib/categories";
 import { itemListSchema } from "@/lib/seo";
 import { getProductsByCategory, getProductsBySubgroup } from "@/lib/products";
+import { WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 
 const NORN_PACKAGING_NOTE =
@@ -40,7 +41,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
         eyebrow={isNorn ? "Product brand" : "Category"}
         title={category.name}
         description={category.description}
-        image={category.image}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs
             items={[
@@ -69,7 +70,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
                 </div>
               ))}
             </dl>
-            <p className="mt-6 max-w-3xl text-[0.875rem] leading-relaxed text-teal-200">
+            <p className="mt-6 max-w-3xl text-[0.875rem] leading-relaxed text-ivory/75">
               {NORN_PACKAGING_NOTE}
             </p>
           </Container>
@@ -82,10 +83,10 @@ export default function CategoryPageView({ category }: { category: Category }) {
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="eyebrow text-copper-400">Product datasheet</p>
-                <h2 className="mt-3 text-[1.5rem] leading-snug text-ivory sm:text-[1.75rem]">
+                <h2 className="mt-3 text-[1.75rem] leading-[1.15] text-ivory sm:text-[2.125rem]">
                   Download the full specification
                 </h2>
-                <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-teal-200">
+                <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-ivory/75">
                   Get the complete product datasheet with specifications, pack
                   formats and other details.
                 </p>
@@ -112,12 +113,12 @@ export default function CategoryPageView({ category }: { category: Category }) {
             className="bg-ivory"
             aria-labelledby={`group-${group.id}`}
           >
-            <Container className="py-14 sm:py-16">
+            <Container className="py-14 sm:py-16 lg:py-20">
               <Reveal className="max-w-2xl">
                 <p className="eyebrow">{group.name}</p>
                 <h2
                   id={`group-${group.id}`}
-                  className="mt-3 text-[1.625rem] leading-snug sm:text-[1.875rem]"
+                  className="mt-3 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
                 >
                   {category.groups.length > 1
                     ? `${group.name} in ${category.shortName.toLowerCase()}`
@@ -140,7 +141,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
         );
       })}
 
-      <section className="on-dark border-t border-teal-100 bg-white">
+      <section className="on-dark border-t border-sand bg-ivory">
         <Container className="py-12 sm:py-14">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex gap-4">

@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Canonical URLs, the sitemap and every authored link end in a slash, so
+  // pages are served that way too — otherwise every one of them 308s first.
+  trailingSlash: true,
   images: {
     // Photography is served from Pexels' CDN and optimised by next/image.
     remotePatterns: [
@@ -13,6 +16,9 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ["image/avif", "image/webp"],
+    // Only 75 is allowed by default, which silently downgrades every `quality`
+    // prop on the page. Packaging needs the extra detail.
+    qualities: [75, 85, 90],
     deviceSizes: [320, 360, 375, 390, 414, 640, 768, 1024, 1280, 1440, 1920],
     imageSizes: [96, 160, 240, 320, 400, 480, 640],
   },

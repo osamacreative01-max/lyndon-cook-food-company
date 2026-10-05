@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import { PageHero } from "@/components/Hero";
+import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
@@ -21,6 +22,7 @@ export default function CookiesPage() {
     <>
       <PageHero
         eyebrow="Legal"
+        banners={WEBSITE_BANNERS}
         title="Cookies"
         description="This website keeps tracking to a minimum. Here is exactly what is used and why."
         breadcrumbs={
@@ -31,9 +33,9 @@ export default function CookiesPage() {
       />
 
       <section className="bg-ivory">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="max-w-3xl">
-            <h2 className="text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               The short version
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">
@@ -42,7 +44,7 @@ export default function CookiesPage() {
               banner, because there is nothing to consent to.
             </p>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               What the site does use
             </h2>
             <ul className="mt-5 space-y-5 text-[1.0625rem] leading-[1.7] text-muted">
@@ -74,7 +76,7 @@ export default function CookiesPage() {
               </li>
             </ul>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               Analytics
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">
@@ -84,7 +86,7 @@ export default function CookiesPage() {
               your enquiry, and this page will be updated before it goes live.
             </p>
 
-            <h2 className="mt-12 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-12 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               How to clear storage in your browser
             </h2>
             <p className="mt-4 text-[1.0625rem] leading-[1.7] text-muted">

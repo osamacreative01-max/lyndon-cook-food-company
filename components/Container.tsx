@@ -7,7 +7,7 @@ type ContainerProps = {
   id?: string;
 };
 
-/** Default 1200px content frame with responsive gutters. */
+/** Full-width content frame with responsive gutters (no max-width cap). */
 export default function Container({
   children,
   className = "",

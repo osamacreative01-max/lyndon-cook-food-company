@@ -29,17 +29,17 @@ export default function EnquiryCTA({
 }: Props) {
   return (
     <section className="on-dark bg-teal-800" aria-labelledby="enquiry-cta-heading">
-      <Container className="py-16 sm:py-20">
+      <Container className="py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <Reveal className="lg:col-span-7">
             <p className="eyebrow text-copper-400">Next step</p>
             <h2
               id="enquiry-cta-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               {heading}
             </h2>
-            <p className="mt-5 max-w-xl text-[1.0625rem] leading-[1.7] text-teal-100">
+            <p className="mt-5 max-w-xl text-[1.0625rem] leading-[1.7] text-ivory">
               {copy}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -57,7 +57,7 @@ export default function EnquiryCTA({
               ) : null}
             </div>
             {showFullLoadNote ? (
-              <div className="mt-8 max-w-2xl border-l-2 border-copper-400 pl-5 text-[0.9375rem] leading-relaxed text-teal-100">
+              <div className="mt-8 max-w-2xl border-l-2 border-copper-400 pl-5 text-[0.9375rem] leading-relaxed text-ivory">
                 <p>
                   We focus on planned full-load supply. Tell us the products,
                   quantities and delivery schedule you have in mind, and we will
@@ -71,7 +71,7 @@ export default function EnquiryCTA({
                 </p>
               </div>
             ) : null}
-            <p className="mt-8 text-[0.9375rem] text-teal-200">
+            <p className="mt-8 text-[0.9375rem] text-ivory/75">
               Prefer email or phone?{" "}
               <a
                 href={`mailto:${SITE.email}`}
@@ -90,14 +90,14 @@ export default function EnquiryCTA({
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-5">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-700">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-teal-900 ring-1 ring-teal-700 lg:aspect-[5/4]">
               <Image
                 src={IMAGES.warehouse.src}
                 alt={IMAGES.warehouse.alt}
                 fill
                 loading="lazy"
                 sizes={IMAGE_SIZES.band}
-                className="object-cover opacity-90"
+                className="object-cover"
               />
             </div>
           </Reveal>

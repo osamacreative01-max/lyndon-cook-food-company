@@ -101,7 +101,7 @@ export default function EnquiryForm({
     setFailureMessage("");
 
     try {
-      const response = await fetch("/api/enquiry", {
+      const response = await fetch("/api/enquiry/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -159,7 +159,7 @@ export default function EnquiryForm({
       <div
         tabIndex={-1}
         role="status"
-        className="rounded-[4px] border border-teal-200 bg-white p-8 sm:p-10"
+        className="rounded-[4px] border border-sand-600 bg-white p-8 sm:p-10"
       >
         <div className="flex gap-4">
           <CheckCircle2
@@ -203,17 +203,17 @@ export default function EnquiryForm({
   };
 
   const controlClass = (name: keyof EnquiryValues) =>
-    `min-h-11 w-full rounded-[4px] border bg-white px-3.5 py-2.5 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-teal-100 ${
+    `min-h-12 w-full rounded-[6px] border bg-white px-4 py-3 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 hover:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100 ${
       fieldError(name)
-        ? "border-red-700 focus:border-red-700 focus:ring-red-100"
-        : "border-teal-200 focus:border-teal-400"
+        ? "border-red-700 hover:border-red-700 focus:border-red-700 focus:ring-red-100"
+        : "border-sand-600 focus:border-copper-600"
     }`;
 
   return (
     <form
       noValidate
       onSubmit={handleSubmit(onSubmit)}
-      className="rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)] sm:p-8"
+      className="rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)] sm:p-8"
       aria-describedby="enquiry-form-intro"
     >
       <p id="enquiry-form-intro" className="text-[0.9375rem] leading-relaxed text-muted">
@@ -251,7 +251,14 @@ export default function EnquiryForm({
         />
       </div>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-2">
+      <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
+        <SectionHeading
+          className="sm:col-span-2"
+          step={1}
+          title="About you"
+          hint="Who we should reply to."
+        />
+
         <Field
           name="name"
           label="Name"
@@ -321,6 +328,13 @@ export default function EnquiryForm({
             {...register("telephone")}
           />
         </Field>
+
+        <SectionHeading
+          className="mt-3 sm:col-span-2"
+          step={2}
+          title="What you need"
+          hint="The product, format and volume you have in mind."
+        />
 
         <Field
           name="buyerType"
@@ -405,6 +419,13 @@ export default function EnquiryForm({
           </select>
         </Field>
 
+        <SectionHeading
+          className="mt-3 sm:col-span-2"
+          step={3}
+          title="Delivery & specification"
+          hint="Where it goes, when you need it and anything we should know."
+        />
+
         <Field
           name="destination"
           label="Delivery destination"
@@ -462,7 +483,10 @@ export default function EnquiryForm({
         </Field>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4 rounded-[6px] border border-teal-100 bg-ivory/60 p-5 sm:flex-row sm:items-center sm:justify-between">
+      <div
+        className="mt-8 flex flex-col gap-4 rounded-[6px] border border-sand bg-ivory/60 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+        style={{ borderTopWidth: "4px", borderTopColor: "var(--color-copper-600)" }}
+      >
         <p className="text-[0.8125rem] leading-relaxed text-muted">
           We use your details only to respond to this enquiry. See our{" "}
           <a
@@ -473,7 +497,7 @@ export default function EnquiryForm({
           </a>
           .
         </p>
-        <Button type="submit" size="lg" disabled={isSubmittingOrPending} className="sm:min-w-52">
+        <Button type="submit" size="lg" disabled={isSubmittingOrPending} className="sm:min-w-56">
           {isSubmittingOrPending ? (
             <>
               <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -521,7 +545,7 @@ function Field({
             *
           </span>
         ) : (
-          <span className="ml-2 text-xs font-normal uppercase tracking-[0.1em] text-muted">
+          <span className="ml-2 inline-block rounded-full bg-ivory px-2 py-0.5 align-middle text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
             Optional
           </span>
         )}
@@ -541,6 +565,42 @@ function Field({
           {error}
         </p>
       ) : null}
+    </div>
+  );
+}
+
+/** Numbered section rule that matches the guidance cards on the enquire page. */
+function SectionHeading({
+  step,
+  title,
+  hint,
+  className = "",
+}: {
+  step: number;
+  title: string;
+  hint?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex items-start gap-3 border-b border-sand pb-3 ${className}`}
+    >
+      <span
+        aria-hidden="true"
+        className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-800 font-serif text-[0.8125rem] font-semibold text-ivory"
+      >
+        {step}
+      </span>
+      <div>
+        <h3 className="font-serif text-[1.0625rem] leading-snug text-teal-800">
+          {title}
+        </h3>
+        {hint ? (
+          <p className="mt-0.5 text-[0.8125rem] leading-relaxed text-muted">
+            {hint}
+          </p>
+        ) : null}
+      </div>
     </div>
   );
 }

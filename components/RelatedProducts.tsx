@@ -14,12 +14,12 @@ export default function RelatedProducts({
   if (products.length === 0) return null;
 
   return (
-    <section aria-labelledby="related-heading" className="bg-white">
-      <div className="container-page py-14 sm:py-16">
+    <section aria-labelledby="related-heading" className="bg-ivory">
+      <div className="container-page py-14 sm:py-16 lg:py-20">
         <div className="max-w-2xl">
           <h2
             id="related-heading"
-            className="text-[1.625rem] leading-snug sm:text-[1.875rem]"
+            className="text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
           >
             {title}
           </h2>

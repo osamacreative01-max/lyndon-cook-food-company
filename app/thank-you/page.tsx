@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <section className="on-dark bg-white">
+    <section className="on-dark bg-ivory">
       <Container className="py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
@@ -48,7 +48,7 @@ export default function ThankYouPage() {
               </Button>
             </div>
 
-            <div className="mt-10 rounded-[4px] border border-teal-100 bg-ivory p-6">
+            <div className="mt-10 rounded-[4px] border border-sand bg-ivory p-6">
               <h2 className="font-serif text-[1.1875rem] text-teal-800">
                 Need to reach us sooner?
               </h2>
@@ -76,7 +76,7 @@ export default function ThankYouPage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
               <Image
                 src={IMAGES.plating.src}
                 alt={IMAGES.plating.alt}

@@ -99,15 +99,15 @@ export default function MobileMenu({
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"
-      className="fixed inset-x-0 bottom-0 top-[var(--header-h,4.5rem)] z-50 overflow-y-auto overscroll-contain border-t border-teal-100 bg-ivory lg:hidden"
+      className="fixed inset-x-0 bottom-0 top-[var(--header-h,6rem)] z-50 overflow-y-auto overscroll-contain border-t border-sand bg-ivory lg:hidden"
     >
       <div className="container-page flex min-h-full flex-col gap-8 py-8">
-        <div className="flex items-center justify-between border-b border-teal-100 pb-4">
+        <div className="flex items-center justify-between border-b border-sand pb-4">
           <p className="eyebrow">Menu</p>
           <button
             type="button"
             onClick={onClose}
-            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-[4px] text-teal-800 transition-colors hover:bg-teal-50"
+            className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-[4px] text-teal-800 transition-colors hover:bg-white"
           >
             <X aria-hidden="true" className="h-5 w-5" />
             <span className="sr-only-focusable absolute">Close menu</span>
@@ -127,8 +127,8 @@ export default function MobileMenu({
                     aria-current={active ? "page" : undefined}
                     className={`flex min-h-14 items-center justify-between rounded-[4px] px-3 font-serif text-[1.375rem] transition-colors ${
                       active
-                        ? "bg-teal-50 text-teal-800"
-                        : "text-body hover:bg-teal-50/60"
+                        ? "bg-white text-teal-800"
+                        : "text-body hover:bg-white/70"
                     }`}
                   >
                     {link.label}
@@ -148,7 +148,7 @@ export default function MobileMenu({
           >
             Enquire
           </Link>
-          <div className="border-t border-teal-100 pt-4 text-[0.9375rem]">
+          <div className="border-t border-sand pt-4 text-[0.9375rem]">
             <p className="font-semibold text-teal-800">{SITE.name}</p>
             <a
               href={`mailto:${SITE.email}`}

@@ -9,7 +9,7 @@ import ProductFilters from "@/components/ProductFilters";
 import { PageHero } from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import { CATEGORIES } from "@/lib/categories";
-import { CATEGORY_IMAGES, IMAGES } from "@/lib/images";
+import { CATEGORY_IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
@@ -47,19 +47,19 @@ export default function ProductsPage() {
         eyebrow="Our products"
         title="Rice, spices, seasonal fruit and NORN canned foods."
         description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by range, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
-        image={IMAGES.heroPantry}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our products" }]} />
         }
       />
 
       <section className="bg-ivory" aria-labelledby="catalogue-heading">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
               Browse by range
             </p>
-            <h2 id="catalogue-heading" className="mt-2 text-[1.625rem] leading-snug sm:text-[1.875rem]">
+            <h2 id="catalogue-heading" className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]">
               The catalogue
             </h2>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
@@ -85,13 +85,13 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      <section className="border-t border-teal-100 bg-white">
-        <Container className="py-14 sm:py-16">
+      <section className="border-t border-sand bg-ivory">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
               Quick links
             </p>
-            <h2 className="mt-2 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+            <h2 className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
               Looking for a specific product?
             </h2>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
@@ -107,7 +107,7 @@ export default function ProductsPage() {
               <Reveal key={category.id}>
                 <a
                   href={`/products/${category.slug}/`}
-                  className="group flex items-center gap-4 rounded-[6px] border border-teal-100 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-200 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)]"
+                  className="group flex items-center gap-4 rounded-[6px] border border-sand bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-copper-400 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)]"
                 >
                   <span className="relative block h-14 w-14 shrink-0 overflow-hidden rounded-[4px] bg-ivory-dark">
                     <Image

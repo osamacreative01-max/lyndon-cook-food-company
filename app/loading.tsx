@@ -19,7 +19,7 @@ export default function Loading() {
     >
       <span className="sr-only-focusable absolute">Loading page</span>
       <div className="h-[46vh] w-full animate-pulse bg-teal-100/40" />
-      <div className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-8">
+      <div className="container-page py-14">
         <div className="h-4 w-32 rounded bg-teal-100/60" />
         <div className="mt-5 h-10 w-full max-w-lg rounded bg-teal-100/60" />
         <div className="mt-4 h-10 w-full max-w-md rounded bg-teal-100/40" />

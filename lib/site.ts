@@ -35,15 +35,17 @@ export const SITE = {
   },
 
   /**
-   * TODO(launch): replace with the approved logo artwork. The current file is a
-   * clearly-marked typographic placeholder that mirrors the approved composition
-   * (teal emblem, serif wordmark, copper rule, "FOOD COMPANY" line). Dropping the
-   * approved SVG over `public/logo/lyndon-cook.svg` replaces it site-wide.
+   * Approved lockup artwork (source: `public/Asset 1@4x.png`, 6098x1122).
+   *
+   * Two flattened variants of the same artwork are published so every surface
+   * carries the identical lockup: the teal wordmark on cream, the cream wordmark
+   * on teal panels. See `components/Logo.tsx`.
    */
   logo: {
-    src: "/logo/lyndon-cook-logo.jpeg",
+    src: "/logo/lyndon-cook-lockup.png",
+    onDarkSrc: "/logo/lyndon-cook-lockup-light.png",
     width: 1600,
-    height: 534,
+    height: 294,
     alt: "The Lyndon Cook",
   },
 

@@ -26,13 +26,13 @@ export default function ProductCard({
 
   return (
     <Reveal delay={delay} className="h-full">
-      <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-teal-200 hover:shadow-[0_16px_40px_rgba(8,75,80,0.12)]">
+      <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-sand bg-white transition-all duration-300 hover:-translate-y-1 hover:border-copper-400 hover:shadow-[0_16px_40px_rgba(8,75,80,0.12)]">
         <Link
           href={getProductHref(product)}
           className="flex h-full flex-col focus-visible:outline-offset-[-3px]"
           aria-label={`${product.name} — View details`}
         >
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-ivory-dark">
+          <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-dark">
             <Image
               src={product.image.src}
               alt={product.image.alt}
@@ -41,18 +41,20 @@ export default function ProductCard({
               loading={priority ? undefined : "lazy"}
               sizes={IMAGE_SIZES.grid}
               quality={85}
-              className={`transition-transform duration-500 group-hover:scale-105 ${
-                isPackShot ? "object-contain p-5 sm:p-6" : "object-cover"
-              }`}
+              className={
+                isPackShot
+                  ? "object-contain p-4 sm:p-5"
+                  : "object-cover transition-transform duration-500 group-hover:scale-105"
+              }
             />
             {/* Gradient overlay on hover */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              className="absolute inset-0 bg-gradient-to-t from-teal-900/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             />
             {/* Category badge */}
             <span
-              className={`absolute left-3 top-3 rounded-[3px] px-2.5 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
+              className={`absolute left-4 top-4 rounded-[3px] px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
                 isNorn
                   ? "bg-teal-800 text-ivory"
                   : "bg-white/95 text-teal-800 shadow-sm"
@@ -62,7 +64,7 @@ export default function ProductCard({
             </span>
           </div>
 
-          <div className="flex flex-1 flex-col p-5">
+          <div className="flex flex-1 flex-col p-6">
             {!isNorn ? (
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-copper-700">
                 {product.category === "norn-rice-1lb"
@@ -76,19 +78,19 @@ export default function ProductCard({
               </p>
             )}
 
-            <h3 className="mt-1.5 font-serif text-[1.1875rem] leading-snug text-teal-800 transition-colors group-hover:text-teal-700">
+            <h3 className="mt-2 font-serif text-[1.3125rem] leading-snug text-teal-800 transition-colors group-hover:text-teal-700">
               {product.name}
             </h3>
 
             {!compact ? (
-              <p className="mt-2 flex-1 text-[0.875rem] leading-relaxed text-muted">
+              <p className="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-muted">
                 {product.summary}
               </p>
             ) : (
               <div className="flex-1" />
             )}
 
-            <div className="mt-4 flex items-center justify-between border-t border-teal-100 pt-4">
+            <div className="mt-5 flex items-center justify-between border-t border-sand pt-5">
               <span className="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-teal-800">
                 View details
                 <ArrowRight

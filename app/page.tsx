@@ -6,13 +6,15 @@ import Button from "@/components/Button";
 import CategoryCard from "@/components/CategoryCard";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
+import Hero, { HeroStrip } from "@/components/Hero";
+import ImageBand from "@/components/ImageBand";
 import Pillars from "@/components/Pillars";
 import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import SupplyProcess from "@/components/SupplyProcess";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGE_SIZES, IMAGES } from "@/lib/images";
+import { HOME_BANNERS, IMAGE_SIZES, IMAGES } from "@/lib/images";
 import { itemListSchema, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { ACTIVE_PRODUCTS, getProductsByCategory } from "@/lib/products";
@@ -29,8 +31,6 @@ export default function HomePage() {
   const featuredRice = getProductsByCategory("rice").slice(0, 3);
   const featuredSpices = getProductsByCategory("spices").slice(0, 3);
 
-  const heroImage = IMAGES.pantryStack;
-
   return (
     <>
       <JsonLd
@@ -44,95 +44,38 @@ export default function HomePage() {
       />
 
       {/* ---------------------------------------------------------------- Hero */}
-      <section className="on-dark bg-white">
-        <Container className="grid items-center gap-10 py-10 sm:py-12 lg:grid-cols-12 lg:gap-14 lg:py-16">
-          <div className="lg:col-span-6">
-            <p className="eyebrow">UK food supply, planned around you</p>
-            <span className="rule-copper mt-3" aria-hidden="true" />
-            <h1 className="mt-5 text-[2.25rem] leading-[1.08] sm:text-[3rem] lg:text-[3.75rem]">
-              Good food.<br className="hidden sm:block" /> Straightforward supply.
-            </h1>
-            <p className="mt-6 max-w-xl text-[1.0625rem] leading-[1.7] text-muted sm:text-[1.1875rem]">
-              Rice, spices, seasonal fruit and NORN canned foods, supplied around
-              clear specifications and planned purchasing requirements. Tell us
-              what you need, in what format and when, and we will review the supply
-              options with you.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/enquire/" size="lg">
-                Discuss your requirements
-                <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Button>
-              <Button href="/products/" variant="secondary" size="lg">
-                Explore our range
-              </Button>
-            </div>
-            <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 border-t border-teal-100 pt-8 text-[0.9375rem] text-muted sm:grid-cols-3">
-              {[
-                `${ACTIVE_PRODUCTS.length} products across ${CATEGORIES.length} categories`,
-                "Planned full-load B2B supply",
-                "Specification agreed per order",
-              ].map((point) => (
-                <li key={point} className="flex gap-2.5">
-                  <Check
-                    aria-hidden="true"
-                    className="mt-0.5 h-4 w-4 shrink-0 text-copper-600"
-                  />
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <Hero
+        eyebrow="UK food supply, planned around you"
+        title={
+          <>
+            Good food.
+            <br className="hidden sm:block" /> Straightforward supply.
+          </>
+        }
+        description="Rice, spices, seasonal fruit and NORN canned foods, supplied around clear specifications and planned purchasing requirements."
+        primary={{ label: "Discuss your requirements", href: "/enquire/" }}
+        secondary={{ label: "Explore our range", href: "/products/" }}
+        slides={HOME_BANNERS}
+      />
 
-          <div className="lg:col-span-6">
-            <div className="relative">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/3]">
-                <Image
-                  src={heroImage.src}
-                  alt={heroImage.alt}
-                  fill
-                  priority
-                  fetchPriority="high"
-                  quality={90}
-                  sizes={IMAGE_SIZES.hero}
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Floating stat badge */}
-              <div className="absolute -bottom-5 left-4 flex items-center gap-4 rounded-[6px] border border-teal-100 bg-white px-5 py-4 shadow-[0_8px_30px_rgba(8,75,80,0.12)] sm:left-6">
-                <div className="text-center">
-                  <span className="block font-serif text-[1.5rem] leading-none text-teal-800">
-                    {ACTIVE_PRODUCTS.length}+
-                  </span>
-                  <span className="mt-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
-                    Products
-                  </span>
-                </div>
-                <span aria-hidden="true" className="h-8 w-px bg-teal-100" />
-                <div className="text-center">
-                  <span className="block font-serif text-[1.5rem] leading-none text-teal-800">
-                    {CATEGORIES.length}
-                  </span>
-                  <span className="mt-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
-                    Ranges
-                  </span>
-                </div>
-              </div>
-
-              {/* Decorative corner accent */}
-              <div
-                aria-hidden="true"
-                className="absolute -top-3 -right-3 hidden h-20 w-20 rounded-[6px] border border-copper-600/50 sm:block"
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <HeroStrip
+        items={[
+          `${ACTIVE_PRODUCTS.length} products across ${CATEGORIES.length} categories`,
+          "Planned full-load B2B supply",
+          "Specification agreed per order",
+        ]}
+      />
 
       {/* ------------------------------------------------------- Category grid */}
-      <section className="bg-ivory" aria-labelledby="range-heading">
-        <Container className="py-16 sm:py-20">
+      <section
+        className="relative overflow-hidden bg-ivory"
+        aria-labelledby="range-heading"
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-copper-100/60 blur-3xl"
+        />
+        <Container className="relative py-16 sm:py-20 lg:py-24">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               id="range-heading"
@@ -142,14 +85,17 @@ export default function HomePage() {
             />
             <Link
               href="/products/"
-              className="link-underline link-underline-hover inline-flex min-h-11 items-center gap-2 font-semibold text-teal-800"
+              className="group inline-flex items-center gap-2.5 rounded-full border border-teal-800/20 bg-white px-6 py-3 text-sm font-semibold text-teal-800 shadow-[0_2px_10px_rgba(8,75,80,0.06)] transition-all duration-300 hover:border-teal-800 hover:bg-teal-800 hover:text-ivory focus-visible:outline-offset-4"
             >
               See all {ACTIVE_PRODUCTS.length} products
-              <ArrowRight aria-hidden="true" className="h-4 w-4 text-copper-600" />
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 text-copper-600 transition-all duration-300 group-hover:translate-x-1 group-hover:text-copper-400"
+              />
             </Link>
           </div>
 
-          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <ul className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:gap-7">
             {CATEGORIES.map((category, index) => (
               <li key={category.id} className="h-full">
                 <CategoryCard category={category} delay={index * 90} />
@@ -161,16 +107,17 @@ export default function HomePage() {
 
       {/* ------------------------------------------------------------- Pillars */}
       <section className="on-dark bg-teal-800" aria-labelledby="pillars-heading">
-        <Container className="py-16 sm:py-20">
-          <Reveal className="max-w-2xl">
+        <Container className="py-16 sm:py-20 lg:py-24">
+          <Reveal className="max-w-3xl">
             <p className="eyebrow text-copper-400">Why work with us</p>
+            <span className="rule-copper mt-4" aria-hidden="true" />
             <h2
               id="pillars-heading"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               Selected with care. Supplied with purpose.
             </h2>
-            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-teal-100">
+            <p className="mt-6 max-w-2xl text-[1.0625rem] leading-[1.75] text-ivory sm:text-[1.1875rem]">
               A practical approach to food supply: well-chosen products, clear
               specifications and orders planned around the customer.
             </p>
@@ -180,10 +127,10 @@ export default function HomePage() {
       </section>
 
       {/* ---------------------------------------------------------- NORN block */}
-      <section className="on-dark bg-white" aria-labelledby="norn-heading">
-        <Container className="py-16 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-6">
+      <section className="bg-ivory" aria-labelledby="norn-heading">
+        <Container className="py-16 sm:py-20 lg:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
               <SectionHeading
                 id="norn-heading"
                 eyebrow="Our canned-food brand"
@@ -199,15 +146,15 @@ export default function HomePage() {
                 {["Beans", "Pulses", "Vegetables", "Tomatoes"].map((label) => (
                   <li
                     key={label}
-                    className="rounded-full border border-teal-200 bg-ivory px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-teal-400"
+                    className="rounded-full border border-sand-600 bg-white px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-copper-600"
                   >
                     {label}
                   </li>
                 ))}
-                <li className="rounded-full border border-copper-600/50 bg-copper-100/50 px-4 py-2 text-sm font-medium text-copper-700">
+                <li className="rounded-full border border-copper-600/50 bg-copper-100/60 px-4 py-2 text-sm font-medium text-copper-700">
                   400 ml can format
                 </li>
-                <li className="rounded-full border border-copper-600/50 bg-copper-100/50 px-4 py-2 text-sm font-medium text-copper-700">
+                <li className="rounded-full border border-copper-600/50 bg-copper-100/60 px-4 py-2 text-sm font-medium text-copper-700">
                   Easy-open ring-pull
                 </li>
               </ul>
@@ -215,7 +162,7 @@ export default function HomePage() {
                 400 ml refers to the can format. Final net contents, drained weights
                 and label details are confirmed by product specification.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap gap-3">
                 <Button href="/products/canned-food/" size="lg">
                   Explore NORN
                 </Button>
@@ -225,38 +172,32 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <ul className="grid grid-cols-2 gap-4">
-                {nornHighlights.map((product, index) => (
+            <div className="lg:col-span-7">
+              <ul className="grid grid-cols-2 gap-5">
+                {nornHighlights.map((product) => (
                   <li
                     key={product.id}
-                    className={`overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] ${
-                      index === 0 ? "sm:col-span-2" : ""
-                    }`}
+                    className="overflow-hidden rounded-[4px] border border-sand bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(8,75,80,0.14)]"
                   >
                     <Link
                       href={`/products/${product.category}/${product.slug}/`}
                       className="group block"
                     >
-                      <div
-                        className={`relative w-full overflow-hidden bg-ivory-dark ${
-                          index === 0 ? "aspect-[16/7]" : "aspect-[4/3]"
-                        }`}
-                      >
+                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-dark">
                         <Image
                           src={product.image.src}
                           alt={product.image.alt}
                           fill
                           loading="lazy"
-                          sizes={IMAGE_SIZES.card}
-                          className={`transition-transform duration-500 group-hover:scale-[1.04] ${
+                          sizes={IMAGE_SIZES.grid}
+                          className={
                             product.image.src.startsWith("/Png/")
-                              ? "object-contain p-3 sm:p-4"
-                              : "object-cover"
-                          }`}
+                              ? "object-contain p-4 sm:p-5"
+                              : "object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          }
                         />
                       </div>
-                      <p className="flex items-center justify-between gap-2 px-4 py-3 text-sm font-medium text-teal-800">
+                      <p className="flex items-center justify-between gap-2 px-5 py-4 text-[0.9375rem] font-medium text-teal-800">
                         {product.name}
                         <ArrowRight
                           aria-hidden="true"
@@ -272,32 +213,56 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* --------------------------------------------------------- Editorial band */}
+      <ImageBand
+        image={IMAGES.kitchenTeam}
+        eyebrow="Planned around you"
+        statement="Tell us what you need, in what format and when, and we will review the supply options with you."
+        linkLabel="Start a conversation"
+        linkHref="/enquire/"
+      />
+
+      {/* ------------------------------------------------------- Supply process */}
+      <SupplyProcess />
+
       {/* --------------------------------------------------- Featured products */}
       <section className="bg-ivory" aria-labelledby="featured-heading">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <SectionHeading
             id="featured-heading"
             eyebrow="From the catalogue"
             title="Where most enquiries start"
             description="A few of the products buyers ask about most often. The full catalogue, with filtering and search, is on the Our products page."
           />
-          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             {[...featuredRice, ...featuredSpices].map((product, index) => (
               <li key={product.id} className="h-full">
                 <ProductCard product={product} delay={index * 80} />
               </li>
             ))}
           </ul>
-          <div className="mt-10">
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Button href="/products/" variant="secondary" size="lg">
               Explore the full range
             </Button>
+            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[0.9375rem] text-muted">
+              {[
+                "Specification agreed per order",
+                "Planned full-load supply",
+                "UK-based team",
+              ].map((point) => (
+                <li key={point} className="flex items-center gap-2.5">
+                  <Check
+                    aria-hidden="true"
+                    className="h-4 w-4 shrink-0 text-copper-600"
+                  />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
-
-      {/* ------------------------------------------------------- Supply process */}
-      <SupplyProcess />
 
       {/* ------------------------------------------------------------- Final CTA */}
       <EnquiryCTA

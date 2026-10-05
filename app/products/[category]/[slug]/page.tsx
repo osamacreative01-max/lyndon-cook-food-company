@@ -49,12 +49,13 @@ function renderProduct(product: Product) {
   const category = getCategory(product.category)!;
   const related = getRelatedProducts(product);
   const isNorn = product.brand === "NORN";
+  const isPack = product.image.src.startsWith("/Png/");
 
   return (
     <>
       <JsonLd data={[productSchema(product)]} />
 
-      <section className="on-dark border-b border-teal-100 bg-white">
+      <section className="on-dark border-b border-sand bg-ivory">
         <Container className="py-8 sm:py-10">
           <Breadcrumbs
             items={[
@@ -67,21 +68,23 @@ function renderProduct(product: Product) {
 
           <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-14">
             {/* Product image */}
-            <div className="lg:col-span-5">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[6px] border border-teal-100 bg-ivory-dark">
+            <div className="lg:col-span-6">
+              <div
+                className={`relative w-full overflow-hidden rounded-[6px] border border-sand bg-ivory-dark ${
+                  isPack ? "aspect-[4/5]" : "aspect-[4/3]"
+                }`}
+              >
                 <Image
                   src={product.image.src}
                   alt={product.image.alt}
                   fill
                   priority
-                sizes={IMAGE_SIZES.detail}
-                quality={90}
-                className={
-                  product.image.src.startsWith("/Png/")
-                    ? "object-contain p-6 sm:p-10"
-                    : "object-cover"
-                }
-              />
+                  sizes={IMAGE_SIZES.detail}
+                  quality={90}
+                  className={
+                    isPack ? "object-contain p-5 sm:p-8" : "object-cover"
+                  }
+                />
                 {isNorn ? (
                   <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
                     NORN
@@ -99,11 +102,11 @@ function renderProduct(product: Product) {
             </div>
 
             {/* Product info */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <p className="eyebrow">
                 {category.name} &middot; {product.subgroupName}
               </p>
-              <h1 className="mt-3 text-[2rem] leading-[1.1] sm:text-[2.5rem]">
+              <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
                 {product.name}
               </h1>
               <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
@@ -114,7 +117,7 @@ function renderProduct(product: Product) {
               </p>
 
               {/* CTA block */}
-              <div className="mt-8 rounded-[6px] border border-teal-100 bg-ivory/60 p-6">
+              <div className="mt-8 rounded-[6px] border border-sand bg-ivory/60 p-6">
                 <div className="flex flex-wrap gap-3">
                   <Button href={enquiryHref(product.slug)} size="lg">
                     Discuss this product
@@ -148,7 +151,7 @@ function renderProduct(product: Product) {
 
       {/* -------------------------------------------------------- Key facts */}
       <section className="bg-ivory" aria-labelledby="facts-heading">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-7">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
@@ -156,7 +159,7 @@ function renderProduct(product: Product) {
               </p>
               <h2
                 id="facts-heading"
-                className="mt-2 text-[1.5rem] leading-snug sm:text-[1.75rem]"
+                className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]"
               >
                 Key facts
               </h2>
@@ -171,21 +174,21 @@ function renderProduct(product: Product) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
                 Applications
               </p>
-              <h2 className="mt-2 text-[1.5rem] leading-snug sm:text-[1.75rem]">
+              <h2 className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
                 Suggested uses
               </h2>
               <ul className="mt-5 flex flex-wrap gap-2.5">
                 {product.uses.map((use) => (
                   <li
                     key={use}
-                    className="rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-teal-400 hover:bg-teal-50"
+                    className="rounded-full border border-sand-600 bg-white px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-copper-600 hover:bg-ivory"
                   >
                     {use}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+              <div className="mt-8 rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                 <div className="flex gap-3">
                   <PackageCheck
                     aria-hidden="true"
@@ -200,7 +203,7 @@ function renderProduct(product: Product) {
                     </p>
                   </div>
                 </div>
-                <div className="mt-5 border-t border-teal-100 pt-5">
+                <div className="mt-5 border-t border-sand pt-5">
                   <Button href={enquiryHref(product.slug)} className="w-full sm:w-auto">
                     Discuss this product
                   </Button>

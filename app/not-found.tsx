@@ -28,7 +28,7 @@ export default function NotFound() {
             </Button>
           </div>
 
-          <nav aria-label="Popular pages" className="mt-12 border-t border-teal-100 pt-6">
+          <nav aria-label="Popular pages" className="mt-12 border-t border-sand pt-6">
             <h2 className="font-serif text-[1.1875rem] text-teal-800">Popular pages</h2>
             <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               {NAV_LINKS.map((link) => (

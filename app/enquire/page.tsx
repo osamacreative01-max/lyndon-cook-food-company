@@ -8,7 +8,7 @@ import Container from "@/components/Container";
 import EnquiryForm from "@/components/EnquiryForm";
 import { PageHero } from "@/components/Hero";
 import Reveal from "@/components/Reveal";
-import { IMAGES } from "@/lib/images";
+import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { ACTIVE_PRODUCTS } from "@/lib/products";
@@ -93,7 +93,7 @@ export default async function EnquirePage({
         eyebrow="Enquire"
         title="Let's talk food."
         description="Your requirements. Our next conversation. Fill in the form and we will come back with clear supply options."
-        image={IMAGES.plating}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Enquire" }]} />
         }
@@ -104,7 +104,7 @@ export default async function EnquirePage({
         <Container className="py-12 sm:py-14">
           <div className="max-w-2xl">
             <p className="eyebrow text-copper-400">Simple process</p>
-            <h2 id="how-it-works" className="mt-3 text-[1.5rem] leading-snug text-ivory sm:text-[1.75rem]">
+            <h2 id="how-it-works" className="mt-3 text-[1.75rem] leading-[1.15] text-ivory sm:text-[2.125rem]">
               How it works
             </h2>
           </div>
@@ -121,7 +121,7 @@ export default async function EnquirePage({
                   <h3 className="mt-1.5 font-serif text-[1.1875rem] text-ivory">
                     {step.title}
                   </h3>
-                  <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-teal-100">
+                  <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ivory">
                     {step.body}
                   </p>
                 </div>
@@ -133,7 +133,7 @@ export default async function EnquirePage({
 
       {/* --------------------------------------------------------- Form + sidebar */}
       <section className="bg-ivory">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             {/* ------------------------------------------------------ The form */}
             <div className="lg:col-span-7">
@@ -141,7 +141,7 @@ export default async function EnquirePage({
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
                   Step 1
                 </p>
-                <h2 className="mt-2 text-[1.625rem] leading-snug sm:text-[1.875rem]">
+                <h2 className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]">
                   Send your enquiry
                 </h2>
                 <p className="mt-3 max-w-xl text-[0.9375rem] leading-relaxed text-muted">
@@ -182,7 +182,7 @@ export default async function EnquirePage({
             {/* --------------------------------------------------- Side guidance */}
             <aside className="lg:col-span-5">
               <Reveal>
-                <div className="rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+                <div className="rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
                     Before you send
                   </p>
@@ -199,7 +199,7 @@ export default async function EnquirePage({
                     {WHAT_TO_INCLUDE.map((item, index) => (
                       <div
                         key={item.title}
-                        className="flex gap-4 rounded-[6px] border border-teal-100 bg-ivory/60 p-4"
+                        className="flex gap-4 rounded-[6px] border border-sand bg-ivory/60 p-4"
                       >
                         <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-800 font-serif text-[0.8125rem] font-semibold text-ivory">
                           {index + 1}
@@ -217,7 +217,7 @@ export default async function EnquirePage({
               </Reveal>
 
               <Reveal delay={100}>
-                <div className="mt-6 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+                <div className="mt-6 rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                   <h2 className="font-serif text-[1.1875rem] text-teal-800">
                     Prefer to talk it through?
                   </h2>
@@ -265,7 +265,7 @@ export default async function EnquirePage({
               </Reveal>
 
               <Reveal delay={200}>
-                <div className="mt-4 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+                <div className="mt-4 rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
                   <h2 className="font-serif text-[1.1875rem] text-teal-800">
                     What happens next?
                   </h2>

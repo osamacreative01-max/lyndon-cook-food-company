@@ -41,7 +41,7 @@ export default function SupplyProcess({
   steps = DEFAULT_SUPPLY_STEPS,
   heading,
   description,
-  onDark = false,
+  onDark = true,
 }: {
   steps?: SupplyStep[];
   heading?: string;
@@ -53,19 +53,19 @@ export default function SupplyProcess({
       className={onDark ? "on-dark bg-teal-800" : "bg-ivory"}
       aria-labelledby="supply-process-heading"
     >
-      <div className="container-page py-16 sm:py-20">
+      <div className="container-page py-16 sm:py-20 lg:py-24">
         <div className="max-w-2xl">
           <p className={`eyebrow ${onDark ? "text-copper-400" : ""}`}>Process</p>
           <h2
             id="supply-process-heading"
-            className={`mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem] ${onDark ? "text-ivory" : "text-teal-800"}`}
+            className={`mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem] ${onDark ? "text-ivory" : "text-teal-800"}`}
           >
             {heading ?? "A straightforward way to supply"}
           </h2>
           {description ? (
             <p
               className={`mt-5 text-[1.0625rem] leading-[1.7] ${
-                onDark ? "text-teal-100" : "text-muted"
+                onDark ? "text-ivory" : "text-muted"
               }`}
             >
               {description}
@@ -77,18 +77,18 @@ export default function SupplyProcess({
           {steps.map((step, index) => (
             <Reveal as="li" key={step.number} delay={index * 80} className="relative">
               <div
-                className={`flex h-full flex-col rounded-[6px] p-6 lg:mr-4 ${
+                className={`flex h-full flex-col rounded-[6px] p-7 lg:mr-5 ${
                   onDark
-                    ? "border border-teal-700/50 bg-teal-700/30"
-                    : "border border-teal-100 bg-white shadow-[0_1px_3px_rgba(8,75,80,0.04)]"
+                    ? "border border-teal-700/60 bg-teal-900/60"
+                    : "border border-sand bg-white shadow-[0_1px_3px_rgba(8,75,80,0.04)]"
                 }`}
               >
                 {/* Step number circle */}
                 <span
                   aria-hidden="true"
-                  className={`flex h-11 w-11 items-center justify-center rounded-full font-serif text-[1.125rem] font-semibold ${
+                  className={`flex h-14 w-14 items-center justify-center rounded-full font-serif text-[1.25rem] font-semibold ${
                     onDark
-                      ? "bg-copper-600 text-ivory"
+                      ? "bg-copper-600 text-teal-950"
                       : "bg-teal-800 text-ivory"
                   }`}
                 >
@@ -99,22 +99,22 @@ export default function SupplyProcess({
                 {index < steps.length - 1 ? (
                   <span
                     aria-hidden="true"
-                    className={`absolute top-[2.75rem] -right-2 hidden h-px w-4 lg:block ${
-                      onDark ? "bg-teal-600" : "bg-teal-300"
+                    className={`absolute top-[3.75rem] -right-2 hidden h-px w-4 lg:block ${
+                      onDark ? "bg-teal-600" : "bg-teal-200"
                     }`}
                   />
                 ) : null}
 
                 <h3
-                  className={`mt-5 font-serif text-[1.25rem] leading-snug ${
+                  className={`mt-6 font-serif text-[1.4rem] leading-snug ${
                     onDark ? "text-ivory" : "text-teal-800"
                   }`}
                 >
                   {step.title}
                 </h3>
                 <p
-                  className={`mt-3 text-[0.9375rem] leading-relaxed ${
-                    onDark ? "text-teal-100" : "text-muted"
+                  className={`mt-3.5 text-[1rem] leading-relaxed ${
+                    onDark ? "text-ivory" : "text-muted"
                   }`}
                 >
                   {step.body}

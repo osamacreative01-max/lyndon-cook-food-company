@@ -1,27 +1,36 @@
-import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 import Button from "@/components/Button";
 import Container from "@/components/Container";
-import { IMAGE_SIZES, IMAGES } from "@/lib/images";
+import HeroSlider, { type HeroSlide } from "@/components/HeroSlider";
 import { SITE } from "@/lib/site";
 
 type Props = {
   eyebrow: string;
-  title: string;
-  description: string;
+  title: ReactNode;
+  description: ReactNode;
   primary: { label: string; href: string };
   secondary?: { label: string; href: string };
-  image?: { src: string; alt: string };
-  imageSide?: "right" | "left";
-  /** Supporting facts rendered as a short list beneath the buttons. */
+  /** Background banners shown behind the copy as an auto-advancing slider. */
+  slides?: HeroSlide[];
+  /** Supporting facts rendered as a deep teal band beneath the hero. */
   points?: string[];
 };
 
 /**
- * Editorial page hero. The image is preloaded (`priority`) because it is the
- * largest contentful paint element, and is never lazy-loaded.
+ * Homepage opening spread.
+ *
+ * The two homepage banners run edge to edge as a cross-fading slider with the
+ * headline, description and calls to action overlaid on the empty left-hand
+ * third of the photograph. The copy sets the height of the section and the
+ * images are `object-cover`, so the packaging is never letterboxed and the
+ * headline never lands on the bright product side of the frame.
+ *
+ * The slider (images and scrim) sits on `z-0`; this copy sits above it with
+ * `pointer-events-none`, re-enabled only on the buttons, so the calls to
+ * action stay clickable.
  */
 export default function Hero({
   eyebrow,
@@ -29,159 +38,148 @@ export default function Hero({
   description,
   primary,
   secondary,
-  image = IMAGES.palletCans,
-  imageSide = "right",
+  slides,
   points,
 }: Props) {
-  const textFirst = imageSide === "left";
+  return (
+    <section className="relative isolate flex min-h-[32rem] items-center overflow-hidden bg-teal-900 sm:min-h-[44rem]">
+      {slides?.length ? (
+        <HeroSlider
+          slides={slides}
+          position="object-right sm:object-[10%_center]"
+          className="absolute inset-0 z-0"
+        />
+      ) : null}
 
-  const copy = (
-    <div className="max-w-2xl">
-      <p className="eyebrow">{eyebrow}</p>
-      <span className="rule-copper mt-3" aria-hidden="true" />
-      <h1 className="mt-5 text-[2.125rem] leading-[1.1] sm:text-[2.75rem] lg:text-[3.5rem]">
-        {title}
-      </h1>
-      <p className="mt-6 text-[1.0625rem] leading-[1.7] text-muted sm:text-[1.1875rem]">
-        {description}
-      </p>
-      <div className="mt-8 flex flex-wrap gap-3">
-        <Button href={primary.href} size="lg">
-          {primary.label}
-          <ArrowRight aria-hidden="true" className="h-4 w-4" />
-        </Button>
-        {secondary ? (
-          <Button href={secondary.href} variant="secondary" size="lg">
-            {secondary.label}
-          </Button>
-        ) : null}
+      <div className="pointer-events-none relative z-10 w-full">
+        <Container className="py-14 sm:py-16 lg:py-20">
+          <div className="max-w-[36rem]">
+            <p className="eyebrow text-copper-400">{eyebrow}</p>
+            <span className="rule-copper mt-4" aria-hidden="true" />
+            <h1 className="display-headline mt-6 text-ivory">{title}</h1>
+
+            <p className="mt-7 text-[1.0625rem] leading-[1.75] text-ivory/85 sm:text-[1.125rem]">
+              {description}
+            </p>
+
+            <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
+              <Button href={primary.href} size="lg" variant="onDark">
+                {primary.label}
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Button>
+              {secondary ? (
+                <Button href={secondary.href} size="lg" variant="quiet">
+                  {secondary.label}
+                </Button>
+              ) : null}
+            </div>
+
+            {points?.length ? (
+              <ul className="pointer-events-auto mt-9 grid gap-x-8 gap-y-3 border-t border-ivory/25 pt-6 text-[0.9375rem] text-ivory/80 sm:grid-cols-2">
+                {points.map((point) => (
+                  <li key={point} className="flex items-start gap-2.5">
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-copper-400"
+                    />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        </Container>
       </div>
-      {points?.length ? (
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[0.9375rem] text-muted">
-          {points.map((point) => (
-            <li key={point} className="flex items-center gap-2">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-copper-600" />
-              {point}
+    </section>
+  );
+}
+
+/** Deep teal band that closes a hero with a row of supporting facts. */
+export function HeroStrip({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  return (
+    <section className="on-dark bg-teal-800">
+      <Container className="py-7">
+        <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 text-[0.9375rem] leading-snug text-ivory"
+            >
+              <span
+                aria-hidden="true"
+                className="mt-1.5 h-2 w-2 shrink-0 bg-copper-600"
+              />
+              {item}
             </li>
           ))}
         </ul>
-      ) : null}
-    </div>
-  );
-
-  const picture = (
-    <div className="relative">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[4px] border border-teal-100 bg-ivory-dark sm:aspect-[16/11] lg:aspect-[4/5]">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          priority
-          fetchPriority="high"
-          quality={90}
-          sizes={IMAGE_SIZES.hero}
-          className="object-cover"
-        />
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-4 -left-4 hidden h-24 w-24 rounded-[4px] border border-copper-600/60 sm:block"
-      />
-    </div>
-  );
-
-  return (
-    <section className="on-dark bg-white">
-      <Container className="grid items-center gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:gap-14 lg:py-24">
-        <div className={`lg:col-span-6 ${textFirst ? "lg:order-1" : "lg:order-2"}`}>
-          {copy}
-        </div>
-        <div className={`lg:col-span-6 ${textFirst ? "lg:order-2" : "lg:order-1"}`}>
-          {picture}
-        </div>
       </Container>
     </section>
   );
 }
 
-/** Compact hero for secondary pages, with an optional breadcrumb trail. */
+/**
+ * Compact hero for secondary pages.
+ *
+ * The four website banners run behind the copy as the same auto-advancing
+ * slider the homepage uses, so every inner page opens on the range
+ * photography instead of a flat teal panel. The banners are panoramic with an
+ * empty left third, so the headline, description and breadcrumbs always land
+ * on clear ground while the products stay on the right of the frame.
+ *
+ * The slider keeps `on-dark` legibility rules intact: it sits on `z-0` and is
+ * `pointer-events-none`, the copy sits above it on `z-10`.
+ */
 export function PageHero({
   eyebrow,
   title,
   description,
   breadcrumbs,
-  image,
-  onDark = false,
+  banners,
 }: {
   eyebrow: string;
-  title: string;
-  description?: string;
-  breadcrumbs?: React.ReactNode;
-  image?: { src: string; alt: string };
+  title: ReactNode;
+  description?: ReactNode;
+  breadcrumbs?: ReactNode;
+  /** Background banners shown behind the copy as an auto-advancing slider. */
+  banners?: { src: string; alt: string }[];
+  /** Kept for callers; the panel is always deep teal. */
   onDark?: boolean;
 }) {
   return (
-    <section
-      className={`on-dark ${onDark ? "bg-teal-800" : "border-b border-teal-100 bg-white"}`}
-    >
-      <Container className="py-10 sm:py-12">
-        {breadcrumbs ? <div className="mb-6">{breadcrumbs}</div> : null}
-        <div
-          className={
-            image
-              ? "grid items-center gap-8 lg:grid-cols-12 lg:gap-12"
-              : "max-w-3xl"
-          }
-        >
-          <div className={image ? "lg:col-span-7" : ""}>
-            <p className={`eyebrow ${onDark ? "text-copper-400" : ""}`}>{eyebrow}</p>
-            <span className="rule-copper mt-3" aria-hidden="true" />
-            <h1 className="mt-5 text-[2rem] leading-[1.12] sm:text-[2.5rem] lg:text-[3rem]">
-              {title}
-            </h1>
-            {description ? (
-              <p
-                className={`mt-5 max-w-2xl text-[1.0625rem] leading-[1.7] sm:text-[1.125rem] ${
-                  onDark ? "text-teal-100" : "text-muted"
-                }`}
-              >
-                {description}
-              </p>
-            ) : null}
-            {onDark ? null : (
-              <p className="mt-6 text-sm text-muted">
-                <Link
-                  href="/enquire/"
-                  className="link-underline link-underline-hover font-medium text-teal-800"
-                >
-                  Discuss your requirements
-                </Link>{" "}
-                or email{" "}
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="link-underline link-underline-hover"
-                >
-                  {SITE.email}
-                </a>
-                .
-              </p>
-            )}
-          </div>
-          {image ? (
-            <div className="lg:col-span-5">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[4px] border border-teal-100">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  priority
-                  quality={90}
-                  sizes={IMAGE_SIZES.band}
-                  className="object-cover"
-                />
-              </div>
-            </div>
+    <section className="on-dark relative isolate flex min-h-[22rem] items-center overflow-hidden bg-teal-900 sm:min-h-[26rem]">
+      {banners?.length ? (
+        <HeroSlider slides={banners} className="absolute inset-0 z-0" />
+      ) : null}
+
+      <Container className="relative z-10 py-14 sm:py-16 lg:py-[4.5rem]">
+        <div className="max-w-[36rem]">
+          {breadcrumbs ? <div className="mb-7">{breadcrumbs}</div> : null}
+          <p className="eyebrow text-copper-400">{eyebrow}</p>
+          <span className="rule-copper mt-4" aria-hidden="true" />
+          <h1 className="display-headline mt-6 text-ivory">{title}</h1>
+          {description ? (
+            <p className="mt-6 text-[1.0625rem] leading-[1.75] text-ivory/85 sm:text-[1.125rem]">
+              {description}
+            </p>
           ) : null}
+          <p className="mt-7 text-sm text-ivory/75">
+            <Link
+              href="/enquire/"
+              className="link-underline link-underline-hover font-medium text-ivory"
+            >
+              Discuss your requirements
+            </Link>{" "}
+            or email{" "}
+            <a
+              href={`mailto:${SITE.email}`}
+              className="link-underline link-underline-hover text-ivory"
+            >
+              {SITE.email}
+            </a>
+            .
+          </p>
         </div>
       </Container>
     </section>

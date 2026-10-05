@@ -11,18 +11,18 @@ export default function Footer() {
 
   return (
     <footer className="on-dark mt-auto border-t-4 border-copper-600 bg-teal-900 text-teal-50">
-      <Container className="py-10 sm:py-12">
+      <Container className="py-10 sm:py-12 lg:py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <Logo onDark width={220} />
-            <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-teal-200">
+            <Logo onDark width={360} />
+            <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-ivory/75">
               Rice, spices, seasonal fruit and NORN canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
             <p className="mt-4 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
               {SITE.productBrand}
-              <span className="block font-sans text-sm font-normal text-teal-200">
+              <span className="block font-sans text-sm font-normal text-ivory/75">
                 {SITE.brandLine}
               </span>
             </p>
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={category.id}>
                   <Link
                     href={`/products/${category.slug}/`}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-100 transition-colors hover:text-ivory"
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-ivory/75 transition-colors hover:text-ivory"
                   >
                     {category.shortName}
                     <ChevronRight
@@ -56,7 +56,7 @@ export default function Footer() {
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Company
             </h2>
-            <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-teal-100">
+            <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-ivory">
               <span className="block font-semibold text-ivory">{SITE.name}</span>
               <span className="mt-3 flex gap-2.5">
                 <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-copper-400" />
@@ -73,7 +73,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-100 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-ivory/75 transition-colors hover:text-ivory"
                 >
                   <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.email}
@@ -82,7 +82,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`tel:${SITE.phoneHref}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-teal-100 transition-colors hover:text-ivory"
+                  className="inline-flex min-h-8 items-center gap-2.5 text-ivory/75 transition-colors hover:text-ivory"
                 >
                   <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
                   {SITE.phone}
@@ -101,7 +101,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-teal-100 transition-colors hover:text-ivory"
+                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-ivory/75 transition-colors hover:text-ivory"
                   >
                     {link.label}
                     <ChevronRight
@@ -117,7 +117,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-teal-800 pt-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-teal-200">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/75">
               {FOOTER_LEGAL_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link

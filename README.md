@@ -78,14 +78,12 @@ These are checked by the build-time audits described below and by the content in
 
 Blocked on client input, tracked as `TODO` in the code:
 
-1. **Approved logo artwork** — replace `public/logo/lyndon-cook.svg`. The current
-   file is a clearly-marked placeholder. Nothing else needs changing.
-2. **Approved photography** — replace the Pexels URLs in `lib/images.ts`.
-3. **SMTP credentials** — set in `.env.local`/hosting env. Without them the form
+1. **Approved photography** — replace the Pexels URLs in `lib/images.ts`.
+2. **SMTP credentials** — set in `.env.local`/hosting env. Without them the form
    returns 502 by design.
-4. **Legal entity name, company number, registered office** — currently `null` in
+3. **Legal entity name, company number, registered office** — currently `null` in
    `lib/site.ts` and called out on `/privacy/`.
-5. **Named email/hosting/webhook suppliers** — `/privacy/` states these
+4. **Named email/hosting/webhook suppliers** — `/privacy/` states these
    explicitly rather than naming unconfirmed processors.
 6. **Privacy and accessibility pages need review by a solicitor / specialist.**
    They are honest drafts, not legal advice.

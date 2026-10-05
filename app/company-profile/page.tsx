@@ -11,7 +11,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGES } from "@/lib/images";
+import { IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
@@ -35,7 +35,7 @@ export default function CompanyProfilePage() {
         eyebrow="Company profile"
         title="The Lyndon Cook, at a glance."
         description="A short, factual overview of what we supply and how supply works. Download the profile to keep, or read it here."
-        image={IMAGES.companyProfile}
+        banners={WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs
             items={[{ name: "Home", href: "/" }, { name: "Company profile" }]}
@@ -55,7 +55,7 @@ export default function CompanyProfilePage() {
               >
                 Download company profile
               </h2>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-teal-100">
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-ivory">
                 {SITE.name} company profile ({SITE.profileDownload.sizeLabel}),
                 including product categories, the NORN range and our supply
                 approach.
@@ -69,13 +69,13 @@ export default function CompanyProfilePage() {
       </section>
 
       {/* ----------------------------------------------------------- Introduction */}
-      <section className="on-dark bg-white" aria-labelledby="profile-intro">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="profile-intro">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">Introduction</p>
             <h2
               id="profile-intro"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               {SITE.name}
             </h2>
@@ -97,7 +97,7 @@ export default function CompanyProfilePage() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[6px] border border-teal-100 bg-ivory/60 p-5"
+                className="rounded-[6px] border border-sand bg-ivory/60 p-5"
               >
                 <dt className="font-serif text-[2rem] leading-none text-teal-800">
                   {stat.term}
@@ -113,7 +113,7 @@ export default function CompanyProfilePage() {
 
       {/* ------------------------------------------------------------ Categories */}
       <section className="bg-ivory" aria-labelledby="categories-heading">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <SectionHeading
             id="categories-heading"
             eyebrow="Product categories"
@@ -123,7 +123,7 @@ export default function CompanyProfilePage() {
           <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {CATEGORIES.map((category, index) => (
               <Reveal key={category.id} as="li" delay={index * 70} className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-teal-100 bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] sm:flex-row">
+                <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-sand bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] sm:flex-row">
                   <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-ivory-dark sm:aspect-auto sm:w-40">
                     <Image
                       src={category.image.src}
@@ -145,7 +145,7 @@ export default function CompanyProfilePage() {
                       {category.groups.map((group) => (
                         <li
                           key={group.id}
-                          className="rounded-full border border-teal-200 px-2.5 py-1 text-xs font-medium text-muted"
+                          className="rounded-full border border-sand-600 px-2.5 py-1 text-xs font-medium text-muted"
                         >
                           {group.name}
                         </li>
@@ -166,8 +166,8 @@ export default function CompanyProfilePage() {
       </section>
 
       {/* ----------------------------------------------------------------- NORN */}
-      <section className="on-dark bg-white" aria-labelledby="profile-norn">
-        <Container className="py-16 sm:py-20">
+      <section className="on-dark bg-ivory" aria-labelledby="profile-norn">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-6">
               <SectionHeading
@@ -196,7 +196,7 @@ export default function CompanyProfilePage() {
                   <li key={product.id}>
                     <Link
                       href={`/products/${product.category}/${product.slug}/`}
-                      className="flex min-h-12 items-center rounded-[3px] border border-teal-100 bg-ivory px-3.5 py-2 text-[0.875rem] font-medium text-teal-800 transition-colors hover:border-teal-800"
+                      className="flex min-h-12 items-center rounded-[3px] border border-sand bg-ivory px-3.5 py-2 text-[0.875rem] font-medium text-teal-800 transition-colors hover:border-copper-700"
                     >
                       {product.name}
                     </Link>
@@ -210,16 +210,16 @@ export default function CompanyProfilePage() {
 
       {/* -------------------------------------------------------- Supply approach */}
       <section className="on-dark bg-teal-800" aria-labelledby="profile-supply">
-        <Container className="py-16 sm:py-20">
+        <Container className="py-16 sm:py-20 lg:py-24">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-copper-400">Supply approach</p>
             <h2
               id="profile-supply"
-              className="mt-4 text-[1.875rem] leading-[1.15] sm:text-[2.25rem]"
+              className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
               Planned full-load supply.
             </h2>
-            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-teal-100">
+            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ivory">
               We focus on planned full-load B2B supply. Tell us the products,
               quantities and delivery schedule you have in mind, and we will review a
               programme around your requirements.
@@ -261,13 +261,13 @@ export default function CompanyProfilePage() {
                 <h3 className="mt-4 font-serif text-[1.1875rem] text-ivory">
                   {step.title}
                 </h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-teal-100">
+                <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-ivory">
                   {step.body}
                 </p>
               </li>
             ))}
           </ol>
-          <p className="mt-10 max-w-3xl border-l-2 border-copper-400 pl-5 text-[0.9375rem] leading-relaxed text-teal-100">
+          <p className="mt-10 max-w-3xl border-l-2 border-copper-400 pl-5 text-[0.9375rem] leading-relaxed text-ivory">
             A typical initial delivery is approximately 24&ndash;25 pallets,
             subject to product weight, pallet format and vehicle capacity. Final
             load configuration and delivery terms are confirmed with your
@@ -277,11 +277,11 @@ export default function CompanyProfilePage() {
       </section>
 
       {/* ------------------------------------------------------------ Contact CTA */}
-      <section className="on-dark border-t border-teal-100 bg-white" aria-labelledby="profile-contact">
-        <Container className="py-14 sm:py-16">
+      <section className="on-dark border-t border-sand bg-ivory" aria-labelledby="profile-contact">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-6">
-              <h2 id="profile-contact" className="text-[1.5rem] leading-snug sm:text-[1.75rem]">
+              <h2 id="profile-contact" className="text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
                 Talk to us about your requirements.
               </h2>
               <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-muted">
@@ -332,7 +332,7 @@ export default function CompanyProfilePage() {
                   height={400}
                   loading="lazy"
                   sizes="600px"
-                  className="h-auto w-full rounded-[4px] border border-teal-100 object-cover"
+                  className="h-auto w-full rounded-[4px] border border-sand object-cover"
                 />
               </div>
             </div>

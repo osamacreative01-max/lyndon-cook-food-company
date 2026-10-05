@@ -88,7 +88,7 @@ export default function ProductFilters({
                 className={`inline-flex min-h-10 cursor-pointer items-center rounded-full border px-4 text-[0.8125rem] font-medium transition-all duration-200 ${
                   checked
                     ? "border-teal-800 bg-teal-800 text-ivory shadow-[0_2px_8px_rgba(8,75,80,0.2)]"
-                    : "border-teal-200 bg-white text-body hover:border-teal-400 hover:bg-teal-50"
+                    : "border-sand-600 bg-white text-body hover:border-copper-600 hover:bg-ivory"
                 }`}
               >
                 <input
@@ -125,7 +125,7 @@ export default function ProductFilters({
                   className={`inline-flex min-h-10 cursor-pointer items-center rounded-full border px-4 text-[0.8125rem] font-medium transition-all duration-200 ${
                     checked
                       ? "border-copper-600 bg-copper-600 text-ivory shadow-[0_2px_8px_rgba(185,124,76,0.2)]"
-                      : "border-teal-200 bg-white text-body hover:border-copper-400 hover:bg-copper-100/30"
+                      : "border-sand-600 bg-white text-body hover:border-copper-400 hover:bg-copper-100/30"
                   }`}
                 >
                   <input
@@ -163,13 +163,13 @@ export default function ProductFilters({
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="e.g. basmati, cumin, mango"
-            className="min-h-11 w-full rounded-[4px] border border-teal-200 bg-white py-2.5 pl-10 pr-10 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-100"
+            className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-10 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
           />
           {query ? (
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="absolute right-1 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-teal-800 transition-colors hover:bg-teal-50"
+              className="absolute right-1 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-teal-800 transition-colors hover:bg-ivory"
             >
               <X aria-hidden="true" className="h-4 w-4" />
               <span className="sr-only-focusable absolute">Clear search</span>
@@ -184,7 +184,7 @@ export default function ProductFilters({
     <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
       {/* Desktop filter rail */}
       <aside className="hidden lg:col-span-3 lg:block">
-        <div className="sticky top-28 rounded-[6px] border border-teal-100 bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
+        <div className="sticky top-28 rounded-[6px] border border-sand bg-white p-6 shadow-[0_1px_3px_rgba(8,75,80,0.04)]">
           <h2 className="flex items-center gap-2 font-serif text-[1.125rem] text-teal-800">
             <SlidersHorizontal aria-hidden="true" className="h-4 w-4 text-copper-600" />
             Filter the range
@@ -194,7 +194,7 @@ export default function ProductFilters({
             <button
               type="button"
               onClick={clearAll}
-              className="mt-6 inline-flex w-full min-h-10 items-center justify-center gap-2 rounded-[4px] border border-teal-200 text-sm font-semibold text-teal-800 transition-colors hover:border-teal-400 hover:bg-teal-50"
+              className="mt-6 inline-flex w-full min-h-10 items-center justify-center gap-2 rounded-[4px] border border-sand-600 text-sm font-semibold text-teal-800 transition-colors hover:border-copper-600 hover:bg-ivory"
             >
               <X aria-hidden="true" className="h-4 w-4" />
               Clear all filters
@@ -221,7 +221,7 @@ export default function ProductFilters({
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search products"
-                className="min-h-11 w-full rounded-[4px] border border-teal-200 bg-white py-2.5 pl-10 pr-3 text-[0.9375rem] focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-100"
+                className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-3 text-[0.9375rem] focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
               />
             </div>
             <button
@@ -232,7 +232,7 @@ export default function ProductFilters({
               className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[4px] border px-4 text-sm font-semibold transition-colors ${
                 mobileOpen
                   ? "border-teal-800 bg-teal-800 text-ivory"
-                  : "border-teal-200 bg-white text-teal-800 hover:border-teal-400"
+                  : "border-sand-600 bg-white text-teal-800 hover:border-copper-600"
               }`}
             >
               <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
@@ -243,7 +243,7 @@ export default function ProductFilters({
           {mobileOpen ? (
             <div
               id={`${baseId}-mobile-filters`}
-              className="mt-4 rounded-[6px] border border-teal-100 bg-white p-5 shadow-[0_1px_3px_rgba(8,75,80,0.04)]"
+              className="mt-4 rounded-[6px] border border-sand bg-white p-5 shadow-[0_1px_3px_rgba(8,75,80,0.04)]"
             >
               {filterPanel}
             </div>
@@ -251,7 +251,7 @@ export default function ProductFilters({
         </div>
 
         {/* Results header */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-b border-teal-100 pb-4">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-b border-sand pb-4">
           <p
             role="status"
             aria-live="polite"
@@ -286,7 +286,7 @@ export default function ProductFilters({
             ))}
           </ul>
         ) : (
-          <div className="mt-8 rounded-[6px] border border-dashed border-teal-200 bg-white p-8 text-center sm:p-12">
+          <div className="mt-8 rounded-[6px] border border-dashed border-sand-600 bg-white p-8 text-center sm:p-12">
             <h3 className="font-serif text-[1.375rem] text-teal-800">
               No products match those filters
             </h3>
@@ -306,7 +306,7 @@ export default function ProductFilters({
               </button>
               <Link
                 href="/enquire/"
-                className="inline-flex min-h-11 items-center rounded-[4px] border border-teal-800 px-5 py-2.5 text-[0.9375rem] font-semibold text-teal-800 transition-colors hover:bg-teal-50"
+                className="inline-flex min-h-11 items-center rounded-[4px] border border-teal-800 px-5 py-2.5 text-[0.9375rem] font-semibold text-teal-800 transition-colors hover:bg-ivory"
               >
                 Make an enquiry
               </Link>

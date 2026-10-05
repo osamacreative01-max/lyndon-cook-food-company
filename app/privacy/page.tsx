@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import { PageHero } from "@/components/Hero";
+import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
@@ -21,6 +22,7 @@ export default function PrivacyPage() {
     <>
       <PageHero
         eyebrow="Legal"
+        banners={WEBSITE_BANNERS}
         title="Privacy notice"
         description="This notice explains what this website does with the information you send us. It is written to match what the site actually does, not a generic template."
         breadcrumbs={
@@ -31,7 +33,7 @@ export default function PrivacyPage() {
       />
 
       <section className="bg-ivory">
-        <Container className="py-14 sm:py-16">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <div className="max-w-3xl">
             <p className="text-sm text-muted">
               Last reviewed: <time dateTime="2026-01-01">1 January 2026</time>
@@ -97,7 +99,7 @@ export default function PrivacyPage() {
                       ].map((item) => (
                         <li
                           key={item}
-                          className="flex gap-2.5 rounded-[4px] border border-teal-100 bg-white px-3.5 py-2.5 text-[0.9375rem] text-body"
+                          className="flex gap-2.5 rounded-[4px] border border-sand bg-white px-3.5 py-2.5 text-[0.9375rem] text-body"
                         >
                           <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-copper-600" />
                           {item}
@@ -140,7 +142,7 @@ export default function PrivacyPage() {
                       acting as a processor on our instructions, so that the enquiry reaches
                       our business inbox. Enquiry data is not sold or shared for marketing.
                     </p>
-                    <div className="mt-4 rounded-[6px] border border-dashed border-teal-200 bg-white p-5">
+                    <div className="mt-4 rounded-[6px] border border-dashed border-sand-600 bg-white p-5">
                       <p className="text-[0.9375rem] leading-relaxed text-muted">
                         <strong className="font-semibold text-teal-800">
                           Configuration placeholder.

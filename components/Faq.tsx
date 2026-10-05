@@ -31,10 +31,10 @@ export default function Faq({
 
   return (
     <section
-      className={`on-dark ${onDark ? "bg-teal-800" : "bg-white"}`}
+      className={`on-dark ${onDark ? "bg-teal-800" : "bg-ivory"}`}
       aria-labelledby={`${baseId}-heading`}
     >
-      <div className="container-page py-16 sm:py-20">
+      <div className="container-page py-16 sm:py-20 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-4">
             <p className={`eyebrow ${onDark ? "text-copper-400" : ""}`}>
@@ -49,7 +49,7 @@ export default function Faq({
             {description ? (
               <p
                 className={`mt-5 text-[0.9375rem] leading-relaxed ${
-                  onDark ? "text-teal-100" : "text-muted"
+                  onDark ? "text-ivory" : "text-muted"
                 }`}
               >
                 {description}
@@ -72,8 +72,8 @@ export default function Faq({
                           ? "border-copper-600/40 bg-teal-700/40"
                           : "border-teal-700/50 bg-teal-700/20"
                         : isOpen
-                          ? "border-teal-200 bg-ivory/60"
-                          : "border-teal-100 bg-white"
+                          ? "border-sand-600 bg-ivory/60"
+                          : "border-sand bg-white"
                     }`}
                   >
                     <h3>
@@ -99,7 +99,7 @@ export default function Faq({
                                 : "rotate-45 border-teal-800 bg-teal-800 text-ivory"
                               : onDark
                                 ? "border-teal-600 text-copper-400"
-                                : "border-teal-200 text-copper-700"
+                                : "border-sand-600 text-copper-700"
                           }`}
                         >
                           <Plus className="h-4 w-4" />
@@ -115,7 +115,7 @@ export default function Faq({
                     >
                       <p
                         className={`text-[0.9375rem] leading-relaxed sm:text-base ${
-                          onDark ? "text-teal-100" : "text-muted"
+                          onDark ? "text-ivory" : "text-muted"
                         }`}
                       >
                         {item.answer}
