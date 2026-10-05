@@ -204,8 +204,8 @@ export default function HowWeSupplyPage() {
       />
 
       <EnquiryCTA
-        heading="Let's talk food."
-        copy="Share your requirements and we will review the products, specification, quantity, pack format and delivery schedule with you."
+        heading="Tell us what you need."
+        copy="Share your product requirements, volumes and delivery plans. Our team will review the details and come back with the appropriate supply options."
         secondaryLabel="See the range"
         secondaryHref="/products/"
       />
