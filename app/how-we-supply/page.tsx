@@ -111,10 +111,10 @@ export default function HowWeSupplyPage() {
               </Reveal>
             </div>
             <Reveal delay={120} className="lg:col-span-5">
-              <div className="relative aspect-square w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
+              <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[4px] border border-sand bg-ivory-dark">
                 <Image
-                  src={IMAGES.riceSacks.src}
-                  alt={IMAGES.riceSacks.alt}
+                  src={IMAGES.nornRange.src}
+                  alt={IMAGES.nornRange.alt}
                   fill
                   loading="lazy"
                   sizes={IMAGE_SIZES.band}
