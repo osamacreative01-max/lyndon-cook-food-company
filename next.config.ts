@@ -24,19 +24,37 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The NORN brand page was removed: both spellings now land on the
+      // canned-food range it used to describe.
+      {
+        source: "/norn",
+        destination: "/products/canned-food/",
+        permanent: true,
+      },
       {
         source: "/norm",
-        destination: "/norn",
+        destination: "/products/canned-food/",
+        permanent: true,
+      },
+      // The NORN Rice 1lb range was removed from the catalogue.
+      {
+        source: "/products/norn-rice-1lb",
+        destination: "/products/rice/",
+        permanent: true,
+      },
+      {
+        source: "/products/norn-rice-1lb/:slug",
+        destination: "/products/rice/",
         permanent: true,
       },
       {
         source: "/products/norm-rice-1lb",
-        destination: "/products/norn-rice-1lb",
+        destination: "/products/rice/",
         permanent: true,
       },
       {
         source: "/products/norm-rice-1lb/:slug",
-        destination: "/products/norn-rice-1lb/:slug",
+        destination: "/products/rice/",
         permanent: true,
       },
       {

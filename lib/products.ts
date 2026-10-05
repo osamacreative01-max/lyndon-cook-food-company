@@ -1069,96 +1069,6 @@ function withRelated(items: Product[]): Product[] {
   });
 }
 
-const nornRiceProducts: Product[] = [
-  {
-    id: "norn-rice-1lb-white",
-    name: "NORN White Rice 1lb",
-    slug: "norn-white-rice-1lb",
-    category: "norn-rice-1lb",
-    subgroup: "norn-rice",
-    subgroupName: "NORN Rice",
-    brand: "NORN",
-    summary:
-      "White rice in a convenient 1 lb pack format, part of the NORN product range.",
-    description:
-      "NORN White Rice in a 1 lb pack format is a practical option for retail shelves and smaller foodservice requirements. The pack format keeps portioning straightforward. Final specification is confirmed by product specification.",
-    uses: ["Retail shelves", "Small foodservice packs", "Everyday cooking"],
-    facts: [
-      { label: "Brand", value: "NORN" },
-      { label: "Brand line", value: BRAND_LINE },
-      { label: "Pack format", value: "1 lb" },
-      { label: "Type", value: "White rice" },
-    ],
-    supplyNote:
-      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
-    image: PRODUCT_IMAGES.nornRice1lb,
-    relatedProducts: [],
-    seoTitle: "NORN White Rice 1lb | The Lyndon Cook",
-    seoDescription:
-      "NORN White Rice in a 1 lb pack format. A brand from The Lyndon Cook. Specification confirmed per order.",
-    status: "active",
-    enquiryEnabled: true,
-  },
-  {
-    id: "norn-rice-1lb-basmati",
-    name: "NORN Basmati Rice 1lb",
-    slug: "norn-basmati-rice-1lb",
-    category: "norn-rice-1lb",
-    subgroup: "norn-rice",
-    subgroupName: "NORN Rice",
-    brand: "NORN",
-    summary:
-      "Aromatic Basmati rice in a 1 lb pack format, part of the NORN product range.",
-    description:
-      "NORN Basmati Rice in a 1 lb pack format brings an aromatic option to the NORN range. Suited to retail and smaller foodservice requirements where fragrance and grain appearance matter. Final specification is confirmed by product specification.",
-    uses: ["Retail shelves", "Speciality foodservice", "Pulao and biryani"],
-    facts: [
-      { label: "Brand", value: "NORN" },
-      { label: "Brand line", value: BRAND_LINE },
-      { label: "Pack format", value: "1 lb" },
-      { label: "Type", value: "Basmati rice" },
-    ],
-    supplyNote:
-      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
-    image: PRODUCT_IMAGES.nornRiceBasmati,
-    relatedProducts: [],
-    seoTitle: "NORN Basmati Rice 1lb | The Lyndon Cook",
-    seoDescription:
-      "NORN Basmati Rice in a 1 lb pack format. A brand from The Lyndon Cook. Specification confirmed per order.",
-    status: "active",
-    enquiryEnabled: true,
-  },
-  {
-    id: "norn-rice-1lb-sella",
-    name: "NORN Sella Rice 1lb",
-    slug: "norn-sella-rice-1lb",
-    category: "norn-rice-1lb",
-    subgroup: "norn-rice",
-    subgroupName: "NORN Rice",
-    brand: "NORN",
-    summary:
-      "Parboiled Sella rice in a 1 lb pack format, part of the NORN product range.",
-    description:
-      "NORN Sella Rice in a 1 lb pack format is a parboiled option suited to batch preparation and catering. The pack format keeps portioning straightforward. Final specification is confirmed by product specification.",
-    uses: ["Catering service", "Batch preparation", "Retail shelves"],
-    facts: [
-      { label: "Brand", value: "NORN" },
-      { label: "Brand line", value: BRAND_LINE },
-      { label: "Pack format", value: "1 lb" },
-      { label: "Type", value: "Parboiled Sella rice" },
-    ],
-    supplyNote:
-      "1 lb refers to the pack format. Final net contents and label details are confirmed by product specification.",
-    image: PRODUCT_IMAGES.nornRiceSella,
-    relatedProducts: [],
-    seoTitle: "NORN Sella Rice 1lb | The Lyndon Cook",
-    seoDescription:
-      "NORN Sella Rice in a 1 lb pack format. A brand from The Lyndon Cook. Specification confirmed per order.",
-    status: "active",
-    enquiryEnabled: true,
-  },
-];
-
 const pastaProducts: Product[] = [
   {
     id: "pasta-spaghetti",
@@ -1311,7 +1221,6 @@ const allProducts: Product[] = [
   ...spiceProducts,
   ...fruitProducts,
   ...nornProducts,
-  ...nornRiceProducts,
   ...pastaProducts,
 ].map((product) => ({ ...product, relatedProducts: [] as string[] }));
 
@@ -1367,6 +1276,5 @@ export const CATALOGUE_COUNTS = {
   spices: getProductsByCategory("spices").length,
   fruit: getProductsByCategory("seasonal-fruit").length,
   canned: getProductsByCategory("canned-food").length,
-  nornRice: getProductsByCategory("norn-rice-1lb").length,
   pasta: getProductsByCategory("pasta").length,
 } as const;

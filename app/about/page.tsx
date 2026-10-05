@@ -219,7 +219,6 @@ export default function AboutPage() {
                 product specification.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/norn/">About NORN</Button>
                 <Button href="/products/canned-food/" variant="secondary">
                   Explore NORN products
                 </Button>

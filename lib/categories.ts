@@ -13,7 +13,6 @@ export type CategoryId =
   | "spices"
   | "seasonal-fruit"
   | "canned-food"
-  | "norn-rice-1lb"
   | "pasta";
 
 export type Category = {
@@ -168,35 +167,6 @@ export const CATEGORIES: Category[] = [
     seoTitle: "NORN Canned Foods | The Lyndon Cook",
     seoDescription:
       "NORN canned foods from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
-  },
-  {
-    id: "norn-rice-1lb",
-    slug: "norn-rice-1lb",
-    name: "NORN Rice 1lb",
-    shortName: "NORN Rice 1lb",
-    navLabel: "NORN Rice 1lb",
-    eyebrow: "Product brand",
-    summary:
-      "NORN Rice in a convenient 1 lb pack format for retail and foodservice.",
-    description:
-      "NORN Rice 1lb is part of the NORN product range from The Lyndon Cook, supplied in a 1 lb pack format. Download the product datasheet for full specifications, or contact us to discuss your requirements.",
-    image: CATEGORY_IMAGES["norn-rice-1lb"],
-    ctaLabel: "Explore NORN Rice",
-    groups: [
-      {
-        id: "norn-rice",
-        name: "NORN Rice",
-        description:
-          "NORN Rice available in 1 lb pack format for retail and foodservice.",
-      },
-    ],
-    pdf: {
-      href: "/downloads/Norn Rice 1lb.pdf",
-      label: "Download NORN Rice 1lb datasheet",
-    },
-    seoTitle: "NORN Rice 1lb | The Lyndon Cook",
-    seoDescription:
-      "NORN Rice in a 1 lb pack format from The Lyndon Cook. Download the product datasheet or contact us to discuss supply requirements.",
   },
   {
     id: "pasta",

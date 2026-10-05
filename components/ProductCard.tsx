@@ -67,10 +67,8 @@ export default function ProductCard({
           <div className="flex flex-1 flex-col p-6">
             {!isNorn ? (
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-copper-700">
-                {product.category === "norn-rice-1lb"
-                  ? "NORN Rice"
-                  : product.category.charAt(0).toUpperCase() +
-                    product.category.slice(1).replace("-", " ")}
+                {product.category.charAt(0).toUpperCase() +
+                  product.category.slice(1).replace("-", " ")}
               </p>
             ) : (
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-copper-700">

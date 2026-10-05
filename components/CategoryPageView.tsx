@@ -6,11 +6,10 @@ import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import JsonLd from "@/components/JsonLd";
 import ProductCard from "@/components/ProductCard";
-import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import type { Category } from "@/lib/categories";
 import { itemListSchema } from "@/lib/seo";
-import { getProductsByCategory, getProductsBySubgroup } from "@/lib/products";
+import { getProductsByCategory } from "@/lib/products";
 import { WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 
@@ -104,42 +103,17 @@ export default function CategoryPageView({ category }: { category: Category }) {
         </section>
       ) : null}
 
-      {category.groups.map((group) => {
-        const groupProducts = getProductsBySubgroup(category.id, group.id);
-        if (groupProducts.length === 0) return null;
-        return (
-          <section
-            key={group.id}
-            className="bg-ivory"
-            aria-labelledby={`group-${group.id}`}
-          >
-            <Container className="py-14 sm:py-16 lg:py-20">
-              <Reveal className="max-w-2xl">
-                <p className="eyebrow">{group.name}</p>
-                <h2
-                  id={`group-${group.id}`}
-                  className="mt-3 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]"
-                >
-                  {category.groups.length > 1
-                    ? `${group.name} in ${category.shortName.toLowerCase()}`
-                    : group.name}
-                </h2>
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
-                  {group.description}
-                </p>
-              </Reveal>
-
-              <ul className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-                {groupProducts.map((product, index) => (
-                  <li key={product.id} className="h-full">
-                    <ProductCard product={product} delay={index * 70} />
-                  </li>
-                ))}
-              </ul>
-            </Container>
-          </section>
-        );
-      })}
+      <section className="bg-ivory" aria-label={`${category.shortName} products`}>
+        <Container className="py-14 sm:py-16 lg:py-20">
+          <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {products.map((product, index) => (
+              <li key={product.id} className="h-full">
+                <ProductCard product={product} delay={index * 70} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       <section className="on-dark border-t border-sand bg-ivory">
         <Container className="py-12 sm:py-14">

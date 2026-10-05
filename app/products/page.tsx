@@ -15,7 +15,7 @@ import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
 const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook";
 const DESCRIPTION =
-  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, NORN canned foods, NORN Rice 1lb and pasta. Filter by range or search the catalogue, then send an enquiry.";
+  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, NORN canned foods and pasta. Filter by range or search the catalogue, then send an enquiry.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -66,8 +66,7 @@ export default function ProductsPage() {
               {CATALOGUE_COUNTS.total} products: {CATALOGUE_COUNTS.rice} rice,{" "}
               {CATALOGUE_COUNTS.spices} spices and seasonings,{" "}
               {CATALOGUE_COUNTS.fruit} seasonal fruit,{" "}
-              {CATALOGUE_COUNTS.canned} NORN canned foods,{" "}
-              {CATALOGUE_COUNTS.nornRice} NORN Rice 1lb and{" "}
+              {CATALOGUE_COUNTS.canned} NORN canned foods and{" "}
               {CATALOGUE_COUNTS.pasta} pasta.
             </p>
           </Reveal>

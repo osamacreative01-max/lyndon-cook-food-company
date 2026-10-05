@@ -171,9 +171,6 @@ export default function HomePage() {
                   <Button href="/products/canned-food/" size="lg">
                     Explore NORN
                   </Button>
-                  <Button href="/norn/" variant="secondary" size="lg">
-                    About the NORN brand
-                  </Button>
                 </div>
               </div>
             </div>

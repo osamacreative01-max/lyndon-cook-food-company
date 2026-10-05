@@ -82,14 +82,12 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: "About Us", href: "/about/" },
   { label: "Our products", href: "/products/" },
-  { label: "NORN", href: "/norn/" },
   { label: "How we supply", href: "/how-we-supply/" },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
   { label: "About Us", href: "/about/" },
   { label: "Our products", href: "/products/" },
-  { label: "NORN", href: "/norn/" },
   { label: "How we supply", href: "/how-we-supply/" },
   { label: "Enquire", href: "/enquire/" },
   { label: "Company profile", href: "/company-profile/" },

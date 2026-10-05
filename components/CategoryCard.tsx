@@ -12,7 +12,6 @@ const COUNT_BY_CATEGORY = {
   spices: CATALOGUE_COUNTS.spices,
   "seasonal-fruit": CATALOGUE_COUNTS.fruit,
   "canned-food": CATALOGUE_COUNTS.canned,
-  "norn-rice-1lb": CATALOGUE_COUNTS.nornRice,
   "pasta": CATALOGUE_COUNTS.pasta,
 } as const;
 
