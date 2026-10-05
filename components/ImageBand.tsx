@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import Container from "@/components/Container";
+import HeroSlider from "@/components/HeroSlider";
 import Reveal from "@/components/Reveal";
 
 type Props = {
-  image: { src: string; alt: string };
+  images: { src: string; alt: string }[];
   eyebrow?: string;
   statement: string;
   linkLabel?: string;
@@ -18,35 +18,28 @@ type Props = {
 /**
  * Full-bleed photographic band with an overlaid statement.
  *
- * The image runs edge to edge at a fixed viewport-relative height and a strong
- * left-weighted teal gradient keeps the ivory type readable regardless of how
- * bright the photograph is.
+ * The banners run edge to edge as the same auto-advancing slider the heroes
+ * use, at a fixed viewport-relative height. The slider supplies the
+ * left-weighted teal scrims that keep the ivory type readable, so the
+ * statement can sit anywhere over the frame without per-image tuning.
  */
 export default function ImageBand({
-  image,
+  images,
   eyebrow,
   statement,
   linkLabel,
   linkHref,
-  position = "object-center",
+  position,
 }: Props) {
   return (
     <section className="relative isolate">
       <div className="relative h-[58vh] min-h-[22rem] w-full overflow-hidden bg-teal-950 sm:h-[62vh]">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          loading="lazy"
-          sizes="100vw"
-          quality={88}
-          className={`object-cover ${position}`}
+        <HeroSlider
+          slides={images}
+          position={position}
+          className="absolute inset-0 z-0"
         />
-        <span
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-teal-950/95 via-teal-950/75 to-teal-950/35"
-        />
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 z-10 flex items-center">
           <Container>
             <Reveal>
               {eyebrow ? (

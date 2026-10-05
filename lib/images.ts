@@ -238,17 +238,17 @@ export const PRODUCT_IMAGES = {
   irri9: { src: "/Png/Rice/LONG GRAIN PARABOLIED RICE.png", alt: "Long Grain Parboiled Rice pack" },
   brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
-  /* Spices */
-  groundCumin: { src: "/Product images (41)/Spices (11)/groundCumin.jpg", alt: "Ground cumin prepared for use" },
-  groundCoriander: { src: "/Product images (41)/Spices (11)/groundCoriander.jpg", alt: "Coriander prepared for grinding" },
-  groundGinger: { src: "/Product images (41)/Spices (11)/groundGinger.jpg", alt: "Ground ginger in a bowl" },
-  groundBlackPepper: { src: "/Product images (41)/Spices (11)/groundBlackPepper.jpg", alt: "Ground black pepper prepared for use" },
+  /* Spices — branded jars from `public/Png/Spices and seasonings/`. */
+  groundCumin: { src: "/Png/Spices and seasonings/Ground cumin.png", alt: "Jar of The Lyndon Cook ground cumin" },
+  groundCoriander: { src: "/Png/Spices and seasonings/ground coriander.jpg", alt: "Jar of The Lyndon Cook ground coriander" },
+  groundGinger: { src: "/Png/Spices and seasonings/ginger.jpg", alt: "Jar of The Lyndon Cook ground ginger" },
+  groundBlackPepper: { src: "/Png/Spices and seasonings/black pepper.jpg", alt: "Jar of The Lyndon Cook ground black pepper" },
   groundTurmeric: { src: "/Product images (41)/Spices (11)/groundTurmeric.jpg", alt: "Ground turmeric prepared for use" },
-  garamMasala: { src: "/Product images (41)/Spices (11)/garamMasala.jpeg", alt: "Aromatic spice blend with whole spices" },
-  redChilliPowder: { src: "/Product images (41)/Spices (11)/redChilliPowder.jpg", alt: "Red chilli powder in a white bowl" },
-  groundFenugreek: { src: "/Product images (41)/Spices (11)/groundFenugreek.jpg", alt: "Fenugreek prepared for use in blends" },
-  curryPowder: { src: "/Product images (41)/Spices (11)/curryPowder.jpg", alt: "Curry powder spooned from a bowl" },
-  dryMangoPowder: { src: "/Product images (41)/Spices (11)/dryMangoPowder.jpg", alt: "Mangoes used for amchur seasoning" },
+  garamMasala: { src: "/Png/Spices and seasonings/garam masala.jpg", alt: "Jar of The Lyndon Cook garam masala" },
+  redChilliPowder: { src: "/Png/Spices and seasonings/ground red chilli.jpg", alt: "Jar of The Lyndon Cook ground red chilli" },
+  groundFenugreek: { src: "/Png/Spices and seasonings/fenugreek.jpg", alt: "Jar of The Lyndon Cook fenugreek" },
+  curryPowder: { src: "/Png/Spices and seasonings/curry powder.jpg", alt: "Jar of The Lyndon Cook curry powder" },
+  dryMangoPowder: { src: "/Png/Spices and seasonings/dry mango powder.jpg", alt: "Jar of The Lyndon Cook dry mango powder" },
   pinkSalt: { src: "/Product images (41)/Spices (11)/pinkSalt.jpg", alt: "Pink rock salt in bowls" },
 
   /* Seasonal fruit */

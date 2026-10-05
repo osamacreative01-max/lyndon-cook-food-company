@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import SupplyProcess from "@/components/SupplyProcess";
 import { CATEGORIES } from "@/lib/categories";
-import { HOME_BANNERS, IMAGES } from "@/lib/images";
+import { HOME_BANNERS, PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { itemListSchema, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { ACTIVE_PRODUCTS } from "@/lib/products";
@@ -129,7 +129,7 @@ export default function HomePage() {
 
       {/* --------------------------------------------------------- Editorial band */}
       <ImageBand
-        image={IMAGES.palletCans}
+        images={PRODUCT_PAGE_BANNERS}
         eyebrow="Planned around you"
         statement="Tell us what you need, in what format and when, and we will review the supply options with you."
         linkLabel="Start a conversation"
