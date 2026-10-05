@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 import { CATEGORIES } from "@/lib/categories";
 import { CATEGORY_IMAGES, PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
-import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
+import { ACTIVE_PRODUCTS } from "@/lib/products";
 
 const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook";
 const DESCRIPTION =
@@ -52,35 +52,17 @@ export default function ProductsPage() {
         }
       />
 
-      <section className="bg-ivory" aria-labelledby="catalogue-heading">
+      <section className="bg-ivory">
         <Container className="py-14 sm:py-16 lg:py-20">
-          <Reveal className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
-              Browse by category
-            </p>
-            <h2 id="catalogue-heading" className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]">
-              The catalogue
-            </h2>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
-              {CATALOGUE_COUNTS.total} products: {CATALOGUE_COUNTS.rice} rice,{" "}
-              {CATALOGUE_COUNTS.spices} spices and seasonings,{" "}
-              {CATALOGUE_COUNTS.fruit} seasonal fruit,{" "}
-              {CATALOGUE_COUNTS.canned} canned foods and{" "}
-              {CATALOGUE_COUNTS.pasta} pasta.
-            </p>
-          </Reveal>
-
-          <div className="mt-10">
-            <ProductFilters
-              products={ACTIVE_PRODUCTS}
-              categories={CATEGORIES.map((category) => ({
-                id: category.id,
-                name: category.shortName,
-              }))}
-              subgroups={subgroupMap}
-              showRangeFilter={false}
-            />
-          </div>
+          <ProductFilters
+            products={ACTIVE_PRODUCTS}
+            categories={CATEGORIES.map((category) => ({
+              id: category.id,
+              name: category.shortName,
+            }))}
+            subgroups={subgroupMap}
+            showRangeFilter={false}
+          />
         </Container>
       </section>
 

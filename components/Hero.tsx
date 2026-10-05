@@ -1,11 +1,9 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import HeroSlider, { type HeroSlide } from "@/components/HeroSlider";
-import { SITE } from "@/lib/site";
 
 type Props = {
   eyebrow: string;
@@ -164,22 +162,6 @@ export function PageHero({
               {description}
             </p>
           ) : null}
-          <p className="mt-7 text-sm text-ivory/75">
-            <Link
-              href="/enquire/"
-              className="link-underline link-underline-hover font-medium text-ivory"
-            >
-              Discuss your requirements
-            </Link>{" "}
-            or email{" "}
-            <a
-              href={`mailto:${SITE.email}`}
-              className="link-underline link-underline-hover text-ivory"
-            >
-              {SITE.email}
-            </a>
-            .
-          </p>
         </div>
       </Container>
     </section>

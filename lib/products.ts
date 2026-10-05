@@ -1211,7 +1211,7 @@ const pastaProducts: Product[] = [
     seoTitle: "Assorted Pasta Shapes | Wholesale Supply | The Lyndon Cook",
     seoDescription:
       "Assorted pasta shapes for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
-    status: "active",
+    status: "draft",
     enquiryEnabled: true,
   },
 ];
