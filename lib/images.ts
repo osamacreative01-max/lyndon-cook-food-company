@@ -159,12 +159,12 @@ export const CATEGORY_IMAGES = {
     alt: "Rice supplied by The Lyndon Cook",
   },
   spices: {
-    src: "/companyProfile/spices.jpg",
-    alt: "Ground spices presented in small bowls",
+    src: "/Png/Spices and seasonings/Spices-Cover.png",
+    alt: "Spice jars of cumin, coriander, turmeric and chilli with ground spices in bowls",
   },
   "seasonal-fruit": {
-    src: "/companyProfile/seasonal-fruit.jpg",
-    alt: "Mangoes in a crate, ready for selection",
+    src: "/Png/Seasonal fruit/Fruits-Cover.png",
+    alt: "Mangoes, oranges and lemons in branded boxes and bowls",
   },
   "canned-food": {
     src: "/Png/NORN canned foods/Canned-Items-Cover.png",
