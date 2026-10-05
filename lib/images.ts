@@ -150,6 +150,40 @@ export const HOME_BANNERS: { src: string; alt: string }[] = [
 ];
 
 /* -------------------------------------------------------------------------- */
+/* Product page banners (public/prodect page banner/)                          */
+/* -------------------------------------------------------------------------- */
+
+/** Per-category hero photography. Categories without an entry fall back to
+    the website banners. */
+export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = {
+  rice: [
+    {
+      src: "/prodect page banner/rice banner.jpg",
+      alt: "Rice sacks, pasta packs, canned food, spices and mangoes laid out together",
+    },
+  ],
+  spices: [
+    {
+      src: "/prodect page banner/spices banner.jpg",
+      alt: "A kitchen dresser and open shelving against an exposed brick wall",
+    },
+  ],
+  "canned-food": [
+    {
+      src: "/prodect page banner/canned food banner.jpg",
+      alt: "Spice jars of red chilli, black pepper, cumin, turmeric and pink salt on a wooden board",
+    },
+  ],
+};
+
+/** The all-products hero cycles the category banners as one slider. */
+export const PRODUCT_PAGE_BANNERS: { src: string; alt: string }[] = [
+  ...CATEGORY_BANNERS.rice,
+  ...CATEGORY_BANNERS.spices,
+  ...CATEGORY_BANNERS["canned-food"],
+];
+
+/* -------------------------------------------------------------------------- */
 /* Category imagery                                                            */
 /* -------------------------------------------------------------------------- */
 

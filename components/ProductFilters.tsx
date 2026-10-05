@@ -14,6 +14,8 @@ type Props = {
   subgroups: Record<string, { id: string; name: string }[]>;
   /** Restricts the category list (e.g. to the current category on /products). */
   lockedCategory?: string;
+  /** Hides the subgroup (Range) pills, used on the all-products page. */
+  showRangeFilter?: boolean;
 };
 
 const ALL = "all";
@@ -34,6 +36,7 @@ export default function ProductFilters({
   categories,
   subgroups,
   lockedCategory,
+  showRangeFilter = true,
 }: Props) {
   const baseId = useId().replace(/:/g, "");
   const [query, setQuery] = useState("");
@@ -111,7 +114,7 @@ export default function ProductFilters({
       </fieldset>
 
       {/* Subgroup pills */}
-      {availableSubgroups.length > 0 ? (
+      {showRangeFilter && availableSubgroups.length > 0 ? (
         <fieldset>
           <legend className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-muted">
             Range

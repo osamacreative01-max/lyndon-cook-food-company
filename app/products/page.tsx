@@ -3,19 +3,18 @@ import Image from "next/image";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
-import EnquiryCTA from "@/components/EnquiryCTA";
 import JsonLd from "@/components/JsonLd";
 import ProductFilters from "@/components/ProductFilters";
 import { PageHero } from "@/components/Hero";
 import Reveal from "@/components/Reveal";
 import { CATEGORIES } from "@/lib/categories";
-import { CATEGORY_IMAGES, WEBSITE_BANNERS } from "@/lib/images";
+import { CATEGORY_IMAGES, PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { ACTIVE_PRODUCTS, CATALOGUE_COUNTS } from "@/lib/products";
 
 const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook";
 const DESCRIPTION =
-  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, canned foods and pasta. Filter by range or search the catalogue, then send an enquiry.";
+  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, canned foods and pasta. Filter by category or search the catalogue, then send an enquiry.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -46,8 +45,8 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Our Products"
         title="Rice, spices, seasonal fruit and canned foods."
-        description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by range, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
-        banners={WEBSITE_BANNERS}
+        description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by category, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
+        banners={PRODUCT_PAGE_BANNERS}
         breadcrumbs={
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our Products" }]} />
         }
@@ -57,7 +56,7 @@ export default function ProductsPage() {
         <Container className="py-14 sm:py-16 lg:py-20">
           <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-copper-700">
-              Browse by range
+              Browse by category
             </p>
             <h2 id="catalogue-heading" className="mt-2 text-[1.75rem] leading-[1.15] sm:text-[2.125rem] lg:text-[2.375rem]">
               The catalogue
@@ -79,6 +78,7 @@ export default function ProductsPage() {
                 name: category.shortName,
               }))}
               subgroups={subgroupMap}
+              showRangeFilter={false}
             />
           </div>
         </Container>
@@ -143,13 +143,6 @@ export default function ProductsPage() {
           </div>
         </Container>
       </section>
-
-      <EnquiryCTA
-        heading="Tell us what you need."
-        copy="Share the products, specification, quantity, pack format and delivery schedule you have in mind, and we will review the supply options with you."
-        secondaryLabel="How we supply"
-        secondaryHref="/how-we-supply/"
-      />
     </>
   );
 }

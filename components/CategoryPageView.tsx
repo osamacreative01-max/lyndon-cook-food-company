@@ -10,7 +10,7 @@ import { PageHero } from "@/components/Hero";
 import type { Category } from "@/lib/categories";
 import { itemListSchema } from "@/lib/seo";
 import { getProductsByCategory } from "@/lib/products";
-import { WEBSITE_BANNERS } from "@/lib/images";
+import { CATEGORY_BANNERS, WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 
 const CANNED_PACKAGING_NOTE =
@@ -40,7 +40,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
         eyebrow={isCanned ? "Product brand" : "Category"}
         title={category.name}
         description={category.description}
-        banners={WEBSITE_BANNERS}
+        banners={CATEGORY_BANNERS[category.id] ?? WEBSITE_BANNERS}
         breadcrumbs={
           <Breadcrumbs
             items={[
