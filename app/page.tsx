@@ -1,23 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import Button from "@/components/Button";
 import CategoryCard from "@/components/CategoryCard";
 import Container from "@/components/Container";
-import EnquiryCTA from "@/components/EnquiryCTA";
 import Hero, { HeroStrip } from "@/components/Hero";
 import ImageBand from "@/components/ImageBand";
 import Pillars from "@/components/Pillars";
-import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import SupplyProcess from "@/components/SupplyProcess";
 import { CATEGORIES } from "@/lib/categories";
-import { HOME_BANNERS, IMAGE_SIZES, IMAGES } from "@/lib/images";
+import { HOME_BANNERS, IMAGES } from "@/lib/images";
 import { itemListSchema, DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/seo";
 import { SITE } from "@/lib/site";
-import { ACTIVE_PRODUCTS, getProductsByCategory } from "@/lib/products";
+import { ACTIVE_PRODUCTS } from "@/lib/products";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata = {
@@ -27,10 +23,6 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const cannedHighlights = getProductsByCategory("canned-food").slice(0, 4);
-  const featuredRice = getProductsByCategory("rice").slice(0, 3);
-  const featuredSpices = getProductsByCategory("spices").slice(0, 3);
-
   return (
     <>
       <JsonLd
@@ -95,9 +87,18 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <ul className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:gap-7">
+          <ul className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-6 xl:gap-7">
             {CATEGORIES.map((category, index) => (
-              <li key={category.id} className="h-full">
+              <li
+                key={category.id}
+                className={`h-full lg:col-span-2 ${
+                  index === 3
+                    ? "lg:col-start-2"
+                    : index === 4
+                      ? "lg:col-start-4"
+                      : ""
+                }`}
+              >
                 <CategoryCard category={category} delay={index * 90} />
               </li>
             ))}
@@ -126,100 +127,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ---------------------------------------------------------- Canned food block */}
-      <section className="bg-ivory" aria-labelledby="norn-heading">
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-20">
-            {/* Brand introduction */}
-            <div className="lg:col-span-5">
-              <div className="lg:sticky lg:top-28">
-                <SectionHeading
-                  id="norn-heading"
-                  eyebrow="Canned Foods"
-                  title="Everyday food. Well considered."
-                  description={
-                    <>
-                      Our canned-food range comes from The Lyndon Cook.
-                      Fourteen choices in a 400 ml easy-open can format.
-                    </>
-                  }
-                />
-
-                <ul className="mt-7 flex flex-wrap gap-2">
-                  {["Beans", "Pulses", "Vegetables", "Tomatoes"].map((label) => (
-                    <li
-                      key={label}
-                      className="rounded-full border border-sand bg-white px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-teal-800"
-                    >
-                      {label}
-                    </li>
-                  ))}
-                  <li className="rounded-full border border-copper-600/40 bg-copper-100/70 px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-copper-700">
-                    400 ml can format
-                  </li>
-                  <li className="rounded-full border border-copper-600/40 bg-copper-100/70 px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-copper-700">
-                    Easy-open ring-pull
-                  </li>
-                </ul>
-
-                <p className="mt-6 max-w-lg text-[0.875rem] leading-relaxed text-muted">
-                  400 ml refers to the can format. Final net contents, drained weights
-                  and label details are confirmed by product specification.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Button href="/products/canned-food/" size="lg">
-                    Explore canned foods
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Product showcase */}
-            <div className="lg:col-span-7">
-              <ul className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:gap-5 lg:gap-6">
-                {cannedHighlights.map((product, index) => (
-                  <li key={product.id} className="h-full">
-                    <Reveal delay={index * 80} className="h-full">
-                      <Link
-                        href={`/products/${product.category}/${product.slug}/`}
-                        className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-sand bg-white shadow-[0_1px_2px_rgba(35,68,70,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-sand-600/60 hover:shadow-[0_14px_30px_rgba(8,75,80,0.10)]"
-                      >
-                        <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-dark">
-                          <Image
-                            src={product.image.src}
-                            alt={product.image.alt}
-                            fill
-                            loading="lazy"
-                            sizes={IMAGE_SIZES.grid}
-                            className={
-                              product.image.src.startsWith("/Png/")
-                                ? "object-contain p-4 transition-transform duration-500 ease-out group-hover:scale-[1.05] sm:p-5"
-                                : "object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                            }
-                          />
-                        </div>
-                        <div className="flex flex-1 items-center justify-between gap-3 border-t border-sand/70 px-4 py-3.5 sm:px-5">
-                          <span className="text-[0.9375rem] font-medium leading-snug text-teal-800">
-                            {product.name}
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-sand bg-ivory text-teal-800 transition-colors duration-300 group-hover:border-teal-800 group-hover:bg-teal-800 group-hover:text-ivory"
-                          >
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </span>
-                        </div>
-                      </Link>
-                    </Reveal>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
       {/* --------------------------------------------------------- Editorial band */}
       <ImageBand
         image={IMAGES.kitchenTeam}
@@ -231,52 +138,6 @@ export default function HomePage() {
 
       {/* ------------------------------------------------------- Supply process */}
       <SupplyProcess />
-
-      {/* --------------------------------------------------- Featured products */}
-      <section className="bg-ivory" aria-labelledby="featured-heading">
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <SectionHeading
-            id="featured-heading"
-            eyebrow="From the catalogue"
-            title="Where most enquiries start"
-            description="A few of the products buyers ask about most often. The full catalogue, with filtering and search, is on the Our Products page."
-          />
-          <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
-            {[...featuredRice, ...featuredSpices].map((product, index) => (
-              <li key={product.id} className="h-full">
-                <ProductCard product={product} delay={index * 80} />
-              </li>
-            ))}
-          </ul>
-          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <Button href="/products/" variant="secondary" size="lg">
-              Explore the full range
-            </Button>
-            <ul className="flex flex-wrap gap-x-7 gap-y-2 text-[0.9375rem] text-muted">
-              {[
-                "Specification agreed per order",
-                "Planned full-load supply",
-                "UK-based team",
-              ].map((point) => (
-                <li key={point} className="flex items-center gap-2.5">
-                  <Check
-                    aria-hidden="true"
-                    className="h-4 w-4 shrink-0 text-copper-600"
-                  />
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </section>
-
-      {/* ------------------------------------------------------------- Final CTA */}
-      <EnquiryCTA
-        showFullLoadNote
-        secondaryLabel="How we supply"
-        secondaryHref="/how-we-supply/"
-      />
     </>
   );
 }

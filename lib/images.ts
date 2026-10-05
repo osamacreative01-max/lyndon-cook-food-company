@@ -155,8 +155,8 @@ export const HOME_BANNERS: { src: string; alt: string }[] = [
 
 export const CATEGORY_IMAGES = {
   rice: {
-    src: "/companyProfile/rice.jpg",
-    alt: "Rice supplied by The Lyndon Cook",
+    src: "/Png/Rice/Rice-Cover.png",
+    alt: "Rice packs, pouches and bowls of basmati, long grain and IRRI rice",
   },
   spices: {
     src: "/Png/Spices and seasonings/Spices-Cover.png",
