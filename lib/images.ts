@@ -85,8 +85,8 @@ export const IMAGES = {
     alt: "Rice and pulses arranged for food service supply",
   },
   palletCans: {
-    src: "/images/norn/norn-range-wide.jpg",
-    alt: "Canned foods, rice, pasta and spices arranged for supply",
+    src: "/Editorial images (13)/palletCans.jpg",
+    alt: "The full canned range: fourteen easy-open cans of beans, pulses, vegetables and tomatoes",
   },
   warehouse: {
     src: "/Editorial images (13)/warehouse.jpg",

@@ -129,7 +129,7 @@ export default function HomePage() {
 
       {/* --------------------------------------------------------- Editorial band */}
       <ImageBand
-        image={IMAGES.kitchenTeam}
+        image={IMAGES.palletCans}
         eyebrow="Planned around you"
         statement="Tell us what you need, in what format and when, and we will review the supply options with you."
         linkLabel="Start a conversation"
