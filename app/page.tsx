@@ -129,82 +129,92 @@ export default function HomePage() {
       {/* ---------------------------------------------------------- NORN block */}
       <section className="bg-ivory" aria-labelledby="norn-heading">
         <Container className="py-16 sm:py-20 lg:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+            {/* Brand introduction */}
             <div className="lg:col-span-5">
-              <SectionHeading
-                id="norn-heading"
-                eyebrow="Our canned-food brand"
-                title="Everyday food. Well considered."
-                description={
-                  <>
-                    NORN is the canned-food brand from The Lyndon Cook.
-                    Fourteen choices in a 400 ml easy-open can format.
-                  </>
-                }
-              />
-              <ul className="mt-8 flex flex-wrap gap-2.5">
-                {["Beans", "Pulses", "Vegetables", "Tomatoes"].map((label) => (
-                  <li
-                    key={label}
-                    className="rounded-full border border-sand-600 bg-white px-4 py-2 text-sm font-medium text-teal-800 transition-colors hover:border-copper-600"
-                  >
-                    {label}
+              <div className="lg:sticky lg:top-28">
+                <SectionHeading
+                  id="norn-heading"
+                  eyebrow="Our canned-food brand"
+                  title="Everyday food. Well considered."
+                  description={
+                    <>
+                      NORN is the canned-food brand from The Lyndon Cook.
+                      Fourteen choices in a 400 ml easy-open can format.
+                    </>
+                  }
+                />
+
+                <ul className="mt-7 flex flex-wrap gap-2">
+                  {["Beans", "Pulses", "Vegetables", "Tomatoes"].map((label) => (
+                    <li
+                      key={label}
+                      className="rounded-full border border-sand bg-white px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-teal-800"
+                    >
+                      {label}
+                    </li>
+                  ))}
+                  <li className="rounded-full border border-copper-600/40 bg-copper-100/70 px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-copper-700">
+                    400 ml can format
                   </li>
-                ))}
-                <li className="rounded-full border border-copper-600/50 bg-copper-100/60 px-4 py-2 text-sm font-medium text-copper-700">
-                  400 ml can format
-                </li>
-                <li className="rounded-full border border-copper-600/50 bg-copper-100/60 px-4 py-2 text-sm font-medium text-copper-700">
-                  Easy-open ring-pull
-                </li>
-              </ul>
-              <p className="mt-6 max-w-lg text-[0.875rem] leading-relaxed text-muted">
-                400 ml refers to the can format. Final net contents, drained weights
-                and label details are confirmed by product specification.
-              </p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Button href="/products/canned-food/" size="lg">
-                  Explore NORN
-                </Button>
-                <Button href="/norn/" variant="secondary" size="lg">
-                  About the NORN brand
-                </Button>
+                  <li className="rounded-full border border-copper-600/40 bg-copper-100/70 px-3.5 py-1.5 text-[0.8125rem] font-medium leading-none text-copper-700">
+                    Easy-open ring-pull
+                  </li>
+                </ul>
+
+                <p className="mt-6 max-w-lg text-[0.875rem] leading-relaxed text-muted">
+                  400 ml refers to the can format. Final net contents, drained weights
+                  and label details are confirmed by product specification.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button href="/products/canned-food/" size="lg">
+                    Explore NORN
+                  </Button>
+                  <Button href="/norn/" variant="secondary" size="lg">
+                    About the NORN brand
+                  </Button>
+                </div>
               </div>
             </div>
 
+            {/* Product showcase */}
             <div className="lg:col-span-7">
-              <ul className="grid grid-cols-2 gap-5">
-                {nornHighlights.map((product) => (
-                  <li
-                    key={product.id}
-                    className="overflow-hidden rounded-[4px] border border-sand bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(8,75,80,0.14)]"
-                  >
-                    <Link
-                      href={`/products/${product.category}/${product.slug}/`}
-                      className="group block"
-                    >
-                      <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-dark">
-                        <Image
-                          src={product.image.src}
-                          alt={product.image.alt}
-                          fill
-                          loading="lazy"
-                          sizes={IMAGE_SIZES.grid}
-                          className={
-                            product.image.src.startsWith("/Png/")
-                              ? "object-contain p-4 sm:p-5"
-                              : "object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                          }
-                        />
-                      </div>
-                      <p className="flex items-center justify-between gap-2 px-5 py-4 text-[0.9375rem] font-medium text-teal-800">
-                        {product.name}
-                        <ArrowRight
-                          aria-hidden="true"
-                          className="h-4 w-4 shrink-0 text-copper-600"
-                        />
-                      </p>
-                    </Link>
+              <ul className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:gap-5 lg:gap-6">
+                {nornHighlights.map((product, index) => (
+                  <li key={product.id} className="h-full">
+                    <Reveal delay={index * 80} className="h-full">
+                      <Link
+                        href={`/products/${product.category}/${product.slug}/`}
+                        className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-sand bg-white shadow-[0_1px_2px_rgba(35,68,70,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-sand-600/60 hover:shadow-[0_14px_30px_rgba(8,75,80,0.10)]"
+                      >
+                        <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-dark">
+                          <Image
+                            src={product.image.src}
+                            alt={product.image.alt}
+                            fill
+                            loading="lazy"
+                            sizes={IMAGE_SIZES.grid}
+                            className={
+                              product.image.src.startsWith("/Png/")
+                                ? "object-contain p-4 transition-transform duration-500 ease-out group-hover:scale-[1.05] sm:p-5"
+                                : "object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                            }
+                          />
+                        </div>
+                        <div className="flex flex-1 items-center justify-between gap-3 border-t border-sand/70 px-4 py-3.5 sm:px-5">
+                          <span className="text-[0.9375rem] font-medium leading-snug text-teal-800">
+                            {product.name}
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-sand bg-ivory text-teal-800 transition-colors duration-300 group-hover:border-teal-800 group-hover:bg-teal-800 group-hover:text-ivory"
+                          >
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
+                      </Link>
+                    </Reveal>
                   </li>
                 ))}
               </ul>
