@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import JsonLd from "@/components/JsonLd";
 import ProductFilters from "@/components/ProductFilters";
@@ -47,9 +46,6 @@ export default function ProductsPage() {
         title="Rice, spices, seasonal fruit and canned foods."
         description="Everything we currently supply, in one place. Use the filters to narrow the catalogue by category, or search by product name. Specifications and pack formats are agreed per order, so tell us what you need and we will review the supply options."
         banners={PRODUCT_PAGE_BANNERS}
-        breadcrumbs={
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Our Products" }]} />
-        }
       />
 
       <section className="bg-ivory">

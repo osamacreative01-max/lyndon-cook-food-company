@@ -3,7 +3,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, Info, PackageCheck } from "lucide-react";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
@@ -57,16 +56,7 @@ function renderProduct(product: Product) {
 
       <section className="on-dark border-b border-sand bg-ivory">
         <Container className="py-8 sm:py-10">
-          <Breadcrumbs
-            items={[
-              { name: "Home", href: "/" },
-              { name: "Our products", href: "/products/" },
-              { name: category.name, href: `/products/${category.slug}/` },
-              { name: product.name },
-            ]}
-          />
-
-          <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             {/* Product image */}
             <div className="lg:col-span-6">
               <div

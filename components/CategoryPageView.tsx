@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Download, Info } from "lucide-react";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import JsonLd from "@/components/JsonLd";
@@ -41,15 +40,6 @@ export default function CategoryPageView({ category }: { category: Category }) {
         title={category.name}
         description={category.description}
         banners={CATEGORY_BANNERS[category.id] ?? WEBSITE_BANNERS}
-        breadcrumbs={
-          <Breadcrumbs
-            items={[
-              { name: "Home", href: "/" },
-              { name: "Our Products", href: "/products/" },
-              { name: category.name },
-            ]}
-          />
-        }
       />
 
       {isCanned ? (
