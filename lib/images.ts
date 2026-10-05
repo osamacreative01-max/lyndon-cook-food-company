@@ -167,7 +167,7 @@ export const CATEGORY_IMAGES = {
     alt: "Mangoes in a crate, ready for selection",
   },
   "canned-food": {
-    src: "/companyProfile/canned-food.jpg",
+    src: "/Png/NORN canned foods/Canned-Items-Cover.png",
     alt: "Canned foods supplied by The Lyndon Cook",
   },
   "pasta": {

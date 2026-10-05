@@ -135,7 +135,7 @@ export default function HomePage() {
               <div className="lg:sticky lg:top-28">
                 <SectionHeading
                   id="norn-heading"
-                  eyebrow="Our canned-food brand"
+                  eyebrow="Canned Foods"
                   title="Everyday food. Well considered."
                   description={
                     <>
