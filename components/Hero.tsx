@@ -97,18 +97,18 @@ export function HeroStrip({ items }: { items: string[] }) {
   if (!items.length) return null;
   return (
     <section className="on-dark bg-teal-800">
-      <Container className="py-7">
-        <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+      <Container className="py-7 sm:py-8">
+        <ul className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14">
           {items.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 text-[0.9375rem] font-semibold leading-snug text-ivory"
+              className="flex items-start gap-3.5 text-[1.0625rem] font-semibold leading-snug text-ivory sm:text-[1.125rem]"
             >
               <span
                 aria-hidden="true"
-                className="mt-1.5 h-2 w-2 shrink-0 bg-copper-600"
+                className="mt-2 h-2 w-2 shrink-0 bg-copper-600"
               />
-              {item}
+              <span>{item}</span>
             </li>
           ))}
         </ul>
