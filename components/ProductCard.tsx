@@ -21,7 +21,7 @@ export default function ProductCard({
   priority = false,
   delay = 0,
 }: Props) {
-  const isNorn = product.brand === "NORN";
+  const isCanned = product.category === "canned-food";
   const isPackShot = product.image.src.startsWith("/Png/");
 
   return (
@@ -55,17 +55,17 @@ export default function ProductCard({
             {/* Category badge */}
             <span
               className={`absolute left-4 top-4 rounded-[3px] px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] ${
-                isNorn
+                isCanned
                   ? "bg-teal-800 text-ivory"
                   : "bg-white/95 text-teal-800 shadow-sm"
               }`}
             >
-              {isNorn ? "NORN" : product.subgroupName}
+              {isCanned ? "Canned Foods" : product.subgroupName}
             </span>
           </div>
 
           <div className="flex flex-1 flex-col p-6">
-            {!isNorn ? (
+            {!isCanned ? (
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-copper-700">
                 {product.category.charAt(0).toUpperCase() +
                   product.category.slice(1).replace("-", " ")}

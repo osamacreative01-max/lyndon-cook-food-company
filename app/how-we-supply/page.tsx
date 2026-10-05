@@ -164,7 +164,7 @@ export default function HowWeSupplyPage() {
               {
                 term: "Pack format",
                 detail:
-                  "Packing format agreed to suit handling, storage and service. NORN uses a 400 ml can format.",
+                  "Packing format agreed to suit handling, storage and service. Our canned range uses a 400 ml can format.",
               },
               {
                 term: "Quantity and units",

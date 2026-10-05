@@ -104,7 +104,7 @@ export function HeroStrip({ items }: { items: string[] }) {
           {items.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 text-[0.9375rem] leading-snug text-ivory"
+              className="flex items-start gap-3 text-[0.9375rem] font-semibold leading-snug text-ivory"
             >
               <span
                 aria-hidden="true"

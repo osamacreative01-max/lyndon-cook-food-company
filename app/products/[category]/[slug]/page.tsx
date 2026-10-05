@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 function renderProduct(product: Product) {
   const category = getCategory(product.category)!;
   const related = getRelatedProducts(product);
-  const isNorn = product.brand === "NORN";
+  const isCanned = product.category === "canned-food";
   const isPack = product.image.src.startsWith("/Png/");
 
   return (
@@ -85,9 +85,9 @@ function renderProduct(product: Product) {
                     isPack ? "object-contain p-5 sm:p-8" : "object-cover"
                   }
                 />
-                {isNorn ? (
+                {isCanned ? (
                   <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
-                    NORN
+                    Canned Foods
                   </span>
                 ) : (
                   <span className="absolute left-4 top-4 rounded-[3px] bg-white/95 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-teal-800 shadow-sm">
@@ -210,7 +210,7 @@ function renderProduct(product: Product) {
                 </div>
               </div>
 
-              {isNorn ? (
+              {isCanned ? (
                 <p className="mt-6 flex gap-3 text-[0.875rem] leading-relaxed text-muted">
                   <Info aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-copper-600" />
                   400 ml refers to the can format, not net weight. Final net

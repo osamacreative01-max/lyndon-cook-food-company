@@ -24,7 +24,7 @@ export default function CategoryCard({
   delay?: number;
 }) {
   const count = COUNT_BY_CATEGORY[category.id];
-  const isNorn = category.id === "canned-food";
+  const isCanned = category.id === "canned-food";
 
   return (
     <Reveal delay={delay} className="h-full">
@@ -54,7 +54,7 @@ export default function CategoryCard({
             />
             <span
               className={`absolute left-4 top-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] shadow-sm transition-transform duration-300 group-hover:-translate-y-0.5 ${
-                isNorn
+                isCanned
                   ? "bg-teal-800 text-ivory"
                   : "bg-white/95 text-teal-800"
               }`}
@@ -63,8 +63,8 @@ export default function CategoryCard({
                 aria-hidden="true"
                 className="h-1.5 w-1.5 rounded-full bg-copper-600"
               />
-              {isNorn
-                ? `NORN · ${count} products`
+              {isCanned
+                ? `· ${count} products`
                 : `${count} ${count === 1 ? "product" : "products"}`}
             </span>
           </div>

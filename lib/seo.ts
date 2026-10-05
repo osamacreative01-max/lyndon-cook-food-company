@@ -14,7 +14,7 @@ import type { Category } from "@/lib/categories";
 export const DEFAULT_TITLE = `${SITE.name} | UK Food Supply`;
 
 export const DEFAULT_DESCRIPTION =
-  "Explore rice, spices, seasonal fruit and NORN canned foods. Discuss product specifications, volumes and planned supply with The Lyndon Cook.";
+  "Explore rice, spices, seasonal fruit and canned foods. Discuss product specifications, volumes and planned supply with The Lyndon Cook.";
 
 export function absoluteUrl(path = "/"): string {
   const normalised = path.startsWith("/") ? path : `/${path}`;
@@ -114,7 +114,7 @@ export function organizationSchema() {
     },
     image: absoluteUrl(SITE.ogImage.src),
     description:
-      "Wholesale food supply of rice, spices, seasonal fruit and NORN canned foods, supplied around agreed specifications and planned purchasing requirements.",
+      "Wholesale food supply of rice, spices, seasonal fruit and canned foods, supplied around agreed specifications and planned purchasing requirements.",
     email: SITE.email,
     telephone: SITE.phoneHref,
     address: {

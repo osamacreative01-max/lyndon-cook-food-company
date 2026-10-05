@@ -39,7 +39,7 @@ export default function SectionHeading({
         {eyebrow ? <span className="rule-copper mt-3" aria-hidden="true" /> : null}
         <Tag
           id={id}
-          className={`mt-5 text-[1.875rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.875rem] ${
+          className={`mt-5 text-[1.875rem] font-bold leading-[1.1] sm:text-[2.375rem] lg:text-[2.875rem] ${
             onDark ? "text-ivory" : ""
           }`}
         >
@@ -47,7 +47,7 @@ export default function SectionHeading({
         </Tag>
         {description ? (
           <div
-            className={`mt-6 text-[1.0625rem] leading-[1.75] sm:text-[1.1875rem] ${
+            className={`mt-6 text-[1.0625rem] font-medium leading-[1.75] sm:text-[1.1875rem] ${
               onDark ? "text-ivory" : "text-muted"
             }`}
           >

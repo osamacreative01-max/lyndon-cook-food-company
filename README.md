@@ -1,6 +1,6 @@
 # The Lyndon Cook — website
 
-B2B food supply website for **The Lyndon Cook** (NORN is a product
+B2B food supply website for **The Lyndon Cook** (our canned range is a product
 brand within the company, not a replacement for its name).
 
 Built from `F:\web\The_Lyndon_Cook_Food_Company_Master_Website_Prompt.md`, which
@@ -67,7 +67,7 @@ delivery, so an automated client cannot learn which check it tripped.
   order values anywhere — the site is enquiry-driven, not transactional.
 * No certifications, supplier claims, ratings, reviews or testimonials.
 * No legal suffix on the company name, because the legal entity is unconfirmed.
-* NORN's `400 ml` is a **can format**, not a net weight.
+* `400 ml` is a **can format**, not a net weight.
 * Quantities are never converted between units.
 * Product photography is licensed placeholder stock.
 

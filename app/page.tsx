@@ -27,7 +27,7 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  const nornHighlights = getProductsByCategory("canned-food").slice(0, 4);
+  const cannedHighlights = getProductsByCategory("canned-food").slice(0, 4);
   const featuredRice = getProductsByCategory("rice").slice(0, 3);
   const featuredSpices = getProductsByCategory("spices").slice(0, 3);
 
@@ -52,7 +52,7 @@ export default function HomePage() {
             <br className="hidden sm:block" /> Straightforward supply.
           </>
         }
-        description="Rice, spices, seasonal fruit and NORN canned foods, supplied around clear specifications and planned purchasing requirements."
+        description="Rice, spices, seasonal fruit and canned foods, supplied around clear specifications and planned purchasing requirements."
         primary={{ label: "Discuss your requirements", href: "/enquire/" }}
         secondary={{ label: "Explore our range", href: "/products/" }}
         slides={HOME_BANNERS}
@@ -76,7 +76,7 @@ export default function HomePage() {
           className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-copper-100/60 blur-3xl"
         />
         <Container className="relative py-16 sm:py-20 lg:py-24">
-          <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               id="range-heading"
               eyebrow="What we supply"
@@ -85,7 +85,7 @@ export default function HomePage() {
             />
             <Link
               href="/products/"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-teal-800/20 bg-white px-6 py-3 text-sm font-semibold text-teal-800 shadow-[0_2px_10px_rgba(8,75,80,0.06)] transition-all duration-300 hover:border-teal-800 hover:bg-teal-800 hover:text-ivory focus-visible:outline-offset-4"
+              className="group inline-flex w-fit shrink-0 items-center gap-2.5 rounded-full border border-teal-800/20 bg-white px-6 py-3 text-sm font-semibold text-teal-800 shadow-[0_2px_10px_rgba(8,75,80,0.06)] transition-all duration-300 hover:border-teal-800 hover:bg-teal-800 hover:text-ivory focus-visible:outline-offset-4 sm:self-end"
             >
               See all {ACTIVE_PRODUCTS.length} products
               <ArrowRight
@@ -126,7 +126,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* ---------------------------------------------------------- NORN block */}
+      {/* ---------------------------------------------------------- Canned food block */}
       <section className="bg-ivory" aria-labelledby="norn-heading">
         <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-20">
@@ -139,7 +139,7 @@ export default function HomePage() {
                   title="Everyday food. Well considered."
                   description={
                     <>
-                      NORN is the canned-food brand from The Lyndon Cook.
+                      Our canned-food range comes from The Lyndon Cook.
                       Fourteen choices in a 400 ml easy-open can format.
                     </>
                   }
@@ -169,7 +169,7 @@ export default function HomePage() {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Button href="/products/canned-food/" size="lg">
-                    Explore NORN
+                    Explore canned foods
                   </Button>
                 </div>
               </div>
@@ -178,7 +178,7 @@ export default function HomePage() {
             {/* Product showcase */}
             <div className="lg:col-span-7">
               <ul className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:gap-5 lg:gap-6">
-                {nornHighlights.map((product, index) => (
+                {cannedHighlights.map((product, index) => (
                   <li key={product.id} className="h-full">
                     <Reveal delay={index * 80} className="h-full">
                       <Link

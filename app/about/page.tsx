@@ -55,7 +55,7 @@ export default function AboutPage() {
                 <div className="mt-6 space-y-4 text-[1.0625rem] leading-[1.7] text-muted">
                   <p>
                     We supply rice, everyday ingredients, spices, seasonal fruit and
-                    NORN canned foods to businesses that buy food to cook, serve or
+                    canned foods to businesses that buy food to cook, serve or
                     resell. The work is not complicated: match the right product to
                     the right use, agree a clear specification, and plan the orders
                     so deliveries land when the kitchen expects them.
@@ -146,7 +146,7 @@ export default function AboutPage() {
               id="focus-heading"
               className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
-              Rice, everyday ingredients, spices, seasonal fruit and NORN canned
+              Rice, everyday ingredients, spices, seasonal fruit and canned
               foods.
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
@@ -187,7 +187,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ------------------------------------------------------------- NORN block */}
+      {/* ------------------------------------------------------------- Canned food block */}
       <section className="on-dark bg-ivory" aria-labelledby="norn-about-heading">
         <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
@@ -209,10 +209,10 @@ export default function AboutPage() {
                 id="norn-about-heading"
                 className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
               >
-                NORN, a brand from The Lyndon Cook.
+                Canned foods, from The Lyndon Cook.
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-                NORN is our canned-food brand: fourteen choices across beans and
+                Our canned-food range: fourteen choices across beans and
                 pulses, vegetables and tomatoes, in a 400 ml easy-open can format.
                 400 ml refers to the can format, not net weight. Final net
                 contents, drained weights and label details are confirmed by
@@ -220,7 +220,7 @@ export default function AboutPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/products/canned-food/" variant="secondary">
-                  Explore NORN products
+                  Explore canned foods
                 </Button>
               </div>
             </Reveal>

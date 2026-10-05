@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "spices wholesale UK",
     "seasonal fruit supplier",
     "canned food supplier UK",
-    "NORN canned foods",
+    "Canned foods",
     "food supply Biggleswade",
     "B2B food supply",
     "The Lyndon Cook",

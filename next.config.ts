@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // The NORN brand page was removed: both spellings now land on the
+      // The old brand page was removed: both spellings now land on the
       // canned-food range it used to describe.
       {
         source: "/norn",
@@ -36,7 +36,7 @@ const nextConfig: NextConfig = {
         destination: "/products/canned-food/",
         permanent: true,
       },
-      // The NORN Rice 1lb range was removed from the catalogue.
+      // The rice 1lb range was removed from the catalogue.
       {
         source: "/products/norn-rice-1lb",
         destination: "/products/rice/",

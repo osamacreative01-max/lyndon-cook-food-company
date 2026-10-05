@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Logo onDark width={360} />
             <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-ivory/75">
-              Rice, spices, seasonal fruit and NORN canned foods, supplied around
+              Rice, spices, seasonal fruit and canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
             <p className="mt-4 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">

@@ -3,7 +3,7 @@
  *
  * Content rules (see the master build brief):
  *  - The public company name is "The Lyndon Cook".
- *  - NORN is a product brand, never a replacement for the company name.
+ *  - Canned foods are a product range, never a replacement for the company name.
  *  - No legal suffix ("Ltd", "Limited", ...) is published, because the legal
  *    entity has not been confirmed. See TODO below.
  *  - No employee email addresses and no non-UK office addresses are published.
@@ -14,8 +14,8 @@ import { CATEGORIES } from "@/lib/categories";
 export const SITE = {
   name: "The Lyndon Cook",
   shortName: "Lyndon Cook",
-  /** Product brand presented within the company. */
-  productBrand: "NORN",
+  /** Canned food range presented within the company. */
+  productBrand: "Canned Foods",
   brandLine: "A brand from The Lyndon Cook",
   domain: "www.tlcfc.co.uk",
   url: "https://www.tlcfc.co.uk",
@@ -55,7 +55,7 @@ export const SITE = {
     src: "/images/og.jpg",
     width: 1200,
     height: 630,
-    alt: "The Lyndon Cook — rice, spices, seasonal fruit and NORN canned foods",
+    alt: "The Lyndon Cook — rice, spices, seasonal fruit and canned foods",
   },
 
   profileDownload: {

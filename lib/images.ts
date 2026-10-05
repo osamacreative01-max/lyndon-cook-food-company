@@ -10,6 +10,8 @@ export type EditorialImageKey =
   | "nornRange"
   | "heroBanner1"
   | "heroBanner2"
+  | "heroBanner3"
+  | "heroBanner4"
   | "websiteBanner1"
   | "websiteBanner2"
   | "websiteBanner3"
@@ -33,37 +35,46 @@ export const IMAGES = {
     src: "/Editorial images (13)/pantryStack.jpg",
     alt: "Rice and pulses arranged for food service supply",
   },
-  /* The complete NORN collection: the homepage opening photograph. */
+  /* The complete collection: the homepage opening photograph. */
   nornRange: {
     src: "/images/norn/norn-range-wide.jpg",
-    alt: "The complete NORN collection: basmati rice sacks, pasta, canned beans and vegetables, spices and fresh mangoes",
+    alt: "The complete collection: basmati rice sacks, pasta, canned beans and vegetables, spices and fresh mangoes",
   },
-  /* Homepage hero slider banners (1920x800, empty left third for the headline). */
+  /* Homepage hero slider banners (1920x800, empty left third for the headline).
+     Kept in `public/home page benner/` — the folder the banners are shipped in. */
   heroBanner1: {
-    src: "/Home page bannar-01.jpg",
-    alt: "NORN sedani, penne, shells, elbows and charleston pasta packs on a flour-dusted backdrop",
+    src: "/home page benner/Home page bannar..-05.jpg",
+    alt: "Basmati rice in a wooden bowl with a carved scoop on a dark teal backdrop",
   },
   heroBanner2: {
-    src: "/Home page bannar-02 (1).jpg",
-    alt: "NORN steam basmati rice, canned tomatoes, baked beans, mixed vegetables and spices on a counter",
+    src: "/home page benner/Home page bannar-02 (1).jpg",
+    alt: "Whole and ground spices in bowls with star anise, cinnamon and cardamom",
+  },
+  heroBanner3: {
+    src: "/home page benner/Home page bannar-04.jpg",
+    alt: "Fresh grapes, strawberries, kiwi, citrus and stone fruit on a dark teal backdrop",
+  },
+  heroBanner4: {
+    src: "/home page benner/Home page bannar-07.jpg",
+    alt: "Spaghetti, farfalle, fusilli and tagliatelle on a dark teal backdrop",
   },
   /* Website banners (8000x2358): the left third is deliberately empty so the
      headline always lands on clear ground and the range stays on the right. */
   websiteBanner1: {
     src: "/Website Banner-01.jpg",
-    alt: "NORN rice, canned beans, pasta and spices arranged against a deep teal backdrop",
+    alt: "Rice, canned beans, pasta and spices arranged against a deep teal backdrop",
   },
   websiteBanner2: {
     src: "/Website Banner-02.jpg",
-    alt: "The complete NORN range of rice, pasta, canned food, spices and mangoes",
+    alt: "The complete range of rice, pasta, canned food, spices and mangoes",
   },
   websiteBanner3: {
     src: "/Website Banner-03.jpg",
-    alt: "NORN penne, shells, elbows and sedani pasta packs on a flour-dusted backdrop",
+    alt: "Penne, shells, elbows and sedani pasta packs on a flour-dusted backdrop",
   },
   websiteBanner4: {
     src: "/Website Banner-04.jpg",
-    alt: "NORN pinto beans, baked beans, black beans and chickpeas in easy-open cans",
+    alt: "Pinto beans, baked beans, black beans and chickpeas in easy-open cans",
   },
   heroPantry: {
     src: "/Editorial images (13)/heroPantry.jpg",
@@ -75,7 +86,7 @@ export const IMAGES = {
   },
   palletCans: {
     src: "/images/norn/norn-range-wide.jpg",
-    alt: "NORN canned foods, rice, pasta and spices arranged for supply",
+    alt: "Canned foods, rice, pasta and spices arranged for supply",
   },
   warehouse: {
     src: "/Editorial images (13)/warehouse.jpg",
@@ -111,11 +122,11 @@ export const IMAGES = {
   },
   cannedShelf: {
     src: "/images/norn/norn-range.jpg",
-    alt: "NORN canned foods, pasta, rice and spices laid out as a full range",
+    alt: "Canned foods, pasta, rice and spices laid out as a full range",
   },
   companyProfile: {
     src: "/images/norn/norn-range-wide.jpg",
-    alt: "The NORN product range supplied by The Lyndon Cook",
+    alt: "The product range supplied by The Lyndon Cook",
   },
 } as const satisfies Record<EditorialImageKey, { src: string; alt: string }>;
 
@@ -130,10 +141,12 @@ export const WEBSITE_BANNERS: { src: string; alt: string }[] = [
   IMAGES.websiteBanner4,
 ];
 
-/** The two banners the homepage hero runs through. */
+/** The four banners the homepage hero runs through. */
 export const HOME_BANNERS: { src: string; alt: string }[] = [
   IMAGES.heroBanner1,
   IMAGES.heroBanner2,
+  IMAGES.heroBanner3,
+  IMAGES.heroBanner4,
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -155,11 +168,11 @@ export const CATEGORY_IMAGES = {
   },
   "canned-food": {
     src: "/companyProfile/canned-food.jpg",
-    alt: "NORN canned foods supplied by The Lyndon Cook",
+    alt: "Canned foods supplied by The Lyndon Cook",
   },
   "pasta": {
     src: "/images/norn/norn-pasta-lifestyle.jpg",
-    alt: "NORN dry pasta packs served with finished dishes",
+    alt: "Dry pasta packs served with finished dishes",
   },
 } as const;
 
@@ -169,12 +182,12 @@ export const CATEGORY_IMAGES = {
 
 export const PRODUCT_IMAGES = {
   /* Rice */
-  superBasmati: { src: "/Png/Rice/supper Basmati Rice.png", alt: "NORN Super Basmati Rice sack" },
-  steamBasmati: { src: "/Png/Rice/Steam Basmati Rice.png", alt: "NORN Steam Basmati Rice sack" },
-  sellaBasmati: { src: "/Png/Rice/Sella Basmati Rice.png", alt: "NORN Sella Basmati Rice sack" },
-  irri6: { src: "/Png/Rice/LONG GRAIN WHITE RICE.png", alt: "NORN Long Grain White Rice pack" },
+  superBasmati: { src: "/Png/Rice/supper Basmati Rice.png", alt: "Super Basmati Rice sack" },
+  steamBasmati: { src: "/Png/Rice/Steam Basmati Rice.png", alt: "Steam Basmati Rice sack" },
+  sellaBasmati: { src: "/Png/Rice/Sella Basmati Rice.png", alt: "Sella Basmati Rice sack" },
+  irri6: { src: "/Png/Rice/LONG GRAIN WHITE RICE.png", alt: "Long Grain White Rice pack" },
   pk386: { src: "/Product images (41)/rice/pk386.jpg", alt: "Cooked long grain rice in a dish" },
-  irri9: { src: "/Png/Rice/LONG GRAIN PARABOLIED RICE.png", alt: "NORN Long Grain Parboiled Rice pack" },
+  irri9: { src: "/Png/Rice/LONG GRAIN PARABOLIED RICE.png", alt: "Long Grain Parboiled Rice pack" },
   brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
   /* Spices */
@@ -201,29 +214,29 @@ export const PRODUCT_IMAGES = {
   fruiter: { src: "/Product images (41)/Seasonal fruit (9)/fruiter.jpg", alt: "Sweet citrus fruit ready for packing" },
   malta: { src: "/Product images (41)/Seasonal fruit (9)/malta.jpg", alt: "Citrus fruit stacked for sale" },
 
-  /* NORN canned foods */
-  bakedBeans: { src: "/Png/NORN canned foods/Baked Beans.png", alt: "NORN Baked Beans can" },
-  blackBeans: { src: "/Png/NORN canned foods/Black Beans.png", alt: "NORN Black Beans can" },
-  broadBeans: { src: "/Png/NORN canned foods/Broad Beans.png", alt: "NORN Broad Beans can" },
-  chickpeas: { src: "/Png/NORN canned foods/Chickpeas.png", alt: "NORN Chickpeas can" },
-  pintoBeans: { src: "/Png/NORN canned foods/Pinto Beans.png", alt: "NORN Pinto Beans can" },
-  redKidneyBeans: { src: "/Png/NORN canned foods/Red Kidney Beans.png", alt: "NORN Red Kidney Beans can" },
-  whiteKidneyBeans: { src: "/Png/NORN canned foods/White Kidney Beans.png", alt: "NORN White Kidney Beans can" },
-  greenPeas: { src: "/Png/NORN canned foods/Green Peas.png", alt: "NORN Green Peas can" },
-  sweetcorn: { src: "/Png/NORN canned foods/Sweetscorn.png", alt: "NORN Sweetcorn can" },
-  creamedCorn: { src: "/Png/NORN canned foods/Creamed Corn.png", alt: "NORN Creamed Corn can" },
-  mixedVegetables: { src: "/Png/NORN canned foods/Mixed Vegetables.png", alt: "NORN Mixed Vegetables can" },
-  peasAndCarrots: { src: "/Png/NORN canned foods/Peas and Carrots.png", alt: "NORN Peas and Carrots can" },
-  wholePeeledTomatoes: { src: "/Png/NORN canned foods/Whole Peeled Tomato.png", alt: "NORN Whole Peeled Tomatoes can" },
-  sanMarzanoTomatoes: { src: "/Png/NORN canned foods/San Marzano Tomatos.png", alt: "NORN San Marzano Tomatoes can" },
+  /* Canned foods */
+  bakedBeans: { src: "/Png/NORN canned foods/Baked Beans.png", alt: "Baked Beans can" },
+  blackBeans: { src: "/Png/NORN canned foods/Black Beans.png", alt: "Black Beans can" },
+  broadBeans: { src: "/Png/NORN canned foods/Broad Beans.png", alt: "Broad Beans can" },
+  chickpeas: { src: "/Png/NORN canned foods/Chickpeas.png", alt: "Chickpeas can" },
+  pintoBeans: { src: "/Png/NORN canned foods/Pinto Beans.png", alt: "Pinto Beans can" },
+  redKidneyBeans: { src: "/Png/NORN canned foods/Red Kidney Beans.png", alt: "Red Kidney Beans can" },
+  whiteKidneyBeans: { src: "/Png/NORN canned foods/White Kidney Beans.png", alt: "White Kidney Beans can" },
+  greenPeas: { src: "/Png/NORN canned foods/Green Peas.png", alt: "Green Peas can" },
+  sweetcorn: { src: "/Png/NORN canned foods/Sweetscorn.png", alt: "Sweetcorn can" },
+  creamedCorn: { src: "/Png/NORN canned foods/Creamed Corn.png", alt: "Creamed Corn can" },
+  mixedVegetables: { src: "/Png/NORN canned foods/Mixed Vegetables.png", alt: "Mixed Vegetables can" },
+  peasAndCarrots: { src: "/Png/NORN canned foods/Peas and Carrots.png", alt: "Peas and Carrots can" },
+  wholePeeledTomatoes: { src: "/Png/NORN canned foods/Whole Peeled Tomato.png", alt: "Whole Peeled Tomatoes can" },
+  sanMarzanoTomatoes: { src: "/Png/NORN canned foods/San Marzano Tomatos.png", alt: "San Marzano Tomatoes can" },
 
   /* Pasta */
-  spaghetti: { src: "/Png/Pasta/Spaghetti.png", alt: "NORN Spaghetti pack" },
-  penne: { src: "/Png/Pasta/Penne Rigate.png", alt: "NORN Penne Rigate pack" },
-  macaroni: { src: "/Png/Pasta/Elbows.png", alt: "NORN elbow macaroni pack" },
-  fusilli: { src: "/Png/Pasta/Rotini.png", alt: "NORN fusilli pack" },
-  elbowMacaroni: { src: "/Png/Pasta/Elbows.png", alt: "NORN Elbow Macaroni pack" },
-  pastaShapes: { src: "/images/norn/norn-pasta-row.jpg", alt: "NORN dry pasta range in assorted shapes" },
+  spaghetti: { src: "/Png/Pasta/Spaghetti.png", alt: "Spaghetti pack" },
+  penne: { src: "/Png/Pasta/Penne Rigate.png", alt: "Penne Rigate pack" },
+  macaroni: { src: "/Png/Pasta/Elbows.png", alt: "Elbow macaroni pack" },
+  fusilli: { src: "/Png/Pasta/Rotini.png", alt: "Fusilli pack" },
+  elbowMacaroni: { src: "/Png/Pasta/Elbows.png", alt: "Elbow Macaroni pack" },
+  pastaShapes: { src: "/images/norn/norn-pasta-row.jpg", alt: "Dry pasta range in assorted shapes" },
 } as const satisfies Record<string, { src: string; alt: string }>;
 
 export type ProductImageKey = keyof typeof PRODUCT_IMAGES;

@@ -13,8 +13,8 @@ import { getProductsByCategory } from "@/lib/products";
 import { WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 
-const NORN_PACKAGING_NOTE =
-  "400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification. NORN is a brand from The Lyndon Cook.";
+const CANNED_PACKAGING_NOTE =
+  "400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification.";
 
 /**
  * Shared category page body, used by every /products/<category>/ route so the
@@ -22,7 +22,7 @@ const NORN_PACKAGING_NOTE =
  */
 export default function CategoryPageView({ category }: { category: Category }) {
   const products = getProductsByCategory(category.id);
-  const isNorn = category.id === "canned-food";
+  const isCanned = category.id === "canned-food";
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
       />
 
       <PageHero
-        eyebrow={isNorn ? "Product brand" : "Category"}
+        eyebrow={isCanned ? "Product brand" : "Category"}
         title={category.name}
         description={category.description}
         banners={WEBSITE_BANNERS}
@@ -52,7 +52,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
         }
       />
 
-      {isNorn ? (
+      {isCanned ? (
         <section className="on-dark bg-teal-800">
           <Container className="py-10">
             <dl className="grid gap-6 sm:grid-cols-3">
@@ -70,7 +70,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
               ))}
             </dl>
             <p className="mt-6 max-w-3xl text-[0.875rem] leading-relaxed text-ivory/75">
-              {NORN_PACKAGING_NOTE}
+              {CANNED_PACKAGING_NOTE}
             </p>
           </Container>
         </section>

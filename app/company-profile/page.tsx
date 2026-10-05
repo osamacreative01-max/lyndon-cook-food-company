@@ -18,7 +18,7 @@ import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
 
 const TITLE = "Company Profile | The Lyndon Cook";
 const DESCRIPTION =
-  "A downloadable overview of The Lyndon Cook: rice, spices, seasonal fruit and NORN canned foods, supplied around agreed specifications and planned purchasing requirements.";
+  "A downloadable overview of The Lyndon Cook: rice, spices, seasonal fruit and canned foods, supplied around agreed specifications and planned purchasing requirements.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -27,7 +27,7 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function CompanyProfilePage() {
-  const nornCount = CATALOGUE_COUNTS.canned;
+  const cannedCount = CATALOGUE_COUNTS.canned;
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function CompanyProfilePage() {
               </h2>
               <p className="mt-3 text-[0.9375rem] leading-relaxed text-ivory">
                 {SITE.name} company profile ({SITE.profileDownload.sizeLabel}),
-                including product categories, the NORN range and our supply
+                including product categories, the canned-food range and our supply
                 approach.
               </p>
             </div>
@@ -92,8 +92,8 @@ export default function CompanyProfilePage() {
             {[
               { term: String(CATALOGUE_COUNTS.total), label: "Products in the range" },
               { term: String(CATEGORIES.length), label: "Supply ranges" },
-              { term: String(nornCount), label: "NORN canned foods" },
-              { term: "400 ml", label: "NORN can format" },
+              { term: String(cannedCount), label: "Canned Foods" },
+              { term: "400 ml", label: "Can format" },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -165,7 +165,7 @@ export default function CompanyProfilePage() {
         </Container>
       </section>
 
-      {/* ----------------------------------------------------------------- NORN */}
+      {/* ----------------------------------------------------------------- Canned food */}
       <section className="on-dark bg-ivory" aria-labelledby="profile-norn">
         <Container className="py-16 sm:py-20 lg:py-24">
           <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
@@ -173,19 +173,19 @@ export default function CompanyProfilePage() {
               <SectionHeading
                 id="profile-norn"
                 eyebrow="Product brand"
-                title="NORN"
+                title="Canned Foods"
                 description={`${SITE.brandLine}. Fourteen choices in a 400 ml easy-open can format, across beans and pulses, vegetables and tomatoes.`}
               />
               <p className="mt-6 text-[0.9375rem] leading-relaxed text-muted">
                 400 ml refers to the can format, not net weight. Final net contents,
                 drained weights and label details are confirmed by product
-                specification. NORN San Marzano Tomatoes are a product of Italy with
+                specification. San Marzano Tomatoes are a product of Italy with
                 British English and Italian pack wording; that origin applies to
                 San Marzano only.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/products/canned-food/" variant="secondary">
-                  Explore NORN products
+                  Explore canned foods
                 </Button>
               </div>
             </div>

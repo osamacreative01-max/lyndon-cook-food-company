@@ -138,15 +138,15 @@ export const CATEGORIES: Category[] = [
   {
     id: "canned-food",
     slug: "canned-food",
-    name: "NORN canned foods",
-    shortName: "NORN",
-    navLabel: "NORN",
+    name: "Canned Foods",
+    shortName: "Canned Foods",
+    navLabel: "Canned Foods",
     eyebrow: "Product brand",
     summary: "Beans, pulses, vegetables and tomatoes in easy-open cans.",
     description:
-      "NORN is our canned-food brand: fourteen choices across beans and pulses, vegetables and tomatoes, in a 400 ml easy-open can format. 400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification.",
+      "Our canned-food range: fourteen choices across beans and pulses, vegetables and tomatoes, in a 400 ml easy-open can format. 400 ml refers to the can format. Final net contents, drained weights and label details are confirmed by product specification.",
     image: CATEGORY_IMAGES["canned-food"],
-    ctaLabel: "Explore NORN",
+    ctaLabel: "Explore canned foods",
     groups: [
       {
         id: "beans-pulses",
@@ -164,9 +164,9 @@ export const CATEGORIES: Category[] = [
         description: "Whole peeled tomatoes and San Marzano tomatoes.",
       },
     ],
-    seoTitle: "NORN Canned Foods | The Lyndon Cook",
+    seoTitle: "Canned Foods | The Lyndon Cook",
     seoDescription:
-      "NORN canned foods from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
+      "Canned foods from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
   },
   {
     id: "pasta",

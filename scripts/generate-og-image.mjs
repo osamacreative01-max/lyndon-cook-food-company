@@ -76,8 +76,8 @@ function openGraphSvg() {
     <line x1="934" y1="462" x2="1104" y2="462"/>
   </g>
 
-  <!-- NORN -->
-  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NORN</text>
+  <!-- Canned foods -->
+  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">CANNED FOODS</text>
   <text x="196" y="546" fill="${MUTED}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24">A brand from The Lyndon Cook</text>
 
   <text x="1104" y="546" fill="${MUTED}" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" letter-spacing="0.6">www.tlcfc.co.uk</text>

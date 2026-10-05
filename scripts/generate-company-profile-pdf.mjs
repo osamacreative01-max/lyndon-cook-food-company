@@ -11,7 +11,7 @@
  *  - no stock, availability or lead-time promises
  *  - no certifications, accreditations, supplier or origin claims
  *  - no legal suffix, because the legal entity is unconfirmed
- *  - NORN is a brand within the company, never a replacement for its name
+ *  - Canned foods are a product range within the company, never a replacement for its name
  *
  *   node scripts/generate-company-profile-pdf.mjs
  */
@@ -370,7 +370,7 @@ function pageCover(doc) {
 
   const intro =
     `${SITE.name} supplies food businesses across the UK across four categories: rice, ` +
-    `spices and seasonings, seasonal fruit, and the ${SITE.productBrand} range of canned foods. ` +
+    `spices and seasonings, seasonal fruit, and the range of canned foods. ` +
     `Supply is planned around each customer's requirements, with product, specification, ` +
     `quantity, delivery and commercial terms confirmed for every programme.`;
   let y = height - 420;
@@ -460,7 +460,7 @@ function pageOverview(doc) {
     "Specifications are confirmed in writing before any programme is agreed.",
     "Quantities are discussed in the unit that suits the customer; units are never converted on their behalf.",
     `Volumes are planned, with typical full-load supply across the range.`,
-    `${SITE.productBrand} canned foods use a 400 ml can format, which is a pack format rather than a stated net weight.`,
+    `Canned foods use a 400 ml can format, which is a pack format rather than a stated net weight.`,
   ];
   for (const point of points) doc.bullet(point);
   doc.newPage();
@@ -678,8 +678,8 @@ function serialise(doc) {
   const infoRef = add(
     `<< /Title (${pdfString(`${SITE.name} \u2014 Company profile`)}) ` +
       `/Author (${pdfString(SITE.name)}) ` +
-      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit and NORN canned foods")}) ` +
-      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods, NORN")}) ` +
+      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit and canned foods")}) ` +
+      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods")}) ` +
       `/Creator (${pdfString(`${SITE.name} website`)}) ` +
       `/Producer (${pdfString("scripts/generate-company-profile-pdf.mjs")}) >>`
   );
