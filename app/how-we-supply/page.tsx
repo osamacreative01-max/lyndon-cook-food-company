@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import Faq, { type FaqItem } from "@/components/Faq";
@@ -10,7 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import SupplyProcess, { DEFAULT_SUPPLY_STEPS } from "@/components/SupplyProcess";
 import { PageHero } from "@/components/Hero";
-import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
+import { IMAGE_SIZES, IMAGES, PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 
 const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook Food Company";
@@ -59,15 +58,7 @@ export default function HowWeSupplyPage() {
         eyebrow="How we supply"
         title="Straightforward supply, planned around the customer."
         description="Four stages, agreed in writing, with nothing promised that we have not confirmed. Tell us the products, quantities and delivery schedule you have in mind, and we will review a programme around your requirements."
-        banners={WEBSITE_BANNERS}
-        breadcrumbs={
-          <Breadcrumbs
-            items={[
-              { name: "Home", href: "/" },
-              { name: "How we supply" },
-            ]}
-          />
-        }
+        banners={PRODUCT_PAGE_BANNERS}
       />
 
       {/* --------------------------------------------------------- Full-load focus */}

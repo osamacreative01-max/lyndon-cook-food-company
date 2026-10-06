@@ -24,10 +24,12 @@ const HEADER_H = "6rem";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const productsRef = useRef<HTMLLIElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const lastYRef = useRef(0);
   const pathname = usePathname();
 
   const close = useCallback(() => setOpen(false), []);
@@ -54,11 +56,32 @@ export default function Navbar() {
   }, [productsOpen]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    lastYRef.current = window.scrollY;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastYRef.current;
+      lastYRef.current = y;
+
+      setScrolled(y > 8);
+
+      // Hide only after leaving the top of the page, and only for
+      // deliberate swipes so tiny jitter does not toggle the header.
+      if (y <= 96) {
+        setHidden(false);
+        return;
+      }
+      if (delta > 8) setHidden(true);
+      else if (delta < -8) setHidden(false);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Never hide the header while the user is interacting with it.
+  const headerHidden = hidden && !open && !productsOpen;
 
   // The announcement bar stacks on narrow viewports, so the header height is
   // measured rather than hard-coded. The value is published on <html> for the
@@ -90,7 +113,9 @@ export default function Navbar() {
     <>
       <header
         ref={headerRef}
-        className={`sticky top-0 z-40 border-b bg-ivory/92 backdrop-blur-sm transition-shadow duration-200 ${
+        className={`sticky top-0 z-40 border-b bg-ivory/92 backdrop-blur-sm transition-[translate,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[translate] ${
+          headerHidden ? "-translate-y-full" : "translate-y-0"
+        } ${
           scrolled
             ? "border-sand shadow-[0_2px_24px_rgba(8,75,80,0.10)]"
             : "border-transparent"
