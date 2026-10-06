@@ -55,7 +55,7 @@ export default function HeroSlider({
     <div
       className={`pointer-events-none overflow-hidden ${className}`}
       aria-roledescription="carousel"
-      aria-label="The Lyndon Cook product range"
+      aria-label="The Lyndon Cook Food Company product range"
     >
       {slides.map((slide, index) => {
         const isActive = index === active;

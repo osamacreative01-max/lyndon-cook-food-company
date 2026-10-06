@@ -15,7 +15,7 @@ type Props = {
   secondaryHref?: string;
   /** Adds the "full-load supply" note, used on the homepage. */
   showFullLoadNote?: boolean;
-  /** Photograph beside the copy; defaults to the warehouse shot. */
+  /** Photograph beside the copy; defaults to the About band's range shot. */
   image?: { src: string; alt: string };
 };
 
@@ -30,7 +30,7 @@ export default function EnquiryCTA({
   showFullLoadNote = false,
   image,
 }: Props) {
-  const photo = image ?? IMAGES.warehouse;
+  const photo = image ?? IMAGES.nornRange;
   return (
     <section className="on-dark bg-teal-800" aria-labelledby="enquiry-cta-heading">
       <Container className="py-16 sm:py-20 lg:py-24">

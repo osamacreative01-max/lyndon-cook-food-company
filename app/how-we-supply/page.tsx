@@ -13,9 +13,9 @@ import { PageHero } from "@/components/Hero";
 import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
 import { faqSchema, pageMetadata } from "@/lib/seo";
 
-const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook";
+const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "How supply works at The Lyndon Cook: share your brief, agree specifications, plan supply, confirm delivery. Full-load B2B supply, planned around your purchasing programme.";
+  "How supply works at The Lyndon Cook Food Company: share your brief, agree specifications, plan supply, confirm delivery. Full-load B2B supply, planned around your purchasing programme.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -204,8 +204,6 @@ export default function HowWeSupplyPage() {
       />
 
       <EnquiryCTA
-        heading="Tell us what you need."
-        copy="Share your product requirements, volumes and delivery plans. Our team will review the details and come back with the appropriate supply options."
         secondaryLabel="See the range"
         secondaryHref="/products/"
       />

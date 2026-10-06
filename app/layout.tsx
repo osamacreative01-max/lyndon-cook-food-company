@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "Canned foods",
     "food supply Biggleswade",
     "B2B food supply",
-    "The Lyndon Cook",
+    "The Lyndon Cook Food Company",
   ],
   authors: [{ name: SITE.name }],
   creator: SITE.name,

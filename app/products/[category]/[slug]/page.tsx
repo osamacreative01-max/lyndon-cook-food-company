@@ -85,10 +85,6 @@ function renderProduct(product: Product) {
                   </span>
                 )}
               </div>
-              <p className="mt-3 text-[0.8125rem] leading-relaxed text-muted">
-                Packaging shown is illustrative; final artwork and specifications
-                are agreed per order.
-              </p>
             </div>
 
             {/* Product info */}
@@ -219,8 +215,6 @@ function renderProduct(product: Product) {
       />
 
       <EnquiryCTA
-        heading={`Planning to buy ${product.name.toLowerCase()}?`}
-        copy="Tell us the quantity, pack format, destination and delivery schedule you have in mind, and we will review the supply options with you."
         primaryLabel="Discuss your requirements"
         primaryHref={enquiryHref(product.slug)}
         secondaryLabel={`All ${category.shortName.toLowerCase()}`}

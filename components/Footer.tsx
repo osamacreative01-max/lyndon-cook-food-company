@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone, ChevronRight } from "lucide-react";
 
 import Container from "@/components/Container";
@@ -7,29 +8,37 @@ import { SITE, FOOTER_LINKS, FOOTER_LEGAL_LINKS } from "@/lib/site";
 import { CATEGORIES } from "@/lib/categories";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="on-dark mt-auto border-t-4 border-copper-600 bg-teal-900 text-teal-50">
       <Container className="py-10 sm:py-12 lg:py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <Logo onDark width={360} />
+            <Logo onDark width={360} fluid />
             <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-ivory/75">
               Rice, spices, seasonal fruit and canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
-            <p className="mt-4 border-l-2 border-copper-400 pl-4 font-serif text-lg text-ivory">
-              {SITE.productBrand}
-              <span className="block font-sans text-sm font-normal text-ivory/75">
+            {/* Norn range lockup — mark above its attribution line. */}
+            <div className="mt-5 max-w-sm">
+              <Image
+                src="/logo/norn-ivory.png"
+                alt="Norn"
+                width={1649}
+                height={954}
+                className="h-auto w-28 sm:w-32"
+              />
+              <p className="mt-3 font-serif text-lg leading-snug text-ivory">
                 {SITE.brandLine}
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
 
+          {/* The brand column runs taller than the link columns, so the three
+              headings carry a little top margin: the whitespace above them then
+              matches the space their shorter content leaves before the divider. */}
           {/* Products */}
-          <nav aria-label="Products" className="lg:col-span-3">
+          <nav aria-label="Products" className="lg:col-span-2 lg:mt-5">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Products
             </h2>
@@ -52,7 +61,7 @@ export default function Footer() {
           </nav>
 
           {/* Company */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3 lg:mt-5">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Company
             </h2>
@@ -92,7 +101,7 @@ export default function Footer() {
           </div>
 
           {/* Quick links */}
-          <nav aria-label="Footer" className="lg:col-span-3">
+          <nav aria-label="Footer" className="lg:col-span-3 lg:mt-5">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
               Quick links
             </h2>
@@ -116,23 +125,18 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-teal-800 pt-6">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/75">
-              {FOOTER_LEGAL_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="transition-colors hover:text-ivory"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-teal-400">
-              &copy; {year} {SITE.name}. All rights reserved.
-            </p>
-          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/75">
+            {FOOTER_LEGAL_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="transition-colors hover:text-ivory"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </footer>

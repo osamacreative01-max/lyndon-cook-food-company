@@ -126,7 +126,7 @@ export const IMAGES = {
   },
   companyProfile: {
     src: "/images/norn/norn-range-wide.jpg",
-    alt: "The product range supplied by The Lyndon Cook",
+    alt: "The product range supplied by The Lyndon Cook Food Company",
   },
 } as const satisfies Record<EditorialImageKey, { src: string; alt: string }>;
 
@@ -216,7 +216,7 @@ export const CATEGORY_IMAGES = {
   },
   "canned-food": {
     src: "/Png/NORN canned foods/Canned-Items-Cover.png",
-    alt: "Canned foods supplied by The Lyndon Cook",
+    alt: "Canned foods supplied by The Lyndon Cook Food Company",
   },
   "pasta": {
     src: "/images/norn/norn-pasta-lifestyle.jpg",
@@ -233,23 +233,27 @@ export const PRODUCT_IMAGES = {
   superBasmati: { src: "/Png/Rice/supper Basmati Rice.png", alt: "Super Basmati Rice sack" },
   steamBasmati: { src: "/Png/Rice/Steam Basmati Rice.png", alt: "Steam Basmati Rice sack" },
   sellaBasmati: { src: "/Png/Rice/Sella Basmati Rice.png", alt: "Sella Basmati Rice sack" },
-  irri6: { src: "/Png/Rice/LONG GRAIN WHITE RICE.png", alt: "Long Grain White Rice pack" },
+  /* Grain shots that lead the rice card sliders. */
+  superGrains: { src: "/Png/Rice/superBasmati.jpg", alt: "Loose Super Basmati rice grains" },
+  steamGrains: { src: "/Png/Rice/steamBasmati.jpg", alt: "Steam Basmati rice grains spilling from a cup" },
+  sellaGrains: { src: "/Png/Rice/sellaBasmati.jpg", alt: "Sella Basmati rice grains in a bowl" },
+  irri6: { src: "/Png/Rice/LONG GRAIN WHITE RICE 454 g.png", alt: "Long Grain White Rice 454 g pack" },
   pk386: { src: "/Product images (41)/rice/pk386.jpg", alt: "Cooked long grain rice in a dish" },
   irri9: { src: "/Png/Rice/LONG GRAIN PARABOLIED RICE.png", alt: "Long Grain Parboiled Rice pack" },
   brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
   /* Spices — branded jars from `public/Png/Spices and seasonings/`. */
-  groundCumin: { src: "/Png/Spices and seasonings/Ground Cumin.png", alt: "Jar of The Lyndon Cook ground cumin" },
-  groundCoriander: { src: "/Png/Spices and seasonings/Ground Coriander.png", alt: "Jar of The Lyndon Cook ground coriander" },
-  groundGinger: { src: "/Png/Spices and seasonings/Ground Ginger.png", alt: "Jar of The Lyndon Cook ground ginger" },
-  groundBlackPepper: { src: "/Png/Spices and seasonings/Ground Black Paper.png", alt: "Jar of The Lyndon Cook ground black pepper" },
-  groundTurmeric: { src: "/Png/Spices and seasonings/Turmeric.png", alt: "Jar of The Lyndon Cook ground turmeric" },
-  garamMasala: { src: "/Png/Spices and seasonings/Garam Masala.png", alt: "Jar of The Lyndon Cook garam masala" },
-  redChilliPowder: { src: "/Png/Spices and seasonings/Ground Red Chilli.png", alt: "Jar of The Lyndon Cook ground red chilli" },
-  groundFenugreek: { src: "/Png/Spices and seasonings/Fenugreek.png", alt: "Jar of The Lyndon Cook fenugreek" },
-  curryPowder: { src: "/Png/Spices and seasonings/Curry Powder.png", alt: "Jar of The Lyndon Cook curry powder" },
-  dryMangoPowder: { src: "/Png/Spices and seasonings/Dry Mango Powder.png", alt: "Jar of The Lyndon Cook dry mango powder" },
-  pinkSalt: { src: "/Png/Spices and seasonings/Pink Himaliayn Salt.png", alt: "Jar of The Lyndon Cook pink Himalayan salt" },
+  groundCumin: { src: "/Png/Spices and seasonings/Ground Cumin.png", alt: "Jar of The Lyndon Cook Food Company ground cumin" },
+  groundCoriander: { src: "/Png/Spices and seasonings/Ground Coriander.png", alt: "Jar of The Lyndon Cook Food Company ground coriander" },
+  groundGinger: { src: "/Png/Spices and seasonings/Ground Ginger.png", alt: "Jar of The Lyndon Cook Food Company ground ginger" },
+  groundBlackPepper: { src: "/Png/Spices and seasonings/Ground Black Paper.png", alt: "Jar of The Lyndon Cook Food Company ground black pepper" },
+  groundTurmeric: { src: "/Png/Spices and seasonings/Turmeric.png", alt: "Jar of The Lyndon Cook Food Company ground turmeric" },
+  garamMasala: { src: "/Png/Spices and seasonings/Garam Masala.png", alt: "Jar of The Lyndon Cook Food Company garam masala" },
+  redChilliPowder: { src: "/Png/Spices and seasonings/Ground Red Chilli.png", alt: "Jar of The Lyndon Cook Food Company ground red chilli" },
+  groundFenugreek: { src: "/Png/Spices and seasonings/Fenugreek.png", alt: "Jar of The Lyndon Cook Food Company fenugreek" },
+  curryPowder: { src: "/Png/Spices and seasonings/Curry Powder.png", alt: "Jar of The Lyndon Cook Food Company curry powder" },
+  dryMangoPowder: { src: "/Png/Spices and seasonings/Dry Mango Powder.png", alt: "Jar of The Lyndon Cook Food Company dry mango powder" },
+  pinkSalt: { src: "/Png/Spices and seasonings/Pink Himaliayn Salt.png", alt: "Jar of The Lyndon Cook Food Company pink Himalayan salt" },
 
   /* Seasonal fruit */
   chaunsa: { src: "/Product images (41)/Seasonal fruit (9)/chaunsa.jpg", alt: "Ripe mangoes ready for selection" },

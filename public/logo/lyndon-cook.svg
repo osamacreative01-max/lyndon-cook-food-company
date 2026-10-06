@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 96" width="248" height="96" role="img" aria-label="The Lyndon Cook">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 96" width="248" height="96" role="img" aria-label="The Lyndon Cook Food Company">
   <!--
     PLACEHOLDER LOGO — replace this file with the approved artwork.
     Composition: teal emblem, serif wordmark, copper rule, "FOOD COMPANY" line.
     Text is live (not outlined) so it stays editable; the font stack falls back
     to Georgia / Times New Roman / serif, which every target platform has.
   -->
-  <title>The Lyndon Cook</title>
+  <title>The Lyndon Cook Food Company</title>
   <g fill="none" fill-rule="evenodd">
     <!-- Emblem -->
     <circle cx="38" cy="48" r="30" fill="#084B50" />

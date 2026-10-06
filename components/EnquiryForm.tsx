@@ -202,12 +202,17 @@ export default function EnquiryForm({
     return ids.length ? ids.join(" ") : undefined;
   };
 
-  const controlClass = (name: keyof EnquiryValues) =>
-    `min-h-12 w-full rounded-[6px] border bg-white px-4 py-3 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 hover:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100 ${
+  /** Border, type and focus styling shared by every control. */
+  const baseControl = (name: keyof EnquiryValues) =>
+    `w-full rounded-[6px] border bg-white px-4 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 hover:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100 ${
       fieldError(name)
         ? "border-red-700 hover:border-red-700 focus:border-red-700 focus:ring-red-100"
         : "border-sand-600 focus:border-copper-600"
     }`;
+
+  /** Single-line controls share one exact height, inputs and selects alike. */
+  const controlClass = (name: keyof EnquiryValues) =>
+    `${baseControl(name)} h-12`;
 
   return (
     <form
@@ -251,7 +256,9 @@ export default function EnquiryForm({
         />
       </div>
 
-      <div className="mt-8 grid gap-x-6 gap-y-5 sm:grid-cols-2">
+      {/* Two equal columns on sm and up, one column below it. The gap is the
+          same horizontally and vertically so every field sits on one rhythm. */}
+      <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
         <SectionHeading
           className="sm:col-span-2"
           step={1}
@@ -330,7 +337,7 @@ export default function EnquiryForm({
         </Field>
 
         <SectionHeading
-          className="mt-3 sm:col-span-2"
+          className="mt-2 sm:col-span-2"
           step={2}
           title="What you need"
           hint="The product, format and volume you have in mind."
@@ -420,7 +427,7 @@ export default function EnquiryForm({
         </Field>
 
         <SectionHeading
-          className="mt-3 sm:col-span-2"
+          className="mt-2 sm:col-span-2"
           step={3}
           title="Delivery & specification"
           hint="Where it goes, when you need it and anything we should know."
@@ -463,19 +470,18 @@ export default function EnquiryForm({
             ))}
           </select>
         </Field>
-      </div>
 
-      <div className="mt-6">
         <Field
           name="message"
           label="Specification or message"
           error={fieldError("message")}
           hint="Variety, quality parameters, pack format, pack sizes, delivery windows, or anything else we should know."
+          className="sm:col-span-2"
         >
           <textarea
             id="message"
             rows={6}
-            className={`${controlClass("message")} min-h-32 resize-y`}
+            className={`${baseControl("message")} min-h-32 resize-y py-3`}
             aria-invalid={Boolean(fieldError("message"))}
             aria-describedby={describedBy("message", "message-hint")}
             {...register("message")}
@@ -497,7 +503,12 @@ export default function EnquiryForm({
           </a>
           .
         </p>
-        <Button type="submit" size="lg" disabled={isSubmittingOrPending} className="sm:min-w-56">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={isSubmittingOrPending}
+          className="w-full sm:w-auto sm:min-w-56"
+        >
           {isSubmittingOrPending ? (
             <>
               <Loader2 aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -524,6 +535,7 @@ function Field({
   required = false,
   error,
   hint,
+  className = "",
   children,
 }: {
   name: string;
@@ -531,30 +543,38 @@ function Field({
   required?: boolean;
   error?: string;
   hint?: string;
+  /** Grid placement, e.g. a full-width field. */
+  className?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className={className}>
+      {/* Fixed label height: the "Optional" badge never grows the line box,
+          so labels in both columns share one baseline. */}
       <label
         htmlFor={name}
-        className="block text-[0.9375rem] font-semibold text-teal-800"
+        className="flex min-h-7 flex-wrap items-center gap-1 text-[0.9375rem] font-semibold text-teal-800"
       >
-        {label}
+        <span>{label}</span>
         {required ? (
-          <span aria-hidden="true" className="ml-1 text-copper-700">
+          <span aria-hidden="true" className="text-copper-700">
             *
           </span>
         ) : (
-          <span className="ml-2 inline-block rounded-full bg-ivory px-2 py-0.5 align-middle text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
+          <span className="ml-1 inline-flex h-7 items-center rounded-full bg-ivory px-2 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-muted">
             Optional
           </span>
         )}
       </label>
+      {/* Reserved helper slot (two lines): with or without hint text the
+          control below starts at exactly the same height. */}
       {hint ? (
-        <p id={`${name}-hint`} className="mt-1 text-[0.8125rem] text-muted">
+        <p id={`${name}-hint`} className="mt-1 min-h-11 text-[0.8125rem] text-muted">
           {hint}
         </p>
-      ) : null}
+      ) : (
+        <span aria-hidden="true" className="mt-1 block min-h-11" />
+      )}
       <div className="mt-2">{children}</div>
       {error ? (
         <p

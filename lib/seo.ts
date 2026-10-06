@@ -14,7 +14,7 @@ import type { Category } from "@/lib/categories";
 export const DEFAULT_TITLE = `${SITE.name} | UK Food Supply`;
 
 export const DEFAULT_DESCRIPTION =
-  "Explore rice, spices, seasonal fruit and canned foods. Discuss product specifications, volumes and planned supply with The Lyndon Cook.";
+  "Explore rice, spices, seasonal fruit and canned foods. Discuss product specifications, volumes and planned supply with The Lyndon Cook Food Company.";
 
 export function absoluteUrl(path = "/"): string {
   const normalised = path.startsWith("/") ? path : `/${path}`;

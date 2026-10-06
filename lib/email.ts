@@ -61,7 +61,7 @@ function buildHtml(data: EnquiryData): string {
   <body style="margin:0;padding:24px;background:#F7F3EB;">
     <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e5ded1;">
       <div style="background:#084B50;padding:20px 24px;">
-        <p style="margin:0;color:#ffffff;font:600 18px Georgia,'Times New Roman',serif;">The Lyndon Cook</p>
+        <p style="margin:0;color:#ffffff;font:600 18px Georgia,'Times New Roman',serif;">The Lyndon Cook Food Company</p>
         <p style="margin:6px 0 0;color:#B97C4C;font:400 12px Arial,Helvetica,sans-serif;letter-spacing:0.14em;text-transform:uppercase;">New website enquiry</p>
       </div>
       <div style="padding:8px 24px 20px;">

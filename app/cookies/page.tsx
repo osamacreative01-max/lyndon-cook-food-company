@@ -7,7 +7,7 @@ import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const TITLE = "Cookies | The Lyndon Cook";
+const TITLE = "Cookies | The Lyndon Cook Food Company";
 const DESCRIPTION =
   "This website uses no advertising cookies and no cross-site tracking. This page explains the minimal storage used by www.tlcfc.co.uk.";
 

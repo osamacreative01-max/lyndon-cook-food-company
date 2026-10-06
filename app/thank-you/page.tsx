@@ -9,9 +9,9 @@ import { IMAGE_SIZES, IMAGES } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const TITLE = "Thank You | The Lyndon Cook";
+const TITLE = "Thank You | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "Your enquiry has been received. The team at The Lyndon Cook will review your requirements and contact you.";
+  "Your enquiry has been received. The team at The Lyndon Cook Food Company will review your requirements and contact you.";
 
 export const metadata: Metadata = {
   ...pageMetadata({

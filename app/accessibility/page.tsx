@@ -7,7 +7,7 @@ import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const TITLE = "Accessibility Statement | The Lyndon Cook";
+const TITLE = "Accessibility Statement | The Lyndon Cook Food Company";
 const DESCRIPTION =
   "The accessibility approach for www.tlcfc.co.uk, including the standard targeted, the measures taken and how to report a barrier.";
 

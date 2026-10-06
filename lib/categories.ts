@@ -59,14 +59,14 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "everyday",
-        name: "Everyday varieties",
+        name: "None Banaspati Rice",
         description:
           "Straightforward long grain and white rice for everyday meals, batch cooking and volume supply.",
       },
     ],
-    seoTitle: "Rice Supply | Basmati & White Rice | The Lyndon Cook",
+    seoTitle: "Rice Supply | Basmati & White Rice | The Lyndon Cook Food Company",
     seoDescription:
-      "Basmati and everyday white rice for wholesale, foodservice and institutional buyers. Agree variety, packing format and volume with The Lyndon Cook.",
+      "Basmati and everyday white rice for wholesale, foodservice and institutional buyers. Agree variety, packing format and volume with The Lyndon Cook Food Company.",
   },
   {
     id: "spices",
@@ -100,9 +100,9 @@ export const CATEGORIES: Category[] = [
           "Finishing seasonings, including salt and dried fruit seasoning, for the last stage of cooking.",
       },
     ],
-    seoTitle: "Spices & Seasonings | The Lyndon Cook",
+    seoTitle: "Spices & Seasonings | The Lyndon Cook Food Company",
     seoDescription:
-      "Ground spices, blends and finishing seasonings for B2B food buyers. Agree specification, packing format and planned volumes with The Lyndon Cook.",
+      "Ground spices, blends and finishing seasonings for B2B food buyers. Agree specification, packing format and planned volumes with The Lyndon Cook Food Company.",
   },
   {
     id: "seasonal-fruit",
@@ -131,7 +131,7 @@ export const CATEGORIES: Category[] = [
           "Fresh citrus selected around variety, maturity and packing format for the intended menu.",
       },
     ],
-    seoTitle: "Seasonal Fruit | Mangoes & Citrus | The Lyndon Cook",
+    seoTitle: "Seasonal Fruit | Mangoes & Citrus | The Lyndon Cook Food Company",
     seoDescription:
       "Mangoes and citrus for wholesale and foodservice buyers. Variety, size, maturity and packing confirmed per programme. Availability depends on crop and shipping conditions.",
   },
@@ -164,9 +164,9 @@ export const CATEGORIES: Category[] = [
         description: "Whole peeled tomatoes and San Marzano tomatoes.",
       },
     ],
-    seoTitle: "Canned Foods | The Lyndon Cook",
+    seoTitle: "Canned Foods | The Lyndon Cook Food Company",
     seoDescription:
-      "Canned foods from The Lyndon Cook: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
+      "Canned foods from The Lyndon Cook Food Company: fourteen choices in a 400 ml easy-open can format across beans and pulses, vegetables and tomatoes.",
   },
   {
     id: "pasta",
@@ -199,9 +199,9 @@ export const CATEGORIES: Category[] = [
       href: "/downloads/Pasta.pdf",
       label: "Download Pasta datasheet",
     },
-    seoTitle: "Pasta Supply | The Lyndon Cook",
+    seoTitle: "Pasta Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Pasta products for wholesale, foodservice and institutional buyers. Download the product datasheet or contact us to discuss supply requirements with The Lyndon Cook.",
+      "Pasta products for wholesale, foodservice and institutional buyers. Download the product datasheet or contact us to discuss supply requirements with The Lyndon Cook Food Company.",
   },
 ];
 

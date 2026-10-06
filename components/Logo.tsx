@@ -10,6 +10,8 @@ type Props = {
   width?: number;
   className?: string;
   priority?: boolean;
+  /** Lets the lockup shrink to its column instead of overflowing it. */
+  fluid?: boolean;
 };
 
 /**
@@ -24,7 +26,13 @@ type Props = {
  * The lockup is deliberately prominent: it scales down on narrow viewports via
  * `max-width` so it never crowds the header out of a phone screen.
  */
-export default function Logo({ onDark, width, className = "", priority }: Props) {
+export default function Logo({
+  onDark,
+  width,
+  className = "",
+  priority,
+  fluid,
+}: Props) {
   const renderedWidth = width ?? 280;
   const ratio = SITE.logo.height / SITE.logo.width;
   const height = Math.round(renderedWidth * ratio);
@@ -42,7 +50,7 @@ export default function Logo({ onDark, width, className = "", priority }: Props)
         height={height}
         priority={priority}
         className={`h-auto max-w-[58vw] select-none sm:max-w-none ${className}`}
-        style={{ width: renderedWidth }}
+        style={fluid ? { width: renderedWidth, maxWidth: "100%" } : { width: renderedWidth }}
       />
     </Link>
   );

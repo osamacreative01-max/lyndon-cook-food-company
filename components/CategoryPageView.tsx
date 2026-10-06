@@ -144,8 +144,6 @@ export default function CategoryPageView({ category }: { category: Category }) {
       </section>
 
       <EnquiryCTA
-        heading={`Tell us what you need from ${category.shortName.toLowerCase()}.`}
-        copy="Share the products, specification, quantity, pack format and delivery schedule you have in mind, and we will review the supply options with you."
         secondaryLabel="Explore all products"
         secondaryHref="/products/"
       />

@@ -16,9 +16,9 @@ import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
 
-const TITLE = "Company Profile | The Lyndon Cook";
+const TITLE = "Company Profile | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "A downloadable overview of The Lyndon Cook: rice, spices, seasonal fruit and canned foods, supplied around agreed specifications and planned purchasing requirements.";
+  "A downloadable overview of The Lyndon Cook Food Company: rice, spices, seasonal fruit and canned foods, supplied around agreed specifications and planned purchasing requirements.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -33,7 +33,7 @@ export default function CompanyProfilePage() {
     <>
       <PageHero
         eyebrow="Company profile"
-        title="The Lyndon Cook, at a glance."
+        title="The Lyndon Cook Food Company, at a glance."
         description="A short, factual overview of what we supply and how supply works. Download the profile to keep, or read it here."
         banners={WEBSITE_BANNERS}
         breadcrumbs={
@@ -80,7 +80,7 @@ export default function CompanyProfilePage() {
               {SITE.name}
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-              The Lyndon Cook brings a practical approach to food
+              The Lyndon Cook Food Company brings a practical approach to food
               supply: well-chosen products, clear specifications and orders planned
               around the customer. We supply businesses that buy food to cook,
               serve or resell, and we plan around an agreed purchasing programme

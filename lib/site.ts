@@ -2,7 +2,7 @@
  * Single source of truth for company identity, contact details and navigation.
  *
  * Content rules (see the master build brief):
- *  - The public company name is "The Lyndon Cook".
+ *  - The public company name is "The Lyndon Cook Food Company".
  *  - Canned foods are a product range, never a replacement for the company name.
  *  - No legal suffix ("Ltd", "Limited", ...) is published, because the legal
  *    entity has not been confirmed. See TODO below.
@@ -12,11 +12,10 @@
 import { CATEGORIES } from "@/lib/categories";
 
 export const SITE = {
-  name: "The Lyndon Cook",
+  name: "The Lyndon Cook Food Company",
   shortName: "Lyndon Cook",
-  /** Canned food range presented within the company. */
-  productBrand: "Canned Foods",
-  brandLine: "A brand from The Lyndon Cook",
+  /** Attribution line shown under the Norn range mark. */
+  brandLine: "A brand from The Lyndon Cook Food Company",
   domain: "www.tlcfc.co.uk",
   url: "https://www.tlcfc.co.uk",
   locale: "en_GB",
@@ -48,14 +47,14 @@ export const SITE = {
     onDarkSrc: "/logo/lyndon-cook-lockup-light.png",
     width: 1600,
     height: 294,
-    alt: "The Lyndon Cook",
+    alt: "The Lyndon Cook Food Company",
   },
 
   ogImage: {
     src: "/images/og.jpg",
     width: 1200,
     height: 630,
-    alt: "The Lyndon Cook — rice, spices, seasonal fruit and canned foods",
+    alt: "The Lyndon Cook Food Company — rice, spices, seasonal fruit and canned foods",
   },
 
   profileDownload: {

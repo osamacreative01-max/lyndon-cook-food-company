@@ -7,9 +7,9 @@ import { WEBSITE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const TITLE = "Privacy Notice | The Lyndon Cook";
+const TITLE = "Privacy Notice | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "How The Lyndon Cook handles enquiry data submitted through this website, including what we collect, why, how long we keep it and your rights.";
+  "How The Lyndon Cook Food Company handles enquiry data submitted through this website, including what we collect, why, how long we keep it and your rights.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,

@@ -11,9 +11,9 @@ import { CATEGORY_IMAGES, PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { itemListSchema, pageMetadata } from "@/lib/seo";
 import { ACTIVE_PRODUCTS } from "@/lib/products";
 
-const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook";
+const TITLE =   "Rice, Spices, Fruit & Canned Food | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "Browse the full catalogue from The Lyndon Cook: rice, spices and seasonings, seasonal fruit, canned foods and pasta. Filter by category or search the catalogue, then send an enquiry.";
+  "Browse the full catalogue from The Lyndon Cook Food Company: rice, spices and seasonings, seasonal fruit, canned foods and pasta. Filter by category or search the catalogue, then send an enquiry.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -33,7 +33,7 @@ export default function ProductsPage() {
     <>
       <JsonLd
         data={itemListSchema(
-          "The Lyndon Cook catalogue",
+          "The Lyndon Cook Food Company catalogue",
           ACTIVE_PRODUCTS.map((product) => ({
             name: product.name,
             href: `/products/${product.category}/${product.slug}/`,

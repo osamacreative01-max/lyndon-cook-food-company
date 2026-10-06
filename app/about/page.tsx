@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
@@ -11,14 +10,18 @@ import Pillars from "@/components/Pillars";
 import Reveal from "@/components/Reveal";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGE_SIZES, IMAGES, WEBSITE_BANNERS } from "@/lib/images";
+import {
+  IMAGE_SIZES,
+  IMAGES,
+  PRODUCT_PAGE_BANNERS,
+} from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS } from "@/lib/products";
 
-const TITLE = "About | The Lyndon Cook";
+const TITLE = "About | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "The Lyndon Cook brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer.";
+  "The Lyndon Cook Food Company brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,
@@ -32,11 +35,8 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="Selected with care. Supplied with purpose."
-        description="The Lyndon Cook brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
-        banners={WEBSITE_BANNERS}
-        breadcrumbs={
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About Us" }]} />
-        }
+        description="The Lyndon Cook Food Company brings a practical approach to food supply: well-chosen products, clear specifications and orders planned around the customer."
+        banners={PRODUCT_PAGE_BANNERS}
       />
 
       {/* ------------------------------------------------------------- Introduction */}
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 id="norn-about-heading"
                 className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
               >
-                Canned foods, from The Lyndon Cook.
+                Canned foods, from The Lyndon Cook Food Company.
               </h2>
               <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ivory/80 sm:text-[1.125rem]">
                 Our canned-food range: fourteen choices across beans and
@@ -272,8 +272,6 @@ export default function AboutPage() {
       </section>
 
       <EnquiryCTA
-        heading="Tell us what you need."
-        copy="Share your product requirements, volumes and delivery plans. Our team will review the details and come back with the appropriate supply options."
         secondaryLabel="How we supply"
         secondaryHref="/how-we-supply/"
         image={IMAGES.nornRange}

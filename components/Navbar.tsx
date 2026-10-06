@@ -27,6 +27,7 @@ export default function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const productsRef = useRef<HTMLLIElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 
   const close = useCallback(() => setOpen(false), []);
@@ -59,9 +60,36 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // The announcement bar stacks on narrow viewports, so the header height is
+  // measured rather than hard-coded. The value is published on <html> for the
+  // fixed mobile panel and for anchor scroll padding.
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    const root = document.documentElement;
+
+    const sync = () => {
+      const height = header.offsetHeight;
+      root.style.setProperty("--header-h", `${height}px`);
+      root.style.scrollPaddingTop = `${height + 16}px`;
+    };
+
+    sync();
+    const observer = new ResizeObserver(sync);
+    observer.observe(header);
+    window.addEventListener("resize", sync);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", sync);
+      root.style.removeProperty("--header-h");
+      root.style.removeProperty("scroll-padding-top");
+    };
+  }, []);
+
   return (
     <>
       <header
+        ref={headerRef}
         className={`sticky top-0 z-40 border-b bg-ivory/92 backdrop-blur-sm transition-shadow duration-200 ${
           scrolled
             ? "border-sand shadow-[0_2px_24px_rgba(8,75,80,0.10)]"
@@ -69,10 +97,25 @@ export default function Navbar() {
         }`}
         style={{ ["--header-h" as string]: HEADER_H }}
       >
-        <span
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[3px] bg-copper-600"
-        />
+        <div className="relative bg-teal-800 text-ivory">
+          <div className="container-page flex flex-col items-center justify-center gap-1 py-2 text-center text-[0.8125rem] leading-snug sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-4 sm:py-2.5 sm:text-left sm:text-sm">
+            <p className="text-ivory/90">
+              Bespoke bedding handcrafted in 15-21 days.
+            </p>
+            <Link
+              href="/enquire/"
+              className="order-first font-semibold text-ivory underline decoration-copper-400 underline-offset-4 transition-colors hover:text-copper-100 sm:order-none sm:justify-self-center sm:no-underline sm:hover:underline"
+            >
+              For Retailers and Wholesale Customers
+            </Link>
+            <span aria-hidden="true" className="hidden sm:block" />
+          </div>
+          <span
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-[3px] bg-copper-600"
+          />
+        </div>
+
         <div className="container-page flex h-[6rem] items-center justify-between gap-4">
           <Logo priority width={300} />
 

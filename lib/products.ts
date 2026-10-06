@@ -33,6 +33,8 @@ export type Product = {
   facts: { label: string; value: string }[];
   supplyNote: string;
   image: { src: string; alt: string };
+  /** Ordered frames for the card slider; the card falls back to `[image]`. */
+  gallery?: { src: string; alt: string }[];
   relatedProducts: string[];
   seoTitle: string;
   seoDescription: string;
@@ -40,8 +42,8 @@ export type Product = {
   enquiryEnabled: boolean;
 };
 
-const COMPANY = "The Lyndon Cook";
-const BRAND_LINE = "A brand from The Lyndon Cook";
+const COMPANY = "The Lyndon Cook Food Company";
+const BRAND_LINE = "A brand from The Lyndon Cook Food Company";
 
 const RICE_SUPPLY =
   "Packing format and volume are confirmed per order. Final specification agreed with the customer.";
@@ -98,10 +100,11 @@ const riceProducts: Product[] = [
     facts: RICE_FACTS("Super Basmati", "Basmati"),
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.superBasmati,
+    gallery: [PRODUCT_IMAGES.superGrains, PRODUCT_IMAGES.superBasmati],
     relatedProducts: [],
-    seoTitle: "Super Basmati Rice | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Super Basmati Rice | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Aromatic Super Basmati rice for pulao, pilafs and everyday dishes. Agree grain specification, packing format and volume with The Lyndon Cook.",
+      "Aromatic Super Basmati rice for pulao, pilafs and everyday dishes. Agree grain specification, packing format and volume with The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -121,8 +124,9 @@ const riceProducts: Product[] = [
     facts: RICE_FACTS("1121 Steam Basmati", "Basmati"),
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.steamBasmati,
+    gallery: [PRODUCT_IMAGES.steamGrains, PRODUCT_IMAGES.steamBasmati],
     relatedProducts: [],
-    seoTitle: "1121 Steam Basmati Rice | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "1121 Steam Basmati Rice | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
       "1121 Steam Basmati with slender grains and a strong plated appearance, suited to biryani and rice dishes. Specification confirmed per order.",
     status: "active",
@@ -144,8 +148,9 @@ const riceProducts: Product[] = [
     facts: RICE_FACTS("1121 Sella Basmati", "Basmati"),
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.sellaBasmati,
+    gallery: [PRODUCT_IMAGES.sellaGrains, PRODUCT_IMAGES.sellaBasmati],
     relatedProducts: [],
-    seoTitle: "1121 Sella Basmati Rice | Parboiled Basmati | The Lyndon Cook",
+    seoTitle: "1121 Sella Basmati Rice | Parboiled Basmati | The Lyndon Cook Food Company",
     seoDescription:
       "Parboiled 1121 Sella Basmati for catering and batch preparation. Preferred grain appearance and cooking performance are specified per order.",
     status: "active",
@@ -157,7 +162,7 @@ const riceProducts: Product[] = [
     slug: "irri-6-white-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "Everyday varieties",
+    subgroupName: "None Banaspati Rice",
     brand: COMPANY,
     summary: "Straightforward, economical white rice for everyday meals and volume supply.",
     description:
@@ -167,9 +172,9 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.irri6,
     relatedProducts: [],
-    seoTitle: "IRRI 6 White Rice | Everyday Rice Supply | The Lyndon Cook",
+    seoTitle: "IRRI 6 White Rice | Everyday Rice Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "IRRI 6 white rice for everyday meals and volume supply. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "IRRI 6 white rice for everyday meals and volume supply. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -179,7 +184,7 @@ const riceProducts: Product[] = [
     slug: "pk-386-long-grain-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "Everyday varieties",
+    subgroupName: "None Banaspati Rice",
     brand: COMPANY,
     summary:
       "A non-Basmati option with slender grains, suited to customers seeking a long-grain presentation for everyday cooking.",
@@ -190,7 +195,7 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.pk386,
     relatedProducts: [],
-    seoTitle: "PK-386 Long Grain Rice | Non-Basmati Supply | The Lyndon Cook",
+    seoTitle: "PK-386 Long Grain Rice | Non-Basmati Supply | The Lyndon Cook Food Company",
     seoDescription:
       "PK-386 long grain rice with slender grains for everyday cooking and long-grain presentation. Specification confirmed per order.",
     status: "active",
@@ -202,7 +207,7 @@ const riceProducts: Product[] = [
     slug: "irri-9-c9-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "Everyday varieties",
+    subgroupName: "None Banaspati Rice",
     brand: COMPANY,
     summary:
       "A non-Basmati option. Grain dimensions, broken content and cooking requirements are confirmed against customer specification.",
@@ -213,7 +218,7 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.irri9,
     relatedProducts: [],
-    seoTitle: "IRRI 9 / C9 Rice | Specification-Led Supply | The Lyndon Cook",
+    seoTitle: "IRRI 9 / C9 Rice | Specification-Led Supply | The Lyndon Cook Food Company",
     seoDescription:
       "IRRI 9 / C9 non-Basmati rice. Grain dimensions, broken content and cooking requirements confirmed against customer specification.",
     status: "active",
@@ -225,7 +230,7 @@ const riceProducts: Product[] = [
     slug: "100-broken-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "Everyday varieties",
+    subgroupName: "None Banaspati Rice",
     brand: COMPANY,
     summary:
       "Broken-grain rice for applications where a whole-grain appearance is not essential, including porridge-style dishes and selected food-manufacturing uses.",
@@ -236,7 +241,7 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.brokenRice,
     relatedProducts: [],
-    seoTitle: "100% Broken Rice | Bulk Rice Supply | The Lyndon Cook",
+    seoTitle: "100% Broken Rice | Bulk Rice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "100% broken grain rice for porridge-style dishes and food-manufacturing uses where whole-grain appearance is not essential.",
     status: "active",
@@ -261,7 +266,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundCumin,
     relatedProducts: [],
-    seoTitle: "Ground Cumin | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Cumin | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Ground cumin for curries, marinades, soups and savoury rice dishes. Grind and packing format agreed per order.",
     status: "active",
@@ -284,7 +289,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundCoriander,
     relatedProducts: [],
-    seoTitle: "Ground Coriander | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Coriander | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Ground coriander with gentle citrus notes for sauces, vegetable dishes and everyday seasoning. Specification confirmed per order.",
     status: "active",
@@ -306,7 +311,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundGinger,
     relatedProducts: [],
-    seoTitle: "Ground Ginger | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Ginger | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Ground ginger for baking, sauces and spice blends. Grind and packing format agreed to suit the application.",
     status: "active",
@@ -328,7 +333,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundBlackPepper,
     relatedProducts: [],
-    seoTitle: "Ground Black Pepper | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Black Pepper | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Ground black pepper for finishing and everyday seasoning. Grind and packing format confirmed per order.",
     status: "active",
@@ -350,9 +355,9 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundTurmeric,
     relatedProducts: [],
-    seoTitle: "Ground Turmeric | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Turmeric | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Ground turmeric for curries, rice dishes and vegetable work. Specification confirmed per order by The Lyndon Cook.",
+      "Ground turmeric for curries, rice dishes and vegetable work. Specification confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -372,7 +377,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.garamMasala,
     relatedProducts: [],
-    seoTitle: "Garam Masala | Wholesale Spice Blend | The Lyndon Cook",
+    seoTitle: "Garam Masala | Wholesale Spice Blend | The Lyndon Cook Food Company",
     seoDescription:
       "Garam Masala, an aromatic spice blend for warmth and depth in curries and slow-cooked dishes. Blend profile agreed per order.",
     status: "active",
@@ -397,7 +402,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.redChilliPowder,
     relatedProducts: [],
-    seoTitle: "Red Chilli Powder | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Red Chilli Powder | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Red chilli powder for heat and colour in curries, sauces and marinades. Heat level agreed to suit your menu.",
     status: "active",
@@ -420,7 +425,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.groundFenugreek,
     relatedProducts: [],
-    seoTitle: "Ground Fenugreek | Wholesale Spice Supply | The Lyndon Cook",
+    seoTitle: "Ground Fenugreek | Wholesale Spice Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Ground fenugreek, a slightly bitter seasoning for balanced curry blends, sauces and marinades. Specification confirmed per order.",
     status: "active",
@@ -445,7 +450,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.curryPowder,
     relatedProducts: [],
-    seoTitle: "Curry Powder | Wholesale Spice Blend | The Lyndon Cook",
+    seoTitle: "Curry Powder | Wholesale Spice Blend | The Lyndon Cook Food Company",
     seoDescription:
       "Curry powder blend for curries, soups and sauces, with flavour profile and heat level selected for your menu.",
     status: "active",
@@ -467,7 +472,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.dryMangoPowder,
     relatedProducts: [],
-    seoTitle: "Dry Mango Powder (Amchur) | The Lyndon Cook",
+    seoTitle: "Dry Mango Powder (Amchur) | The Lyndon Cook Food Company",
     seoDescription:
       "Dry mango powder, also known as amchur: a tangy seasoning for chutneys, marinades and savoury dishes. Specification confirmed per order.",
     status: "active",
@@ -490,7 +495,7 @@ const spiceProducts: Product[] = [
     supplyNote: SPICE_SUPPLY,
     image: PRODUCT_IMAGES.pinkSalt,
     relatedProducts: [],
-    seoTitle: "Himalayan Pink Salt | Wholesale Seasoning | The Lyndon Cook",
+    seoTitle: "Himalayan Pink Salt | Wholesale Seasoning | The Lyndon Cook Food Company",
     seoDescription:
       "Himalayan pink rock salt for everyday seasoning and finishing. Grain size and packing format agreed to suit the application.",
     status: "active",
@@ -516,7 +521,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.chaunsa,
     relatedProducts: [],
-    seoTitle: "Chaunsa Mangoes | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Chaunsa Mangoes | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Chaunsa mangoes supplied against an agreed programme. Variety, size, maturity, grade and packing confirmed per order.",
     status: "active",
@@ -539,7 +544,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.langra,
     relatedProducts: [],
-    seoTitle: "Langra Mangoes | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Langra Mangoes | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Langra mangoes supplied within a seasonal programme. Packing format, maturity and volume confirmed per order.",
     status: "active",
@@ -562,7 +567,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.anwarRatol,
     relatedProducts: [],
-    seoTitle: "Anwar Ratol Mangoes | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Anwar Ratol Mangoes | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Anwar Ratol mangoes supplied against an agreed programme and maturity requirement. Specification confirmed per order.",
     status: "active",
@@ -585,7 +590,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.sindhri,
     relatedProducts: [],
-    seoTitle: "Sindhri Mangoes | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Sindhri Mangoes | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Sindhri mangoes supplied within a seasonal programme. Maturity, size and packing confirmed per order.",
     status: "active",
@@ -608,7 +613,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.dussehri,
     relatedProducts: [],
-    seoTitle: "Dussehri Mangoes | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Dussehri Mangoes | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Dussehri mangoes supplied within a seasonal programme, subject to crop and shipping conditions.",
     status: "active",
@@ -631,7 +636,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.kinnow,
     relatedProducts: [],
-    seoTitle: "Kinnow Citrus | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Kinnow Citrus | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Kinnow citrus supplied against an agreed programme, size and packing requirement. Availability depends on crop and shipping conditions.",
     status: "active",
@@ -654,7 +659,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.sangtra,
     relatedProducts: [],
-    seoTitle: "Sangtra Citrus | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Sangtra Citrus | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Sangtra citrus supplied against an agreed programme, with size, maturity and packing confirmed per order.",
     status: "active",
@@ -677,7 +682,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.fruiter,
     relatedProducts: [],
-    seoTitle: "Fruiter Citrus | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Fruiter Citrus | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Fruiter citrus supplied against an agreed programme, with size, maturity and packing confirmed per order.",
     status: "active",
@@ -700,7 +705,7 @@ const fruitProducts: Product[] = [
     supplyNote: FRUIT_SUPPLY,
     image: PRODUCT_IMAGES.malta,
     relatedProducts: [],
-    seoTitle: "Malta Citrus | Seasonal Fruit Supply | The Lyndon Cook",
+    seoTitle: "Malta Citrus | Seasonal Fruit Supply | The Lyndon Cook Food Company",
     seoDescription:
       "Malta citrus supplied against an agreed programme, with size, maturity and packing confirmed per order.",
     status: "active",
@@ -726,9 +731,9 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.bakedBeans,
     relatedProducts: [],
-    seoTitle: "Baked Beans | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Baked Beans | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
-      "Baked beans in a 400 ml easy-open can. A brand from The Lyndon Cook. Specification confirmed per order.",
+      "Baked beans in a 400 ml easy-open can. A brand from The Lyndon Cook Food Company. Specification confirmed per order.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -749,7 +754,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.blackBeans,
     relatedProducts: [],
-    seoTitle: "Black Beans | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Black Beans | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Black beans in a 400 ml easy-open can, for bowls, salads and Mexican-inspired dishes. Specification confirmed per order.",
     status: "active",
@@ -772,7 +777,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.broadBeans,
     relatedProducts: [],
-    seoTitle: "Broad Beans | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Broad Beans | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Broad beans in a 400 ml easy-open can for seasonal menus and traditional dishes. Specification confirmed per order.",
     status: "active",
@@ -795,7 +800,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.chickpeas,
     relatedProducts: [],
-    seoTitle: "Chickpeas | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Chickpeas | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Chickpeas in a 400 ml easy-open can for salads, mezze, curries and hot dishes. Specification confirmed per order.",
     status: "active",
@@ -818,7 +823,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.pintoBeans,
     relatedProducts: [],
-    seoTitle: "Pinto Beans | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Pinto Beans | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Pinto beans in a 400 ml easy-open can for chilli, soups, salads and bowls. Specification confirmed per order.",
     status: "active",
@@ -841,7 +846,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.redKidneyBeans,
     relatedProducts: [],
-    seoTitle: "Red Kidney Beans | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Red Kidney Beans | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Red kidney beans in a 400 ml easy-open can for chilli, curry and mixed bean dishes. Specification confirmed per order.",
     status: "active",
@@ -864,7 +869,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.whiteKidneyBeans,
     relatedProducts: [],
-    seoTitle: "White Kidney Beans | 400 ml Can | The Lyndon Cook",
+    seoTitle: "White Kidney Beans | 400 ml Can | The Lyndon Cook Food Company",
     seoDescription:
       "White kidney beans in a 400 ml easy-open can for salads, soups and casseroles. Specification confirmed per order.",
     status: "active",
@@ -887,7 +892,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.greenPeas,
     relatedProducts: [],
-    seoTitle: "Green Peas | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Green Peas | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Green peas in a 400 ml easy-open can for rice dishes, pasta, salads and canteen menus. Specification confirmed per order.",
     status: "active",
@@ -910,7 +915,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.sweetcorn,
     relatedProducts: [],
-    seoTitle: "Sweetcorn | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Sweetcorn | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Sweetcorn in a 400 ml easy-open can for rice dishes, salads, dips and hot counters. Specification confirmed per order.",
     status: "active",
@@ -933,7 +938,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.creamedCorn,
     relatedProducts: [],
-    seoTitle: "Creamed Corn | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Creamed Corn | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Creamed corn in a 400 ml easy-open can for buffet counters, fillings and vegetable dishes. Specification confirmed per order.",
     status: "active",
@@ -956,7 +961,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.mixedVegetables,
     relatedProducts: [],
-    seoTitle: "Mixed Vegetables | 400 ml Easy-Open Can | The Lyndon Cook",
+    seoTitle: "Mixed Vegetables | 400 ml Easy-Open Can | The Lyndon Cook Food Company",
     seoDescription:
       "Mixed vegetables in a 400 ml easy-open can for pies, pasta, stir-fry style dishes and batch cooking. Specification confirmed per order.",
     status: "active",
@@ -979,7 +984,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.peasAndCarrots,
     relatedProducts: [],
-    seoTitle: "Peas & Carrots | 400 ml Can | The Lyndon Cook",
+    seoTitle: "Peas & Carrots | 400 ml Can | The Lyndon Cook Food Company",
     seoDescription:
       "Peas and carrots in a 400 ml easy-open can for rice dishes, pies, buffets and canteen menus. Specification confirmed per order.",
     status: "active",
@@ -1002,7 +1007,7 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.wholePeeledTomatoes,
     relatedProducts: [],
-    seoTitle: "Whole Peeled Tomatoes | 400 ml Can | The Lyndon Cook",
+    seoTitle: "Whole Peeled Tomatoes | 400 ml Can | The Lyndon Cook Food Company",
     seoDescription:
       "Whole peeled tomatoes in a 400 ml easy-open can for sauces, stews and soups. Specification confirmed per order.",
     status: "active",
@@ -1034,9 +1039,9 @@ const nornProducts: Product[] = [
     supplyNote: CANNED_SUPPLY,
     image: PRODUCT_IMAGES.sanMarzanoTomatoes,
     relatedProducts: [],
-    seoTitle: "San Marzano Tomatoes | 400 ml Can | The Lyndon Cook",
+    seoTitle: "San Marzano Tomatoes | 400 ml Can | The Lyndon Cook Food Company",
     seoDescription:
-      "San Marzano tomatoes from Italy in a 400 ml easy-open can, for sauces, soups and slow-cooked dishes. A brand from The Lyndon Cook.",
+      "San Marzano tomatoes from Italy in a 400 ml easy-open can, for sauces, soups and slow-cooked dishes. A brand from The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1088,9 +1093,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.spaghetti,
     relatedProducts: [],
-    seoTitle: "Spaghetti | Wholesale Pasta Supply | The Lyndon Cook",
+    seoTitle: "Spaghetti | Wholesale Pasta Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Classic spaghetti pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Classic spaghetti pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1112,9 +1117,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.penne,
     relatedProducts: [],
-    seoTitle: "Penne Pasta | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Penne Pasta | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Penne tube-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Penne tube-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1136,9 +1141,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.macaroni,
     relatedProducts: [],
-    seoTitle: "Macaroni Pasta | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Macaroni Pasta | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Macaroni curved tube pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Macaroni curved tube pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1160,9 +1165,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.fusilli,
     relatedProducts: [],
-    seoTitle: "Fusilli Pasta | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Fusilli Pasta | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Fusilli spiral-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Fusilli spiral-shaped pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1184,9 +1189,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.elbowMacaroni,
     relatedProducts: [],
-    seoTitle: "Elbow Macaroni | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Elbow Macaroni | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Elbow macaroni pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Elbow macaroni pasta for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -1208,9 +1213,9 @@ const pastaProducts: Product[] = [
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.pastaShapes,
     relatedProducts: [],
-    seoTitle: "Assorted Pasta Shapes | Wholesale Supply | The Lyndon Cook",
+    seoTitle: "Assorted Pasta Shapes | Wholesale Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "Assorted pasta shapes for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook.",
+      "Assorted pasta shapes for wholesale and foodservice. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "draft",
     enquiryEnabled: true,
   },

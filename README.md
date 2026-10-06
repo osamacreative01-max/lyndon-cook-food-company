@@ -1,6 +1,6 @@
-# The Lyndon Cook — website
+# The Lyndon Cook Food Company — website
 
-B2B food supply website for **The Lyndon Cook** (our canned range is a product
+B2B food supply website for **The Lyndon Cook Food Company** (our canned range is a product
 brand within the company, not a replacement for its name).
 
 Built from `F:\web\The_Lyndon_Cook_Food_Company_Master_Website_Prompt.md`, which
