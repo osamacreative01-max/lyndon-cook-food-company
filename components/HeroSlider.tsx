@@ -15,6 +15,8 @@ type Props = {
   /** `object-position` utilities. Defaults suit the panoramic website banners;
    *  the homepage passes a left-biased position for its 1920x800 pair. */
   position?: string;
+  /** Copy overlays need the legibility scrims; bare image frames switch them off. */
+  scrim?: boolean;
 };
 
 /**
@@ -34,6 +36,7 @@ export default function HeroSlider({
   interval = 3000,
   className = "",
   position = "object-[70%_center] sm:object-center",
+  scrim = true,
 }: Props) {
   const count = slides.length;
   const [active, setActive] = useState(0);
@@ -84,19 +87,24 @@ export default function HeroSlider({
 
       {/* Scrims: horizontal keeps the left-hand copy readable, vertical lifts
           the bottom edge off the photograph, and the flat wash carries small
-          screens where the panoramic crop puts products behind the copy. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-teal-950/95 via-teal-950/75 to-teal-950/10"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-teal-950/45 sm:bg-teal-950/30 lg:bg-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-teal-950/85 to-transparent"
-      />
+          screens where the panoramic crop puts products behind the copy.
+          Switched off for bare image frames that carry no overlaid copy. */}
+      {scrim ? (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-teal-950/95 via-teal-950/75 to-teal-950/10"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-teal-950/45 sm:bg-teal-950/30 lg:bg-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-teal-950/85 to-transparent"
+          />
+        </>
+      ) : null}
     </div>
   );
 }

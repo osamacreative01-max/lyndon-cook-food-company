@@ -12,7 +12,6 @@ import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
 import {
   IMAGE_SIZES,
-  IMAGES,
   PRODUCT_PAGE_BANNERS,
 } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
@@ -274,7 +273,6 @@ export default function AboutPage() {
       <EnquiryCTA
         secondaryLabel="How we supply"
         secondaryHref="/how-we-supply/"
-        image={IMAGES.nornRange}
       />
     </>
   );

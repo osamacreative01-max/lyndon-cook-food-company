@@ -1,13 +1,22 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "quiet" | "onDark" | "accent" | "outlineDark";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "quiet"
+  | "onDark"
+  | "accent"
+  | "outlineDark"
+  | "terracotta";
 type Size = "md" | "lg";
 
 type BaseProps = {
   children: ReactNode;
   variant?: Variant;
   size?: Size;
+  /** Fully rounded 52px pill shape instead of the default 4px radius. */
+  pill?: boolean;
   className?: string;
   /** Renders as a button element when provided. */
   type?: "button" | "submit";
@@ -39,6 +48,9 @@ const VARIANTS: Record<Variant, string> = {
     "bg-copper-600 text-white border border-copper-600 hover:bg-copper-400 hover:border-copper-400 active:bg-copper-700",
   outlineDark:
     "bg-transparent text-ivory border border-teal-400 hover:bg-teal-700 hover:border-teal-400 active:bg-teal-600",
+  /* Terracotta #E3A074 with deep teal ink: 4.5:1 minimum against the fill. */
+  terracotta:
+    "bg-[#E3A074] text-teal-800 border border-[#E3A074] hover:bg-[#f0b184] hover:border-[#f0b184] active:bg-[#cf8c5f] active:border-[#cf8c5f]",
 };
 
 const SIZES: Record<Size, string> = {
@@ -46,8 +58,14 @@ const SIZES: Record<Size, string> = {
   lg: "min-h-14 px-8 py-3.5 text-[1.0625rem]",
 };
 
+/* Pill buttons share one 52px height across both sizes, as the CTA brief asks. */
+const PILL_SIZES: Record<Size, string> = {
+  md: "min-h-[52px] px-7 py-3 text-[0.9375rem]",
+  lg: "min-h-[52px] px-8 py-3.5 text-[1.0625rem]",
+};
+
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-[4px] font-serif font-semibold uppercase leading-tight tracking-[0.04em] transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-55";
+  "inline-flex items-center justify-center gap-2 font-serif font-semibold uppercase leading-tight tracking-[0.04em] transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-55";
 
 /**
  * The only button in the system. Minimum height is 44px (Size.md) so every
@@ -58,9 +76,16 @@ export default function Button(props: Props) {
     children,
     variant = "primary",
     size = "md",
+    pill = false,
     className = "",
   } = props as BaseProps;
-  const classes = `${BASE} ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
+  const classes = [
+    BASE,
+    pill ? "rounded-full" : "rounded-[4px]",
+    pill ? PILL_SIZES[size] : SIZES[size],
+    VARIANTS[variant],
+    className,
+  ].join(" ");
 
   if ("href" in props && props.href) {
     const {
