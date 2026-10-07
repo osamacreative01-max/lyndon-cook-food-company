@@ -61,6 +61,27 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Footer design tokens
+   Dark teal ground, cream ink, muted blue-grey secondary text and a warm
+   terracotta accent. Scoped to the footer so the palette can move independently
+   of the page system above.
+   --------------------------------------------------------------------------- */
+.site-footer {
+  --footer-bg: #073a41;
+  --footer-text: #e9e4d6;
+  --footer-text-strong: #f3efe4;
+  --footer-muted: #b9cbcb;
+  --footer-accent: #e3a074;
+  --footer-divider: rgb(233 228 214 / 0.16);
+  --footer-card-bg: rgb(243 239 228 / 0.08);
+}
+
+.site-footer :where(a, button):focus-visible {
+  outline: 2px solid var(--footer-accent);
+  outline-offset: 3px;
+}
+
 /* Base element styles live in the `base` layer so Tailwind utilities (which
    sit in the later `utilities` layer) can always override them. Unlayered
    author rules beat every layer, so keeping these here would silently kill

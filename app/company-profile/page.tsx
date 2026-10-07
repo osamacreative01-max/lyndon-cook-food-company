@@ -119,17 +119,17 @@ export default function CompanyProfilePage() {
             title="What we supply"
             description={`${CATEGORIES.length} ranges, each with its own product pages, confirmed facts and supply notes.`}
           />
-          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <ul className="mt-10 grid grid-cols-1 gap-5">
             {CATEGORIES.map((category, index) => (
               <Reveal key={category.id} as="li" delay={index * 70} className="h-full">
                 <article className="group flex h-full flex-col overflow-hidden rounded-[6px] border border-sand bg-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(8,75,80,0.08)] sm:flex-row">
-                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-ivory-dark sm:aspect-auto sm:w-40">
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-ivory-dark sm:w-72 lg:w-96">
                     <Image
                       src={category.image.src}
                       alt={category.image.alt}
                       fill
                       loading="lazy"
-                      sizes="160px"
+                      sizes="(min-width: 1024px) 384px, (min-width: 640px) 288px, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>

@@ -35,6 +35,8 @@ export type Product = {
   image: { src: string; alt: string };
   /** Ordered frames for the card slider; the card falls back to `[image]`. */
   gallery?: { src: string; alt: string }[];
+  /** Sub-categories shown on the product page; each swaps the main image. */
+  variants?: { label: string; image: { src: string; alt: string } }[];
   relatedProducts: string[];
   seoTitle: string;
   seoDescription: string;
@@ -158,23 +160,27 @@ const riceProducts: Product[] = [
   },
   {
     id: "rice-irri-6-white-rice",
-    name: "IRRI 6 White Rice",
+    name: "IRRI 6",
     slug: "irri-6-white-rice",
     category: "rice",
     subgroup: "everyday",
     subgroupName: "None Banaspati Rice",
     brand: COMPANY,
-    summary: "Straightforward, economical white rice for everyday meals and volume supply.",
+    summary: "Straightforward, economical rice for everyday meals and volume supply, in white and parboiled milling.",
     description:
-      "IRRI 6 White Rice is our straightforward everyday white rice, suited to menus where the rice is a staple rather than the focus of the dish. It is a practical choice for volume supply across foodservice and institutional kitchens.",
+      "IRRI 6 is our straightforward everyday rice, suited to menus where the rice is a staple rather than the focus of the dish. Choose the white rice or the parboiled rice below; both are practical choices for volume supply across foodservice and institutional kitchens.",
     uses: ["Everyday meals", "Volume supply", "Staple menu items"],
     facts: RICE_FACTS("IRRI 6", "Non-Basmati white rice"),
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.irri6,
+    variants: [
+      { label: "IRRI 6 White Rice", image: PRODUCT_IMAGES.irri6White },
+      { label: "IRRI 6 Parboiled Rice", image: PRODUCT_IMAGES.irri6Parboiled },
+    ],
     relatedProducts: [],
-    seoTitle: "IRRI 6 White Rice | Everyday Rice Supply | The Lyndon Cook Food Company",
+    seoTitle: "IRRI 6 Rice | White and Parboiled Rice Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "IRRI 6 white rice for everyday meals and volume supply. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
+      "IRRI 6 white rice and IRRI 6 parboiled rice for everyday meals and volume supply. Packing format and volume confirmed per order by The Lyndon Cook Food Company.",
     status: "active",
     enquiryEnabled: true,
   },
@@ -210,7 +216,7 @@ const riceProducts: Product[] = [
     subgroupName: "None Banaspati Rice",
     brand: COMPANY,
     summary:
-      "A non-Basmati option. Grain dimensions, broken content and cooking requirements are confirmed against customer specification.",
+      "A non-Basmati option in white and parboiled milling. Grain dimensions, broken content and cooking requirements are confirmed against customer specification.",
     description:
       "IRRI 9 / C9 is a non-Basmati option for buyers who work to a precise internal standard. Grain dimensions, broken content and cooking requirements are confirmed against your specification before supply is planned.",
     uses: ["Specification-led buying", "Volume supply", "Batch cooking"],
@@ -218,9 +224,9 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.irri9,
     relatedProducts: [],
-    seoTitle: "IRRI 9 / C9 Rice | Specification-Led Supply | The Lyndon Cook Food Company",
+    seoTitle: "IRRI 9 / C9 Rice | White and Parboiled Supply | The Lyndon Cook Food Company",
     seoDescription:
-      "IRRI 9 / C9 non-Basmati rice. Grain dimensions, broken content and cooking requirements confirmed against customer specification.",
+      "IRRI 9 / C9 white rice and parboiled rice. Grain dimensions, broken content and cooking requirements confirmed against customer specification.",
     status: "active",
     enquiryEnabled: true,
   },

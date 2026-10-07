@@ -19,11 +19,14 @@ export default function ProfileDownload({
   size = "lg",
   className = "",
   label = SITE.profileDownload.label,
+  icon = true,
 }: {
-  variant?: "primary" | "secondary" | "quiet" | "onDark";
+  variant?: "primary" | "secondary" | "quiet" | "onDark" | "accent";
   size?: "md" | "lg";
   className?: string;
   label?: string;
+  /** Set false to render the label on its own, without the download glyph. */
+  icon?: boolean;
 }) {
   return (
     <Button
@@ -34,7 +37,7 @@ export default function ProfileDownload({
       className={className}
       onClick={() => trackEvent("profile_downloaded")}
     >
-      <Download aria-hidden="true" className="h-4 w-4" />
+      {icon ? <Download aria-hidden="true" className="h-4 w-4" /> : null}
       {label}
       <span className="sr-only-focusable absolute">
         ({SITE.profileDownload.sizeLabel})

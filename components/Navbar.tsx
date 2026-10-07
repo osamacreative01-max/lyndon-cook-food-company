@@ -3,12 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Phone } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 
 import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import MobileMenu from "@/components/MobileMenu";
-import { NAV_LINKS, PRODUCT_MENU_LINKS, SITE } from "@/lib/site";
+import ProfileDownload from "@/components/ProfileDownload";
+import { NAV_LINKS, PRODUCT_MENU_LINKS } from "@/lib/site";
 
 const HEADER_H = "6rem";
 
@@ -123,17 +124,13 @@ export default function Navbar() {
         style={{ ["--header-h" as string]: HEADER_H }}
       >
         <div className="relative bg-teal-800 text-ivory">
-          <div className="container-page flex flex-col items-center justify-center gap-1 py-2 text-center text-[0.8125rem] leading-snug sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-4 sm:py-2.5 sm:text-left sm:text-sm">
-            <p className="text-ivory/90">
-              Bespoke bedding handcrafted in 15-21 days.
-            </p>
+          <div className="container-page flex justify-center py-2 text-center text-[0.8125rem] leading-snug sm:py-2.5 sm:text-sm">
             <Link
               href="/enquire/"
-              className="order-first font-semibold text-ivory underline decoration-copper-400 underline-offset-4 transition-colors hover:text-copper-100 sm:order-none sm:justify-self-center sm:no-underline sm:hover:underline"
+              className="font-semibold text-ivory underline decoration-copper-400 underline-offset-4 transition-colors hover:text-copper-100 sm:no-underline sm:hover:underline"
             >
               For Retailers and Wholesale Customers
             </Link>
-            <span aria-hidden="true" className="hidden sm:block" />
           </div>
           <span
             aria-hidden="true"
@@ -239,14 +236,14 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <a
-              href={`tel:${SITE.phoneHref}`}
-              className="inline-flex min-h-12 items-center gap-2 rounded-[4px] px-3 text-base font-medium text-body transition-colors hover:bg-white hover:text-teal-800"
-            >
-              <Phone aria-hidden="true" className="h-4 w-4 text-copper-600" />
-              {SITE.phone}
-            </a>
-            <Button href="/enquire/" size="lg">
+            <ProfileDownload
+              variant="accent"
+              size="md"
+              icon={false}
+              label="Company profile"
+              className="whitespace-nowrap px-4"
+            />
+            <Button href="/enquire/" size="md">
               Enquire
             </Button>
           </div>

@@ -158,32 +158,48 @@ export const HOME_BANNERS: { src: string; alt: string }[] = [
 export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = {
   rice: [
     {
-      src: "/prodect page banner/rice banner.jpg",
-      alt: "Rice sacks, pasta packs, canned food, spices and mangoes laid out together",
+      src: "/prodect page banner/rice benner 1.jpg",
+      alt: "Norn long grain white and parboiled rice packs beside bowls of cooked rice",
+    },
+    {
+      src: "/prodect page banner/rice benner 2.jpg",
+      alt: "The Norn rice range: super basmati, steam basmati and sella sacks with IRRI 6, PK-386, IRRI 9 and broken rice bowls",
     },
   ],
   spices: [
     {
-      src: "/prodect page banner/spices banner.jpg",
-      alt: "A kitchen dresser and open shelving against an exposed brick wall",
+      src: "/prodect page banner/Seasonal bannar-1.jpg",
+      alt: "The Lyndon Cook spice jars: ground cumin, coriander, ginger, black pepper, turmeric, garam masala, red chilli, fenugreek, curry powder, dry mango powder and pink salt",
     },
   ],
   "seasonal-fruit": [
     {
-      src: "/prodect page banner/Seasonal bannar-12.jpg",
-      alt: "Spice jars of red chilli, black pepper, cumin, turmeric and pink salt on a wooden board",
+      src: "/prodect page banner/pasta benner 1.jpg",
+      alt: "The Lyndon Cook fruit crates filled with mangoes, oranges and sweet limes",
+    },
+    {
+      src: "/prodect page banner/Seasonal bannar-3.jpg",
+      alt: "Fresh oranges with blossom on a dark teal backdrop",
+    },
+    {
+      src: "/prodect page banner/Home page bannar-10.jpg",
+      alt: "Ripe mangoes hanging from a tree with raindrops on the leaves",
     },
   ],
   "canned-food": [
     {
-      src: "/prodect page banner/canned food banner.jpg",
-      alt: "Spice jars of red chilli, black pepper, cumin, turmeric and pink salt on a wooden board",
+      src: "/Website Banner-04.jpg",
+      alt: "Pinto beans, baked beans, black beans and chickpeas in easy-open cans",
     },
   ],
   pasta: [
     {
-      src: "/prodect page banner/Pasta bannar-11.jpg",
-      alt: "Fresh oranges with blossom on a dark teal backdrop",
+      src: "/prodect page banner/pasta benner 2.jpg",
+      alt: "Norn pasta packs: shells, penne rigate, elbows, rotini and thimbles",
+    },
+    {
+      src: "/prodect page banner/spices benner 2.jpg",
+      alt: "The Norn pasta range laid out flat: spaghetti, rotini, elbows, penne rigate, vermicelli, charleston, tripolini, thimbles, sedani rigati and shells",
     },
   ],
 };
@@ -237,9 +253,15 @@ export const PRODUCT_IMAGES = {
   superGrains: { src: "/Png/Rice/superBasmati.jpg", alt: "Loose Super Basmati rice grains" },
   steamGrains: { src: "/Png/Rice/steamBasmati.jpg", alt: "Steam Basmati rice grains spilling from a cup" },
   sellaGrains: { src: "/Png/Rice/sellaBasmati.jpg", alt: "Sella Basmati rice grains in a bowl" },
-  irri6: { src: "/Png/Rice/LONG GRAIN WHITE RICE 454 g.png", alt: "Long Grain White Rice 454 g pack" },
+  irri6: { src: "/Png/Rice/white rice.jpg", alt: "IRRI 6 white rice" },
+  /* IRRI 6 variants shown on the product page. */
+  irri6White: { src: "/Png/Rice/white rice.jpg", alt: "IRRI 6 white rice" },
+  irri6Parboiled: { src: "/Png/Rice/parboiled rice.jpg", alt: "IRRI 6 parboiled rice" },
   pk386: { src: "/Product images (41)/rice/pk386.jpg", alt: "Cooked long grain rice in a dish" },
-  irri9: { src: "/Png/Rice/LONG GRAIN PARABOLIED RICE.png", alt: "Long Grain Parboiled Rice pack" },
+  irri9: { src: "/Png/Rice/parboiled rice.jpg", alt: "IRRI 9 / C9 parboiled rice" },
+  /* IRRI 9 / C9 variants shown on the product page. */
+  irri9White: { src: "/Png/Rice/white rice.jpg", alt: "IRRI 9 / C9 white rice" },
+  irri9Parboiled: { src: "/Png/Rice/parboiled rice.jpg", alt: "IRRI 9 / C9 parboiled rice" },
   brokenRice: { src: "/Product images (41)/rice/brokenRice.jpg", alt: "Dry goods in sacks, ready for milling and packing" },
 
   /* Spices — branded jars from `public/Png/Spices and seasonings/`. */

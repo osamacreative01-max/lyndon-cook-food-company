@@ -4,7 +4,6 @@ import Button from "@/components/Button";
 import Container from "@/components/Container";
 import Reveal from "@/components/Reveal";
 import { IMAGE_SIZES, IMAGES } from "@/lib/images";
-import { SITE } from "@/lib/site";
 
 type Props = {
   heading?: string;
@@ -76,22 +75,6 @@ export default function EnquiryCTA({
                 </p>
               </div>
             ) : null}
-            <p className="mt-8 text-[0.9375rem] text-ivory/75">
-              Prefer email or phone?{" "}
-              <a
-                href={`mailto:${SITE.email}`}
-                className="link-underline link-underline-hover text-ivory"
-              >
-                {SITE.email}
-              </a>{" "}
-&middot;{" "}
-              <a
-                href={`tel:${SITE.phoneHref}`}
-                className="link-underline link-underline-hover text-ivory"
-              >
-                {SITE.phone}
-              </a>
-            </p>
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-5">

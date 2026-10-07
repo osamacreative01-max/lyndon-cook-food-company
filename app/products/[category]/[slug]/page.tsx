@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowRight, Info, PackageCheck } from "lucide-react";
 
@@ -8,12 +7,11 @@ import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import JsonLd from "@/components/JsonLd";
 import ProductFacts from "@/components/ProductFacts";
+import ProductHero from "@/components/ProductHero";
 import RelatedProducts from "@/components/RelatedProducts";
 import { CATEGORIES, getCategory } from "@/lib/categories";
-import { IMAGE_SIZES } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 import { productMetadata, productSchema } from "@/lib/seo";
-import { SITE } from "@/lib/site";
 import {
   ACTIVE_PRODUCTS,
   getProductBySlug,
@@ -48,7 +46,16 @@ function renderProduct(product: Product) {
   const category = getCategory(product.category)!;
   const related = getRelatedProducts(product);
   const isCanned = product.category === "canned-food";
-  const isPack = product.image.src.startsWith("/Png/");
+
+  const badge = isCanned ? (
+    <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
+      Canned Foods
+    </span>
+  ) : (
+    <span className="absolute left-4 top-4 rounded-[3px] bg-white/95 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-teal-800 shadow-sm">
+      {product.subgroupName}
+    </span>
+  );
 
   return (
     <>
@@ -56,82 +63,36 @@ function renderProduct(product: Product) {
 
       <section className="on-dark border-b border-sand bg-ivory">
         <Container className="py-8 sm:py-10">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-            {/* Product image */}
-            <div className="lg:col-span-6">
-              <div
-                className={`relative w-full overflow-hidden rounded-[6px] border border-sand bg-ivory-dark ${
-                  isPack ? "aspect-[4/5]" : "aspect-[4/3]"
-                }`}
-              >
-                <Image
-                  src={product.image.src}
-                  alt={product.image.alt}
-                  fill
-                  priority
-                  sizes={IMAGE_SIZES.detail}
-                  quality={90}
-                  className={
-                    isPack ? "object-contain p-5 sm:p-8" : "object-cover"
-                  }
-                />
-                {isCanned ? (
-                  <span className="absolute left-4 top-4 rounded-[3px] bg-teal-800 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ivory">
-                    Canned Foods
-                  </span>
-                ) : (
-                  <span className="absolute left-4 top-4 rounded-[3px] bg-white/95 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-[0.14em] text-teal-800 shadow-sm">
-                    {product.subgroupName}
-                  </span>
-                )}
+          <ProductHero
+            image={product.image}
+            variants={product.variants}
+            badge={badge}
+            ariaLabel={`${product.name} categories`}
+            cta={
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href={enquiryHref(product.slug)} size="lg">
+                  Discuss this product
+                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </Button>
+                <Button href={`/products/${category.slug}/`} variant="secondary" size="lg">
+                  All {category.shortName.toLowerCase()}
+                </Button>
               </div>
-            </div>
-
-            {/* Product info */}
-            <div className="lg:col-span-6">
-              <p className="eyebrow">
-                {category.name} &middot; {product.subgroupName}
-              </p>
-              <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
-                {product.name}
-              </h1>
-              <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-                {product.summary}
-              </p>
-              <p className="mt-4 text-[0.9375rem] leading-[1.7] text-body">
-                {product.description}
-              </p>
-
-              {/* CTA block */}
-              <div className="mt-8 rounded-[6px] border border-sand bg-ivory/60 p-6">
-                <div className="flex flex-wrap gap-3">
-                  <Button href={enquiryHref(product.slug)} size="lg">
-                    Discuss this product
-                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                  </Button>
-                  <Button href={`/products/${category.slug}/`} variant="secondary" size="lg">
-                    All {category.shortName.toLowerCase()}
-                  </Button>
-                </div>
-                <p className="mt-4 text-sm text-muted">
-                  {SITE.name} &middot;{" "}
-                  <a
-                    href={`mailto:${SITE.email}`}
-                    className="link-underline link-underline-hover"
-                  >
-                    {SITE.email}
-                  </a>{" "}
-                  &middot;{" "}
-                  <a
-                    href={`tel:${SITE.phoneHref}`}
-                    className="link-underline link-underline-hover"
-                  >
-                    {SITE.phone}
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
+            }
+          >
+            <p className="eyebrow">
+              {category.name} &middot; {product.subgroupName}
+            </p>
+            <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
+              {product.name}
+            </h1>
+            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
+              {product.summary}
+            </p>
+            <p className="mt-4 text-[0.9375rem] leading-[1.7] text-body">
+              {product.description}
+            </p>
+          </ProductHero>
         </Container>
       </section>
 

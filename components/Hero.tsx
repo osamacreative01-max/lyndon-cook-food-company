@@ -151,7 +151,7 @@ export function PageHero({
   onDark?: boolean;
 }) {
   return (
-    <section className="on-dark relative isolate flex min-h-[22rem] items-center overflow-hidden bg-teal-900 sm:min-h-[26rem]">
+    <section className="on-dark relative isolate flex min-h-[34rem] items-center overflow-hidden bg-teal-900 sm:min-h-[30rem]">
       {banners?.length ? (
         <HeroSlider slides={banners} className="absolute inset-0 z-0" />
       ) : null}

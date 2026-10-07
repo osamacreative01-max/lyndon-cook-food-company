@@ -1,136 +1,138 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Phone, ChevronRight } from "lucide-react";
+import { ArrowRight, Mail, Phone } from "lucide-react";
 
 import Container from "@/components/Container";
 import Logo from "@/components/Logo";
 import { SITE, FOOTER_LINKS, FOOTER_LEGAL_LINKS } from "@/lib/site";
 import { CATEGORIES } from "@/lib/categories";
 
+/** Enquiry lives in the CTA card, so it is kept out of the quick link list. */
+const QUICK_LINKS = FOOTER_LINKS.filter((link) => link.href !== "/enquire/");
+
+const HEADING =
+  "text-[0.75rem] font-bold uppercase tracking-[0.22em] text-[var(--footer-accent)]";
+
 export default function Footer() {
   return (
-    <footer className="on-dark mt-auto border-t-4 border-copper-600 bg-teal-900 text-teal-50">
-      <Container className="py-10 sm:py-12 lg:py-16">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
-          {/* Brand */}
-          <div className="lg:col-span-4">
-            <Logo onDark width={360} fluid />
-            <p className="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-ivory/75">
+    <footer className="site-footer mt-auto bg-[var(--footer-bg)] text-[var(--footer-text)]">
+      <Container className="pt-8 sm:pt-10">
+        {/* ---------------------------------------------------------- Top row */}
+        <div className="flex flex-wrap items-start justify-between gap-x-10 gap-y-6 border-b border-[var(--footer-divider)] pb-7">
+          <div className="flex max-w-2xl flex-col items-start gap-3">
+            <Logo onDark width={360} fluid className="max-w-[75%] sm:max-w-none" />
+            <p className="max-w-md text-[0.9375rem] leading-relaxed text-[var(--footer-muted)]">
               Rice, spices, seasonal fruit and canned foods, supplied around
               clear specifications and planned purchasing requirements.
             </p>
-            {/* Norn range lockup — mark above its attribution line. */}
-            <div className="mt-5 max-w-sm">
-              <Image
-                src="/logo/norn-ivory.png"
-                alt="Norn"
-                width={1649}
-                height={954}
-                className="h-auto w-28 sm:w-32"
-              />
-              <p className="mt-3 font-serif text-lg leading-snug text-ivory">
-                {SITE.brandLine}
-              </p>
-            </div>
           </div>
+          <div className="sm:text-right">
+            <Image
+              src="/logo/norn-ivory.png"
+              alt="Norn"
+              width={1649}
+              height={954}
+              className="h-auto w-28 sm:ml-auto sm:w-32"
+            />
+            <p className="mt-2 text-[0.8125rem] font-semibold uppercase leading-relaxed tracking-[0.18em] text-[var(--footer-accent)]">
+              <span className="block">A brand from</span>
+              <span className="block">The Lyndon Cook Food Company</span>
+            </p>
+          </div>
+        </div>
 
-          {/* The brand column runs taller than the link columns, so the three
-              headings carry a little top margin: the whitespace above them then
-              matches the space their shorter content leaves before the divider. */}
-          {/* Products */}
-          <nav aria-label="Products" className="lg:col-span-2 lg:mt-5">
-            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
-              Products
-            </h2>
+        {/* ------------------------------------------------------ Middle grid */}
+        <div className="grid gap-8 py-8 sm:grid-cols-2 lg:grid-cols-4">
+          <nav aria-label="Products">
+            <h2 className={HEADING}>Products</h2>
             <ul className="mt-4 space-y-2">
               {CATEGORIES.map((category) => (
                 <li key={category.id}>
                   <Link
                     href={`/products/${category.slug}/`}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-ivory/75 transition-colors hover:text-ivory"
+                    className="inline-flex min-h-8 items-center text-[0.9375rem] text-[var(--footer-text)] transition-colors hover:text-[var(--footer-accent)]"
                   >
                     {category.shortName}
-                    <ChevronRight
-                      aria-hidden="true"
-                      className="h-3.5 w-3.5 text-copper-400 transition-transform group-hover:translate-x-0.5"
-                    />
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Company */}
-          <div className="lg:col-span-3 lg:mt-5">
-            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
-              Company
-            </h2>
-            <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-ivory">
-              <span className="block font-semibold text-ivory">{SITE.name}</span>
-              <span className="mt-3 flex gap-2.5">
-                <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-copper-400" />
-                <span>
-                  {SITE.address.lines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </span>
+          <div>
+            <h2 className={HEADING}>Company</h2>
+            <address className="mt-4 space-y-3 not-italic text-[0.9375rem] leading-relaxed text-[var(--footer-muted)]">
+              <span className="block font-semibold text-[var(--footer-text-strong)]">
+                {SITE.name}
               </span>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="flex min-h-8 items-center gap-2.5 text-[var(--footer-text)] transition-colors hover:text-[var(--footer-accent)]"
+              >
+                <Mail
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                  className="h-4 w-4 shrink-0 text-[var(--footer-accent)]"
+                />
+                {SITE.email}
+              </a>
+              <a
+                href={`tel:${SITE.phoneHref}`}
+                className="flex min-h-8 items-center gap-2.5 text-[var(--footer-text)] transition-colors hover:text-[var(--footer-accent)]"
+              >
+                <Phone
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                  className="h-4 w-4 shrink-0 text-[var(--footer-accent)]"
+                />
+                {SITE.phone}
+              </a>
+              <span className="block">{SITE.address.formatted}</span>
             </address>
-            <ul className="mt-4 space-y-2 text-[0.9375rem]">
-              <li>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-ivory/75 transition-colors hover:text-ivory"
-                >
-                  <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
-                  {SITE.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${SITE.phoneHref}`}
-                  className="inline-flex min-h-8 items-center gap-2.5 text-ivory/75 transition-colors hover:text-ivory"
-                >
-                  <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-400" />
-                  {SITE.phone}
-                </a>
-              </li>
-            </ul>
           </div>
 
-          {/* Quick links */}
-          <nav aria-label="Footer" className="lg:col-span-3 lg:mt-5">
-            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
-              Quick links
-            </h2>
+          <nav aria-label="Quick links">
+            <h2 className={HEADING}>Quick links</h2>
             <ul className="mt-4 space-y-2">
-              {FOOTER_LINKS.map((link) => (
+              {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group inline-flex min-h-8 items-center gap-2 text-[0.9375rem] text-ivory/75 transition-colors hover:text-ivory"
+                    className="inline-flex min-h-8 items-center text-[0.9375rem] text-[var(--footer-text)] transition-colors hover:text-[var(--footer-accent)]"
                   >
                     {link.label}
-                    <ChevronRight
-                      aria-hidden="true"
-                      className="h-3.5 w-3.5 text-copper-400 transition-transform group-hover:translate-x-0.5"
-                    />
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
+
+          <div className="rounded-2xl border border-[var(--footer-divider)] bg-[var(--footer-card-bg)] p-6">
+            <h2 className="font-serif text-[1.5rem] font-bold leading-snug text-[var(--footer-text-strong)]">
+              Need a supply quote?
+            </h2>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-[var(--footer-muted)]">
+              Tell us the products, quantities and delivery schedule you have in
+              mind and we will review the supply options with you.
+            </p>
+            <Link
+              href="/enquire/"
+              className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--footer-accent)] px-7 text-[0.9375rem] font-semibold text-[var(--footer-bg)] transition-colors hover:bg-[#d68c5c]"
+            >
+              Enquire now
+              <ArrowRight aria-hidden="true" strokeWidth={1.75} className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-8 border-t border-teal-800 pt-6">
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ivory/75">
+        {/* ------------------------------------------------------- Bottom bar */}
+        <div className="flex min-h-16 flex-col items-center gap-3 border-t border-[var(--footer-divider)] py-5 sm:h-16 sm:flex-row sm:justify-end sm:gap-6 sm:py-0">
+          <ul className="flex flex-wrap justify-center gap-x-7 gap-y-2 text-[0.8125rem]">
             {FOOTER_LEGAL_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="transition-colors hover:text-ivory"
+                  className="transition-colors hover:text-[var(--footer-accent)]"
                 >
                   {link.label}
                 </Link>

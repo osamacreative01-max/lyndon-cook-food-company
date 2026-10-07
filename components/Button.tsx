@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "quiet" | "onDark";
+type Variant = "primary" | "secondary" | "quiet" | "onDark" | "accent";
 type Size = "md" | "lg";
 
 type BaseProps = {
@@ -33,6 +33,8 @@ const VARIANTS: Record<Variant, string> = {
     "bg-transparent text-teal-800 border border-teal-800 hover:bg-teal-800 hover:text-ivory active:bg-teal-900",
   quiet:
     "bg-white text-teal-800 border border-sand-600 hover:border-copper-700 hover:bg-ivory",
+  accent:
+    "bg-copper-600 text-white border border-copper-600 hover:bg-copper-700 hover:border-copper-700 active:bg-copper-700",
   onDark:
     "bg-copper-600 text-teal-950 border border-copper-600 hover:bg-copper-400 hover:border-copper-400 active:bg-copper-700 active:text-ivory",
 };
