@@ -8,7 +8,7 @@
  *   node scripts/generate-og-image.mjs
  */
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -122,14 +122,12 @@ async function main() {
     .toFile(applePath);
   console.log("wrote", path.relative(root, applePath));
 
-  // Keeps the placeholder icon and the favicon byte-identical in source form.
-  await writeFile(
-    path.join(root, "public", "icon.svg"),
-    await (await import("node:fs/promises")).readFile(
-      path.join(root, "app", "icon.svg")
-    )
+  // Keeps the favicon in app/ byte-identical to the source artwork.
+  await copyFile(
+    path.join(root, "public", "Favicon.png"),
+    path.join(root, "app", "icon.png")
   );
-  console.log("wrote public/icon.svg");
+  console.log("wrote app/icon.png");
 }
 
 main().catch((error) => {

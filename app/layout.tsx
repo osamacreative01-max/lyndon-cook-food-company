@@ -85,7 +85,7 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: `${SITE.url}/` },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png" }],
   },
   category: "Food & Drink Wholesale",

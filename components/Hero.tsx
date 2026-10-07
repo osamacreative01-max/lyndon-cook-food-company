@@ -9,7 +9,7 @@ type Props = {
   eyebrow: string;
   title: ReactNode;
   description: ReactNode;
-  primary: { label: string; href: string };
+  primary: { label: string; href: string; className?: string };
   secondary?: { label: string; href: string };
   /** Background banners shown behind the copy as an auto-advancing slider. */
   slides?: HeroSlide[];
@@ -61,7 +61,12 @@ export default function Hero({
             </p>
 
             <div className="pointer-events-auto mt-8 flex flex-wrap gap-3">
-              <Button href={primary.href} size="lg" variant="onDark">
+              <Button
+                href={primary.href}
+                size="lg"
+                variant="onDark"
+                className={primary.className}
+              >
                 {primary.label}
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Button>

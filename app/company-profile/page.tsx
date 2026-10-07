@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Button from "@/components/Button";
@@ -11,7 +10,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import { PageHero } from "@/components/Hero";
 import { CATEGORIES } from "@/lib/categories";
-import { IMAGES, WEBSITE_BANNERS } from "@/lib/images";
+import { PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
@@ -35,7 +34,7 @@ export default function CompanyProfilePage() {
         eyebrow="Company profile"
         title="The Lyndon Cook Food Company, at a glance."
         description="A short, factual overview of what we supply and how supply works. Download the profile to keep, or read it here."
-        banners={WEBSITE_BANNERS}
+        banners={PRODUCT_PAGE_BANNERS}
         breadcrumbs={
           <Breadcrumbs
             items={[{ name: "Home", href: "/" }, { name: "Company profile" }]}
@@ -275,69 +274,6 @@ export default function CompanyProfilePage() {
         </Container>
       </section>
 
-      {/* ------------------------------------------------------------ Contact CTA */}
-      <section className="on-dark border-t border-sand bg-ivory" aria-labelledby="profile-contact">
-        <Container className="py-14 sm:py-16 lg:py-20">
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-6">
-              <h2 id="profile-contact" className="text-[1.75rem] leading-[1.15] sm:text-[2.125rem]">
-                Talk to us about your requirements.
-              </h2>
-              <p className="mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-muted">
-                Send the products, specification, quantity, pack format and delivery
-                schedule you have in mind, and we will review the supply options
-                with you.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/enquire/" size="lg">
-                  Discuss your requirements
-                </Button>
-                <ProfileDownload size="lg" />
-              </div>
-            </div>
-            <div className="lg:col-span-6">
-              <address className="not-italic text-[0.9375rem] leading-relaxed text-muted">
-                <span className="block font-semibold text-teal-800">{SITE.name}</span>
-                <span className="mt-3 flex gap-2.5">
-                  <MapPin aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-copper-600" />
-                  <span>
-                    {SITE.address.lines.map((line) => (
-                      <span key={line} className="block">
-                        {line}
-                      </span>
-                    ))}
-                  </span>
-                </span>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="link-underline link-underline-hover mt-3 flex min-h-11 items-center gap-2.5"
-                >
-                  <Mail aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-600" />
-                  {SITE.email}
-                </a>
-                <a
-                  href={`tel:${SITE.phoneHref}`}
-                  className="link-underline link-underline-hover flex min-h-11 items-center gap-2.5"
-                >
-                  <Phone aria-hidden="true" className="h-4 w-4 shrink-0 text-copper-600" />
-                  {SITE.phone}
-                </a>
-              </address>
-              <div className="mt-6">
-                <Image
-                  src={IMAGES.kitchenTeam.src}
-                  alt={IMAGES.kitchenTeam.alt}
-                  width={600}
-                  height={400}
-                  loading="lazy"
-                  sizes="600px"
-                  className="h-auto w-full rounded-[4px] border border-sand object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
     </>
   );
 }

@@ -45,7 +45,11 @@ export default function HomePage() {
           </>
         }
         description="Rice, spices, seasonal fruit and canned foods, supplied around clear specifications and planned purchasing requirements."
-        primary={{ label: "Discuss your requirements", href: "/enquire/" }}
+        primary={{
+          label: "Discuss your requirements",
+          href: "/enquire/",
+          className: "text-white!",
+        }}
         secondary={{ label: "Explore our range", href: "/products/" }}
         slides={HOME_BANNERS}
       />

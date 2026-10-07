@@ -39,7 +39,7 @@ export default function Footer() {
               matches the space their shorter content leaves before the divider. */}
           {/* Products */}
           <nav aria-label="Products" className="lg:col-span-2 lg:mt-5">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
+            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
               Products
             </h2>
             <ul className="mt-4 space-y-2">
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Company */}
           <div className="lg:col-span-3 lg:mt-5">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
+            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
               Company
             </h2>
             <address className="mt-4 not-italic text-[0.9375rem] leading-relaxed text-ivory">
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <nav aria-label="Footer" className="lg:col-span-3 lg:mt-5">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.18em] text-ivory">
+            <h2 className="font-sans text-base font-semibold uppercase tracking-[0.18em] text-ivory">
               Quick links
             </h2>
             <ul className="mt-4 space-y-2">
