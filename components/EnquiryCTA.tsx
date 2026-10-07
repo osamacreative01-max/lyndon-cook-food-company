@@ -53,8 +53,8 @@ export default function EnquiryCTA({
               {secondaryLabel && secondaryHref ? (
                 <Button
                   href={secondaryHref}
+                  variant="outlineDark"
                   size="lg"
-                  className="border-teal-400 bg-transparent text-ivory hover:bg-teal-700"
                 >
                   {secondaryLabel}
                 </Button>
