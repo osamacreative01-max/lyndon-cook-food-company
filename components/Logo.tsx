@@ -53,7 +53,7 @@ export default function Logo({
         width={renderedWidth}
         height={height}
         priority={priority}
-        className={`h-auto ${hasMaxWidth ? "" : "max-w-[58vw]"} select-none sm:max-w-none ${className}`}
+        className={`h-auto ${hasMaxWidth ? "select-none" : "max-w-[58vw] select-none sm:max-w-none lg:max-w-[11rem] xl:max-w-none"} ${className}`}
         style={fluid ? { width: renderedWidth, maxWidth: "100%" } : { width: renderedWidth }}
       />
     </Link>

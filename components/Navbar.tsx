@@ -236,13 +236,17 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
-            <ProfileDownload
-              variant="accent"
-              size="md"
-              icon={false}
-              label="Company profile"
-              className="whitespace-nowrap px-4"
-            />
+            {/* The profile shortcut only joins the bar from xl; between lg and
+                xl its width would push the nav past the header. */}
+            <span className="hidden xl:block">
+              <ProfileDownload
+                variant="accent"
+                size="md"
+                icon={false}
+                label="Company profile"
+                className="whitespace-nowrap px-4"
+              />
+            </span>
             <Button href="/enquire/" size="md">
               Enquire
             </Button>
