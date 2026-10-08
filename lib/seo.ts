@@ -74,7 +74,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [ogImageUrl],
+      images: [{ url: ogImageUrl, alt: ogImage.alt }],
     },
   };
 }
@@ -175,7 +175,7 @@ export function productSchema(product: Product) {
     name: product.name,
     description: product.seoDescription,
     category: product.subgroupName,
-    image: [product.image.src],
+    image: [absoluteUrl(product.image.src)],
     brand: {
       "@type": "Brand",
       name: product.brand,

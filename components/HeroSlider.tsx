@@ -57,6 +57,7 @@ export default function HeroSlider({
   return (
     <div
       className={`pointer-events-none overflow-hidden ${className}`}
+      role="group"
       aria-roledescription="carousel"
       aria-label="The Lyndon Cook Food Company product range"
     >

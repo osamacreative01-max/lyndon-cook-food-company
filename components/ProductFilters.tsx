@@ -233,7 +233,9 @@ export default function ProductFilters({
               type="button"
               onClick={() => setMobileOpen((value) => !value)}
               aria-expanded={mobileOpen}
-              aria-controls={`${baseId}-mobile-filters`}
+              {...(mobileOpen
+                ? { "aria-controls": `${baseId}-mobile-filters` }
+                : {})}
               className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-[4px] border px-4 text-sm font-semibold transition-colors ${
                 mobileOpen
                   ? "border-teal-800 bg-teal-800 text-ivory"

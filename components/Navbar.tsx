@@ -156,7 +156,7 @@ export default function Navbar() {
                         type="button"
                         onClick={() => setProductsOpen((value) => !value)}
                         aria-expanded={productsOpen}
-                        aria-controls="products-menu"
+                        {...(productsOpen ? { "aria-controls": "products-menu" } : {})}
                         className={`relative inline-flex min-h-12 items-center gap-1.5 rounded-[4px] px-4 text-base font-medium transition-all duration-200 ${
                           active
                             ? "bg-white text-teal-800"
@@ -259,7 +259,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setOpen((value) => !value)}
               aria-expanded={open}
-              aria-controls="mobile-menu"
+              {...(open ? { "aria-controls": "mobile-menu" } : {})}
               className="inline-flex h-11 w-11 items-center justify-center rounded-[4px] border border-sand-600 text-teal-800 transition-colors hover:border-copper-600 hover:bg-white"
             >
               <Menu aria-hidden="true" className="h-5 w-5" />

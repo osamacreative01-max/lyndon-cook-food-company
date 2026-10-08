@@ -60,7 +60,7 @@ export default function AccessibilityPage() {
                 "The FAQ accordion uses real buttons with aria-expanded and aria-controls, and each panel is a labelled region. It is fully operable from the keyboard.",
                 "The enquiry form has a persistent visible label on every field, marks required fields in text as well as colour, links hints and error messages to their inputs with aria-describedby, and announces errors through an alert region.",
                 "Form errors are shown inline next to the field they relate to, and no entered data is cleared when a submission fails.",
-                "Interactive targets are at least 44 by 44 pixels on touch layouts.",
+                "Touch controls are padded well beyond their visual size, so buttons, menu items and form fields stay easy to tap on a phone.",
                 "Body text and headings meet at least a 4.5:1 contrast ratio, and large text at least 3:1. No important information is conveyed by colour alone.",
                 "All images carry descriptive alternative text, and images that are purely decorative are hidden from assistive technology.",
                 "The layout reflows without horizontal scrolling from 320 pixels upwards, and text scales with browser zoom up to 200% without loss of content.",

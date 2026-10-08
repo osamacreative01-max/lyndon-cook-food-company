@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { IMAGE_SIZES } from "@/lib/images";
 import type { Category } from "@/lib/categories";
-import { CATALOGUE_COUNTS, getProductHref } from "@/lib/products";
+import { CATALOGUE_COUNTS } from "@/lib/products";
 
 const COUNT_BY_CATEGORY = {
   rice: CATALOGUE_COUNTS.rice,
@@ -89,57 +89,5 @@ export default function CategoryCard({
         </Link>
       </article>
     </Reveal>
-  );
-}
-
-/** Compact, text-first category link used in dense lists. */
-export function CategoryRow({ category }: { category: Category }) {
-  return (
-    <Link
-      href={`/products/${category.slug}/`}
-      className="group flex min-h-14 items-center justify-between gap-4 border-b border-sand py-3 text-teal-800 transition-colors hover:text-teal-900"
-    >
-      <span className="font-serif text-lg">{category.name}</span>
-      <span className="flex items-center gap-2 text-sm text-muted">
-        {COUNT_BY_CATEGORY[category.id]} products
-        <ArrowRight
-          aria-hidden="true"
-          className="h-4 w-4 text-copper-600 transition-transform duration-300 group-hover:translate-x-1"
-        />
-      </span>
-    </Link>
-  );
-}
-
-/** Link to a single product, used where a full card would be too heavy. */
-export function ProductLinkRow({
-  name,
-  category,
-  slug,
-  meta,
-}: {
-  name: string;
-  category: string;
-  slug: string;
-  meta?: string;
-}) {
-  return (
-    <li>
-      <Link
-        href={getProductHref({ category, slug } as never)}
-        className="group flex min-h-14 items-center justify-between gap-4 border-b border-sand py-3"
-      >
-        <span className="flex min-w-0 flex-col">
-          <span className="font-medium text-teal-800 group-hover:text-teal-900">
-            {name}
-          </span>
-          {meta ? <span className="text-sm text-muted">{meta}</span> : null}
-        </span>
-        <ArrowRight
-          aria-hidden="true"
-          className="h-4 w-4 shrink-0 text-copper-600 transition-transform duration-300 group-hover:translate-x-1"
-        />
-      </Link>
-    </li>
   );
 }
