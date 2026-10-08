@@ -165,24 +165,32 @@ export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = 
       src: "/prodect page banner/rice benner 2.jpg",
       alt: "The Norn rice range: super basmati, steam basmati and sella sacks with IRRI 6, PK-386, IRRI 9 and broken rice bowls",
     },
+    {
+      src: "/prodect page banner/rice benner 3.jpg",
+      alt: "White rice spilling from a woven bamboo basket onto a wooden table with pandan leaves",
+    },
   ],
   spices: [
     {
-      src: "/prodect page banner/Seasonal bannar-1.jpg",
+      src: "/prodect page banner/spices benner 1.jpg",
+      alt: "Bowls of ground spices: chilli and turmeric powders with cloves, dried herbs and whole spices",
+    },
+    {
+      src: "/prodect page banner/spices benner 2.jpg",
       alt: "The Lyndon Cook spice jars: ground cumin, coriander, ginger, black pepper, turmeric, garam masala, red chilli, fenugreek, curry powder, dry mango powder and pink salt",
     },
   ],
   "seasonal-fruit": [
     {
-      src: "/prodect page banner/pasta benner 1.jpg",
+      src: "/prodect page banner/Seasonal bannar-1.jpg",
       alt: "The Lyndon Cook fruit crates filled with mangoes, oranges and sweet limes",
     },
     {
-      src: "/prodect page banner/Seasonal bannar-3.jpg",
-      alt: "Fresh oranges with blossom on a dark teal backdrop",
+      src: "/prodect page banner/Seasonal bannar-2.jpg",
+      alt: "Fresh oranges cut in half with citrus blossom and leaves on a wooden surface",
     },
     {
-      src: "/prodect page banner/Home page bannar-10.jpg",
+      src: "/prodect page banner/Seasonal bannar-3.jpg",
       alt: "Ripe mangoes hanging from a tree with raindrops on the leaves",
     },
   ],
@@ -191,15 +199,19 @@ export const CATEGORY_BANNERS: Record<string, { src: string; alt: string }[]> = 
       src: "/Website Banner-04.jpg",
       alt: "Pinto beans, baked beans, black beans and chickpeas in easy-open cans",
     },
+    {
+      src: "/prodect page banner/Home page bannar-10.jpg",
+      alt: "The full Norn canned range: fourteen easy-open cans of beans, sweetcorn, vegetables and tomatoes",
+    },
   ],
   pasta: [
     {
-      src: "/prodect page banner/pasta benner 2.jpg",
-      alt: "Norn pasta packs: shells, penne rigate, elbows, rotini and thimbles",
+      src: "/prodect page banner/pasta benner 1.jpg",
+      alt: "The Norn pasta range laid out flat: spaghetti, rotini, elbows, penne rigate, vermicelli, charleston, tripolini, thimbles, sedani rigati and shells",
     },
     {
-      src: "/prodect page banner/spices benner 2.jpg",
-      alt: "The Norn pasta range laid out flat: spaghetti, rotini, elbows, penne rigate, vermicelli, charleston, tripolini, thimbles, sedani rigati and shells",
+      src: "/prodect page banner/pasta benner 2.jpg",
+      alt: "Norn pasta packs: shells, penne rigate, elbows, rotini and thimbles",
     },
   ],
 };
