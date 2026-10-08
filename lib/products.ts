@@ -58,6 +58,7 @@ export type Product = {
 
 const COMPANY = "The Lyndon Cook Food Company";
 const BRAND_LINE = "A brand from The Lyndon Cook Food Company";
+const NORN = "Norn";
 
 const RICE_SUPPLY =
   "Packing format and volume are confirmed per order. Final specification agreed with the customer.";
@@ -71,7 +72,7 @@ const CANNED_SUPPLY =
 const RICE_FACTS = (variety: string, grouping: string) => [
   { label: "Variety", value: variety },
   { label: "Grouping", value: grouping },
-  { label: "Brand", value: COMPANY },
+  { label: "Brand", value: NORN },
   { label: "Specification", value: "Confirmed per order" },
 ];
 
@@ -85,12 +86,13 @@ const SPICE_FACTS = (form: string, extra: { label: string; value: string }[] = [
 const FRUIT_FACTS = (type: string, variety: string) => [
   { label: "Type", value: type },
   { label: "Variety", value: variety },
+  { label: "Brand", value: COMPANY },
   { label: "Availability", value: "Depends on crop and shipping conditions" },
   { label: "Specification", value: "Confirmed per programme or order" },
 ];
 
 const CANNED_FACTS = (group: string) => [
-  { label: "Brand", value: COMPANY },
+  { label: "Brand", value: NORN },
   { label: "Brand line", value: BRAND_LINE },
   { label: "Group", value: group },
   { label: "Can format", value: "400 ml" },
@@ -1061,7 +1063,7 @@ const nornProducts: Product[] = [
       "San Marzano tomatoes from Italy, for sauces, soups and slow-cooked dishes. Presented in a 400 ml easy-open can. The pack carries British English and Italian wording with a small Italian tricolour. Final net contents and label details are confirmed by product specification.",
     uses: ["Pasta and pizza sauces", "Soups", "Slow-cooked dishes"],
     facts: [
-      { label: "Brand", value: COMPANY },
+      { label: "Brand", value: NORN },
       { label: "Brand line", value: BRAND_LINE },
       { label: "Group", value: "Tomatoes" },
       { label: "Variety", value: "San Marzano" },
@@ -1122,7 +1124,11 @@ const pastaProducts: Product[] = [
     description:
       "Spaghetti is a versatile long pasta that suits tomato-based sauces, oil-based preparations and baked dishes. It is a staple across professional kitchens and retail shelves. Packing format and volume are agreed per order.",
     uses: ["Tomato-based sauces", "Oil-based preparations", "Baked dishes"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.spaghetti,
@@ -1146,7 +1152,11 @@ const pastaProducts: Product[] = [
     description:
       "Penne is a tube-shaped pasta with angled cuts that holds sauces well, making it a strong choice for baked dishes, pasta salads and hearty sauces. Packing format and volume are agreed per order.",
     uses: ["Baked dishes", "Pasta salads", "Hearty sauces"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.penne,
@@ -1170,7 +1180,11 @@ const pastaProducts: Product[] = [
     description:
       "Macaroni is a curved tube pasta that works well in casseroles, pasta salads and cheese-based dishes. It is a familiar format across canteen menus and retail. Packing format and volume are agreed per order.",
     uses: ["Casseroles", "Pasta salads", "Cheese-based dishes"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.macaroni,
@@ -1194,7 +1208,11 @@ const pastaProducts: Product[] = [
     description:
       "Fusilli is a spiral-shaped pasta that traps chunky sauces and dressings effectively, making it a popular choice for pasta salads and robust sauce preparations. Packing format and volume are agreed per order.",
     uses: ["Pasta salads", "Chunky sauces", "Cold preparations"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.fusilli,
@@ -1218,7 +1236,11 @@ const pastaProducts: Product[] = [
     description:
       "Elbow Macaroni is a short curved pasta tube commonly used in soups, pasta salads and baked dishes. Its compact shape makes it practical for batch cooking and canteen service. Packing format and volume are agreed per order.",
     uses: ["Soups", "Pasta salads", "Baked dishes"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.elbowMacaroni,
@@ -1242,7 +1264,11 @@ const pastaProducts: Product[] = [
     description:
       "Assorted Pasta Shapes gives buyers a range of formats within a single supply conversation. Shapes and sizes can be selected to suit the intended menu or retail range. Packing format and volume are agreed per order.",
     uses: ["Varied menus", "Retail ranges", "Canteen service"],
-    facts: SPICE_FACTS("Dry pasta"),
+    facts: [
+      { label: "Form", value: "Dry pasta" },
+      { label: "Brand", value: NORN },
+      { label: "Specification", value: "Confirmed per order" },
+    ],
     supplyNote:
       "Packing format and volume are confirmed per order. Final specification agreed with the customer.",
     image: PRODUCT_IMAGES.pastaShapes,
@@ -1255,13 +1281,24 @@ const pastaProducts: Product[] = [
   },
 ];
 
+/**
+ * Norn is the consumer-facing brand on rice, canned food and pasta; spices
+ * and seasonal fruit carry the company name.
+ */
+const brandFor = (category: CategoryId) =>
+  category === "spices" || category === "seasonal-fruit" ? COMPANY : NORN;
+
 const allProducts: Product[] = [
   ...riceProducts,
   ...spiceProducts,
   ...fruitProducts,
   ...nornProducts,
   ...pastaProducts,
-].map((product) => ({ ...product, relatedProducts: [] as string[] }));
+].map((product) => ({
+  ...product,
+  brand: brandFor(product.category),
+  relatedProducts: [] as string[],
+}));
 
 export const PRODUCTS: Product[] = withRelated(allProducts);
 
