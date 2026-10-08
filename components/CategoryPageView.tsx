@@ -43,7 +43,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
       />
 
       {isCanned ? (
-        <section className="on-dark bg-teal-800">
+        <section className="on-dark border-t border-white/15 bg-teal-800">
           <Container className="py-10">
             <dl className="grid gap-6 sm:grid-cols-3">
               {[
@@ -67,7 +67,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
       ) : null}
 
       {category.pdf ? (
-        <section className="on-dark bg-teal-800">
+        <section className="on-dark border-t border-white/15 bg-teal-800">
           <Container className="py-10">
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
               <div>

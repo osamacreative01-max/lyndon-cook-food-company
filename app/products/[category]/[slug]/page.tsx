@@ -61,8 +61,8 @@ function renderProduct(product: Product) {
     <>
       <JsonLd data={[productSchema(product)]} />
 
-      <section className="on-dark border-b border-sand bg-ivory">
-        <Container className="py-8 sm:py-10">
+      <section className="on-dark bg-teal-800">
+        <Container className="py-14 sm:py-16 lg:py-20">
           <ProductHero
             image={product.image}
             variants={product.variants}
@@ -73,17 +73,21 @@ function renderProduct(product: Product) {
             description={product.description}
             cta={
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href={enquiryHref(product.slug)} size="lg">
+                <Button href={enquiryHref(product.slug)} variant="onDark" size="lg">
                   Discuss this product
                   <ArrowRight aria-hidden="true" className="h-4 w-4" />
                 </Button>
-                <Button href={`/products/${category.slug}/`} variant="secondary" size="lg">
+                <Button
+                  href={`/products/${category.slug}/`}
+                  variant="outlineDark"
+                  size="lg"
+                >
                   All {category.shortName.toLowerCase()}
                 </Button>
               </div>
             }
           >
-            <p className="eyebrow">
+            <p className="eyebrow text-copper-400">
               {category.name} &middot; {product.subgroupName}
             </p>
           </ProductHero>

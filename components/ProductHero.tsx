@@ -58,7 +58,7 @@ export default function ProductHero({
     <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
       {/* Product image */}
       <div className="lg:col-span-6">
-        <div className="relative w-full overflow-hidden rounded-[6px] border border-sand bg-ivory-dark aspect-[4/3]">
+        <div className="relative w-full overflow-hidden rounded-[6px] border border-white/10 bg-teal-900 aspect-[4/3]">
           <Image
             key={current.src}
             src={current.src}
@@ -80,10 +80,10 @@ export default function ProductHero({
         <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
           {activeVariant?.name ?? title}
         </h1>
-        <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
+        <p className="mt-5 text-[1.0625rem] leading-[1.7] text-ivory/80">
           {activeVariant?.summary ?? summary}
         </p>
-        <p className="mt-4 text-[0.9375rem] leading-[1.7] text-body">
+        <p className="mt-4 text-[0.9375rem] leading-[1.7] text-ivory/75">
           {activeVariant?.description ?? description}
         </p>
 
@@ -103,8 +103,8 @@ export default function ProductHero({
                   onClick={() => setActive(index)}
                   className={`inline-flex min-h-11 items-center rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
                     selected
-                      ? "border-teal-800 bg-teal-800 text-ivory"
-                      : "border-sand-600 bg-white text-teal-800 hover:border-copper-600 hover:bg-ivory"
+                      ? "border-ivory bg-ivory text-teal-800"
+                      : "border-white/40 bg-white/5 text-ivory hover:border-copper-400 hover:bg-white/10"
                   }`}
                 >
                   {variant.label}

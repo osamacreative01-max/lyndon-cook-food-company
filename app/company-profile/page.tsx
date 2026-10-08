@@ -43,7 +43,10 @@ export default function CompanyProfilePage() {
       />
 
       {/* -------------------------------------------------------------- Download */}
-      <section className="on-dark bg-teal-800" aria-labelledby="download-heading">
+      <section
+        className="on-dark border-t border-white/15 bg-teal-800"
+        aria-labelledby="download-heading"
+      >
         <Container className="py-12 sm:py-14">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">

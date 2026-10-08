@@ -151,12 +151,12 @@ export function PageHero({
   onDark?: boolean;
 }) {
   return (
-    <section className="on-dark relative isolate flex min-h-[34rem] items-center overflow-hidden bg-teal-900 sm:min-h-[30rem]">
+    <section className="on-dark relative isolate flex min-h-[30rem] items-center overflow-hidden bg-teal-900 sm:min-h-[34rem]">
       {banners?.length ? (
         <HeroSlider slides={banners} className="absolute inset-0 z-0" />
       ) : null}
 
-      <Container className="relative z-10 py-14 sm:py-16 lg:py-[4.5rem]">
+      <Container className="relative z-10 py-14 sm:py-16 lg:py-20">
         <div className="max-w-[36rem]">
           {breadcrumbs ? <div className="mb-7">{breadcrumbs}</div> : null}
           <p className="eyebrow text-copper-400">{eyebrow}</p>

@@ -100,7 +100,10 @@ export default async function EnquirePage({
       />
 
       {/* ------------------------------------------------- How it works */}
-      <section className="on-dark bg-teal-800" aria-labelledby="how-it-works">
+      <section
+        className="on-dark border-t border-white/15 bg-teal-800"
+        aria-labelledby="how-it-works"
+      >
         <Container className="py-12 sm:py-14">
           <div className="max-w-2xl">
             <p className="eyebrow text-copper-400">Simple process</p>
