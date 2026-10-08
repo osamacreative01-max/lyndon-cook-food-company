@@ -130,6 +130,13 @@ async function main() {
     path.join(root, "app", "icon.png")
   );
   console.log("wrote app/icon.png");
+
+  // Same artwork served from the legacy /favicon.ico probe URL.
+  await copyFile(
+    path.join(root, "public", "Favicon.png"),
+    path.join(root, "app", "favicon.ico")
+  );
+  console.log("wrote app/favicon.ico");
 }
 
 main().catch((error) => {
