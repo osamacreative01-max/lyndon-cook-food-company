@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, Mail, MapPin, Phone, Send, MessageSquare, ClipboardCheck } from "lucide-react";
 
-import Breadcrumbs from "@/components/Breadcrumbs";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import EnquiryForm from "@/components/EnquiryForm";
 import { PageHero } from "@/components/Hero";
 import Reveal from "@/components/Reveal";
-import { WEBSITE_BANNERS } from "@/lib/images";
+import { PRODUCT_PAGE_BANNERS } from "@/lib/images";
 import { pageMetadata } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { ACTIVE_PRODUCTS } from "@/lib/products";
@@ -93,10 +92,7 @@ export default async function EnquirePage({
         eyebrow="Enquire"
         title="Let's talk food."
         description="Your requirements. Our next conversation. Fill in the form and we will come back with clear supply options."
-        banners={WEBSITE_BANNERS}
-        breadcrumbs={
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Enquire" }]} />
-        }
+        banners={PRODUCT_PAGE_BANNERS}
       />
 
       {/* ------------------------------------------------- How it works */}
