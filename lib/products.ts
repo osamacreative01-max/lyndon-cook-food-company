@@ -35,8 +35,20 @@ export type Product = {
   image: { src: string; alt: string };
   /** Ordered frames for the card slider; the card falls back to `[image]`. */
   gallery?: { src: string; alt: string }[];
-  /** Sub-categories shown on the product page; each swaps the main image. */
-  variants?: { label: string; image: { src: string; alt: string } }[];
+  /**
+   * Sub-categories shown on the product page; each swaps the main image and,
+   * where provided, the hero title, summary and description.
+   */
+  variants?: {
+    label: string;
+    image: { src: string; alt: string };
+    /** Headline shown in place of the product name while this variant is active. */
+    name?: string;
+    /** One-sentence intro for the variant. */
+    summary?: string;
+    /** Two or three sentences for the variant. */
+    description?: string;
+  }[];
   relatedProducts: string[];
   seoTitle: string;
   seoDescription: string;
@@ -174,8 +186,24 @@ const riceProducts: Product[] = [
     supplyNote: RICE_SUPPLY,
     image: PRODUCT_IMAGES.irri6,
     variants: [
-      { label: "IRRI 6 White Rice", image: PRODUCT_IMAGES.irri6White },
-      { label: "IRRI 6 Parboiled Rice", image: PRODUCT_IMAGES.irri6Parboiled },
+      {
+        label: "IRRI 6 White Rice",
+        image: PRODUCT_IMAGES.irri6White,
+        name: "IRRI 6 White Rice",
+        summary:
+          "Milled white IRRI 6 for everyday meals and volume supply, with a light grain that cooks quickly.",
+        description:
+          "IRRI 6 white rice is our straightforward economical milling, suited to steamed rice, fried rice and staple service where rice is served at volume. The grains cook light and soft, a practical choice across foodservice and institutional kitchens. Packing format and volume are confirmed per order.",
+      },
+      {
+        label: "IRRI 6 Parboiled Rice",
+        image: PRODUCT_IMAGES.irri6Parboiled,
+        name: "IRRI 6 Parboiled Rice",
+        summary:
+          "Parboiled IRRI 6 with firmer grains that stay separate after cooking, for biryani, pulao and batch service.",
+        description:
+          "IRRI 6 parboiled rice is heat-treated before milling, so the grains hold their shape through cooking, holding and reheating. It suits biryani, pulao, pilaf and other dishes where separate grains matter. Packing format and volume are confirmed per order.",
+      },
     ],
     relatedProducts: [],
     seoTitle: "IRRI 6 Rice | White and Parboiled Rice Supply | The Lyndon Cook Food Company",

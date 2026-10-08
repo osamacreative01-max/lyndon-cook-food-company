@@ -5,18 +5,28 @@ import { useState, type ReactNode } from "react";
 
 import { IMAGE_SIZES } from "@/lib/images";
 
-type Variant = { label: string; image: { src: string; alt: string } };
+type Variant = {
+  label: string;
+  image: { src: string; alt: string };
+  name?: string;
+  summary?: string;
+  description?: string;
+};
 
 /**
- * Product opening spread: photograph on the left, the supplied detail copy on
- * the right, and — when the product has sub-categories — a pill row beneath the
- * copy that swaps the photograph in place.
+ * Product opening spread: photograph on the left, the detail copy on the
+ * right, and — when the product has sub-categories — a pill row beneath the
+ * copy that swaps the photograph and the title, summary and description in
+ * place.
  */
 export default function ProductHero({
   image,
   variants,
   badge,
   ariaLabel = "Product categories",
+  title,
+  summary,
+  description,
   children,
   cta,
 }: {
@@ -24,7 +34,11 @@ export default function ProductHero({
   variants?: Variant[];
   badge?: ReactNode;
   ariaLabel?: string;
-  /** Right-hand column copy; the category pills render directly under it. */
+  /** Product-level headline, summary and detail copy. */
+  title: string;
+  summary: string;
+  description: string;
+  /** Right-hand column copy (the eyebrow); the category pills render under it. */
   children: ReactNode;
   /** Buttons rendered beneath the category pills. */
   cta?: ReactNode;
@@ -36,6 +50,7 @@ export default function ProductHero({
     return match >= 0 ? match : 0;
   });
   const current = variants?.length ? variants[active].image : image;
+  const activeVariant = variants?.length ? variants[active] : undefined;
   const isPack =
     current.src.startsWith("/Png/") && !/\.jpe?g$/i.test(current.src);
 
@@ -61,6 +76,16 @@ export default function ProductHero({
       {/* Product info */}
       <div className="lg:col-span-6">
         {children}
+
+        <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
+          {activeVariant?.name ?? title}
+        </h1>
+        <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
+          {activeVariant?.summary ?? summary}
+        </p>
+        <p className="mt-4 text-[0.9375rem] leading-[1.7] text-body">
+          {activeVariant?.description ?? description}
+        </p>
 
         {variants?.length ? (
           <div

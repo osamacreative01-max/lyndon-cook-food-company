@@ -68,6 +68,9 @@ function renderProduct(product: Product) {
             variants={product.variants}
             badge={badge}
             ariaLabel={`${product.name} categories`}
+            title={product.name}
+            summary={product.summary}
+            description={product.description}
             cta={
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href={enquiryHref(product.slug)} size="lg">
@@ -82,15 +85,6 @@ function renderProduct(product: Product) {
           >
             <p className="eyebrow">
               {category.name} &middot; {product.subgroupName}
-            </p>
-            <h1 className="mt-4 text-[2.125rem] leading-[1.08] sm:text-[2.75rem] lg:text-[3.25rem]">
-              {product.name}
-            </h1>
-            <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
-              {product.summary}
-            </p>
-            <p className="mt-4 text-[0.9375rem] leading-[1.7] text-body">
-              {product.description}
             </p>
           </ProductHero>
         </Container>
