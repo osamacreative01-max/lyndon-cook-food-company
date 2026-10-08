@@ -1089,8 +1089,10 @@ const nornProducts: Product[] = [
  * staples. Slugs only - resolved with `getProductBySlug` at render time.
  */
 function withRelated(items: Product[]): Product[] {
+  // Drafts never render, so they must not occupy a related-product slot.
+  const active = items.filter((item) => item.status === "active");
   return items.map((product) => {
-    const sameSubgroup = items
+    const sameSubgroup = active
       .filter(
         (candidate) =>
           candidate.id !== product.id &&
@@ -1098,7 +1100,7 @@ function withRelated(items: Product[]): Product[] {
           candidate.subgroup === product.subgroup
       )
       .map((candidate) => candidate.slug);
-    const sameCategory = items
+    const sameCategory = active
       .filter(
         (candidate) =>
           candidate.id !== product.id &&

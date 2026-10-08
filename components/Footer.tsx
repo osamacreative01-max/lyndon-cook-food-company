@@ -22,8 +22,8 @@ export default function Footer() {
           <div className="flex max-w-2xl flex-col items-start gap-3">
             <Logo onDark width={360} fluid className="max-w-[75%] sm:max-w-none" />
             <p className="max-w-md text-[0.9375rem] leading-relaxed text-[var(--footer-muted)]">
-              Rice, spices, seasonal fruit and canned foods, supplied around
-              clear specifications and planned purchasing requirements.
+              Rice, spices, seasonal fruit, canned foods and pasta, supplied
+              around clear specifications and planned purchasing requirements.
             </p>
           </div>
           <div className="sm:text-right">

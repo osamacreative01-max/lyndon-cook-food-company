@@ -15,7 +15,7 @@ import { ACTIVE_PRODUCTS } from "@/lib/products";
 
 const TITLE = "Enquire | Discuss Your Requirements | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "Send an enquiry about rice, spices, seasonal fruit or canned foods. Tell us the product, specification, pack format, volume, destination and delivery schedule.";
+  "Send an enquiry about rice, spices, seasonal fruit, canned foods or pasta. Tell us the product, specification, pack format, volume, destination and delivery schedule.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,

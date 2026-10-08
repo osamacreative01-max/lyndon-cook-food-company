@@ -363,14 +363,14 @@ function pageCover(doc) {
 
   doc.text(84, height - 340, "Company profile", { size: 34, font: "Times-Bold", color: TEAL });
   doc.line(84, height - 356, 84 + 96, height - 356, 2.5, COPPER);
-  doc.text(84, height - 384, "Rice \u00b7 Spices \u00b7 Seasonal fruit \u00b7 Canned foods", {
+  doc.text(84, height - 384, "Rice \u00b7 Spices \u00b7 Seasonal fruit \u00b7 Canned foods \u00b7 Pasta", {
     size: 13,
     color: INK,
   });
 
   const intro =
-    `${SITE.name} supplies food businesses across the UK across four categories: rice, ` +
-    `spices and seasonings, seasonal fruit, and the range of canned foods. ` +
+    `${SITE.name} supplies food businesses across the UK across five categories: rice, ` +
+    `spices and seasonings, seasonal fruit, the range of canned foods, and pasta. ` +
     `Supply is planned around each customer's requirements, with product, specification, ` +
     `quantity, delivery and commercial terms confirmed for every programme.`;
   let y = height - 420;
@@ -678,8 +678,8 @@ function serialise(doc) {
   const infoRef = add(
     `<< /Title (${pdfString(`${SITE.name} \u2014 Company profile`)}) ` +
       `/Author (${pdfString(SITE.name)}) ` +
-      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit and canned foods")}) ` +
-      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods")}) ` +
+      `/Subject (${pdfString("Wholesale food supply: rice, spices, seasonal fruit, canned foods and pasta")}) ` +
+      `/Keywords (${pdfString("wholesale food supply, rice, spices, seasonal fruit, canned foods, pasta")}) ` +
       `/Creator (${pdfString(`${SITE.name} website`)}) ` +
       `/Producer (${pdfString("scripts/generate-company-profile-pdf.mjs")}) >>`
   );

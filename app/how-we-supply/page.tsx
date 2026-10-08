@@ -5,12 +5,11 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import EnquiryCTA from "@/components/EnquiryCTA";
 import Faq, { type FaqItem } from "@/components/Faq";
-import JsonLd from "@/components/JsonLd";
 import Reveal from "@/components/Reveal";
 import SupplyProcess, { DEFAULT_SUPPLY_STEPS } from "@/components/SupplyProcess";
 import { PageHero } from "@/components/Hero";
 import { IMAGE_SIZES, IMAGES, PRODUCT_PAGE_BANNERS } from "@/lib/images";
-import { faqSchema, pageMetadata } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 
 const TITLE =   "How We Supply | Full-Load Food Supply | The Lyndon Cook Food Company";
 const DESCRIPTION =
@@ -52,8 +51,6 @@ const FAQS: FaqItem[] = [
 export default function HowWeSupplyPage() {
   return (
     <>
-      <JsonLd data={faqSchema(FAQS)} />
-
       <PageHero
         eyebrow="How we supply"
         title="Straightforward supply, planned around the customer."

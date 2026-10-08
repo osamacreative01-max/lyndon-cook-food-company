@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     "seasonal fruit supplier",
     "canned food supplier UK",
     "Canned foods",
+    "pasta wholesale UK",
     "food supply Biggleswade",
     "B2B food supply",
     "The Lyndon Cook Food Company",

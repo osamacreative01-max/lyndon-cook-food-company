@@ -65,19 +65,21 @@ function openGraphSvg() {
   <!-- categories -->
   <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="34" font-weight="600" fill="${IVORY}">
     <text x="96" y="440">Rice</text>
-    <text x="360" y="440">Spices</text>
-    <text x="620" y="440">Seasonal Fruit</text>
-    <text x="934" y="440">Canned Foods</text>
+    <text x="228" y="440">Spices</text>
+    <text x="398" y="440">Seasonal Fruit</text>
+    <text x="692" y="440">Canned Foods</text>
+    <text x="988" y="440">Pasta</text>
   </g>
   <g stroke="${COPPER}" stroke-width="2">
-    <line x1="96" y1="462" x2="288" y2="462"/>
-    <line x1="360" y1="462" x2="530" y2="462"/>
-    <line x1="620" y1="462" x2="880" y2="462"/>
-    <line x1="934" y1="462" x2="1104" y2="462"/>
+    <line x1="96" y1="462" x2="192" y2="462"/>
+    <line x1="228" y1="462" x2="362" y2="462"/>
+    <line x1="398" y1="462" x2="656" y2="462"/>
+    <line x1="692" y1="462" x2="952" y2="462"/>
+    <line x1="988" y1="462" x2="1103" y2="462"/>
   </g>
 
-  <!-- Canned foods -->
-  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">CANNED FOODS</text>
+  <!-- brand -->
+  <text x="96" y="546" fill="${COPPER}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="5">NORN</text>
   <text x="196" y="546" fill="${MUTED}" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24">A brand from The Lyndon Cook</text>
 
   <text x="1104" y="546" fill="${MUTED}" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" letter-spacing="0.6">www.tlcfc.co.uk</text>

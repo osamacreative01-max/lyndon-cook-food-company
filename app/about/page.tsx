@@ -53,11 +53,12 @@ export default function AboutPage() {
                 </h2>
                 <div className="mt-6 space-y-4 text-[1.0625rem] leading-[1.7] text-muted">
                   <p>
-                    We supply rice, everyday ingredients, spices, seasonal fruit and
-                    canned foods to businesses that buy food to cook, serve or
-                    resell. The work is not complicated: match the right product to
-                    the right use, agree a clear specification, and plan the orders
-                    so deliveries land when the kitchen expects them.
+                    We supply rice, everyday ingredients, spices, seasonal fruit,
+                    canned foods and pasta to businesses that buy food to cook,
+                    serve or resell. The work is not complicated: match the right
+                    product to the right use, agree a clear specification, and
+                    plan the orders so deliveries land when the kitchen expects
+                    them.
                   </p>
                   <p>
                     We are a B2B supplier. We do not sell directly to the public
@@ -145,8 +146,8 @@ export default function AboutPage() {
               id="focus-heading"
               className="mt-5 text-[1.9rem] leading-[1.1] sm:text-[2.375rem] lg:text-[2.75rem]"
             >
-              Rice, everyday ingredients, spices, seasonal fruit and canned
-              foods.
+              Rice, everyday ingredients, spices, seasonal fruit, canned foods
+              and pasta.
             </h2>
             <p className="mt-5 text-[1.0625rem] leading-[1.7] text-muted">
               {CATALOGUE_COUNTS.total} products across {CATEGORIES.length} ranges. Each one has

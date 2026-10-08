@@ -54,7 +54,7 @@ export const SITE = {
     src: "/images/og.jpg",
     width: 1200,
     height: 630,
-    alt: "The Lyndon Cook Food Company — rice, spices, seasonal fruit and canned foods",
+    alt: "The Lyndon Cook Food Company — rice, spices, seasonal fruit, canned foods and pasta",
   },
 
   profileDownload: {

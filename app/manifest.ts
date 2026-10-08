@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: SITE.name,
     short_name: SITE.shortName,
     description:
-      "Wholesale supply of rice, spices, seasonal fruit and canned foods across the UK.",
+      "Wholesale supply of rice, spices, seasonal fruit, canned foods and pasta across the UK.",
     start_url: "/",
     display: "standalone",
     background_color: "#F6F2EA",

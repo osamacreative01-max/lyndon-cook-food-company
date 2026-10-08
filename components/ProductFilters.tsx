@@ -75,7 +75,9 @@ export default function ProductFilters({
     setSubgroup(ALL);
   };
 
-  const filterPanel = (
+  // Rendered twice (desktop rail + mobile panel); the scope suffix keeps ids
+  // and radio group names unique so labels target their own copy.
+  const filterPanel = (scope: "desktop" | "mobile") => (
     <div className="space-y-7">
       {/* Category pills */}
       <fieldset>
@@ -96,7 +98,7 @@ export default function ProductFilters({
               >
                 <input
                   type="radio"
-                  name={`${baseId}-category`}
+                  name={`${baseId}-category-${scope}`}
                   value={option.id}
                   checked={checked}
                   disabled={lockedCategory !== undefined && option.id !== lockedCategory}
@@ -133,7 +135,7 @@ export default function ProductFilters({
                 >
                   <input
                     type="radio"
-                    name={`${baseId}-subgroup`}
+                    name={`${baseId}-subgroup-${scope}`}
                     value={option.id}
                     checked={checked}
                     onChange={() => setSubgroup(option.id)}
@@ -150,7 +152,7 @@ export default function ProductFilters({
       {/* Search */}
       <div>
         <label
-          htmlFor={`${baseId}-search`}
+          htmlFor={`${baseId}-search-${scope}`}
           className="font-sans text-xs font-semibold uppercase tracking-[0.16em] text-muted"
         >
           Search products
@@ -161,7 +163,7 @@ export default function ProductFilters({
             className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-teal-600"
           />
           <input
-            id={`${baseId}-search`}
+            id={`${baseId}-search-${scope}`}
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -192,7 +194,7 @@ export default function ProductFilters({
             <SlidersHorizontal aria-hidden="true" className="h-4 w-4 text-copper-600" />
             Filter the range
           </h2>
-          <div className="mt-6">{filterPanel}</div>
+          <div className="mt-6">{filterPanel("desktop")}</div>
           {hasFilters ? (
             <button
               type="button"
@@ -248,7 +250,7 @@ export default function ProductFilters({
               id={`${baseId}-mobile-filters`}
               className="mt-4 rounded-[6px] border border-sand bg-white p-5 shadow-[0_1px_3px_rgba(8,75,80,0.04)]"
             >
-              {filterPanel}
+              {filterPanel("mobile")}
             </div>
           ) : null}
         </div>

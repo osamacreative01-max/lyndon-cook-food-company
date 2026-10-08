@@ -44,7 +44,7 @@ export default function HomePage() {
             <br className="hidden sm:block" /> Straightforward supply.
           </>
         }
-        description="Rice, spices, seasonal fruit and canned foods, supplied around clear specifications and planned purchasing requirements."
+        description="Rice, spices, seasonal fruit, canned foods and pasta, supplied around clear specifications and planned purchasing requirements."
         primary={{
           label: "Discuss your requirements",
           href: "/enquire/",

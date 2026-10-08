@@ -63,9 +63,7 @@ export default function CategoryCard({
                 aria-hidden="true"
                 className="h-1.5 w-1.5 rounded-full bg-copper-600"
               />
-              {isCanned
-                ? `· ${count} products`
-                : `${count} ${count === 1 ? "product" : "products"}`}
+              {`${count} ${count === 1 ? "product" : "products"}`}
             </span>
           </div>
 

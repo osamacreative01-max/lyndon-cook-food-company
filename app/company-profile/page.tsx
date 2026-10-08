@@ -17,7 +17,7 @@ import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
 
 const TITLE = "Company Profile | The Lyndon Cook Food Company";
 const DESCRIPTION =
-  "A downloadable overview of The Lyndon Cook Food Company: rice, spices, seasonal fruit and canned foods, supplied around agreed specifications and planned purchasing requirements.";
+  "A downloadable overview of The Lyndon Cook Food Company: rice, spices, seasonal fruit, canned foods and pasta, supplied around agreed specifications and planned purchasing requirements.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,

@@ -8,7 +8,7 @@ import ProductCard from "@/components/ProductCard";
 import { PageHero } from "@/components/Hero";
 import type { Category } from "@/lib/categories";
 import { itemListSchema } from "@/lib/seo";
-import { getProductsByCategory } from "@/lib/products";
+import { CATALOGUE_COUNTS, getProductsByCategory } from "@/lib/products";
 import { CATEGORY_BANNERS, WEBSITE_BANNERS } from "@/lib/images";
 import { enquiryHref } from "@/lib/enquiry";
 
@@ -47,7 +47,7 @@ export default function CategoryPageView({ category }: { category: Category }) {
           <Container className="py-10">
             <dl className="grid gap-6 sm:grid-cols-3">
               {[
-                { label: "Choices", value: "14" },
+                { label: "Choices", value: String(CATALOGUE_COUNTS.canned) },
                 { label: "Can format", value: "400 ml" },
                 { label: "Opening", value: "Easy-open ring-pull" },
               ].map((item) => (
@@ -93,9 +93,21 @@ export default function CategoryPageView({ category }: { category: Category }) {
         </section>
       ) : null}
 
-      <section className="bg-ivory" aria-label={`${category.shortName} products`}>
+      <section className="bg-ivory" aria-labelledby="category-products-heading">
         <Container className="py-14 sm:py-16 lg:py-20">
-          <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <p className="eyebrow">Product range</p>
+          <h2
+            id="category-products-heading"
+            className="mt-5 text-[1.75rem] leading-[1.15] text-teal-800 sm:text-[2.125rem]"
+          >
+            {products.length}{" "}
+            {products.length === 1 ? "product" : "products"} in {category.shortName}
+          </h2>
+          <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-muted">
+            Specifications, pack formats and artwork for every product in this
+            range are confirmed per order.
+          </p>
+          <ul className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {products.map((product, index) => (
               <li key={product.id} className="h-full">
                 <ProductCard product={product} delay={index * 70} />
