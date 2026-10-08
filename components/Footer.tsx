@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 
 import Container from "@/components/Container";
 import Logo from "@/components/Logo";
@@ -87,7 +87,14 @@ export default function Footer() {
                 />
                 {SITE.phone}
               </a>
-              <span className="block">{SITE.address.formatted}</span>
+              <span className="flex min-h-8 items-start gap-2.5 text-[var(--footer-text)]">
+                <MapPin
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                  className="mt-1 h-4 w-4 shrink-0 text-[var(--footer-accent)]"
+                />
+                {SITE.address.formatted}
+              </span>
             </address>
           </div>
 
