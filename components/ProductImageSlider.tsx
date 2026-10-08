@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type Slide = { src: string; alt: string };
@@ -20,8 +20,9 @@ const buttonClass =
  *
  * The card itself is a stretched link, so these controls render above it
  * (z-20) as real buttons rather than nesting interactive elements inside the
- * anchor. Autoplay is skipped when the visitor prefers reduced motion, which
- * leaves the leading frame on screen.
+ * anchor. Autoplay is skipped when the visitor prefers reduced motion, and the
+ * pause control stops it for everyone else (WCAG 2.2.2). Dots carry a 28px
+ * hit area around their 6px visual so they stay tappable on phones.
  */
 export default function ProductImageSlider({
   slides,
@@ -36,9 +37,10 @@ export default function ProductImageSlider({
 }) {
   const count = slides.length;
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (count < 2) return;
+    if (count < 2 || paused) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const id = window.setInterval(
       () => setActive((current) => (current + 1) % count),
@@ -46,7 +48,7 @@ export default function ProductImageSlider({
     );
     return () => window.clearInterval(id);
     /* Restarting on `active` gives a full interval after a manual change. */
-  }, [count, interval, active]);
+  }, [count, interval, active, paused]);
 
   const step = (delta: number) =>
     setActive((current) => (current + delta + count) % count);
@@ -98,7 +100,7 @@ export default function ProductImageSlider({
             </button>
           </div>
 
-          <div className="absolute inset-x-0 bottom-2.5 z-20 flex items-center justify-center gap-1.5">
+          <div className="absolute inset-x-0 bottom-1.5 z-20 flex items-center justify-center gap-0.5">
             {slides.map((slide, index) => (
               <button
                 key={slide.src}
@@ -106,13 +108,29 @@ export default function ProductImageSlider({
                 onClick={() => setActive(index)}
                 aria-label={`Show image ${index + 1}`}
                 aria-current={index === active ? "true" : undefined}
-                className={`h-1.5 w-1.5 rounded-full transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800 ${
-                  index === active
-                    ? "bg-teal-800"
-                    : "bg-white/70 hover:bg-white"
-                }`}
-              />
+                className="flex h-7 w-7 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800"
+              >
+                <span
+                  className={`h-1.5 w-1.5 rounded-full transition-colors duration-200 ${
+                    index === active ? "bg-teal-800" : "bg-white/70 hover:bg-white"
+                  }`}
+                />
+              </button>
             ))}
+            <button
+              type="button"
+              onClick={() => setPaused((value) => !value)}
+              aria-label={
+                paused ? "Resume image slideshow" : "Pause image slideshow"
+              }
+              className="ml-1 flex h-7 w-7 items-center justify-center rounded-full bg-white/70 text-teal-800 transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800"
+            >
+              {paused ? (
+                <Play aria-hidden="true" className="h-3 w-3" />
+              ) : (
+                <Pause aria-hidden="true" className="h-3 w-3" />
+              )}
+            </button>
           </div>
         </>
       ) : null}

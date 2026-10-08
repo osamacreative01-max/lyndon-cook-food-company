@@ -53,15 +53,17 @@ const VARIANTS: Record<Variant, string> = {
     "bg-[#E3A074] text-teal-800 border border-[#E3A074] hover:bg-[#f0b184] hover:border-[#f0b184] active:bg-[#cf8c5f] active:border-[#cf8c5f]",
 };
 
+/* Narrow phones get the tighter inset and base size so long labels
+   ("Discuss your requirements") stay on one line down to 360px. */
 const SIZES: Record<Size, string> = {
   md: "min-h-12 px-6 py-3 text-[0.9375rem]",
-  lg: "min-h-14 px-8 py-3.5 text-[1.0625rem]",
+  lg: "min-h-14 px-6 py-3.5 text-[0.9375rem] sm:px-8 sm:text-[1.0625rem]",
 };
 
 /* Pill buttons share one 52px height across both sizes, as the CTA brief asks. */
 const PILL_SIZES: Record<Size, string> = {
-  md: "min-h-[52px] px-7 py-3 text-[0.9375rem]",
-  lg: "min-h-[52px] px-8 py-3.5 text-[1.0625rem]",
+  md: "min-h-[52px] px-6 py-3 text-[0.9375rem] sm:px-7",
+  lg: "min-h-[52px] px-6 py-3.5 text-[0.9375rem] sm:px-8 sm:text-[1.0625rem]",
 };
 
 const BASE =

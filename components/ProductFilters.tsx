@@ -168,7 +168,7 @@ export default function ProductFilters({
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="e.g. basmati, cumin, mango"
-            className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-10 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
+            className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-10 text-base text-body transition-colors placeholder:text-muted/60 focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
           />
           {query ? (
             <button
@@ -226,7 +226,7 @@ export default function ProductFilters({
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search products"
-                className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-3 text-[0.9375rem] focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
+                className="min-h-11 w-full rounded-[4px] border border-sand-600 bg-white py-2.5 pl-10 pr-3 text-base focus:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100"
               />
             </div>
             <button

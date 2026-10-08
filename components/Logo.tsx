@@ -36,6 +36,10 @@ export default function Logo({
   const renderedWidth = width ?? 280;
   const ratio = SITE.logo.height / SITE.logo.width;
   const height = Math.round(renderedWidth * ratio);
+  /* A caller that passes its own max-w (e.g. the footer lockup) replaces the
+     viewport default instead of racing it — two competing max-w utilities have
+     no guaranteed winner. */
+  const hasMaxWidth = className.includes("max-w");
 
   return (
     <Link
@@ -49,7 +53,7 @@ export default function Logo({
         width={renderedWidth}
         height={height}
         priority={priority}
-        className={`h-auto max-w-[58vw] select-none sm:max-w-none ${className}`}
+        className={`h-auto ${hasMaxWidth ? "" : "max-w-[58vw]"} select-none sm:max-w-none ${className}`}
         style={fluid ? { width: renderedWidth, maxWidth: "100%" } : { width: renderedWidth }}
       />
     </Link>

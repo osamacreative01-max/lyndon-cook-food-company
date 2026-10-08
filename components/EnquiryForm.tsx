@@ -202,9 +202,10 @@ export default function EnquiryForm({
     return ids.length ? ids.join(" ") : undefined;
   };
 
-  /** Border, type and focus styling shared by every control. */
+  /** Border, type and focus styling shared by every control. The 16px floor
+   *  (text-base) stops iOS Safari auto-zooming the page on focus. */
   const baseControl = (name: keyof EnquiryValues) =>
-    `w-full rounded-[6px] border bg-white px-4 text-[0.9375rem] text-body transition-colors placeholder:text-muted/60 hover:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100 ${
+    `w-full rounded-[6px] border bg-white px-4 text-base text-body transition-colors placeholder:text-muted/60 hover:border-copper-600 focus:outline-none focus:ring-2 focus:ring-copper-100 ${
       fieldError(name)
         ? "border-red-700 hover:border-red-700 focus:border-red-700 focus:ring-red-100"
         : "border-sand-600 focus:border-copper-600"

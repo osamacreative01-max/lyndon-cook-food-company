@@ -252,14 +252,17 @@
   background-color: var(--color-copper-600);
 }
 
-/* Oversized editorial headline used in hero bands. */
+/* Oversized editorial headline used in hero bands. The floor sits low enough
+   that long statements stay on screen at 320-375px, and break-word keeps
+   unbroken tokens (skus, emails) from forcing horizontal overflow. */
 @utility display-headline {
   font-family: var(--font-serif);
   font-weight: 600;
-  font-size: clamp(2.35rem, 1.2rem + 4.4vw, 3.125rem);
+  font-size: clamp(1.9rem, 1rem + 4.4vw, 3.125rem);
   line-height: 1.06;
   letter-spacing: 0.012em;
   text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 @utility skip-link {
