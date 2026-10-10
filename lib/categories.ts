@@ -59,7 +59,7 @@ export const CATEGORIES: Category[] = [
       },
       {
         id: "everyday",
-        name: "None Banaspati Rice",
+        name: "Non-Basmati",
         description:
           "Straightforward long grain and white rice for everyday meals, batch cooking and volume supply.",
       },

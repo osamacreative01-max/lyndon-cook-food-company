@@ -178,7 +178,7 @@ const riceProducts: Product[] = [
     slug: "irri-6-white-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "None Banaspati Rice",
+    subgroupName: "Non-Basmati",
     brand: COMPANY,
     summary: "Straightforward, economical rice for everyday meals and volume supply, in white and parboiled milling.",
     description:
@@ -220,7 +220,7 @@ const riceProducts: Product[] = [
     slug: "pk-386-long-grain-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "None Banaspati Rice",
+    subgroupName: "Non-Basmati",
     brand: COMPANY,
     summary:
       "A non-Basmati option with slender grains, suited to customers seeking a long-grain presentation for everyday cooking.",
@@ -243,7 +243,7 @@ const riceProducts: Product[] = [
     slug: "irri-9-c9-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "None Banaspati Rice",
+    subgroupName: "Non-Basmati",
     brand: COMPANY,
     summary:
       "A non-Basmati option in white and parboiled milling. Grain dimensions, broken content and cooking requirements are confirmed against customer specification.",
@@ -266,7 +266,7 @@ const riceProducts: Product[] = [
     slug: "100-broken-rice",
     category: "rice",
     subgroup: "everyday",
-    subgroupName: "None Banaspati Rice",
+    subgroupName: "Non-Basmati",
     brand: COMPANY,
     summary:
       "Broken-grain rice for applications where a whole-grain appearance is not essential, including porridge-style dishes and selected food-manufacturing uses.",
