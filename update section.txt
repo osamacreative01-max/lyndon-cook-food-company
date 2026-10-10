@@ -1,0 +1,62 @@
+Update ONLY the NORN canned-food section on the homepage.
+
+Keep all existing functionality, product data, product images, links, buttons, and responsive behavior working. Do not redesign the entire website and do not change the navbar, footer, or other sections.
+
+The current section looks too plain and AI-generated. Redesign it to look like a premium, professionally designed food-brand website.
+
+DESIGN DIRECTION:
+- Use a warm cream/off-white background.
+- Use NORN's existing dark green, teal, orange and subtle beige brand colors.
+- Create a clean editorial / premium food-brand aesthetic.
+- Improve spacing, alignment, typography hierarchy and visual balance.
+- Avoid excessive empty space.
+- Do NOT use random gradients, excessive shadows, glassmorphism, or unnecessary colors.
+- Keep the design elegant and realistic rather than overly "AI-looking".
+
+LAYOUT:
+- Desktop: two-column layout.
+- LEFT SIDE: brand introduction.
+  - Small eyebrow text: "OUR CANNED-FOOD BRAND"
+  - Large heading:
+    "Everyday food.
+     Well considered."
+  - Short description about NORN.
+  - Keep the existing category/tag information but redesign it into clean small pills.
+  - Keep the existing CTA buttons:
+    "Explore NORN"
+    "About the NORN brand"
+  - Improve their styling with a premium dark-green primary button and clean outlined secondary button.
+
+- RIGHT SIDE: product showcase.
+  - Use a clean 2-column product-card grid.
+  - Keep the existing products: Baked Beans, Black Beans, Broad Beans and Chickpeas.
+  - Make the product images significantly more prominent.
+  - Each card should have a clean image area with a subtle warm background.
+  - Below the image, show product name and a small arrow/action button.
+  - Give cards subtle rounded corners, thin borders and very soft shadows.
+  - Keep equal card heights and consistent spacing.
+
+VISUAL IMPROVEMENTS:
+- Make product cans the visual focus.
+- Improve image sizing/cropping so products don't look randomly placed.
+- Add subtle food-related visual details only if they fit the existing brand.
+- Use consistent border radius throughout.
+- Use generous but controlled spacing.
+- Typography should feel premium and editorial, with a strong serif-style heading and clean sans-serif body text.
+- Make the section feel like a real commercial food-brand website, not a template.
+
+RESPONSIVE:
+- Desktop: left content + right 2x2 product grid.
+- Tablet: reduce spacing and typography appropriately.
+- Mobile: stack the introduction above the products, with product cards in a clean 1-column or 2-column layout depending on screen width.
+- Ensure there is no horizontal overflow.
+- Maintain excellent visual hierarchy on all screen sizes.
+
+IMPORTANT:
+Do not change the existing content unnecessarily.
+Do not replace working images with random placeholder images.
+Do not modify other homepage sections.
+Do not break existing routes, links, buttons, animations, or functionality.
+First inspect the existing component and styles, then modify only the files required for this section.
+
+The final result should look polished, premium, minimal, balanced and production-ready — similar to a high-end modern food/consumer-brand website.
